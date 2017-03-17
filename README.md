@@ -1,5 +1,4 @@
-
-# Open Markets Initiative Latency Measurements Tools
+# Latency Measurements Tools
 Compose-able tools for automated network application latency measurement and reporting.
 
 # Examples
