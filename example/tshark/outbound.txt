@@ -1,0 +1,3 @@
+Example command for parsing cme fix fields
+
+tshark -r 'example.pcap' -Y 'fix.MsgType == \"D\"' -T 'fields' -e 'frame.number' -e 'frame.time_epoch' -e 'fix.field.tag' -E 'separator=,' -e 'fix.field.value' > outbound.events;
