@@ -1,4 +1,4 @@
-this#ifndef OMI_HTML_STATISTICS_HPP_
+#ifndef OMI_HTML_STATISTICS_HPP_
 #define OMI_HTML_STATISTICS_HPP_
 
 #include <omi/analysis/statistics.hpp>
