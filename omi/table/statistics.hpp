@@ -1,4 +1,4 @@
-#ifndef OMI_HTML_STATISTICS_HPP_
+this#ifndef OMI_HTML_STATISTICS_HPP_
 #define OMI_HTML_STATISTICS_HPP_
 
 #include <omi/analysis/statistics.hpp>
@@ -19,17 +19,17 @@ struct statistics {
     // Standard constructor
     explicit statistics(const std::vector<double> &values, indent whitespace = indent::none)
       : standard{ values, "Standard" },
-        steady{ analysis::percentile::range(values, 0, 70), "Steady State" }, // make 
+        steady{ analysis::percentile::range(values, 0, 70), "Steady State" }, // make this take values directly
         whitespace { whitespace } {}
 };
 
-// Stream operator (prints formatted html statistics table)
+// Stream operator (prints formatted html statistics table columns and rows)
 inline std::ostream &operator<<(std::ostream &out, const statistics &table) {
     return out << table.whitespace << html::table{ "gridtable" }
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"th", indent::two }
-               << table.whitespace <<   html::element{"th", "All", indent::two }
-               << table.whitespace <<   html::element{"th", "Steady State", indent::two }
+               << table.whitespace <<   html::element{"th", table.standard.name, indent::two }
+               << table.whitespace <<   html::element{"th", table.steady.name, indent::two }
                << table.whitespace << html::close{"tr"}
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"td", "Average", indent::two}
