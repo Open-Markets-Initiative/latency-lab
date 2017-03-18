@@ -11,7 +11,7 @@ namespace omi {
 namespace html {
 
 struct statistics {
-    // Memeber 
+    // Member variables
     analysis::statistics standard; // Standard statistics     
     analysis::statistics steady;   // Steady state statistics 
     whitespace whitespace;
