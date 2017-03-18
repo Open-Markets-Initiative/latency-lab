@@ -8,11 +8,7 @@ Single run latency html report with google chart:
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/outputs/latency.html
 
 # Use
-Windows:
-Project should run directly from windows/Examples.sln. Note that Nuget may take a minute to retrieve boost dependencies.
-
-Linux:
-Coming shortly
+Build and use instructions are in windows and linux directories. 
 
 # Development
 
