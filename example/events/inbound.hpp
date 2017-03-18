@@ -1,5 +1,5 @@
 #ifndef OMI_EXAMPLE_INBOUND_EVENT_HPP_
-#define 
+#define OMI_EXAMPLE_INBOUND_EVENT_HPP_
 
 #include <omi/wireshark/event.hpp>
 #include <omi/wireshark/tokenizer.hpp>
