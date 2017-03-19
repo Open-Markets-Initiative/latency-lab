@@ -7,8 +7,8 @@ Single run latency html report with google chart:
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/outputs/latency.html
 
-# Use
-Build and use instructions are in windows and linux directories. 
+# Build
+Build instructions are in windows and linux directories, respectively. 
 
 # Development
 Please add regression tests for all omi file updates.  
