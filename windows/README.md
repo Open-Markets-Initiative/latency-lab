@@ -1,3 +1,5 @@
-#Windows
+# Windows
 
-Windows build is simple...clone the project into visual studio, open Example.sln and build.  Note that the example section of the latency lab has a package dependendency on boost  
+Clone the project into Visual Studio, open Example.sln and build.  
+Note: The example section of the latency lab has a package dependendency on boost  
+
