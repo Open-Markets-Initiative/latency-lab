@@ -51,11 +51,19 @@ int main(int argc, char *argv[]) {
 
         // Match files
         const auto wireshark = matcher{ inbounds, outbounds };
-        const auto deltas = wireshark.events.deltas().values();
+
         // Write chart file
         if (values.count(report::file::option) != 0) {
-            auto file = values[report::file::option].as<std::string>();
-            omi::html::report(deltas, file);
+            omi::html::report::options options;
+              options.path = values[report::file::option].as<std::string>();
+              options.title = "Omi";
+              options.header = "Latency Example Run";
+              options.copyright = "OMI. All rights reserved.";
+
+            omi::html::report::data data;
+              data.values = wireshark.events.deltas().values();
+
+            omi::html::report::write(options, data);
         }
 
     } catch (std::exception &exception) {
