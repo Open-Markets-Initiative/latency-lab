@@ -49,9 +49,6 @@
     <ClInclude Include="..\..\omi\xml\tags.hpp">
       <Filter>Header Files\xml</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\javascript\javascript\google\chart.hpp">
-      <Filter>Header Files\javascript</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\css\declarations.hpp">
       <Filter>Header Files\css</Filter>
     </ClInclude>
@@ -123,6 +120,9 @@
     </ClInclude>
     <ClInclude Include="..\..\omi\html\tag.hpp">
       <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\javascript\google\chart.hpp">
+      <Filter>Header Files\javascript</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

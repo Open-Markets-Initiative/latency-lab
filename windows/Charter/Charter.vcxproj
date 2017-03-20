@@ -41,7 +41,7 @@
     <ClInclude Include="..\..\omi\html\table.hpp" />
     <ClInclude Include="..\..\omi\html\tag.hpp" />
     <ClInclude Include="..\..\omi\html\title.hpp" />
-    <ClInclude Include="..\..\omi\javascript\javascript\google\chart.hpp" />
+    <ClInclude Include="..\..\omi\javascript\google\chart.hpp" />
     <ClInclude Include="..\..\omi\source\whitespace.hpp" />
     <ClInclude Include="..\..\omi\styles\one.hpp" />
     <ClInclude Include="..\..\omi\table\percentiles.hpp" />

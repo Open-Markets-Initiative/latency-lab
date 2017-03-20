@@ -4,7 +4,7 @@
 #include <omi/html/elements.hpp>
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
-#include <omi/javascript/javascript/google/chart.hpp>
+#include <omi/javascript/google/chart.hpp>
 #include <omi/styles/one.hpp>
 
 #include <fstream>
@@ -36,7 +36,7 @@ inline void report(const std::vector<double> &values, const std::string &path) {
            <<     javascript::google::linechart{values, "chart"}
            <<   html::close{"script"}
            <<   html::tag{"style"}
-           <<     css::one{}
+           <<     css::one{} // make this an option
            <<   html::close{"style"}
            << html::close{"head"}
            << std::endl
