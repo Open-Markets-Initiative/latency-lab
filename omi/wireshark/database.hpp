@@ -48,12 +48,21 @@ struct database {
     void process(const record &entry) {
         if (entry.valid()) {
             const auto &event = entry.event();
-            if (events.count(event.identifier) == 0) {
+
+            auto pair = events.find(event.identifier);
+            if (pair == events.end()) {
+                // Add key to inbound events database
                 events.insert({ event.identifier, event });           
+            } else if (pair->second.frame.timestamp > event.frame.timestamp) {
+                // Duplicate events can be captured out of order
+                duplicates.push_back(pair->second);
+                pair->second = event;
             } else {
+                // Add as duplicate
                 duplicates.push_back(event);
             }
         }
+
         return invalids.push_back(entry);
     }
 
