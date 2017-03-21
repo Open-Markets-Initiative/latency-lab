@@ -12,7 +12,8 @@ https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/outputs/la
 The example data represents an inbound cme sbe market data packet triggering an outbound cme fix order. The spike at the beginning is due to core warming.  Since cpus are so complicated now this type of analysis is required for finding outliers and tuning the properties of a trading platform. The input files are faked records using tshark on Cme sbe version 8.1 and ilink fix.
 
 # Build
-Build instructions are in windows and linux directories, respectively. 
+Use CMake...after specifying boost path in CMakeLists.txt (note this does not with clion yet)
+An example solution is provided for windows. 
 
 # Development
 Please add regression tests for all omi file updates.  
