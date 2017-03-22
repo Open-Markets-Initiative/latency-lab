@@ -4,15 +4,20 @@ project(omilatencylab)
 # Set compiler flags
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# Set Boost location NOTE: set this to your boost location
-set(BOOST_ROOT "windows/packages/boost.1.63.0.0")
+# Set directories
+set(OMI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/omi)
+set(EXAMPLE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/example)
+set(TESTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+
+# Set Boost location
+set(BOOST_ROOT "C:\\boost_1_63_0")
 
 # Find required packages
-find_package(Boost 1.63 COMPONENTS program_options REQUIRED)
+find_package(Boost REQUIRED)
 
 # Include directories
-include_directories(omi)
-include_directories(${boost_SOURCE_DIR}/include $boost_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${Boost_INCLUDE_DIR})
 
 # Build example projects
 add_executable(chart example/program/charter.cpp)

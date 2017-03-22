@@ -14,7 +14,7 @@ struct statistics {
     // Member variables
     analysis::statistics standard; // Standard statistics     
     analysis::statistics steady;   // Steady state statistics 
-    whitespace whitespace;
+    omi::whitespace whitespace;
 
     // Standard constructor
     explicit statistics(const std::vector<double> &values, indent whitespace = indent::none)

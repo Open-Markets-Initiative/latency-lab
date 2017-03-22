@@ -11,9 +11,9 @@ namespace html {
 
 struct element {
     std::string name;
-    attributes attributes;
+    html::attributes attributes;
     std::string value;
-    whitespace whitespace;
+    omi::whitespace whitespace;
     
     // Constructors
     explicit element() {}

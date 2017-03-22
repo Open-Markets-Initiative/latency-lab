@@ -12,8 +12,8 @@ namespace css {
 
 struct rule {
     std::string selector;
-    declarations declarations;
-    whitespace whitespace;
+    css::declarations declarations;
+    omi::whitespace whitespace;
 
     explicit rule(const std::string &selector, const declaration &declaration, indent whitespace = indent::none)
       : selector{ selector }, declarations{ declaration }, whitespace{ whitespace } {}

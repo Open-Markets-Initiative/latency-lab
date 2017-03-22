@@ -14,7 +14,7 @@ struct event {
 
   //// Member Variables ///////////
 
-    frame frame;                   // Wireshark Record info
+    wireshark::frame frame;        // Wireshark Record info
     id identifier;                 // Event Identifier
 
   //// Construction ///////////////

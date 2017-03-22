@@ -14,7 +14,7 @@ namespace css {
 struct declaration {
     std::string property;
     std::string value;
-    whitespace whitespace;
+    omi::whitespace whitespace;
 
     explicit declaration(const std::string &property, const std::string &value, indent whitespace = indent::none)
       : property{ property }, value{ value }, whitespace{ whitespace } {}

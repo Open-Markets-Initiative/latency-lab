@@ -12,7 +12,7 @@ namespace html {
 struct percentiles {
     // Memeber Variables
     analysis::percentiles percents;
-    whitespace whitespace;
+    omi::whitespace whitespace;
 
     // Standard constructor
     explicit percentiles(const std::vector<double> &values, indent whitespace = indent::none)

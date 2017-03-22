@@ -15,7 +15,7 @@ namespace google {
 
 struct linechart {
     // script options
-    whitespace whitespace;
+    omi::whitespace whitespace;
     std::string title;
     std::string element;
     std::vector<double> values;

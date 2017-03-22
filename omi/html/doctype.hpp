@@ -13,7 +13,7 @@ struct doctype {
 
     // Member variables
     std::string type;
-    whitespace whitespace;
+    omi::whitespace whitespace;
 
     // Default constructor
     explicit doctype()

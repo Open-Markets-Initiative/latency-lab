@@ -24,7 +24,7 @@ inline std::ostream &operator<<(std::ostream &out, const attribute &attribute) {
 
 ///////////////////////////////////
 
-using attributes = std::vector<attribute>;
+using attributes = std::vector<html::attribute>;
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const attributes &attributes) {

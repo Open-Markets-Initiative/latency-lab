@@ -10,7 +10,7 @@ namespace html {
 
 struct close {
     std::string name;
-    whitespace whitespace;
+    omi::whitespace whitespace;
 
     explicit close(const std::string &name, indent whitespace = indent::none)
       : name{ name }, whitespace{ whitespace } {}

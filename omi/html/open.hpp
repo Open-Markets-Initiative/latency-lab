@@ -11,8 +11,8 @@ namespace html {
 
 struct open {
     std::string name;
-    attributes attributes;
-    whitespace whitespace;
+    html::attributes attributes;
+    omi::whitespace whitespace;
 
     // Constructors
     explicit open() {}
