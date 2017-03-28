@@ -19,9 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\program\charter.cpp" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="..\..\example\program\report\args.hpp" />
+    <ClInclude Include="..\..\example\program\report\options.hpp" />
     <ClInclude Include="..\..\omi\css\declarations.hpp" />
     <ClInclude Include="..\..\omi\css\rules.hpp" />
     <ClInclude Include="..\..\omi\html\attributes.hpp" />
@@ -42,17 +41,22 @@
     <ClInclude Include="..\..\omi\html\tag.hpp" />
     <ClInclude Include="..\..\omi\html\title.hpp" />
     <ClInclude Include="..\..\omi\javascript\google\chart.hpp" />
+    <ClInclude Include="..\..\omi\latency\options.hpp" />
+    <ClInclude Include="..\..\omi\latency\report.hpp" />
+    <ClInclude Include="..\..\omi\program\options.hpp" />
     <ClInclude Include="..\..\omi\source\whitespace.hpp" />
     <ClInclude Include="..\..\omi\styles\one.hpp" />
     <ClInclude Include="..\..\omi\table\percentiles.hpp" />
     <ClInclude Include="..\..\omi\table\statistics.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\report.hpp" />
     <ClInclude Include="..\..\omi\xml\attributes.hpp" />
     <ClInclude Include="..\..\omi\xml\elements.hpp" />
     <ClInclude Include="..\..\omi\xml\tags.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\example\program\report\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{662822F8-59EE-42F8-9A16-021FFF769181}</ProjectGuid>
@@ -154,6 +158,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.63.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,6 +176,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.63.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

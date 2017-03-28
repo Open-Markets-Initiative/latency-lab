@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <stdexcept>
 #include <iso646.h>
 
 // Processed event records

@@ -1,36 +1,21 @@
-#ifndef OMI_HTML_REPORT_HPP_
-#define OMI_HTML_REPORT_HPP_
+#ifndef OMI_LATENCY_REPORT_HPP_
+#define OMI_LATENCY_REPORT_HPP_
 
-#include <omi/html/elements.hpp>
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
 #include <omi/javascript/google/chart.hpp>
 #include <omi/styles/one.hpp>
+#include <omi/latency/options.hpp>
 
 #include <fstream>
 
 // Generate single run html latency report
 
 namespace omi { 
-namespace html {
-namespace report { // todo make a better name
+namespace latency {
+namespace report {
 
-struct options {
-    std::string title;
-    std::string header;
-    std::string copyright;
-    // add note
-    std::string path;
-};
-
-struct data {
-    std::string input;
-    std::string output;
-    std::vector<double> values;
-};
-
-
-inline void write(const options &options, const data &data) {
+inline void write(const report::options &options, const report::data &data) {
     // Verify output file
     std::ofstream stream(options.path);
     if (stream.bad()) {

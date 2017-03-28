@@ -21,9 +21,6 @@
     <Filter Include="Header Files\table">
       <UniqueIdentifier>{8f38d03a-c026-4b63-b601-df1047eba593}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\wireshark">
-      <UniqueIdentifier>{7191ee55-cb28-44ca-9f8a-1935a7091e31}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\javascript">
       <UniqueIdentifier>{21648b8d-8af3-468e-8d8e-f5a23e43180b}</UniqueIdentifier>
     </Filter>
@@ -33,11 +30,12 @@
     <Filter Include="Header Files\source">
       <UniqueIdentifier>{1e017aa7-8a86-49c5-8602-f402c0fec533}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\example\program\charter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Filter Include="Header Files\program">
+      <UniqueIdentifier>{ab946535-41f6-4d75-ab6b-88849d946094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\latency">
+      <UniqueIdentifier>{1c627383-41f2-4822-90e8-43d1e5c7bcc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\omi\xml\attributes.hpp">
@@ -60,9 +58,6 @@
     </ClInclude>
     <ClInclude Include="..\..\omi\table\statistics.hpp">
       <Filter>Header Files\table</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\report.hpp">
-      <Filter>Header Files\wireshark</Filter>
     </ClInclude>
     <ClInclude Include="..\..\omi\table\percentiles.hpp">
       <Filter>Header Files\table</Filter>
@@ -124,8 +119,28 @@
     <ClInclude Include="..\..\omi\javascript\google\chart.hpp">
       <Filter>Header Files\javascript</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\example\program\report\options.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\program\options.hpp">
+      <Filter>Header Files\program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\example\program\report\args.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\options.hpp">
+      <Filter>Header Files\latency</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\report.hpp">
+      <Filter>Header Files\latency</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\example\program\report\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

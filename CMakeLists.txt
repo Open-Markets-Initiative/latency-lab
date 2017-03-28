@@ -22,5 +22,5 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${Boost_INCLUDE_DIR})
 
 # Build example projects
-add_executable(chart example/program/charter.cpp)
-target_link_libraries(chart ${Boost_LIBRARIES})
+add_executable(latency_report example/program/report/main.cpp)
+target_link_libraries(latency_report ${Boost_LIBRARIES})
