@@ -125,9 +125,6 @@
     <ClInclude Include="..\..\omi\program\options.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\example\program\report\args.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\latency\options.hpp">
       <Filter>Header Files\latency</Filter>
     </ClInclude>

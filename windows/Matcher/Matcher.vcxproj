@@ -29,6 +29,7 @@
     <ClInclude Include="..\..\omi\wireshark\matcher.hpp" />
     <ClInclude Include="..\..\omi\wireshark\matches.hpp" />
     <ClInclude Include="..\..\omi\wireshark\matching.hpp" />
+    <ClInclude Include="..\..\omi\wireshark\options.hpp" />
     <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp" />
   </ItemGroup>
   <ItemGroup>

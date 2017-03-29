@@ -18,12 +18,11 @@ int main(int argc, char *argv[]) {
         }
 
         // Match files
-        const auto wireshark = matcher{ options.file.inbound, options.file.outbound };
-
+        const auto wireshark = matcher{ options.files };
         omi::latency::report::data data;
            data.values = wireshark.events.deltas().values();
 
-         omi::latency::report::write(options.report, data);
+        omi::latency::report::write(options.report, data);
     } catch (std::exception &exception) {
         std::cerr << "Error: " << exception.what() << std::endl;
         return 1;

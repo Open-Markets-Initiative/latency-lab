@@ -4,6 +4,7 @@
 #include <omi/wireshark/events.hpp>
 #include <omi/wireshark/database.hpp>
 #include <omi/wireshark/matching.hpp>
+#include <omi/wireshark/options.hpp>
 
     // Match wireshark events by id
 
@@ -24,6 +25,10 @@ struct matcher {
     // Construct from 2 file paths
     explicit matcher(const std::string &inbound_file, const std::string &outbound_file)
       : inbounds{ inbound_file }, outbounds{ outbound_file }, events{ match(inbounds, outbounds)} { }
+
+    // Construct from matching inputs
+    explicit matcher(const inputs &file)
+      : inbounds{ file.inbound }, outbounds{ file.outbound }, events{ match(inbounds, outbounds) } { }
 
     // Construct from inbound and outbound events
     explicit matcher(const database<inbound> &inbounds, const table<outbound> &outbounds)

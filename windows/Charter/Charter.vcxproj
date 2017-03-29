@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\example\program\report\args.hpp" />
     <ClInclude Include="..\..\example\program\report\options.hpp" />
     <ClInclude Include="..\..\omi\css\declarations.hpp" />
     <ClInclude Include="..\..\omi\css\rules.hpp" />
