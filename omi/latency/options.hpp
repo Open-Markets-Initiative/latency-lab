@@ -13,7 +13,6 @@ struct options { // better name? layout
     std::string header;
     std::string copyright;
     // add note?
-    std::string path;        // Output path
 };
 
 } }

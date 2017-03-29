@@ -17,18 +17,19 @@ struct report {
 
   //// Member variables ///////////
 
-    latency::options layout;
-    wireshark::inputs files;
-    std::vector<double> data;
+    latency::options layout;   // Common layout options
+    wireshark::inputs files;   // Input and output files
+    std::vector<double> data;  // Ordered event times
 
   //// Methods ////////////////////
 
+    // Write html report to path
     void write(const std::string &path) const {
         source::write(*this, path);
     }
 };
 
-// Stream operator (composes html report from lyout and data) 
+// Stream operator (composes html report from layout and data) 
 inline std::ostream &operator<<(std::ostream &out, const report &report) {
     return out << html::doctype{"html"}
                << html::tag{"html"}

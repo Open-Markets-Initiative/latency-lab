@@ -17,30 +17,33 @@ struct options {
     std::string path;             // Output path
     bool verbose;                 // Verbose
 
+  //// Construction //////////////
+
+    // Construct
+    explicit options(const omi::program::options &option) {
+        path = option.required<std::string>(report::file::option);
+        report.title = option.conditional<std::string>(html::title::option, "Omi");
+        report.header = option.conditional<std::string>(html::header::option, "Omi Latency Lab");
+        report.copyright = option.conditional<std::string>(html::copyright::option, "OMI. All rights reserved."); ;
+        files.inbound = option.required<std::string>(inbound::file::option);
+        files.outbound = option.required<std::string>(outbound::file::option);
+        verbose = option.verbose();
+    }
+
   //// Interface ////////////////
 
+    // Parse program args into options
     static options parse(int argc, char *argv[]) {
         // Delcare options
         boost::program_options::options_description description("Omi Latency Report Options: ");
         description.add_options()
-            ("help", "Help")                     // automatic?
-            ("verbose", "Enable verbose output") // automatic?
             (inbound::file::option, boost::program_options::value<std::string>(), inbound::file::note)
             (outbound::file::option, boost::program_options::value<std::string>(), outbound::file::note)
             (report::file::option, boost::program_options::value<std::string>(), report::file::note);
         auto arg = omi::program::options(argc, argv, description);
 
-        // Parse Options
-        options options; // TODO: use constructor, add ini intialization
-          options.path = arg.required<std::string>(report::file::option);
-          options.report.title = arg.conditional<std::string>(html::title::option, "Omi");
-          options.report.header = arg.conditional<std::string>(html::header::option, "Omi Latency Lab");
-          options.report.copyright = arg.conditional<std::string>(html::copyright::option, "OMI. All rights reserved."); ;
-          options.files.inbound = arg.required<std::string>(inbound::file::option);
-          options.files.outbound = arg.required<std::string>(outbound::file::option);
-          options.verbose = arg.verbose();
-
-        return options;
+        // TODO: make a version that takes ini
+        return options{ arg };
     }
 };
 

@@ -119,9 +119,6 @@
     <ClInclude Include="..\..\omi\javascript\google\chart.hpp">
       <Filter>Header Files\javascript</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\example\program\report\options.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\program\options.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
@@ -136,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="..\..\omi\source\write.hpp">
       <Filter>Header Files\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\example\program\report\options.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
