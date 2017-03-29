@@ -1,7 +1,7 @@
 # Omi Latency Lab
 Composable tools for automated network application latency measurement and reporting.
 
-As modern computing architectures have multiplied and increased in complexity, latency and benchmarking have become more and more non-deterministic...fortunately, networked throughput can be measured scientifically by matching inbound triggers to outbound responses.  Provided a standard packet capture, the Omi latency lab provides components to quickly create custom tools for accurate benchmarking.   
+As modern computing architectures have increased in complexity, latency and benchmarking have increasingly become more and more non-deterministic...fortunately, networked application throughput can be measured scientifically by matching inbound triggers to outbound responses.  Provided a standard packet capture, this latency lab provides components to quickly create custom tools for accurate benchmarking and verification.   
 
 # Example
 Single run latency html report with javascript google chart:
