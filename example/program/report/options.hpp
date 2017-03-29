@@ -7,40 +7,41 @@
 
 #include <example/program/args.hpp>
 
-// Example report options
+// Example html report options
 struct options {
-    omi::latency::report::options report;
+
+  //// Member Variables ///////////
+
+    omi::latency::options report;
     omi::wireshark::inputs files;
-    bool verbose;
+    std::string path;             // Output path
+    bool verbose;                 // Verbose
+
+  //// Interface ////////////////
+
+    static options parse(int argc, char *argv[]) {
+        // Delcare options
+        boost::program_options::options_description description("Omi Latency Report Options: ");
+        description.add_options()
+            ("help", "Help")                     // automatic?
+            ("verbose", "Enable verbose output") // automatic?
+            (inbound::file::option, boost::program_options::value<std::string>(), inbound::file::note)
+            (outbound::file::option, boost::program_options::value<std::string>(), outbound::file::note)
+            (report::file::option, boost::program_options::value<std::string>(), report::file::note);
+        auto arg = omi::program::options(argc, argv, description);
+
+        // Parse Options
+        options options; // TODO: use constructor, add ini intialization
+          options.path = arg.required<std::string>(report::file::option);
+          options.report.title = arg.conditional<std::string>(html::title::option, "Omi");
+          options.report.header = arg.conditional<std::string>(html::header::option, "Omi Latency Lab");
+          options.report.copyright = arg.conditional<std::string>(html::copyright::option, "OMI. All rights reserved."); ;
+          options.files.inbound = arg.required<std::string>(inbound::file::option);
+          options.files.outbound = arg.required<std::string>(outbound::file::option);
+          options.verbose = arg.verbose();
+
+        return options;
+    }
 };
-
-// Supported program options
-inline omi::program::options args(int argc, char *argv[]) {
-    boost::program_options::options_description description("Omi Latency Report Options: ");
-    description.add_options()
-        ("help", "Help")                     // automatic?
-        ("verbose", "Enable verbose output") // automatic?
-        (inbound::file::option, boost::program_options::value<std::string>(), inbound::file::note)
-        (outbound::file::option, boost::program_options::value<std::string>(), outbound::file::note)
-        (report::file::option, boost::program_options::value<std::string>(), report::file::note);
-
-    return omi::program::options(argc, argv, description);
-}
-
-inline options parse(int argc, char *argv[]) {
-    auto arg = args(argc, argv);
-
-    options options;
-      options.report.path = arg.conditional(report::file::option, "todo"); // add required
-      options.report.title = "Omi";
-      options.report.header = "Latency Example Run";
-      options.report.copyright = "OMI. All rights reserved.";
-      options.files.inbound = arg.conditional(inbound::file::option, "todo");
-      options.files.outbound = arg.conditional(outbound::file::option, "todo");
-      options.verbose = arg.verbose();
-
-    return options;
-}
-
 
 #endif

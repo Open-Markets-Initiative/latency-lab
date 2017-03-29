@@ -6,65 +6,71 @@
 #include <omi/javascript/google/chart.hpp>
 #include <omi/styles/one.hpp>
 #include <omi/latency/options.hpp>
-
-#include <fstream>
+#include <omi/source/write.hpp>
 
 // Generate single run html latency report
 
 namespace omi { 
 namespace latency {
-namespace report {
 
-inline void write(const report::options &options, const report::data &data) {
-    // Verify output file
-    std::ofstream stream(options.path);
-    if (stream.bad()) {
-        throw std::invalid_argument("Report output file invalid: " + options.path);
+struct report {
+
+  //// Member variables ///////////
+
+    latency::options layout;
+    wireshark::inputs files;
+    std::vector<double> data;
+
+  //// Methods ////////////////////
+
+    void write(const std::string &path) const {
+        source::write(*this, path);
     }
+};
 
-    // Print something different with no values?
-
-    stream << html::doctype{"html"}
-           << html::tag{"html"}
-           << std::endl
-           << html::tag{"head"}
-           <<   html::meta{"charset", "utf-8" }
-           <<   html::title{options.title}
-           <<   html::src{"https://www.gstatic.com/charts/loader.js"}
-           <<   html::script{"text/javascript"}
-           <<     javascript::google::linechart{data.values, "chart"}
-           <<   html::close{"script"}
-           <<   html::tag{"style"}
-           <<     css::one{} // make this an option
-           <<   html::close{"style"}
-           << html::close{"head"}
-           << std::endl
-           << html::tag{"body"}
-           << html::tag{"section"}
-           <<   html::h3{options.header}
-           <<   std::endl
-           <<   html::tag{"article"}
-           <<     html::div{"chart"}
-           <<   html::close{"article"}
-           <<   std::endl
-           <<   html::tag{"article"}
-           <<     html::h5{"Statistics"}
-           <<     html::statistics{data.values}
-           <<   html::close{"article"}
-           <<   std::endl
-           <<   html::tag{"article"}
-           <<     html::h5{"Percentiles"}
-           <<     html::percentiles{data.values}
-           <<   html::close{"article"}
-           << html::close{"section"}
-           << html::close{"body"}
-           << std::endl
-           << html::tag{"footer"}
-           <<   html::p{"&copy; " + options.copyright, indent::two}
-           << html::close{"footer"}
-           << html::close{"html"};
+// Stream operator (composes html report from lyout and data) 
+inline std::ostream &operator<<(std::ostream &out, const report &report) {
+    return out << html::doctype{"html"}
+               << html::tag{"html"}
+               << std::endl
+               << html::tag{"head"}
+               <<   html::meta{"charset", "utf-8" }
+               <<   html::title{report.layout.title}
+               <<   html::src{"https://www.gstatic.com/charts/loader.js"}
+               <<   html::script{"text/javascript"}
+               <<     javascript::google::linechart{report.data, "chart"}
+               <<   html::close{"script"}
+               <<   html::tag{"style"}
+               <<     css::one{} // make this an option
+               <<   html::close{"style"}
+               << html::close{"head"}
+               << std::endl
+               << html::tag{"body"}
+               << html::tag{"section"}
+               <<   html::h3{report.layout.header}
+               <<   std::endl
+               <<   html::tag{"article"}
+               <<     html::div{"chart"}
+               <<   html::close{"article"}
+               <<   std::endl
+               <<   html::tag{"article"}
+               <<     html::h5{"Statistics"}
+               <<     html::statistics{report.data}
+               <<   html::close{"article"}
+               <<   std::endl
+               <<   html::tag{"article"}
+               <<     html::h5{"Percentiles"}
+               <<     html::percentiles{report.data}
+               <<   html::close{"article"}
+               << html::close{"section"}
+               << html::close{"body"}
+               << std::endl
+               << html::tag{"footer"}
+               <<   html::p{"&copy; " + report.layout.copyright, indent::two}
+               << html::close{"footer"}
+               << html::close{"html"};
 }
 
-} } }
+} }
 
 #endif

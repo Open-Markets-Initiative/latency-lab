@@ -17,14 +17,14 @@ struct matcher {
   //// Member Variables ///////////
 
     const database<inbound> inbounds;    // All possible inbound trigger events      
-    const table<outbound> outbounds;     // Outbound response events (make these const)
-    const matching events;               // Matched events
+    const table<outbound> outbounds;     // Outbound response events
+    const matching events;               // Matched events (need to template on events) and get a deltas
 
   //// Construction ///////////////
 
     // Construct from 2 file paths
     explicit matcher(const std::string &inbound_file, const std::string &outbound_file)
-      : inbounds{ inbound_file }, outbounds{ outbound_file }, events{ match(inbounds, outbounds)} { }
+      : inbounds{ inbound_file }, outbounds{ outbound_file }, events{ match(inbounds, outbounds) } { }
 
     // Construct from matching inputs
     explicit matcher(const inputs &file)

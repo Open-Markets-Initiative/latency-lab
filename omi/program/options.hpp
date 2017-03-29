@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-// Fluent wrapper for boost program options
+// Omi program options
 
 namespace omi {
 namespace program {
@@ -18,7 +18,11 @@ namespace verbose { static constexpr const char* note = "Verbose Output"; }
 
 struct options { // should be a class
 
+  //// Member Variables ///////////
+
     boost::program_options::variables_map values;
+
+  //// Construction ///////////////
 
     // Standard constructor
     options(int argc, char *argv[], boost::program_options::options_description description) {
@@ -30,28 +34,42 @@ struct options { // should be a class
         boost::program_options::notify(values);
 
         // Check to print help
-        if (has(help::option)) {
+        if (exists(help::option)) {
             std::cout << description << std::endl;
             exit(1);
         }
     }
 
-    // Interface for options
-    bool get(const std::string &option) const { // is this used?
-        return has(option);
+  //// Methods ////////////////////
+
+    // Returns value if it exists, otherwise default value 
+    template<typename T>
+    T conditional(const std::string arg, const T &value) const {
+        return exists(arg) ? values[arg].as<T>() : value;
     }
 
-    // Return option or default value
-    std::string conditional(const std::string &option, const std::string &value) const {
-        return has(option) ? values[option].as<std::string>().c_str() : value;
+/*
+    // Convenience method for setting optional value only if setting exists
+    template<typename T>
+    boost::optional<T> optional(const std::string arg) const {
+        return exists(arg) ? values[arg].as<T>() : T;
     }
+*/
+    // Returns program argument, throws exception if required arg is missing
+    template<typename T>
+    T required(const std::string arg) const {
+        // Verify required field exists
+        if (not exists(arg)) {
+            throw std::invalid_argument("Missing required program option: " + arg);
+        }
 
-    // add require...
+        return values[arg].as<T>();
+    }
 
   /////////////////////////////////
 
-    // Is option in args?
-    bool has(const std::string &option) const {
+    // Does option exist?
+    bool exists(const std::string &option) const {
         return values.count(option) != 0;
     }
 
@@ -59,7 +77,7 @@ struct options { // should be a class
 
     // Is verbose?
     bool verbose() const {
-        return has(verbose::option);
+        return exists(verbose::option);
     }
 };
 

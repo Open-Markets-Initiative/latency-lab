@@ -2,28 +2,20 @@
 #define OMI_LATENCY_REPORT_OPTIONS_HPP_
 
 #include <string>
-#include <vector>
 
-// Options for omi latncy report
+// Options for omi html latency report
 
 namespace omi { 
 namespace latency {
-namespace report { // todo make a better name
 
-struct options {
+struct options { // better name? layout
     std::string title;
     std::string header;
     std::string copyright;
-    // add note
-    std::string path;
+    // add note?
+    std::string path;        // Output path
 };
 
-struct data {
-    std::string input;
-    std::string output;
-    std::vector<double> values;
-};
-
-} } }
+} }
 
 #endif
