@@ -6,7 +6,7 @@ As modern computing architectures have increased in complexity, latency and benc
 # Example
 Single run latency html report with javascript google chart:
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/outputs/latency.html
+  https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/outputs/latency.html
 
 The example data represents a series of outbound cme fix orders triggered by cme sbe market data packets. The spike at the beginning is due to core warming.
 
