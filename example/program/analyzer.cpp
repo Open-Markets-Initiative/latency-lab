@@ -1,7 +1,7 @@
-#include <example/program/args.hpp>
 #include <example/events/inbound.hpp>
 #include <example/events/outbound.hpp>
 
+#include <omi/latency/args.hpp>
 #include <omi/wireshark/matcher.hpp>
 #include <omi/analysis/results.hpp>
 

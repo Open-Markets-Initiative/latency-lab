@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\example\program\report\options.hpp" />
     <ClInclude Include="..\..\omi\css\declarations.hpp" />
     <ClInclude Include="..\..\omi\css\rules.hpp" />
     <ClInclude Include="..\..\omi\html\attributes.hpp" />
@@ -40,8 +39,10 @@
     <ClInclude Include="..\..\omi\html\tag.hpp" />
     <ClInclude Include="..\..\omi\html\title.hpp" />
     <ClInclude Include="..\..\omi\javascript\google\chart.hpp" />
-    <ClInclude Include="..\..\omi\latency\options.hpp" />
-    <ClInclude Include="..\..\omi\latency\report.hpp" />
+    <ClInclude Include="..\..\omi\latency\report\declarations.hpp" />
+    <ClInclude Include="..\..\omi\latency\report\configuration.hpp" />
+    <ClInclude Include="..\..\omi\latency\report\components.hpp" />
+    <ClInclude Include="..\..\omi\latency\report\options.hpp" />
     <ClInclude Include="..\..\omi\program\options.hpp" />
     <ClInclude Include="..\..\omi\program\settings.hpp" />
     <ClInclude Include="..\..\omi\source\whitespace.hpp" />

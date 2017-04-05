@@ -18,8 +18,8 @@ namespace analyzer { namespace file { static constexpr const char * note = "Outp
 namespace email { namespace file { static constexpr const char * option = "email-file"; } }
 namespace email { namespace file { static constexpr const char * note = "Output email friendly html latency report"; } }
 
-namespace report { namespace file { static constexpr const char * option = "html-report"; } }
-namespace report { namespace file { static constexpr const char * note = "Output html latency report"; } }
+namespace path { namespace report { static constexpr const char * option = "html-report"; } }
+namespace path { namespace report { static constexpr const char * note = "Output html latency report"; } }
 
 namespace html { namespace title { static constexpr const char * option = "html-title"; } }
 namespace html { namespace title { static constexpr const char * note = "Report header (Optional)"; } }

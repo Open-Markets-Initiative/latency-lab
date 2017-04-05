@@ -1,25 +1,27 @@
-#ifndef OMI_LATENCY_REPORT_HPP_
-#define OMI_LATENCY_REPORT_HPP_
+#ifndef OMI_LATENCY_REPORT_COMPONENTS_HPP_
+#define OMI_LATENCY_REPORT_COMPONENTS_HPP_
 
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
 #include <omi/javascript/google/chart.hpp>
 #include <omi/styles/one.hpp>
-#include <omi/latency/options.hpp>
 #include <omi/source/write.hpp>
+#include <omi/latency/report/configuration.hpp>
+#include <omi/wireshark/options.hpp> // should be in analysis
 
 // Generate single run html latency report
 
 namespace omi { 
 namespace latency {
+namespace report {
 
-struct report {
+struct components {
 
-  //// Member variables ///////////
+  //// Member Variables ///////////
 
-    latency::options layout;   // Common layout options
-    wireshark::inputs files;   // Input and output files
-    std::vector<double> data;  // Ordered event times
+    report::configuration layout;  // Common layout options
+    wireshark::inputs files;       // Input and output files
+    std::vector<double> data;      // Ordered event times
 
   //// Methods ////////////////////
 
@@ -29,8 +31,9 @@ struct report {
     }
 };
 
+
 // Stream operator (composes html report from layout and data) 
-inline std::ostream &operator<<(std::ostream &out, const report &report) {
+inline std::ostream &operator<<(std::ostream &out, const components &report) {
     return out << html::doctype{"html"}
                << html::tag{"html"}
                << std::endl
@@ -42,7 +45,7 @@ inline std::ostream &operator<<(std::ostream &out, const report &report) {
                <<     javascript::google::linechart{report.data, "chart"}
                <<   html::close{"script"}
                <<   html::tag{"style"}
-               <<     css::one{} // make this an option
+               <<     css::one{} // TODO: Make this an option
                <<   html::close{"style"}
                << html::close{"head"}
                << std::endl
@@ -72,6 +75,6 @@ inline std::ostream &operator<<(std::ostream &out, const report &report) {
                << html::close{"html"};
 }
 
-} }
+} } }
 
 #endif

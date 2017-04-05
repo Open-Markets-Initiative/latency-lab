@@ -26,12 +26,12 @@ struct options { // should be a class
 
     // Standard constructor
     options(int argc, char *argv[], boost::program_options::options_description description) {
-
         // Automatically add help and verbose options
         description.add_options()
-            ("help", "Help")                     
-            ("verbose", "Enable verbose output");
+            (help::option, help::note)                     
+            (verbose::option, verbose::note);
 
+		// Parse command line
         auto parse = boost::program_options::parse_command_line(argc, argv, description);
         boost::program_options::store(parse, values);
         boost::program_options::notify(values);

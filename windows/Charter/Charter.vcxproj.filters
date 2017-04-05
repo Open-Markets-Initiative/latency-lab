@@ -33,8 +33,8 @@
     <Filter Include="Header Files\program">
       <UniqueIdentifier>{ab946535-41f6-4d75-ab6b-88849d946094}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\latency">
-      <UniqueIdentifier>{1c627383-41f2-4822-90e8-43d1e5c7bcc9}</UniqueIdentifier>
+    <Filter Include="Header Files\report">
+      <UniqueIdentifier>{21965681-cd3e-44f2-8b69-389d06e17be3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -122,20 +122,23 @@
     <ClInclude Include="..\..\omi\program\options.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\options.hpp">
-      <Filter>Header Files\latency</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\latency\report.hpp">
-      <Filter>Header Files\latency</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\program\settings.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
     <ClInclude Include="..\..\omi\source\write.hpp">
       <Filter>Header Files\source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\example\program\report\options.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\omi\latency\report\declarations.hpp">
+      <Filter>Header Files\report</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\report\components.hpp">
+      <Filter>Header Files\report</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\report\configuration.hpp">
+      <Filter>Header Files\report</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\report\options.hpp">
+      <Filter>Header Files\report</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
