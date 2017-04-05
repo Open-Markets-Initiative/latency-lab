@@ -13,7 +13,7 @@ The example data represents a series of outbound cme fix orders triggered by cm
 # Build
 Use CMake...after specifying boost paths in CMakeLists.txt.
 
-An easy to use example solution is provided for Visual Studio 15 in the windows directory. 
+An easy to use example solution is provided for Visual Studio in the windows directory. 
 
 # Development
 Please add regression tests for all omi file updates.  
