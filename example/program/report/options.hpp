@@ -24,7 +24,7 @@ struct options {
         path = option.required<std::string>(report::file::option);
         report.title = option.conditional<std::string>(html::title::option, "Omi");
         report.header = option.conditional<std::string>(html::header::option, "Omi Latency Lab");
-        report.copyright = option.conditional<std::string>(html::copyright::option, "OMI. All rights reserved."); ;
+        report.copyright = option.conditional<std::string>(html::copyright::option, "OMI. All rights reserved.");
         files.inbound = option.required<std::string>(inbound::file::option);
         files.outbound = option.required<std::string>(outbound::file::option);
         verbose = option.verbose();
