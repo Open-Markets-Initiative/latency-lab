@@ -22,7 +22,7 @@ class inbound {
   public:
 
     // Construct from csv record
-    explicit inbound(const std::string &record, uint32_t number = 0) : line{number} {
+    explicit inbound(const std::string &record, uint32_t number = 0) : line{ number } {
         auto tokenize = omi::wireshark::tokenizer{ record };
         processed = tokenize.frame(frame) and
                     tokenize.timestamp(timestamp) and
