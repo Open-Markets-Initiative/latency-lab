@@ -3,6 +3,9 @@
 
 // Standard options for example programs
 
+namespace ini { namespace file { static constexpr const char * option = "ini-file"; } }
+namespace ini { namespace file { static constexpr const char * note = "Use ini file for program options"; } }
+
 namespace inbound { namespace file { static constexpr const char * option = "inbound-events"; } }
 namespace inbound { namespace file { static constexpr const char * note = "Input inbound events csv file"; } }
 
@@ -18,8 +21,8 @@ namespace analyzer { namespace file { static constexpr const char * note = "Outp
 namespace email { namespace file { static constexpr const char * option = "email-file"; } }
 namespace email { namespace file { static constexpr const char * note = "Output email friendly html latency report"; } }
 
-namespace path { namespace report { static constexpr const char * option = "html-report"; } }
-namespace path { namespace report { static constexpr const char * note = "Output html latency report"; } }
+namespace html { namespace report { static constexpr const char * option = "html-report"; } }
+namespace html { namespace report { static constexpr const char * note = "Output html latency report"; } }
 
 namespace html { namespace title { static constexpr const char * option = "html-title"; } }
 namespace html { namespace title { static constexpr const char * note = "Report header (Optional)"; } }

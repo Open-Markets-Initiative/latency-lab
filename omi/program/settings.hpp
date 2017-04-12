@@ -12,7 +12,7 @@
 namespace omi {
 namespace program {
 
-struct Settings {
+struct settings {
 
   //// Member variables ///////////
 
@@ -21,14 +21,14 @@ struct Settings {
   //// Construction ///////////////
 
     // Default constructor
-    Settings() {}
+    settings() {}
 
     // Load settings from boost property tree
-    explicit Settings(const boost::property_tree::ptree &tree) 
+    explicit settings(const boost::property_tree::ptree &tree) 
       : properties{ tree } {}
 
     // Load settings from file
-    explicit Settings(const std::string &file) {
+    explicit settings(const std::string &file) {
         boost::property_tree::ini_parser::read_ini(file, properties);
     }
 
@@ -40,7 +40,7 @@ struct Settings {
         return properties.get<T>(field, value);
     }
 
-    // Convenience method for setting optional value only if setting exists
+    // Convenience method for setting optional value
     template<typename T>
     boost::optional<T> optional(const std::string field) const {
         return properties.get_optional<T>(field);
@@ -58,8 +58,8 @@ struct Settings {
     }
 
     // Retrieve ini section
-    Settings section(const std::string name) const {
-        return Settings{ properties.get_child(name) };
+    settings section(const std::string name) const {
+        return settings{ properties.get_child(name) };
     }
 
   //////////////////////////
