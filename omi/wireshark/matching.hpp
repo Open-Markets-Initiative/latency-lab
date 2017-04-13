@@ -17,7 +17,6 @@ struct matching {
 
     wireshark::matches matches;
     std::vector<event> misses;
-    std::string name = "Matching Events";                                // Name (cosmetic)
 
   //// Implementation /////////////
 

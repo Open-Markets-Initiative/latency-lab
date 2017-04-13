@@ -72,7 +72,7 @@ struct database {
          return events.count(id) == 1;
     }
 
-    // Find market recrod by id
+    // Find market record by id
     event get(event::id id) const {
         return events.at(id);
     }
