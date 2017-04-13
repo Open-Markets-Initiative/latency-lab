@@ -1,6 +1,6 @@
 #include <example/events/inbound.hpp>
 #include <example/events/outbound.hpp>
-#include <omi/latency/report/declarations.hpp>
+#include <omi/latency/report.hpp>
 
 // Generate an example wireshark latency report
 

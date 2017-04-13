@@ -128,9 +128,6 @@
     <ClInclude Include="..\..\omi\source\write.hpp">
       <Filter>Header Files\source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\report\declarations.hpp">
-      <Filter>Header Files\report</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\latency\report\components.hpp">
       <Filter>Header Files\report</Filter>
     </ClInclude>
@@ -138,6 +135,9 @@
       <Filter>Header Files\report</Filter>
     </ClInclude>
     <ClInclude Include="..\..\omi\latency\report\options.hpp">
+      <Filter>Header Files\report</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\report.hpp">
       <Filter>Header Files\report</Filter>
     </ClInclude>
   </ItemGroup>
