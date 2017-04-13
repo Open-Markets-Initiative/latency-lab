@@ -19,12 +19,12 @@ struct options {
 
     report::configuration report;  // Html report options
     wireshark::inputs files;       // Match input files (this should be moved to analysis)
-    std::string path;              // html report output path
-    bool verbose;                  // Verbose
+    std::string path;              // Html report output path
+	bool verbose;
 
   //// Construction //////////////
 
-    // Construct from settings type
+    // Construct options from args or ini file
 	template<class T>
 	explicit options(const T &option, bool verbose) : verbose{ verbose }  {
         path = option.template required<std::string>(::html::report::option);
@@ -42,12 +42,15 @@ struct options {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()
-			(ini::file::option, boost::program_options::value<std::string>(), ini::file::note)
-            (inbound::file::option, boost::program_options::value<std::string>(), inbound::file::note)
-            (outbound::file::option, boost::program_options::value<std::string>(), outbound::file::note)
+			(::ini::file::option, boost::program_options::value<std::string>(), ::ini::file::note)
+            (::inbound::file::option, boost::program_options::value<std::string>(), ::inbound::file::note)
+            (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note)
+			(::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
+			(::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
+			(::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
             (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
 
-		// If ini file exists read options from file
+		// If ini file exists, read options from file
 		auto args = omi::program::options(argc, argv, description);
 		if (args.exists(ini::file::option)) {
 			auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };

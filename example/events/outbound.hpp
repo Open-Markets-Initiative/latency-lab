@@ -23,6 +23,9 @@ class outbound {
 
   public:
 
+	  // Event description
+	  static constexpr char * description = "fix message";
+
     // Construct from record
     explicit outbound(const std::string &record, uint32_t number = 0) : line{ number } {
         auto tokenize = omi::wireshark::tokenizer{ record };

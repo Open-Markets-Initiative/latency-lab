@@ -20,7 +20,6 @@ struct database {
     std::unordered_map<event::id, event> events;     // Events by id
     std::vector<event> duplicates;                   // Duplicate events
     std::vector<record> invalids;                    // Invalid records
-    std::string name;                                // Name (cosmetic)
 
   //// Construction ///////////////
 
@@ -28,11 +27,11 @@ struct database {
     database() {}
 
     // Standard constructor
-    explicit database(const std::string &file, const std::string  &name = "Inbound events") : name{ name } {
+    explicit database(const std::string &file) {
         // Verify file
         std::ifstream stream(file.c_str());
         if (stream.bad()) {
-            throw std::invalid_argument(name + " file invalid: " + file);
+            throw std::invalid_argument("Invalid file: " + file);
         }
 
         // Parse and process records
@@ -89,8 +88,7 @@ struct database {
 // Stream operator
 template <class record>
 inline std::ostream &operator<<(std::ostream &out, const database<record> &database) {
-    return out << database.name << std::endl
-               << "  Processed Records: " << database.records() << std::endl
+    return out << "  Processed Records: " << database.records() << std::endl
                << "  Event Ids: " << database.events.size() << std::endl
                << "  Duplicate Events: " << database.duplicates.size() << std::endl
                << "  Invalid Records: " << database.invalids.size() << std::endl ;

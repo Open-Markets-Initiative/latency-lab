@@ -21,7 +21,6 @@ struct table {
 
     std::vector<event> valids;           // Valid processed events
     std::vector<record> invalids;        // Invalid records
-    std::string name;                    // Name (cosmetic)
 
   //// Construction ///////////////
 
@@ -29,7 +28,7 @@ struct table {
     table() {}
 
     // File parsing constructor
-    explicit table(const std::string &file, const std::string &name = "Outbound Events") : name{ name } {
+    explicit table(const std::string &file) {
         // Verify file
         std::ifstream stream(file.c_str());
         if (not stream.good()) {
@@ -62,8 +61,7 @@ struct table {
 // Stream operator
 template <class record>
 inline std::ostream &operator<<(std::ostream &out, const table<record> &events) {
-    return out << events.name << std::endl
-               << "  Processed Records: " << events.records() << std::endl
+    return out << "  Processed Records: " << events.records() << std::endl
                << "  Valid Records: " << events.valids.size() << std::endl
                << "  Invalid Records: " << events.invalids.size() << std::endl;
 }

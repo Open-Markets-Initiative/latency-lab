@@ -36,8 +36,7 @@ struct matching {
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const matching &events) {
-    return out << "Matching Events" << std::endl
-               << "  Matched: " << events.matches.size() << std::endl
+    return out << "  Matched: " << events.matches.size() << std::endl
                << "  Unmatched: " << events.misses.size() << std::endl;
 }
 

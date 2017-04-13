@@ -55,9 +55,7 @@ struct matcher {
 // Stream operator
 template <class inbound, class outbound>
 inline std::ostream &operator<<(std::ostream &out, const matcher<inbound, outbound> &matcher) {
-    return out << matcher.inbounds
-               << matcher.outbounds
-               << matcher.events;
+    return out << matcher.events;
 }
 
 } }

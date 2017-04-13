@@ -10,7 +10,7 @@ namespace example {
 
 class inbound {
 
-    // Inbound trigger event record fields (cme sbe fields)
+    // Inbound trigger event record fields
     omi::wireshark::frame::number frame;
     omi::wireshark::frame::time timestamp;
     std::string sequence;
@@ -20,6 +20,9 @@ class inbound {
     bool processed { false };      // Was record processed correctly?
 
   public:
+
+	// Event description
+	static constexpr char * description = "sbe packet";
 
     // Construct from csv record
     explicit inbound(const std::string &record, uint32_t number = 0) : line{ number } {
