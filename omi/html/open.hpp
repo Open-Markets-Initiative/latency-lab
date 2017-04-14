@@ -32,7 +32,6 @@ inline std::ostream &operator<<(std::ostream &out, const open &tag) {
     return out << tag.whitespace << "<" << tag.name << tag.attributes << ">";
 }
 
-}  }
+} }
 
 #endif
-

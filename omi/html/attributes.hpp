@@ -35,6 +35,6 @@ inline std::ostream &operator<<(std::ostream &out, const attributes &attributes)
     return out;
 }
 
-} } 
+} }
 
 #endif

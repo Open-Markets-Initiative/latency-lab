@@ -21,6 +21,6 @@ inline std::ostream &operator<<(std::ostream &out, const script &script) {
     return out << static_cast<html::tag>(script);
 }
 
-} } 
+} }
 
 #endif

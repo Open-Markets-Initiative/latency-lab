@@ -1,7 +1,6 @@
 #ifndef OMI_HTML_ELEMENTS_HPP_
 #define OMI_HTML_ELEMENTS_HPP_
 
-#include <omi/html/tag.hpp>
 #include <omi/html/close.hpp>
 
 // Html element
@@ -14,7 +13,7 @@ struct element {
     html::attributes attributes;
     std::string value;
     omi::whitespace whitespace;
-    
+
     // Constructors
     explicit element() {}
 
@@ -39,6 +38,6 @@ inline std::ostream &operator<<(std::ostream &out, const element &element) {
     return out << element.whitespace << "<" << element.name << element.attributes << ">" << element.value << close{ element.name };
 }
 
-}  }
+} }
 
 #endif

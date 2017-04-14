@@ -19,15 +19,15 @@ struct options {
     report::configuration report;  // Html report options
     event::inputs files;           // Input files
     std::string path;              // Html report output path
-	bool verbose;
+    bool verbose;
 
   //// Construction //////////////
 
     // Construct options from args or ini file
-	template<class setting>
-	explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
-		files.inbound = option.template required<std::string>(::inbound::file::option);
-		files.outbound = option.template required<std::string>(::outbound::file::option);
+    template<class setting>
+    explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
+        files.inbound = option.template required<std::string>(::inbound::file::option);
+        files.outbound = option.template required<std::string>(::outbound::file::option);
         path = option.template required<std::string>(::html::report::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
@@ -41,23 +41,23 @@ struct options {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()
-			(::ini::file::option, boost::program_options::value<std::string>(), ::ini::file::note)
+            (::ini::file::option, boost::program_options::value<std::string>(), ::ini::file::note)
             (::inbound::file::option, boost::program_options::value<std::string>(), ::inbound::file::note)
             (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note)
-			(::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
-			(::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
-			(::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
+            (::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
+            (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
+            (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
             (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
 
-		// If ini file exists, read options from file
-		auto args = omi::program::options(argc, argv, description);
-		if (args.exists(ini::file::option)) {
-			auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
-			return options{ ini.section("report"), args.verbose() }; // How to make this seemless?
-		} 
+        // If ini file exists, read options from file
+        auto args = omi::program::options(argc, argv, description);
+        if (args.exists(ini::file::option)) {
+            auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
+            return options{ ini.section("report"), args.verbose() }; // How to make this seemless?
+        } 
 
-		// Otherwise initialize from program args
-		return options{ args, args.verbose() };
+        // Otherwise initialize from program args
+        return options{ args, args.verbose() };
     }
 };
 

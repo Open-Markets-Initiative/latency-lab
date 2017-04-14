@@ -21,6 +21,6 @@ inline std::ostream &operator<<(std::ostream &out, const meta &meta) {
     return out << static_cast<html::tag>(meta) << std::endl;
 }
 
-} } 
+} }
 
 #endif

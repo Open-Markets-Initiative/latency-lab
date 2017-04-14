@@ -2,6 +2,7 @@
 #define OMI_HTML_GRAPH_
 
 #include <omi/html/elements.hpp>
+#include <omi/html/attributes.hpp>
 
 #include <iomanip>
 #include <string>

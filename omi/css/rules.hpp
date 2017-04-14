@@ -46,6 +46,6 @@ inline std::ostream &operator<<(std::ostream &out, const rule &rule) {
     return out << whitespace << "}" << std::endl;
 }
 
-} } 
+} }
 
 #endif

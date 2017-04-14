@@ -19,6 +19,6 @@ inline std::ostream &operator<<(std::ostream &out, const table &table) {
     return out << static_cast<html::tag>(table);
 }
 
-} } 
+} }
 
 #endif

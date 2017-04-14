@@ -28,6 +28,6 @@ inline std::ostream &operator<<(std::ostream &out, const doctype &doctype) {
     return out << "<!DOCTYPE " << doctype.type << ">" << std::endl;
 }
 
-} } 
+} }
 
 #endif

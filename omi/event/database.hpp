@@ -73,7 +73,7 @@ struct database {
 
 // Stream operator
 template <class record>
-inline std::ostream &operator<<(std::ostream &out, const database<record> &database) {
+std::ostream &operator<<(std::ostream &out, const database<record> &database) {
     return out << "  Processed Records: " << database.records() << std::endl
                << "  Event Ids: " << database.events.size() << std::endl
                << "  Duplicate Events: " << database.duplicates.size() << std::endl

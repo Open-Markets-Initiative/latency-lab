@@ -21,10 +21,10 @@ class inbound {
 
   public:
 
-	using identifier = std::string;
+    using identifier = std::string;
 
-	// Event description
-	static constexpr char * description = "sbe packet";
+    // Event description
+    static constexpr char * description = "sbe packet";
 
     // Construct from csv record
     explicit inbound(const std::string &record, uint32_t number = 0) : line{ number } {
@@ -36,15 +36,15 @@ class inbound {
 
   //// Interface //////////////////
 
-	// Return event identifier
-	identifier id() const noexcept {
-		return sequence;
-	}
+    // Return event identifier
+    identifier id() const noexcept {
+        return sequence;
+    }
 
-	// Return record timestamp in microseconds
-	double microseconds() const noexcept {
-		return timestamp * 1000000;
-	}
+    // Return record timestamp in microseconds
+    double microseconds() const noexcept {
+        return timestamp * 1000000;
+    }
 
     // Is record valid?
     bool valid() const noexcept {

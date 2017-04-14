@@ -23,10 +23,10 @@ class outbound {
 
   public:
 
-	  using identifier = std::string;
+      using identifier = std::string;
 
-	  // Event description
-	  static constexpr char * description = "fix message";
+      // Event description
+      static constexpr char * description = "fix message";
 
     // Construct from record
     explicit outbound(const std::string &record, uint32_t number = 0) : line{ number } {
@@ -41,15 +41,15 @@ class outbound {
 
   //// Interface //////////////////
 
-	// Return event id
-	identifier id() const noexcept {
-		return value9717;
-	}
+    // Return event id
+    identifier id() const noexcept {
+        return value9717;
+    }
 
-	// Return record timestamp in microseconds
-	double microseconds() const noexcept {
-		return timestamp * 1000000;
-	}
+    // Return record timestamp in microseconds
+    double microseconds() const noexcept {
+        return timestamp * 1000000;
+    }
 
     // Is record valid?
     bool valid() const noexcept {

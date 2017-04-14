@@ -28,6 +28,6 @@ inline std::ostream &operator<<(std::ostream &out, const tag &tag) {
     return out << static_cast<html::open>(tag) << std::endl;
 }
 
-}  }
+} }
 
 #endif

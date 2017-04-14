@@ -50,9 +50,6 @@
     <ClInclude Include="..\..\omi\styles\one.hpp" />
     <ClInclude Include="..\..\omi\table\percentiles.hpp" />
     <ClInclude Include="..\..\omi\table\statistics.hpp" />
-    <ClInclude Include="..\..\omi\xml\attributes.hpp" />
-    <ClInclude Include="..\..\omi\xml\elements.hpp" />
-    <ClInclude Include="..\..\omi\xml\tags.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

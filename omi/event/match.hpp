@@ -13,8 +13,8 @@ struct match {
 
   //// Member Variables ///////////
 
-	trigger inbound;                  // Inbound trigger event
-	response outbound;                // Outbound response event
+    trigger inbound;                  // Inbound trigger event
+    response outbound;                // Outbound response event
 
   //// Construction ///////////////
 
@@ -26,7 +26,7 @@ struct match {
 // Stream operator
 template <class trigger, class response>
 std::ostream &operator<<(std::ostream &out, const match<trigger, response> &match) {
-	return out;  //TODO: out << match.inbound << " | " << match.outbound;
+    return out;  //TODO: out << match.inbound << " | " << match.outbound;
 }
 
 } }

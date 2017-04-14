@@ -23,7 +23,7 @@ struct events {
   //// Construction ///////////////
 
     // Default constructor
-	events() {}
+    events() {}
 
     // File parsing constructor
     explicit events(const std::string &file) {

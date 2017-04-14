@@ -3,8 +3,6 @@
 
 #include <omi/html/elements.hpp>
 
-#include <string>
-
 // Html javascript src element
 
 namespace omi {
@@ -21,6 +19,6 @@ inline std::ostream &operator<<(std::ostream &out, const src &src) {
     return out << static_cast<html::element>(src);
 }
 
-} } 
+} }
 
 #endif

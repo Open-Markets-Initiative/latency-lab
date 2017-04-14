@@ -20,6 +20,6 @@ inline std::ostream &operator<<(std::ostream &out, const p &p) {
     return out << static_cast<html::element>(p);
 }
 
-} } 
+} }
 
 #endif

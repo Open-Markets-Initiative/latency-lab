@@ -12,9 +12,6 @@
     <Filter Include="Header Files\html">
       <UniqueIdentifier>{7c827e7c-51f4-450b-a497-5b256433e0d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\xml">
-      <UniqueIdentifier>{68e5c462-138b-4b15-8794-406a35d1ea8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\css">
       <UniqueIdentifier>{55744678-f7af-4e1d-97ae-69b924f8809a}</UniqueIdentifier>
     </Filter>
@@ -38,15 +35,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\omi\xml\attributes.hpp">
-      <Filter>Header Files\xml</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\xml\elements.hpp">
-      <Filter>Header Files\xml</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\xml\tags.hpp">
-      <Filter>Header Files\xml</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\css\declarations.hpp">
       <Filter>Header Files\css</Filter>
     </ClInclude>

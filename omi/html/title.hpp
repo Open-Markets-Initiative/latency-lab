@@ -3,8 +3,6 @@
 
 #include <omi/html/elements.hpp>
 
-#include <string>
-
 // Html title element 
 
 namespace omi {
@@ -21,6 +19,6 @@ inline std::ostream &operator<<(std::ostream &out, const title &title) {
     return out << static_cast<html::element>(title) << std::endl;
 }
 
-} } 
+} }
 
 #endif

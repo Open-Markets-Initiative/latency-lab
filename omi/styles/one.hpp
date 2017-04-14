@@ -3,8 +3,6 @@
 
 #include <omi/css/rules.hpp>
 
-#include <string>
-
 // Common omi css style 1
 
 namespace omi {

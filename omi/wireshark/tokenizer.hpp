@@ -6,12 +6,12 @@
 // Optimized wireshark tokenizer
 
 namespace omi {
-namespace wireshark {	
-		
+namespace wireshark {
+
 class tokenizer {
 
   //// Member Variables ///////////
-  
+
     char *current = nullptr;   // Pointer to start of current token
     char delimiter;            // Token delimiter
 
@@ -83,9 +83,9 @@ public:
         }
 
         if (current != nullptr) { current++; }
-		
+        
         field = value;
-		
+        
         return true;
     }
 
@@ -101,10 +101,9 @@ public:
         for (; *s != c; s++) {
             if (*s == '\0') { return nullptr; }
         }
-		
+        
         return const_cast<char *>(s);
     }
-    
 };
 
 } }

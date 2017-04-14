@@ -18,14 +18,14 @@ struct matcher {
 
     const database<inbound> &inbounds;        // Inbound events database
     const responses<outbound> &outbounds;     // Outbound response events
-	matches<inbound, outbound> matches;    // Matches
-	std::vector<outbound> misses;                    // Outbound repsonses without matching inbound event
+    matches<inbound, outbound> matches;    // Matches
+    std::vector<outbound> misses;                    // Outbound repsonses without matching inbound event
 
   //// Construction ///////////////
 
     // Construct from 2 file paths
     explicit matcher(const std::string &inbound_file, const std::string &outbound_file)
-	  : matcher{ database<inbound>{ inbound_file }, responses<outbound>{ outbound_file } } {}
+      : matcher{ database<inbound>{ inbound_file }, responses<outbound>{ outbound_file } } {}
 
     // Construct from matching inputs
     explicit matcher(const inputs &file)
@@ -34,14 +34,14 @@ struct matcher {
     // Construct from events
     explicit matcher(const database<inbound> &inbounds, const responses<outbound> &outbounds)
       : inbounds{ inbounds }, outbounds{ outbounds } {
-		for (const auto &response : outbounds.valids) {
-			const auto trigger = inbounds.events.find(response.id());
-			if (trigger != inbounds.events.end()) {
-				matches.push_back(event::match<inbound, outbound>(trigger->second, response));
-			} else {
-				misses.push_back(response);
-			}
-		}
+        for (const auto &response : outbounds.valids) {
+            const auto trigger = inbounds.events.find(response.id());
+            if (trigger != inbounds.events.end()) {
+                matches.push_back(event::match<inbound, outbound>(trigger->second, response));
+            } else {
+                misses.push_back(response);
+            }
+        }
     }
 
 };
@@ -49,8 +49,8 @@ struct matcher {
 // Stream operator
 template <class inbound, class outbound>
 std::ostream &operator<<(std::ostream &out, const matcher<inbound, outbound> &matcher) {
-	return out << "  Matched: " << matcher.matches.size() << std::endl
-		       << "  Unmatched: " << matcher.misses.size() << std::endl;
+    return out << "  Matched: " << matcher.matches.size() << std::endl
+               << "  Unmatched: " << matcher.misses.size() << std::endl;
 }
 
 } }
