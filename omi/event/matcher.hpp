@@ -1,25 +1,25 @@
-#ifndef OMI_WIRESHARK_MATCHER_HPP_
-#define OMI_WIRESHARK_MATCHER_HPP_
+#ifndef OMI_EVENT_MATCHER_HPP_
+#define OMI_EVENT_MATCHER_HPP_
 
-#include <omi/wireshark/database.hpp>
-#include <omi/wireshark/events.hpp>
-#include <omi/wireshark/matching.hpp>
-#include <omi/wireshark/options.hpp>
+#include <omi/event/database.hpp>
+#include <omi/event/events.hpp>
+#include <omi/event/matches.hpp>
+#include <omi/event/inputs.hpp>
 
-    // Match wireshark events by id
+// Match inbound and outbound events
 
 namespace omi { 
-namespace wireshark {
+namespace event {
 
 template <class inbound, class outbound>
 struct matcher {
 
   //// Member Variables ///////////
 
-    const database<inbound> &inbounds;     // Inbound events database
-    const responses<outbound> &outbounds;  // Outbound response events
+    const database<inbound> &inbounds;        // Inbound events database
+    const responses<outbound> &outbounds;     // Outbound response events
 	matches<inbound, outbound> matches;    // Matches
-	std::vector<outbound> misses;          // Outbound repsonses without matching inbound event
+	std::vector<outbound> misses;                    // Outbound repsonses without matching inbound event
 
   //// Construction ///////////////
 
@@ -35,10 +35,9 @@ struct matcher {
     explicit matcher(const database<inbound> &inbounds, const responses<outbound> &outbounds)
       : inbounds{ inbounds }, outbounds{ outbounds } {
 		for (const auto &response : outbounds.valids) {
-			if (inbounds.has(response.id())) {
-				auto &trigger = inbounds.get(response.id());
-				auto matched = match<inbound, outbound>(trigger, response);
-				matches.push_back(matched);
+			const auto trigger = inbounds.events.find(response.id());
+			if (trigger != inbounds.events.end()) {
+				matches.push_back(event::match<inbound, outbound>(trigger->second, response));
 			} else {
 				misses.push_back(response);
 			}

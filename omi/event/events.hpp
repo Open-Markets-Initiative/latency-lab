@@ -1,5 +1,5 @@
-#ifndef OMI_WIRESHARK_OUTBOUND_EVENTS_HPP_
-#define OMI_WIRESHARK_OUTBOUND_EVENTS_HPP_
+#ifndef OMI_EVENT_EVENTS_HPP_
+#define OMI_EVENT_EVENTS_HPP_
 
 #include <string>
 #include <fstream>
@@ -10,7 +10,7 @@
 // Processed event records
 
 namespace omi { 
-namespace wireshark {
+namespace event {
 
 template <class record>
 struct events {

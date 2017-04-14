@@ -1,12 +1,12 @@
-#ifndef OMI_WIRESHARK_MATCHER_OPTIONS_HPP_
-#define OMI_WIRESHARK_MATCHER_OPTIONS_HPP_
+#ifndef OMI_EVENT_INPUTS_HPP_
+#define OMI_EVENT_INPUTS_HPP_
 
 #include <string>
 
     // Matcher input files
 
 namespace omi { 
-namespace wireshark {
+namespace event {
 
 struct inputs {
     std::string inbound;     // Inbound events file

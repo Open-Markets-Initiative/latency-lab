@@ -1,16 +1,14 @@
-#ifndef OMI_WIRESHARK_DATABASE_HPP_
-#define OMI_WIRESHARK_DATABASE_HPP_
-
-#include <omi/wireshark/event.hpp>
+#ifndef OMI_EVENT_DATABASE_HPP_
+#define OMI_EVENT_DATABASE_HPP_
 
 #include <fstream>
 #include <string>
 #include <unordered_map>
 
-// Events Database
+// Events database
 
 namespace omi { 
-namespace wireshark {
+namespace event {
 
 template <class record>
 struct database {
@@ -64,16 +62,6 @@ struct database {
     }
 
   /////////////////////////////////
-
-    // Is id a valid event?
-    bool has(typename record::identifier id) const {
-         return events.count(id) == 1;
-    }
-
-    // Find market record by id
-	record get(typename record::identifier id) const { // Check return value
-        return events.at(id);
-    }
 
     // Return total records count
     size_t records() const {

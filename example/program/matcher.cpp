@@ -2,13 +2,13 @@
 #include <example/events/outbound.hpp>
 
 #include <omi/latency/args.hpp>
-#include <omi/wireshark/matcher.hpp>
+#include <omi/event/matcher.hpp>
 #include <boost/program_options.hpp>
 
 // Generate an example report
 
 int main(int argc, char *argv[]) {
-    using matcher = omi::wireshark::matcher<example::inbound, example::outbound>;
+    using matcher = omi::event::matcher<example::inbound, example::outbound>;
 
     try {
         // Supported program options

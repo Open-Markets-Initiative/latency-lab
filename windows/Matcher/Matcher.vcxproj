@@ -21,15 +21,14 @@
   <ItemGroup>
     <ClInclude Include="..\..\example\events\inbound.hpp" />
     <ClInclude Include="..\..\example\events\outbound.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\database.hpp" />
+    <ClInclude Include="..\..\omi\event\database.hpp" />
+    <ClInclude Include="..\..\omi\event\events.hpp" />
+    <ClInclude Include="..\..\omi\event\inputs.hpp" />
+    <ClInclude Include="..\..\omi\event\match.hpp" />
+    <ClInclude Include="..\..\omi\event\matcher.hpp" />
+    <ClInclude Include="..\..\omi\event\matches.hpp" />
     <ClInclude Include="..\..\omi\wireshark\event.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\events.hpp" />
     <ClInclude Include="..\..\omi\wireshark\frame.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\match.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\matcher.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\matches.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\matching.hpp" />
-    <ClInclude Include="..\..\omi\wireshark\options.hpp" />
     <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp" />
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,9 @@
     <Filter Include="Header Files\wireshark">
       <UniqueIdentifier>{44e3dd8d-0d6c-4d89-8b12-946fc1b684bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\event">
+      <UniqueIdentifier>{0e91e589-87ee-4bb0-a9b4-715a30019c6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\example\events\inbound.hpp">
@@ -23,34 +26,31 @@
     <ClInclude Include="..\..\example\events\outbound.hpp">
       <Filter>Header Files\events</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\event\database.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\event\events.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\event\match.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\event\inputs.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\event\matcher.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\event\matches.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\omi\wireshark\event.hpp">
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
     <ClInclude Include="..\..\omi\wireshark\frame.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\match.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\matcher.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\matches.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\matching.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\options.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\database.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\events.hpp">
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
   </ItemGroup>

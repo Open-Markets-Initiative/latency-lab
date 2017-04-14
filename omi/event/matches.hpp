@@ -1,7 +1,7 @@
-#ifndef OMI_WIRESHARK_MATCHES_HPP_
-#define OMI_WIRESHARK_MATCHES_HPP_
+#ifndef OMI_EVENT_MATCHES_HPP_
+#define OMI_EVENT_MATCHES_HPP_
 
-#include <omi/wireshark/match.hpp>
+#include <omi/event/match.hpp>
 
 #include <vector>
 #include <sstream>
@@ -9,10 +9,10 @@
 // Matches 
 
 namespace omi { 
-namespace wireshark {
+namespace event {
 
 template <class trigger, class response>
-struct matches : std::vector<match<trigger, response>> {
+struct matches : std::vector<event::match<trigger, response>> {
 
     // Write vector to file 
     void write(const std::string &file) const {
@@ -39,7 +39,7 @@ struct matches : std::vector<match<trigger, response>> {
 
 // Stream operator
 template <class trigger, class response>
-inline std::ostream &operator<<(std::ostream &out, const matches<trigger, response> &matches) {
+std::ostream &operator<<(std::ostream &out, const matches<trigger, response> &matches) {
     return out << matches.output();
 }
 

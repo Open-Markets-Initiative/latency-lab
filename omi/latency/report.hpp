@@ -1,7 +1,8 @@
 #ifndef OMI_LATENCY_REPORT_DECLARATIONS_HPP_
 #define OMI_LATENCY_REPORT_DECLARATIONS_HPP_
 
-#include <omi/wireshark/matcher.hpp>
+#include <omi/event/matcher.hpp>
+#include <omi/analysis/deltas.hpp>
 #include <omi/latency/report/components.hpp> 
 #include <omi/latency/report/options.hpp>
 
@@ -22,17 +23,17 @@ void generate(int argc, char *argv[]) {
 
 	// Load all inbound events for trigger matching
 	if (options.verbose) { std::cout << "Loading inbound " << inbound::description << " events" << std::endl; }
-	const auto inbounds = wireshark::database<inbound>{ options.files.inbound };
+	const auto inbounds = event::database<inbound>{ options.files.inbound };
 	if (options.verbose) { std::cout << inbounds; }
 
 	// Load response events
 	if (options.verbose) { std::cout << "Loading outbound " << outbound::description << " responses" << std::endl; } // add file with boost filesystem
-	const auto outbounds = wireshark::responses<outbound>{ options.files.outbound };
+	const auto outbounds = event::responses<outbound>{ options.files.outbound };
 	if (options.verbose) { std::cout << outbounds; }
 
 	// Match events
 	if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-	const auto matched = wireshark::matcher<inbound, outbound>{ inbounds, outbounds };
+	const auto matched = event::matcher<inbound, outbound>{ inbounds, outbounds };
 	if (options.verbose) { std::cout << matched; }
 
 	// Generate report
@@ -40,7 +41,7 @@ void generate(int argc, char *argv[]) {
 
 	analysis::deltas deltas;
 	for (const auto &match : matched.matches) {     
-		deltas.push_back(analysis::delta(match.inbound.microseconds(), match.outbound.microseconds())); // make a class
+		deltas.push_back(analysis::delta(match.inbound.microseconds(), match.outbound.microseconds())); // how to handle this with tmp?
 	}
 
 	components report;

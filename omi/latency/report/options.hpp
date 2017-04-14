@@ -5,7 +5,6 @@
 #include <omi/program/settings.hpp>
 #include <omi/latency/args.hpp>
 #include <omi/latency/report/configuration.hpp>
-#include <omi/wireshark/options.hpp>
 
 //  Options for omi html latency report (single run)
 
@@ -18,21 +17,21 @@ struct options {
   //// Member Variables ///////////
 
     report::configuration report;  // Html report options
-    wireshark::inputs files;       // Match input files (this should be moved to analysis)
+    event::inputs files;           // Input files
     std::string path;              // Html report output path
 	bool verbose;
 
   //// Construction //////////////
 
     // Construct options from args or ini file
-	template<class T>
-	explicit options(const T &option, bool verbose) : verbose{ verbose }  {
+	template<class setting>
+	explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
+		files.inbound = option.template required<std::string>(::inbound::file::option);
+		files.outbound = option.template required<std::string>(::outbound::file::option);
         path = option.template required<std::string>(::html::report::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
-        files.inbound = option.template required<std::string>(::inbound::file::option);
-        files.outbound = option.template required<std::string>(::outbound::file::option);
     }
 
   //// Interface ////////////////

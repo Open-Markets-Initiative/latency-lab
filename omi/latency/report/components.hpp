@@ -7,7 +7,7 @@
 #include <omi/styles/one.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/report/configuration.hpp>
-#include <omi/wireshark/options.hpp> // should be in analysis
+#include <omi/event/inputs.hpp>
 
 // Generate single run html latency report
 
@@ -20,7 +20,7 @@ struct components {
   //// Member Variables ///////////
 
     report::configuration layout;  // Common layout options
-    wireshark::inputs files;       // Input and output files
+    event::inputs files;           // Input files
     std::vector<double> data;      // Ordered event times
 
   //// Methods ////////////////////
