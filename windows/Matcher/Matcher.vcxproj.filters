@@ -53,6 +53,9 @@
     <ClInclude Include="..\..\omi\wireshark\frame.hpp">
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\omi\event\info.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\example\program\matcher.cpp">

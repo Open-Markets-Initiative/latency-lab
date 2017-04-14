@@ -2,9 +2,8 @@
 #define OMI_LATENCY_REPORT_DECLARATIONS_HPP_
 
 #include <omi/event/matcher.hpp>
-#include <omi/analysis/deltas.hpp>
-#include <omi/latency/report/components.hpp> 
 #include <omi/latency/report/options.hpp>
+#include <omi/latency/report/components.hpp> 
 
 // Single run omi html latency report generation
 
@@ -38,7 +37,6 @@ void generate(int argc, char *argv[]) {
 
     // Generate report
     if (options.verbose) { std::cout << "Generating Report" << std::endl; }
-
     components report;
       report.layout = options.report;
       report.files = options.files;

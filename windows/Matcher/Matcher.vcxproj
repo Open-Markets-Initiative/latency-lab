@@ -23,6 +23,7 @@
     <ClInclude Include="..\..\example\events\outbound.hpp" />
     <ClInclude Include="..\..\omi\event\database.hpp" />
     <ClInclude Include="..\..\omi\event\events.hpp" />
+    <ClInclude Include="..\..\omi\event\info.hpp" />
     <ClInclude Include="..\..\omi\event\inputs.hpp" />
     <ClInclude Include="..\..\omi\event\match.hpp" />
     <ClInclude Include="..\..\omi\event\matcher.hpp" />
