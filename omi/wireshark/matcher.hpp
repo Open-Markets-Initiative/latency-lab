@@ -1,8 +1,8 @@
 #ifndef OMI_WIRESHARK_MATCHER_HPP_
 #define OMI_WIRESHARK_MATCHER_HPP_
 
-#include <omi/wireshark/events.hpp>
 #include <omi/wireshark/database.hpp>
+#include <omi/wireshark/events.hpp>
 #include <omi/wireshark/matching.hpp>
 #include <omi/wireshark/options.hpp>
 
@@ -16,46 +16,42 @@ struct matcher {
 
   //// Member Variables ///////////
 
-    const database<inbound> inbounds;    // All possible inbound trigger events      
-    const table<outbound> outbounds;     // Outbound response events
-    const matching events;               // Matched events (need to template on events) and get a deltas
+    const database<inbound> &inbounds;     // Inbound events database
+    const responses<outbound> &outbounds;  // Outbound response events
+	matches<inbound, outbound> matches;    // Matches
+	std::vector<outbound> misses;          // Outbound repsonses without matching inbound event
 
   //// Construction ///////////////
 
     // Construct from 2 file paths
     explicit matcher(const std::string &inbound_file, const std::string &outbound_file)
-      : inbounds{ inbound_file }, outbounds{ outbound_file }, events{ match(inbounds, outbounds) } { }
+	  : matcher{ database<inbound>{ inbound_file }, responses<outbound>{ outbound_file } } {}
 
     // Construct from matching inputs
     explicit matcher(const inputs &file)
-      : inbounds{ file.inbound }, outbounds{ file.outbound }, events{ match(inbounds, outbounds) } { }
+      : matcher{ database<inbound>{ file.inbound }, responses<outbound>{ file.outbound } } {}
 
-    // Construct from inbound and outbound events
-    explicit matcher(const database<inbound> &inbounds, const table<outbound> &outbounds)
-      : inbounds{ inbounds }, outbounds{ outbounds }, events{ match(inbounds, outbounds) } { }
-
-  //// Implementation /////////////
-
-    // Loop through outbound events and check if they match any inbound events
-    static matching match(const database<inbound> &inbounds, const table<outbound> &outbounds) {
-        matching results;
-        for (const auto &response : outbounds.valids) {
-            if (inbounds.has(response.identifier)) {
-                auto trigger = inbounds.get(response.identifier);
-                results.matches.push_back({ trigger, response });
-            } else {
-                results.misses.push_back(response);
-            }
-        }
-
-        return results;
+    // Construct from events
+    explicit matcher(const database<inbound> &inbounds, const responses<outbound> &outbounds)
+      : inbounds{ inbounds }, outbounds{ outbounds } {
+		for (const auto &response : outbounds.valids) {
+			if (inbounds.has(response.id())) {
+				auto &trigger = inbounds.get(response.id());
+				auto matched = match<inbound, outbound>(trigger, response);
+				matches.push_back(matched);
+			} else {
+				misses.push_back(response);
+			}
+		}
     }
+
 };
 
 // Stream operator
 template <class inbound, class outbound>
-inline std::ostream &operator<<(std::ostream &out, const matcher<inbound, outbound> &matcher) {
-    return out << matcher.events;
+std::ostream &operator<<(std::ostream &out, const matcher<inbound, outbound> &matcher) {
+	return out << "  Matched: " << matcher.matches.size() << std::endl
+		       << "  Unmatched: " << matcher.misses.size() << std::endl;
 }
 
 } }

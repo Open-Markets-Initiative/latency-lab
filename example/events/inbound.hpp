@@ -21,6 +21,8 @@ class inbound {
 
   public:
 
+	using identifier = std::string;
+
 	// Event description
 	static constexpr char * description = "sbe packet";
 
@@ -32,10 +34,17 @@ class inbound {
                     tokenize.string(sequence);
     }
 
-    // Create wireshark event from inbound record
-    omi::wireshark::event event() const noexcept {
-        return { frame, timestamp, sequence };
-    }
+  //// Interface //////////////////
+
+	// Return event identifier
+	identifier id() const noexcept {
+		return sequence;
+	}
+
+	// Return record timestamp in microseconds
+	double microseconds() const noexcept {
+		return timestamp * 1000000;
+	}
 
     // Is record valid?
     bool valid() const noexcept {

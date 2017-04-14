@@ -12,14 +12,14 @@
 namespace omi { 
 namespace wireshark {
 
-template <class record> // template on event
+template <class record>
 struct database {
 
   //// Member Variables ///////////
 
-    std::unordered_map<event::id, event> events;     // Events by id
-    std::vector<event> duplicates;                   // Duplicate events
-    std::vector<record> invalids;                    // Invalid records
+    std::unordered_map<typename record::identifier, record> events;    // Records by earliest time
+    std::vector<record> duplicates;                                    // Duplicate records
+    std::vector<record> invalids;                                      // Invalid records
 
   //// Construction ///////////////
 
@@ -44,15 +44,13 @@ struct database {
 
   //// Implementation /////////////
 
-    void process(const record &entry) {
-        if (entry.valid()) {
-            const auto &event = entry.event();
-
-            auto pair = events.find(event.identifier);
+    void process(const record &event) {
+        if (event.valid()) {
+            auto pair = events.find(event.id());
             if (pair == events.end()) {
                 // Add key to inbound events database
-                events.insert({ event.identifier, event });           
-            } else if (pair->second.frame.timestamp > event.frame.timestamp) {
+                events.insert({ event.id(), event });
+            } else if (pair->second.microseconds() > event.microseconds()) {
                 // Duplicate events can be captured out of order
                 duplicates.push_back(pair->second);
                 pair->second = event;
@@ -62,18 +60,18 @@ struct database {
             }
         }
 
-        return invalids.push_back(entry);
+        return invalids.push_back(event);
     }
 
   /////////////////////////////////
 
     // Is id a valid event?
-    bool has(event::id id) const {
+    bool has(typename record::identifier id) const {
          return events.count(id) == 1;
     }
 
     // Find market record by id
-    event get(event::id id) const {
+	record get(typename record::identifier id) const { // Check return value
         return events.at(id);
     }
 

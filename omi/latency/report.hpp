@@ -27,7 +27,7 @@ void generate(int argc, char *argv[]) {
 
 	// Load response events
 	if (options.verbose) { std::cout << "Loading outbound " << outbound::description << " responses" << std::endl; } // add file with boost filesystem
-	const auto outbounds = wireshark::table<outbound>{ options.files.outbound };
+	const auto outbounds = wireshark::responses<outbound>{ options.files.outbound };
 	if (options.verbose) { std::cout << outbounds; }
 
 	// Match events
@@ -37,10 +37,16 @@ void generate(int argc, char *argv[]) {
 
 	// Generate report
 	if (options.verbose) { std::cout << "Generating Report" << std::endl; }
+
+	analysis::deltas deltas;
+	for (const auto &match : matched.matches) {     
+		deltas.push_back(analysis::delta(match.inbound.microseconds(), match.outbound.microseconds())); // make a class
+	}
+
 	components report;
 	  report.layout = options.report;
 	  report.files = options.files;
-	  report.data = matched.events.deltas().values(); // Need to make this better
+	  report.data = deltas.values();
 	report.write(options.path);
 };
 

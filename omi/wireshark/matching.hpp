@@ -11,30 +11,17 @@
 namespace omi {
 namespace wireshark {
 
+template <class inbound, class outbound>
 struct matching {
 
   //// Member Variables ///////////
 
-    wireshark::matches matches;
-    std::vector<event> misses;
-
-  //// Implementation /////////////
-
-    // Match events and calculate deltas ...needs to go? add this to matches
-    analysis::deltas deltas() const {
-        // Loop through list events and create deltas
-        analysis::deltas values;
-        for (const auto &match : matches) {  // std::transform?       
-            values.push_back({match.inbound.microseconds(), match.outbound.microseconds(), 9 }); // move to match
-        }
-
-        return values;
-    }
 
 };
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const matching &events) {
+template <class inbound, class outbound>
+std::ostream &operator<<(std::ostream &out, const matching<inbound, outbound> &events) {
     return out << "  Matched: " << events.matches.size() << std::endl
                << "  Unmatched: " << events.misses.size() << std::endl;
 }

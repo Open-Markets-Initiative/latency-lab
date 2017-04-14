@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
         // Writes matches file
         if (values.count(matching::file::option) != 0) {
             auto file = values[matching::file::option].as<std::string>();
-            wireshark.events.matches.write(file);
+            wireshark.matches.write(file);
         }
     } catch (std::exception &exception) {
         std::cerr << "Error: " << exception.what() << std::endl;

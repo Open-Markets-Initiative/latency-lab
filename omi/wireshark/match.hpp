@@ -1,8 +1,6 @@
 #ifndef OMI_WIRESHARK_MATCH_HPP_
 #define OMI_WIRESHARK_MATCH_HPP_
 
-#include <omi/wireshark/event.hpp>
-
 #include <iostream>
 
 // Matched events 
@@ -10,24 +8,25 @@
 namespace omi { 
 namespace wireshark {
 
-struct match { // template on event...remove id
+template <class trigger, class response>
+struct match {
 
   //// Member Variables ///////////
 
-    frame inbound;                 // Inbound trigger event wireshark frame 
-    frame outbound;                // Triggered outbound 
-    event::id id;                  // Event id
+	trigger inbound;                  // Inbound trigger event wireshark frame
+	response outbound;                // Triggered outbound 
 
   //// Construction ///////////////
 
     // Standard constructor
-    match(const event &inbound, const event &outbound)
-      : inbound{ inbound.frame }, outbound{ outbound.frame }, id{ inbound.identifier } {}
+    match(const trigger &inbound, const response &outbound)
+      : inbound{ inbound }, outbound{ outbound }{}
 };
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const match &match) {
-    return out << match.inbound << "," << match.outbound << "," << match.id;
+template <class trigger, class response>
+std::ostream &operator<<(std::ostream &out, const match<trigger, response> &match) {
+	return out;  //out << match.inbound << " | " << match.outbound;
 }
 
 } }

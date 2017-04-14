@@ -23,13 +23,7 @@
     <ClInclude Include="..\..\example\events\outbound.hpp">
       <Filter>Header Files\events</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\database.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\wireshark\event.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\events.hpp">
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
     <ClInclude Include="..\..\omi\wireshark\frame.hpp">
@@ -51,6 +45,12 @@
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
     <ClInclude Include="..\..\omi\wireshark\options.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\database.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\events.hpp">
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
   </ItemGroup>

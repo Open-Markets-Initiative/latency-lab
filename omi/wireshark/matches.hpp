@@ -11,7 +11,8 @@
 namespace omi { 
 namespace wireshark {
 
-struct matches : std::vector<match> {
+template <class trigger, class response>
+struct matches : std::vector<match<trigger, response>> {
 
     // Write vector to file 
     void write(const std::string &file) const {
@@ -37,7 +38,8 @@ struct matches : std::vector<match> {
 };
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const matches &matches) {
+template <class trigger, class response>
+inline std::ostream &operator<<(std::ostream &out, const matches<trigger, response> &matches) {
     return out << matches.output();
 }
 

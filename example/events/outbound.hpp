@@ -23,6 +23,8 @@ class outbound {
 
   public:
 
+	  using identifier = std::string;
+
 	  // Event description
 	  static constexpr char * description = "fix message";
 
@@ -37,10 +39,17 @@ class outbound {
                     tokenize.string(value9717);
     }
 
-    // Create wireshark event from parsed outbound record
-    omi::wireshark::event event() const noexcept {
-        return { frame, timestamp, value9717 };
-    }
+  //// Interface //////////////////
+
+	// Return event id
+	identifier id() const noexcept {
+		return value9717;
+	}
+
+	// Return record timestamp in microseconds
+	double microseconds() const noexcept {
+		return timestamp * 1000000;
+	}
 
     // Is record valid?
     bool valid() const noexcept {
