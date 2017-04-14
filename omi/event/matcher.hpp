@@ -1,10 +1,10 @@
 #ifndef OMI_EVENT_MATCHER_HPP_
 #define OMI_EVENT_MATCHER_HPP_
 
+#include <omi/event/inputs.hpp>
 #include <omi/event/database.hpp>
 #include <omi/event/events.hpp>
 #include <omi/event/matches.hpp>
-#include <omi/event/inputs.hpp>
 
 // Match inbound and outbound events
 
@@ -16,24 +16,21 @@ struct matcher {
 
   //// Member Variables ///////////
 
-    const database<inbound> &inbounds;        // Inbound events database
-    const responses<outbound> &outbounds;     // Outbound response events
-    matches<inbound, outbound> matches;    // Matches
-    std::vector<outbound> misses;                    // Outbound repsonses without matching inbound event
+    matches<inbound, outbound> matches;       // Matched events
+    std::vector<outbound> misses;             // Outbound repsonses without matching inbound event
 
   //// Construction ///////////////
 
     // Construct from 2 file paths
-    explicit matcher(const std::string &inbound_file, const std::string &outbound_file)
-      : matcher{ database<inbound>{ inbound_file }, responses<outbound>{ outbound_file } } {}
+    explicit matcher(const std::string &inbounds, const std::string &outbounds)
+      : matcher{ database<inbound>{ inbounds }, responses<outbound>{ outbounds } } {}
 
-    // Construct from matching inputs
+    // Construct from event inputs
     explicit matcher(const inputs &file)
-      : matcher{ database<inbound>{ file.inbound }, responses<outbound>{ file.outbound } } {}
+      : matcher{ file.inbound, file.outbound } {}
 
     // Construct from events
-    explicit matcher(const database<inbound> &inbounds, const responses<outbound> &outbounds)
-      : inbounds{ inbounds }, outbounds{ outbounds } {
+    explicit matcher(const database<inbound> &inbounds, const responses<outbound> &outbounds) {
         for (const auto &response : outbounds.valids) {
             const auto trigger = inbounds.events.find(response.id());
             if (trigger != inbounds.events.end()) {
@@ -43,6 +40,8 @@ struct matcher {
             }
         }
     }
+
+    //// Methods ///////////////
 
 };
 

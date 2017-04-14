@@ -39,15 +39,10 @@ void generate(int argc, char *argv[]) {
     // Generate report
     if (options.verbose) { std::cout << "Generating Report" << std::endl; }
 
-    analysis::deltas deltas;
-    for (const auto &match : matched.matches) {     
-        deltas.push_back(analysis::delta(match.inbound.microseconds(), match.outbound.microseconds())); // how to handle this with tmp?
-    }
-
     components report;
       report.layout = options.report;
       report.files = options.files;
-      report.data = deltas.values();
+      report.data = matched.matches.deltas();
     report.write(options.path);
 };
 

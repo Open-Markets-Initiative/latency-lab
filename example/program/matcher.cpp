@@ -5,6 +5,8 @@
 #include <omi/event/matcher.hpp>
 #include <boost/program_options.hpp>
 
+#include <iostream>
+
 // Generate an example report
 
 int main(int argc, char *argv[]) {

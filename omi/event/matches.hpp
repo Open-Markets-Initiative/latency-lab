@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <sstream>
+#include <omi/analysis/deltas.hpp>
 
 // Matches 
 
@@ -13,6 +14,27 @@ namespace event {
 
 template <class trigger, class response>
 struct matches : std::vector<event::match<trigger, response>> {
+
+    // Build list of deltas from matches
+    analysis::deltas values() const {  // use transform
+        analysis::deltas deltas;
+        for (const auto &match : *this) {
+            deltas.push_back(match.delta());
+        }
+        return deltas;
+    }
+
+    // make one called events...need better names
+
+    // Build list of delta times from matches
+    std::vector<double> deltas() const { // use transform
+        std::vector<double> result;
+        // result.reserve(*this.size()); figure out how to reserve
+        for (const auto &match : *this) {
+            result.push_back(match.time());
+        }
+        return result;
+    }
 
     // Write vector to file 
     void write(const std::string &file) const {
