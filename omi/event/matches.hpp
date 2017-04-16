@@ -15,26 +15,26 @@ namespace event {
 template <class trigger, class response>
 struct matches : std::vector<event::match<trigger, response>> {
 
-    // Build list of deltas from matches
-    analysis::deltas values() const {  // use transform?
+    // Build list of delta times from matches
+    std::vector<double> deltas() const { // use transform
+        std::vector<double> result; // TODO: figure out how to reserve
+        for (const auto &match : *this) {
+            result.push_back(match.delta()); // make a way to template precision
+        }
+
+        return result;
+    }
+
+/*
+    // Make one called infos...need better names
+    analysis::deltas info() const {
         analysis::deltas deltas;
         for (const auto &match : *this) {
             deltas.push_back(match.delta());
         }
         return deltas;
     }
-
-    // make one called events...need better names
-
-    // Build list of delta times from matches
-    std::vector<double> deltas() const { // use transform
-        std::vector<double> result;
-        // TODO: figure out how to reserve
-        for (const auto &match : *this) {
-            result.push_back(match.time());
-        }
-        return result;
-    }
+*/
 
     // Write matches to file 
     void write(const std::string &path) const {

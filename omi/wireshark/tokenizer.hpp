@@ -1,7 +1,10 @@
 #ifndef OMI_WIRESHARK_TOKENIZER_HPP_
 #define OMI_WIRESHARK_TOKENIZER_HPP_
 
-#include <omi/wireshark/frame.hpp>
+#include <omi/types/frame.hpp>
+#include <omi/types/timestamp.hpp>
+
+#include <iso646.h>
 
 // Optimized wireshark tokenizer
 
@@ -48,7 +51,7 @@ public:
     }
 
     // Optimized wireshark frame number parse method
-    bool frame(frame::number &field) {
+    bool frame(omi::frame &field) {
         if (not token()) { return false; }
 
         auto value = 0;
@@ -62,29 +65,34 @@ public:
     }
 
     // Optimized wireshark timestamp parse method
-    bool timestamp(frame::time &field) {
+    bool timestamp(omi::timestamp &field) {
         if (not token()) { return false; }
 
-        auto value = 0.0;
+        uint64_t seconds{ 0 };
         for (; *current != delimiter and *current != '\0' and *current != dot; current++) {
             if (*current < '0' or *current > '9') { return false; }
-            value = (value * 10) + (*current - '0');
+            seconds = (seconds * 10) + (*current - '0');
         }
 
+        uint64_t nanoseconds{ 0 };
         if (*current == dot) {
-            auto decimal = 0.0;
             auto precision = 0;
             current++;
             for (; *current != delimiter and *current != '\0' ; current++, precision++) {
                 if (*current < '0' or *current > '9') { return false; }
-                decimal = (decimal * 10) + (*current - '0');
+                nanoseconds = (nanoseconds * 10) + (*current - '0');
             }
-            value += decimal / std::pow(10.0, precision);
+
+            if (precision < 9) {
+                nanoseconds *= 9 - precision;
+            } else if (precision > 9) {
+                nanoseconds /= precision - 9;
+            }
         }
 
         if (current != nullptr) { current++; }
         
-        field = value;
+        field = omi::timestamp(seconds, nanoseconds);
         
         return true;
     }
@@ -92,7 +100,7 @@ public:
   //// Utility Methods ////////////
 
     // Does string have another token?
-    bool token() const { // rename
+    bool token() const {
         return current != nullptr;
     }
 

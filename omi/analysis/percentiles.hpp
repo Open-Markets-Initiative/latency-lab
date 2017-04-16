@@ -28,14 +28,12 @@ struct percentiles {
     double p01  { 0.};
     double p00  { 0.};
 
-    std::string name{ "Percentiles" };
-    size_t precision { 4 };
+    size_t precision { 3 };
 
   //// Construction ///////////////
 
     // Default constructor
-    percentiles()
-      : count(0) {}
+    percentiles() {}
 
     // Standard constructor (uses a copy - is this best?)
     explicit percentiles(std::vector<double> values) {
@@ -49,7 +47,7 @@ struct percentiles {
         p00 = values.front();
         p100 = values.back();
 
-        // What is the better order for these?
+        // What is the best order for these?
         p01 = percentile::element(values, 01);
         p10 = percentile::element(values, 10);
         p25 = percentile::element(values, 25);
@@ -63,8 +61,7 @@ struct percentiles {
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const percentiles &percentile) {
-    return out << percentile.name.c_str() << std::endl
-               << std::fixed << std::setprecision(percentile.precision)
+    return out << std::fixed << std::setprecision(percentile.precision)
                << "  Max: " << percentile.p100 << std::endl
                << "  99%: " << percentile.p99 << std::endl
                << "  90%: " << percentile.p90 << std::endl

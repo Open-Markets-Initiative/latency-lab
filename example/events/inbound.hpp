@@ -1,7 +1,6 @@
 #ifndef OMI_EXAMPLE_INBOUND_EVENT_HPP_
 #define OMI_EXAMPLE_INBOUND_EVENT_HPP_
 
-#include <omi/wireshark/event.hpp>
 #include <omi/wireshark/tokenizer.hpp>
 
 // Example tshark filtered inbound event
@@ -11,8 +10,8 @@ namespace example {
 class inbound {
 
     // Inbound trigger event record fields
-    omi::wireshark::frame::number frame;
-    omi::wireshark::frame::time timestamp;
+    omi::frame frame;
+    omi::timestamp timestamp;
     std::string sequence;
 
     // Record properties
@@ -42,8 +41,8 @@ class inbound {
     }
 
     // Return record timestamp in microseconds
-    double microseconds() const noexcept {
-        return timestamp * 1000000;
+    omi::timestamp time() const noexcept {
+        return timestamp;
     }
 
     // Is record valid?

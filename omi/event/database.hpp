@@ -48,7 +48,7 @@ struct database {
             if (pair == events.end()) {
                 // Add key to inbound events database
                 events.insert({ event.id(), event });
-            } else if (pair->second.microseconds() > event.microseconds()) {
+            } else if (pair->second.time() > event.time()) {
                 // Duplicate events can be captured out of order
                 duplicates.push_back(pair->second);
                 pair->second = event;
@@ -67,17 +67,15 @@ struct database {
     size_t records() const {
         return events.size() + duplicates.size() + invalids.size();
     }
-
 };
-
 
 // Stream operator
 template <class record>
 std::ostream &operator<<(std::ostream &out, const database<record> &database) {
-    return out << "  Processed Records: " << database.records() << std::endl
-               << "  Event Ids: " << database.events.size() << std::endl
-               << "  Duplicate Events: " << database.duplicates.size() << std::endl
-               << "  Invalid Records: " << database.invalids.size() << std::endl ;
+    return out << "  Processed: " << database.records() << std::endl
+               << "  Valid: " << database.events.size() << std::endl
+               << "  Duplicate: " << database.duplicates.size() << std::endl
+               << "  Invalid: " << database.invalids.size() << std::endl;
 }
 
 } }

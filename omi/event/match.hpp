@@ -25,20 +25,17 @@ struct match {
 
   //// Interface ///////////////
 
-    // Calculate time delta
-    analysis::delta delta() const {
-        return analysis::delta{trigger.microseconds(), response.microseconds()};
-    }
-
     // Return identifier
     typename inbound::identifier id() const {
         return trigger.id();
     }
 
-    // Return time // need new name
-    double time() const {
-        return std::abs( trigger.microseconds() - response.microseconds());
+    // Return time delta
+    double delta() const { // need to make this professional
+        return (response.time().nanoseconds() - trigger.time().nanoseconds()) / 1000.;
     }
+
+    // Todo: Make an info version
 };
 
 // Stream operator

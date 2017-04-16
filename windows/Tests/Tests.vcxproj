@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\tests\analysis\percentile.cpp" />
     <ClCompile Include="..\..\tests\tests.cpp" />
+    <ClCompile Include="..\..\tests\types\timestamp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

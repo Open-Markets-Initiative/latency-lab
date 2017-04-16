@@ -18,6 +18,9 @@
     <Filter Include="Header Files\event">
       <UniqueIdentifier>{0e91e589-87ee-4bb0-a9b4-715a30019c6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\types">
+      <UniqueIdentifier>{8e1163c5-b2de-426a-9406-43a5974e0be7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\example\events\inbound.hpp">
@@ -47,14 +50,14 @@
     <ClInclude Include="..\..\omi\event\matches.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\event.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\frame.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\event\info.hpp">
       <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\types\timestamp.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\types\frame.hpp">
+      <Filter>Header Files\types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -34,6 +34,7 @@ inline std::ostream &operator<<(std::ostream &out, const percentiles &table) {
                << table.whitespace <<   html::element{"th", "0%", indent::two}
                << table.whitespace << html::close{"tr"}
                << table.whitespace << html::tag{"tr"}
+               << std::fixed << std::setprecision(table.percents.precision)
                << table.whitespace <<   html::open{"td", indent::two} << table.percents.p100 << html::close{"td"}
                << table.whitespace <<   html::open{"td", indent::two} << table.percents.p99 << html::close{"td"}
                << table.whitespace <<   html::open{"td", indent::two} << table.percents.p90 << html::close{"td"}
