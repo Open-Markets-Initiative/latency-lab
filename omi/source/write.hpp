@@ -16,8 +16,6 @@ void write(const output &report, const std::string &path) {
         throw std::invalid_argument("Invalid file: " + path);
     }
 
-    // TODO: Print some empty html when there are no values...how to do this?
-
     stream << report;
 }
 

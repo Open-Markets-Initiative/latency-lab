@@ -16,14 +16,14 @@ struct matcher {
 
   //// Member Variables ///////////
 
-    matches<inbound, outbound> matches;       // Matched events
-    std::vector<outbound> misses;             // Outbound repsonses without matching inbound event
+    matches<inbound, outbound> matches;  // Matched events
+    std::vector<outbound> misses;        // Outbound repsonses without matching inbound event
 
   //// Construction ///////////////
 
     // Construct from 2 file paths
     explicit matcher(const std::string &inbounds, const std::string &outbounds)
-      : matcher{ database<inbound>{ inbounds }, responses<outbound>{ outbounds } } {}
+      : matcher{ database<inbound>::read(inbounds), responses<outbound>::read(outbounds) } {}
 
     // Construct from event inputs
     explicit matcher(const inputs &file)

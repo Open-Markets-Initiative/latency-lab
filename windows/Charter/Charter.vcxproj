@@ -45,6 +45,7 @@
     <ClInclude Include="..\..\omi\latency\report\options.hpp" />
     <ClInclude Include="..\..\omi\program\options.hpp" />
     <ClInclude Include="..\..\omi\program\settings.hpp" />
+    <ClInclude Include="..\..\omi\source\read.hpp" />
     <ClInclude Include="..\..\omi\source\whitespace.hpp" />
     <ClInclude Include="..\..\omi\source\write.hpp" />
     <ClInclude Include="..\..\omi\styles\one.hpp" />

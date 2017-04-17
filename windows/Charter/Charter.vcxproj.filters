@@ -128,6 +128,9 @@
     <ClInclude Include="..\..\omi\latency\report.hpp">
       <Filter>Header Files\report</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\omi\source\read.hpp">
+      <Filter>Header Files\source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

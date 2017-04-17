@@ -65,7 +65,7 @@ public:
     }
 
     // Optimized wireshark timestamp parse method
-    bool timestamp(omi::timestamp &field) {
+    bool wireshark(omi::timestamp &field) {
         if (not token()) { return false; }
 
         uint64_t seconds{ 0 };

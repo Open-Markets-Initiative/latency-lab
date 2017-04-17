@@ -22,12 +22,12 @@ void generate(int argc, char *argv[]) {
 
     // Load all inbound events for trigger matching
     if (options.verbose) { std::cout << "Loading inbound " << inbound::description << " events" << std::endl; }
-    const auto inbounds = event::database<inbound>{ options.files.inbound };
+    const auto inbounds = event::database<inbound>::read(options.files.inbound);
     if (options.verbose) { std::cout << inbounds; }
 
     // Load response events
     if (options.verbose) { std::cout << "Loading outbound " << outbound::description << " responses" << std::endl; } // add file with boost filesystem
-    const auto outbounds = event::responses<outbound>{ options.files.outbound };
+    const auto outbounds = event::responses<outbound>::read(options.files.outbound);
     if (options.verbose) { std::cout << outbounds; }
 
     // Match events

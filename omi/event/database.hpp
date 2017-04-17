@@ -1,8 +1,9 @@
 #ifndef OMI_EVENT_DATABASE_HPP_
 #define OMI_EVENT_DATABASE_HPP_
 
-#include <fstream>
-#include <string>
+#include <omi/source/read.hpp>
+
+#include <vector>
 #include <unordered_map>
 
 // Events database
@@ -24,20 +25,9 @@ struct database {
     // Default constructor
     database() {}
 
-    // Standard constructor
-    explicit database(const std::string &file) {
-        // Verify file
-        std::ifstream stream(file.c_str());
-        if (stream.bad()) {
-            throw std::invalid_argument("Invalid file: " + file);
-        }
-
-        // Parse and process records
-        std::string entry;
-        uint32_t number = 0;
-        while (std::getline(stream, entry)) {
-            process(record(entry, ++number));
-        }
+    // Static constructor for record by line file
+    static database<record> read(const std::string &file) {
+        return source::read<database<record>, record>(file);
     }
 
   //// Implementation /////////////

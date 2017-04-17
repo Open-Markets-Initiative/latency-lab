@@ -22,16 +22,17 @@ class outbound {
 
   public:
 
-      using identifier = std::string;
+    // Identifier type
+    using identifier = std::string;
 
-      // Event description
-      static constexpr char * description = "ilink fix message";
+    // Event description
+    static constexpr char * description = "ilink fix message";
 
     // Construct from record
     explicit outbound(const std::string &record, uint32_t number = 0) : line{ number } {
         auto tokenize = omi::wireshark::tokenizer{ record };
         processed = tokenize.frame(frame) and 
-                    tokenize.timestamp(timestamp) and
+                    tokenize.wireshark(timestamp) and
                     tokenize.string(tag9702) and
                     tokenize.string(tag9717) and
                     tokenize.string(value9702) and
