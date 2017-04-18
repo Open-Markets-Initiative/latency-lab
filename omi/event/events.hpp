@@ -15,8 +15,8 @@ struct events {
 
   //// Member Variables ///////////
 
-    std::vector<record> valids;          // Valid processed events
-    std::vector<record> invalids;        // Invalid records
+    std::vector<record> valids;    // Valid processed events
+    std::vector<record> invalids;  // Invalid records
 
   //// Construction ///////////////
 
@@ -24,8 +24,8 @@ struct events {
     events() {}
 
     // Static constructor for record by line file
-    static events<record> read(const std::string &file) {
-        return source::read<events<record>, record>(file); // TODO: verify this does not create a copy
+    static auto read(const std::string &file) {
+        return source::read<events, record>(file); // TODO: verify this does not create a copy
     }
 
   //// Implementation /////////////
@@ -45,7 +45,7 @@ struct events {
     }
 };
 
-// convenience template for responses
+// Convenience alias for responses
 template<class outbound> using responses = events<outbound>;
 
 // Stream operator

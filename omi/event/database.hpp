@@ -25,9 +25,9 @@ struct database {
     // Default constructor
     database() {}
 
-    // Static constructor for record by line file
-    static database<record> read(const std::string &file) {
-        return source::read<database<record>, record>(file);
+    // Static constructor for reading records from line by line file
+    static auto read(const std::string &file) {
+        return source::read<database, record>(file);
     }
 
   //// Implementation /////////////

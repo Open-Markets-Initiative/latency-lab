@@ -4,13 +4,13 @@
 #include <fstream>
 #include <string>
 
-// Write any output to file
+// Read records line by line
 
 namespace omi {
 namespace source {
 
 template<class input, class record>
-input read(const std::string &path) {
+auto read(const std::string &path) {
     // Verify file
     std::ifstream stream(path.c_str());
     if (stream.bad()) {
@@ -19,11 +19,12 @@ input read(const std::string &path) {
 
     input result;
 
-    // Parse and process records
-    std::string entry;
-    uint32_t number = 0;
-    while (std::getline(stream, entry)) {
-        result.process(record(entry, ++number));
+    // Process records
+    std::string line;
+    auto number{ 0u };
+    while (std::getline(stream, line)) {
+        auto entry = record{line, ++number};
+        result.process(entry);
     }
 
     return result;
