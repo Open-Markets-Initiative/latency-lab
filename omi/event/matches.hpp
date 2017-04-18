@@ -25,16 +25,16 @@ struct matches : std::vector<event::match<trigger, response>> {
         return result;
     }
 
-/*
-    // Make one called infos...need better names
-    analysis::deltas info() const {
-        analysis::deltas deltas;
+
+    // Make one called infos
+    auto infos() const {
+        std::vector<info<trigger, response>> result;
         for (const auto &match : *this) {
-            deltas.push_back(match.delta());
+            result.push_back(match.info());
         }
-        return deltas;
+        return result;
     }
-*/
+
 
     // Write matches to file 
     void write(const std::string &path) const {

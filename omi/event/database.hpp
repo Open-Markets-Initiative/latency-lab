@@ -16,9 +16,11 @@ struct database {
 
   //// Member Variables ///////////
 
-    std::unordered_map<typename record::identifier, record> events;    // Records by earliest time
-    std::vector<record> duplicates;                                    // Duplicate records
-    std::vector<record> invalids;                                      // Invalid records
+    // Record database (events by id: earliest time)
+    std::unordered_map<decltype(std::declval<record>().id()), record> events;
+
+    std::vector<record> duplicates;      // Duplicate records
+    std::vector<record> invalids;        // Invalid records
 
   //// Construction ///////////////
 
@@ -34,10 +36,11 @@ struct database {
 
     void process(const record &event) {
         if (event.valid()) {
-            auto pair = events.find(event.id());
+            const auto &key = event.id();
+            auto pair = events.find(key);
             if (pair == events.end()) {
                 // Add key to inbound events database
-                events.insert({ event.id(), event });
+                events.insert({ key, event });
             } else if (pair->second.time() > event.time()) {
                 // Duplicate events can be captured out of order
                 duplicates.push_back(pair->second);

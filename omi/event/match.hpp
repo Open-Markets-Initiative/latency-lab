@@ -2,6 +2,7 @@
 #define OMI_EVENT_MATCH_HPP_
 
 #include <omi/analysis/delta.hpp>
+#include <omi/event/info.hpp>
 
 // Matched events 
 
@@ -23,10 +24,10 @@ struct match {
     match(const inbound &trigger, const outbound &response)
       : trigger{ trigger }, response{ response } {}
 
-  //// Interface ///////////////
+  //// Methods ////////////////////
 
-    // Return identifier
-    typename inbound::identifier id() const {
+    // Return match identifier
+    auto id() const {
         return trigger.id();
     }
 
@@ -35,13 +36,16 @@ struct match {
         return (response.time().nanoseconds() - trigger.time().nanoseconds()) / 1000.;
     }
 
-    // Todo: Make an info version
+    // Todo: Make an info 
+    auto info() const {
+        return event::info<inbound, outbound>{trigger, response};
+    }
 };
 
 // Stream operator
 template <class inbound, class outbound>
 std::ostream &operator<<(std::ostream &out, const match<inbound, outbound> &match) {
-    return out;  //TODO: out << match.inbound << " | " << match.outbound;
+    return out; // TODO: << match.trigger << " | " << match.response;
 }
 
 } }

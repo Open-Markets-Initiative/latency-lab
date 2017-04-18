@@ -3,13 +3,18 @@
 
 #include <omi/wireshark/tokenizer.hpp>
 
-// Example tshark filtered outbound event
+// Example outbound event
 
 namespace example {
 
-class outbound {
+struct outbound {
 
-    // Outbound triggered event (cme fix fields)
+  //// Member Variables ///////////
+
+    // Event description
+    static constexpr char * description = "ilink fix message";
+
+    // Outbound triggered event fields (cme fix)
     omi::frame frame;
     omi::timestamp timestamp;
     std::string tag9702;
@@ -20,35 +25,34 @@ class outbound {
     uint32_t line;
     bool processed { false };
 
-  public:
+  //// Construction ///////////////
 
-    // Identifier type
-    using identifier = std::string;
-
-    // Event description
-    static constexpr char * description = "ilink fix message";
-
-    // Construct from record
+    // Construct from csv record string
     explicit outbound(const std::string &record, uint32_t number = 0) : line{ number } {
-        auto tokenize = omi::wireshark::tokenizer{ record };
-        processed = tokenize.frame(frame) and 
-                    tokenize.wireshark(timestamp) and
-                    tokenize.string(tag9702) and
-                    tokenize.string(tag9717) and
-                    tokenize.string(value9702) and
-                    tokenize.string(value9717);
+        auto parse = omi::wireshark::tokenizer{ record };
+        processed = parse.frame(frame) and 
+                    parse.wireshark(timestamp) and
+                    parse.string(tag9702) and
+                    parse.string(tag9717) and
+                    parse.string(value9702) and
+                    parse.string(value9717);
     }
 
-  //// Interface //////////////////
+  //// Methods ////////////////////
 
     // Return event id
-    identifier id() const noexcept {
+    std::string id() const noexcept {
         return value9717;
     }
 
     // Return record timestamp
     omi::timestamp time() const noexcept {
         return timestamp;
+    }
+
+    // Return event info
+    omi::frame info() const noexcept {
+        return frame;
     }
 
     // Is record valid?

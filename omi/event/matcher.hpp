@@ -21,7 +21,7 @@ struct matcher {
 
   //// Construction ///////////////
 
-    // Construct from 2 file paths
+    // Construct from 2 file paths (make these static
     explicit matcher(const std::string &inbounds, const std::string &outbounds)
       : matcher{ database<inbound>::read(inbounds), responses<outbound>::read(outbounds) } {}
 

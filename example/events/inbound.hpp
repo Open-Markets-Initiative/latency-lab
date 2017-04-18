@@ -3,46 +3,50 @@
 
 #include <omi/wireshark/tokenizer.hpp>
 
-// Example tshark filtered inbound event
+// Example inbound event
 
 namespace example { 
 
-class inbound {
+struct inbound {
 
-    // Inbound trigger event record fields
-    omi::frame frame;
-    omi::timestamp timestamp;
-    std::string sequence;
+  //// Member Variables ///////////
+
+    static constexpr char * description = "sbe market data";
+
+    // Inbound sbe market data event fields
+    omi::frame frame;              // Pcap frame number from tshark csv
+    omi::timestamp timestamp;      // Pcap time in nanoseconds from tshark csv
+    std::string sequence;          // Sbe message sequence number
 
     // Record properties
-    uint32_t line;                 // tshark csv record number
+    uint32_t line;                 // Record line number in file
     bool processed { false };      // Was record processed correctly?
 
-  public:
+  //// Construction ///////////////
 
-    using identifier = std::string;
-
-    // Event description
-    static constexpr char * description = "sbe packet";
-
-    // Construct from csv record
+    // Construct from csv record string
     explicit inbound(const std::string &record, uint32_t number = 0) : line{ number } {
-        auto tokenize = omi::wireshark::tokenizer{ record };
-        processed = tokenize.frame(frame) and
-                    tokenize.wireshark(timestamp) and
-                    tokenize.string(sequence);
+        auto parse = omi::wireshark::tokenizer{ record };
+        processed = parse.frame(frame) and
+                    parse.wireshark(timestamp) and
+                    parse.string(sequence);
     }
 
-  //// Interface //////////////////
+  //// Methods ////////////////////
 
     // Return event identifier
-    identifier id() const noexcept {
+    std::string id() const noexcept {
         return sequence;
     }
 
-    // Return record timestamp in microseconds
+    // Return event timestamp
     omi::timestamp time() const noexcept {
         return timestamp;
+    }
+
+    // Return event info
+    omi::frame info() const noexcept {
+        return frame;
     }
 
     // Is record valid?
