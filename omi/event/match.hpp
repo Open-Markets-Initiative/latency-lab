@@ -4,14 +4,22 @@
 #include <omi/analysis/delta.hpp>
 #include <omi/event/info.hpp>
 
+#include <type_traits>
+
 // Matched events 
 
 namespace omi {
 namespace event {
 
+// Are records matchable?
+template <class inbound, class outbound>
+constexpr bool is_matchable = std::is_same_v<decltype(std::declval<inbound>().id()), decltype(std::declval<outbound>().id())>;
+
+// Event match
 template <class inbound, class outbound>
 struct match {
-  // TODO: Add static assert on types
+    // Verify record id compatibility
+    static_assert(is_matchable<inbound, outbound>, "Inbound and outbound records must use the same id() type");
 
   //// Member Variables ///////////
 

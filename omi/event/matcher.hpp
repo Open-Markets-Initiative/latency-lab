@@ -13,6 +13,8 @@ namespace event {
 
 template <class inbound, class outbound>
 struct matcher {
+    // Verify record id compatibility
+    static_assert(is_matchable<inbound, outbound>, "Inbound and outbound records must use the same id() type");
 
   //// Member Variables ///////////
 
@@ -21,7 +23,7 @@ struct matcher {
 
   //// Construction ///////////////
 
-    // Construct from 2 file paths (make these static
+    // Construct from 2 file paths (make these static)
     explicit matcher(const std::string &inbounds, const std::string &outbounds)
       : matcher{ database<inbound>::read(inbounds), responses<outbound>::read(outbounds) } {}
 

@@ -13,9 +13,9 @@ struct inbound {
 
     static constexpr char * description = "sbe market data";
 
-    // Inbound sbe market data event fields
-    omi::frame frame;              // Pcap frame number from tshark csv
-    omi::timestamp timestamp;      // Pcap time in nanoseconds from tshark csv
+    // Inbound sbe market data event fields from tshark csv
+    omi::frame frame;              // Pcap frame number
+    omi::timestamp timestamp;      // Pcap time in nanoseconds 
     std::string sequence;          // Sbe message sequence number
 
     // Record properties

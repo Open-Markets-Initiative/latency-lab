@@ -16,22 +16,17 @@ template <class trigger, class response>
 struct matches : std::vector<event::match<trigger, response>> {
 
     // Build list of delta times from matches
-    std::vector<double> deltas() const { // use transform
-        std::vector<double> result; // TODO: figure out how to reserve
-        for (const auto &match : *this) {
-            result.push_back(match.delta()); // make a way to template precision
-        }
-
+    auto deltas() const {
+        std::vector<double> result(this->size()); // template this
+        std::transform(this->begin(), this->end(), result.begin(), [](const match<trigger, response>&current) { return current.delta(); });
         return result;
     }
 
 
-    // Make one called infos
+    // Build list of infos from matches
     auto infos() const {
-        std::vector<info<trigger, response>> result;
-        for (const auto &match : *this) {
-            result.push_back(match.info());
-        }
+        std::vector<info<trigger, response>> result(this->size());;
+        std::transform(this->begin(), this->end(), result.begin(), [](const match<trigger, response>&current) { return current.info(); });
         return result;
     }
 
