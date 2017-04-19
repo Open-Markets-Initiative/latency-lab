@@ -15,10 +15,10 @@ namespace event {
 template <class trigger, class response>
 struct matches : std::vector<event::match<trigger, response>> {
 
-    // Build list of delta times from matches
+    // Build list of deltas from matches
     auto deltas() const {
-        std::vector<double> result(this->size()); // template this
-        std::transform(this->begin(), this->end(), result.begin(), [](const match<trigger, response>&current) { return current.delta(); });
+        std::vector<double> result(this->size());
+        std::transform(this->begin(), this->end(), result.begin(), [](const auto &current) { return current.delta(); });
         return result;
     }
 
@@ -26,7 +26,7 @@ struct matches : std::vector<event::match<trigger, response>> {
     // Build list of infos from matches
     auto infos() const {
         std::vector<info<trigger, response>> result(this->size());;
-        std::transform(this->begin(), this->end(), result.begin(), [](const match<trigger, response>&current) { return current.info(); });
+        std::transform(this->begin(), this->end(), result.begin(), [](const auto &current) { return current.info(); });
         return result;
     }
 
