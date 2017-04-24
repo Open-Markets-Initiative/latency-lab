@@ -13,7 +13,7 @@ namespace event {
 
 // Are records matchable?
 template <class inbound, class outbound>
-constexpr bool is_matchable = std::is_same_v<decltype(std::declval<inbound>().id()), decltype(std::declval<outbound>().id())>;
+constexpr bool is_matchable = std::is_same<decltype(std::declval<inbound>().id()), decltype(std::declval<outbound>().id())>::value;
 
 // Event match
 template <class inbound, class outbound>
