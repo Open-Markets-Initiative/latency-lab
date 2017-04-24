@@ -27,7 +27,7 @@ struct options {
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
-        path = option.template required<std::string>(::html::report::option);
+        path = option.template required<std::string>(::matching::file::option);
     }
 
   //// Interface ////////////////

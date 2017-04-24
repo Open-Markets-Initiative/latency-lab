@@ -35,8 +35,8 @@ void generate(int argc, char *argv[]) {
     if (options.verbose) { std::cout << matched; }
 
     // Writes matches file 
-    // TODO: (allow infos and/or ids also) write these based on optional args
-    matched.matches.write(options.path);
+    // TODO: (allow matches infos and/or ids based on optional args
+    matched.matches.infos(options.path);
 };
 
 } } }

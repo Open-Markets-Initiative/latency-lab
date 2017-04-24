@@ -35,7 +35,7 @@ struct info {
 // Stream operator
 template <class inbound, class outbound>
 std::ostream &operator<<(std::ostream &out, const info<inbound, outbound> &info) {
-    return out << info.trigger << " [ " << info.id << " ] " << info.trigger;
+    return out << info.trigger << " [" << info.id << "] " << info.response;
 }
 
 } }
