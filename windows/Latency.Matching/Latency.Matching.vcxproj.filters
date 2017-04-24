@@ -25,6 +25,9 @@
     <Filter Include="Header Files\wireshark">
       <UniqueIdentifier>{f149966a-f328-4ef1-ad71-c1d72a9dee5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\matching">
+      <UniqueIdentifier>{22b60691-6de2-4993-a3dc-c0afddefb907}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\omi\event\database.hpp">
@@ -66,12 +69,18 @@
     <ClInclude Include="..\..\omi\event\asserts.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\omi\latency\matching\options.hpp">
+      <Filter>Header Files\matching</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\matching.hpp">
+      <Filter>Header Files\matching</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\program\main.cpp">
+    <ClCompile Include="..\..\example\program\matching\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

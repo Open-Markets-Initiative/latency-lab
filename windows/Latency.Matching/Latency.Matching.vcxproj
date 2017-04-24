@@ -143,9 +143,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\program\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\example\events\inbound.hpp" />
     <ClInclude Include="..\..\example\events\outbound.hpp" />
     <ClInclude Include="..\..\omi\event\asserts.hpp" />
@@ -156,12 +153,17 @@
     <ClInclude Include="..\..\omi\event\match.hpp" />
     <ClInclude Include="..\..\omi\event\matcher.hpp" />
     <ClInclude Include="..\..\omi\event\matches.hpp" />
+    <ClInclude Include="..\..\omi\latency\matching.hpp" />
+    <ClInclude Include="..\..\omi\latency\matching\options.hpp" />
     <ClInclude Include="..\..\omi\types\frame.hpp" />
     <ClInclude Include="..\..\omi\types\timestamp.hpp" />
     <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\example\program\matching\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
