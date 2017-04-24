@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Latency.Report", "Latency.R
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{06EF95F7-600B-48B4-95D8-A57FF7065230}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Latency.Matching", "Latency.Matching\Latency.Matching.vcxproj", "{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,18 @@ Global
 		{06EF95F7-600B-48B4-95D8-A57FF7065230}.Release|x64.Build.0 = Release|x64
 		{06EF95F7-600B-48B4-95D8-A57FF7065230}.Release|x86.ActiveCfg = Release|Win32
 		{06EF95F7-600B-48B4-95D8-A57FF7065230}.Release|x86.Build.0 = Release|Win32
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Debug|x64.ActiveCfg = Debug|x64
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Debug|x64.Build.0 = Debug|x64
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Debug|x64.Deploy.0 = Debug|x64
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Debug|x86.ActiveCfg = Debug|Win32
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Debug|x86.Build.0 = Debug|Win32
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Debug|x86.Deploy.0 = Debug|Win32
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Release|x64.ActiveCfg = Release|x64
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Release|x64.Build.0 = Release|x64
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Release|x64.Deploy.0 = Release|x64
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Release|x86.ActiveCfg = Release|Win32
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Release|x86.Build.0 = Release|Win32
+		{C4AAD7B3-DC45-46E5-A2BE-B734FE2F4E41}.Release|x86.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

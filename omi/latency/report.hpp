@@ -7,7 +7,7 @@
 
 // Single run omi html latency report generation
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace report {
 
