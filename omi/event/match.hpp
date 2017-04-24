@@ -3,17 +3,12 @@
 
 #include <omi/analysis/delta.hpp>
 #include <omi/event/info.hpp>
-
-#include <type_traits>
+#include <omi/event/asserts.hpp>
 
 // Matched events 
 
 namespace omi {
 namespace event {
-
-// Are records matchable?
-template <class inbound, class outbound>
-constexpr bool is_matchable = std::is_same<decltype(std::declval<inbound>().id()), decltype(std::declval<outbound>().id())>::value;
 
 // Event match
 template <class inbound, class outbound>

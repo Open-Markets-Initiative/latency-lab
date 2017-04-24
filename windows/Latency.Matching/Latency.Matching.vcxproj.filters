@@ -63,6 +63,9 @@
     <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp">
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\omi\event\asserts.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

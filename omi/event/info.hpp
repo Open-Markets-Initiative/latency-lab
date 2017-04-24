@@ -1,6 +1,8 @@
 #ifndef OMI_EVENT_INFO_HPP_
 #define OMI_EVENT_INFO_HPP_
 
+#include <omi/event/asserts.hpp>
+
 #include <ostream>
 
 // Matched event info
@@ -10,7 +12,9 @@ namespace event {
 
 template <class inbound, class outbound>
 struct info {
-  // TODO: use static assert on id
+
+    // Verify record id compatibility
+    static_assert(is_matchable<inbound, outbound>, "Inbound and outbound records must use the same id() type");
 
   //// Member Variables ///////////
 

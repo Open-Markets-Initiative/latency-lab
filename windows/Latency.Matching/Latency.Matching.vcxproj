@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\example\events\inbound.hpp" />
     <ClInclude Include="..\..\example\events\outbound.hpp" />
+    <ClInclude Include="..\..\omi\event\asserts.hpp" />
     <ClInclude Include="..\..\omi\event\database.hpp" />
     <ClInclude Include="..\..\omi\event\events.hpp" />
     <ClInclude Include="..\..\omi\event\info.hpp" />
