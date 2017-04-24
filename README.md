@@ -20,6 +20,6 @@ Use CMake with dependency on boost.
 An easy to use example solution is provided for Visual Studio in the windows directory. 
 
 # Disclaimer
-All example input files are faked records modeled on tshark dissections. Any similaraity between existing people, places and/or protocols is purely incidental.
+The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
-The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods. Enjoy.
+All example input files are faked records modeled on tshark dissections. Any similaraity between existing people, places and/or protocols is purely incidental. Enjoy.
