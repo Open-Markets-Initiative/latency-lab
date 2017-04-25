@@ -9,22 +9,16 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Source Files\analysis">
-      <UniqueIdentifier>{cef1201b-3c5f-4bd6-bd7d-1e75a5d09cf9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\types">
-      <UniqueIdentifier>{db094c16-4760-414c-ba08-f797ac041595}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\tests\tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\tests\analysis\percentile.cpp">
-      <Filter>Source Files\analysis</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\tests\types\timestamp.cpp">
-      <Filter>Source Files\types</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

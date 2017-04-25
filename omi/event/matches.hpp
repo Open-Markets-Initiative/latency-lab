@@ -6,6 +6,7 @@
 #include <omi/source/write.hpp>
 
 #include <vector>
+#include <sstream>
 
 // Matches 
 
@@ -25,11 +26,23 @@ struct matches : std::vector<event::match<trigger, response>> {
 
     // Build list of infos from matches
     auto infos() const {
-        std::vector<info<trigger, response>> result(this->size());;
-        std::transform(this->begin(), this->end(), result.begin(), [](const auto &current) { return current.info(); });
+        // To preallocate we need a cool way to make this default constructable
+        std::vector<info<trigger, response>> result;
+        for (const auto &match : *this) {
+            result.push_back(match.info());
+        }
         return result;
     }
 
+    // Write infos to file
+    void infos(const std::string &path) const {
+        std::stringstream file; 
+        for (const auto &info : infos()) { // template for this
+            file << info << std::endl;
+        }
+
+        source::write(file.str(), path);
+    }
 
     // Write matches to file 
     void write(const std::string &path) const {
