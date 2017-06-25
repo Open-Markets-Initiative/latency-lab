@@ -31,5 +31,8 @@
     <ClInclude Include="..\..\omi\latency\comparison\options.hpp">
       <Filter>Header Files\comparison</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\omi\latency\comparison.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

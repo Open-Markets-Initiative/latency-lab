@@ -149,6 +149,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\omi\latency\comparison.hpp" />
     <ClInclude Include="..\..\omi\latency\comparison\components.hpp" />
     <ClInclude Include="..\..\omi\latency\comparison\configuration.hpp" />
     <ClInclude Include="..\..\omi\latency\comparison\options.hpp" />

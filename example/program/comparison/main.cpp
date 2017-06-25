@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[]) {
     try {
-        omi::latency::comparison::generate<example::inbound, example::outbound>(argc, argv);
+        omi::latency::comparison::of<example::inbound, example::outbound>(argc, argv);
     } catch (std::exception &exception) {
         std::cerr << "Error: " << exception.what() << std::endl;
         return 1;

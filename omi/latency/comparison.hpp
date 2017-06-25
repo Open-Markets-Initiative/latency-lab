@@ -1,10 +1,12 @@
-#ifndef OMI_LATENCY_COMPARISON_DECLARATIONS_HPP
-#define OMI_LATENCY_COMPARISON_DECLARATIONS_HPP
+#ifndef OMI_LATENCY_COMPARISON_PROGRAM_TEMPLATE_HPP
+#define OMI_LATENCY_COMPARISON_PROGRAM_TEMPLATE_HPP
 
 #include <omi/event/matcher.hpp>
 #include <omi/latency/comparison/options.hpp>
 #include <omi/latency/comparison/components.hpp>
 #include <boost/filesystem.hpp>
+
+// Latency comparison program template
 
 namespace omi {
 namespace latency {
@@ -13,10 +15,9 @@ namespace comparison {
 const std::string INBOUND_EVENT_SUFFIX = "inbound.events";
 const std::string OUTBOUND_EVENT_SUFFIX = "outbound.events";
 
-using namespace boost::filesystem;
-
+// Latency comparison program template
 template <class inbound, class outbound>
-void generate(int argc, char *argv[]) {
+void of(int argc, char *argv[]) {
 	// Parse program options for settings
     auto options = comparison::options::parse(argc, argv);
     if (options.verbose) { std::cout << "Generate Latency Comparison Report" << std::endl; }
@@ -27,13 +28,13 @@ void generate(int argc, char *argv[]) {
 	// loop through the directory for each inbound events
 	// TODO: refactor options::event::inputs to separate directory from files
 	//std::cout << ">> directory " << options.files.dir << std::endl;
-	path p = options.files.dir;
+	boost::filesystem::path p = options.files.dir;
 
 	try {
-		if (exists(p) && is_directory(p)) {
+		if (boost::filesystem::exists(p) && boost::filesystem::is_directory(p)) {
 
 			std::cout << p << " is a directory containing:\n";
-			for (directory_entry& x : directory_iterator(p)) {
+			for (boost::filesystem::directory_entry& x : boost::filesystem::directory_iterator(p)) {
 				std::string inboundFile = x.path().filename().string();
 				auto i = inboundFile.find(INBOUND_EVENT_SUFFIX);
 
@@ -78,7 +79,7 @@ void generate(int argc, char *argv[]) {
 		  report.delta_map = delta_map;
 		  report.write(options.path);
 
-		} catch (const filesystem_error& ex) {
+		} catch (const boost::filesystem::filesystem_error& ex) {
 			std::cout << ex.what() << '\n';
 		}
 	}}

@@ -1,5 +1,5 @@
-#ifndef OMI_LATENCY_REPORT_DECLARATIONS_HPP_
-#define OMI_LATENCY_REPORT_DECLARATIONS_HPP_
+#ifndef OMI_LATENCY_REPORT_PROGRAN_TEMPLATE_HPP_
+#define OMI_LATENCY_REPORT_PROGRAN_TEMPLATE_HPP_
 
 #include <omi/event/matcher.hpp>
 #include <omi/latency/report/options.hpp>
@@ -11,8 +11,9 @@ namespace omi {
 namespace latency {
 namespace report {
 
+// Latency report program template
 template <class inbound, class outbound>
-void generate(int argc, char *argv[]) {
+void of(int argc, char *argv[]) {
     // Add timer 
     // Add date
 
@@ -25,22 +26,23 @@ void generate(int argc, char *argv[]) {
     const auto inbounds = event::database<inbound>::read(options.files.inbound);
     if (options.verbose) { std::cout << inbounds; }
 
-    // Load response events
-    if (options.verbose) { std::cout << "Loading outbound " << outbound::description << " responses" << std::endl; } // add file with boost filesystem
+    // Load response records
+    if (options.verbose) { std::cout << "Loading outbound " << outbound::description << " responses" << std::endl; } // add full qualified path with boost filesystem
     const auto outbounds = event::responses<outbound>::read(options.files.outbound);
     if (options.verbose) { std::cout << outbounds; }
 
     // Match events
     if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto matched = event::matcher<inbound, outbound>{ inbounds, outbounds };
-    if (options.verbose) { std::cout << matched; }
+    const auto events = event::matcher<inbound, outbound>{ inbounds, outbounds };
+    if (options.verbose) { std::cout << events; }
+
+	components report;
+	  report.layout = options.report;
+	  report.files = options.files;
+	  report.data = events.matched.deltas();
 
     // Generate report
-    if (options.verbose) { std::cout << "Generating Report" << std::endl; }
-    components report;
-      report.layout = options.report;
-      report.files = options.files;
-      report.data = matched.matched.deltas();
+    if (options.verbose) { std::cout << "Generating Html Report" << std::endl; }
     report.write(options.path);
 };
 
