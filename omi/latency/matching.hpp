@@ -36,7 +36,7 @@ void generate(int argc, char *argv[]) {
 
     // Writes matches file 
     // TODO: (allow matches infos and/or ids based on optional args
-    matched.matches.infos(options.path);
+    matched.matched.infos(options.path);
 };
 
 } } }

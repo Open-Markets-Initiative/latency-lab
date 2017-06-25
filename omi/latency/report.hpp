@@ -40,7 +40,7 @@ void generate(int argc, char *argv[]) {
     components report;
       report.layout = options.report;
       report.files = options.files;
-      report.data = matched.matches.deltas();
+      report.data = matched.matched.deltas();
     report.write(options.path);
 };
 

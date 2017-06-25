@@ -62,7 +62,7 @@ void generate(int argc, char *argv[]) {
 					if (options.verbose) { std::cout << matched; }
 
 					if (options.verbose) { std::cout << test_name << " events added" << std::endl; }
-					delta_map.insert(std::make_pair(test_name, matched.matches.deltas()));
+					delta_map.insert(std::make_pair(test_name, matched.matched.deltas()));
 
 					}
 			}

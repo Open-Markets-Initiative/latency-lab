@@ -18,7 +18,7 @@ struct matcher {
 
   //// Member Variables ///////////
 
-    matches<inbound, outbound> matches;    // Matched events
+    matches<inbound, outbound> matched;    // Matched events
     std::vector<outbound> misses;          // Unmatched responses
 
   //// Construction ///////////////
@@ -36,7 +36,7 @@ struct matcher {
         for (const auto &response : outbounds.valids) {
             const auto trigger = inbounds.events.find(response.id());
             if (trigger != inbounds.events.end()) {
-                matches.push_back(event::match<inbound, outbound>(trigger->second, response));
+                matched.push_back(event::match<inbound, outbound>(trigger->second, response));
             } else {
                 misses.push_back(response);
             }
@@ -50,7 +50,7 @@ struct matcher {
 // Stream operator
 template <class inbound, class outbound>
 std::ostream &operator<<(std::ostream &out, const matcher<inbound, outbound> &matcher) {
-    return out << "  Matched: " << matcher.matches.size() << std::endl
+    return out << "  Matched: " << matcher.matched.size() << std::endl
                << "  Unmatched: " << matcher.misses.size() << std::endl;
 }
 

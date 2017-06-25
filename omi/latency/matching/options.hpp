@@ -6,7 +6,7 @@
 #include <omi/latency/args.hpp>
 #include <omi/event/inputs.hpp>
 
-//  Options for omi html latency matching
+//  Options for omi latency matching
 
 namespace omi { 
 namespace latency {
@@ -33,21 +33,16 @@ struct options {
   //// Interface ////////////////
 
     // Parse program args into options
-    static options parse(int argc, char *argv[], std::string title = "Latency Report") {
+    static options parse(int argc, char *argv[], std::string title = "Matching Details") {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()
-            (::ini::file::option, boost::program_options::value<std::string>(), ::ini::file::note)
             (::inbound::file::option, boost::program_options::value<std::string>(), ::inbound::file::note)
             (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note)
             (::matching::file::option, boost::program_options::value<std::string>(), ::matching::file::note);
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);
-        if (args.exists(ini::file::option)) {
-            auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
-            return options{ ini.section("report"), args.verbose() }; // How to make this seemless?
-        } 
 
         // Otherwise initialize from program args
         return options{ args, args.verbose() };
