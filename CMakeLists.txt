@@ -23,16 +23,20 @@ else()
     find_package(Boost)
 
     set(Boost_INCLUDE_DIR ${BOOST_ROOT})
-    include_directories(${Boost_INCLUDE_DIR})
-
     set(Boost_LIBRARY_DIR ${BOOST_ROOT}/stage/lib)
-    include_directories(${Boost_LIBRARY_DIR})
 endif()
 
 # Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${Boost_INCLUDE_DIR})
+include_directories(${Boost_LIBRARY_DIR})
 
 # Build example projects
-add_executable(latency_report example/program/report/main.cpp)
-target_link_libraries(latency_report ${Boost_LIBRARY_DIR}/libboost_program_options.so)
+#add_executable(latency_report example/program/report/main.cpp)
+#target_link_libraries(latency_report ${Boost_LIBRARY_DIR}/libboost_program_options.so)
+
+add_executable(latency_comparison example/program/comparison/main.cpp)
+target_link_libraries(latency_comparison
+        ${Boost_LIBRARY_DIR}/libboost_filesystem.so
+        ${Boost_LIBRARY_DIR}/libboost_system.so
+        ${Boost_LIBRARY_DIR}/libboost_program_options.so)

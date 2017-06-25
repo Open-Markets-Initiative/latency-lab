@@ -18,8 +18,8 @@ struct matcher {
 
   //// Member Variables ///////////
 
-    matches<inbound, outbound> matches;  // Matched events
-    std::vector<outbound> misses;        // Outbound repsonses without matching inbound event
+    matches<inbound, outbound> matches;    // Matched events
+    std::vector<outbound> misses;          // Unmatched responses
 
   //// Construction ///////////////
 
@@ -43,7 +43,7 @@ struct matcher {
         }
     }
 
-    //// Methods ///////////////
+  //// Methods ///////////////
 
 };
 

@@ -6,6 +6,9 @@
 namespace ini { namespace file { static constexpr const char * option = "ini-file"; } }
 namespace ini { namespace file { static constexpr const char * note = "Use ini file for program options"; } }
 
+namespace events { namespace directory { static constexpr const char * option = "events-dir"; } }
+namespace events { namespace directory { static constexpr const char * note = "Events directory"; } }
+
 namespace inbound { namespace file { static constexpr const char * option = "inbound-events"; } }
 namespace inbound { namespace file { static constexpr const char * note = "Input inbound events csv file"; } }
 
