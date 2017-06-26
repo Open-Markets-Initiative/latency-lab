@@ -15,7 +15,7 @@ namespace comparison {
 const std::string INBOUND_EVENT_SUFFIX = "inbound.events";
 const std::string OUTBOUND_EVENT_SUFFIX = "outbound.events";
 
-// Latency comparison program template
+// Latency comparison html report program template
 template <class inbound, class outbound>
 void of(int argc, char *argv[]) {
 	// Parse program options for settings

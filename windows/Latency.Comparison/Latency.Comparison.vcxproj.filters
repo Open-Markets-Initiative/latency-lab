@@ -12,6 +12,9 @@
     <Filter Include="Header Files\comparison">
       <UniqueIdentifier>{61475c26-ef4f-4b08-99c6-402b631be07b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utility">
+      <UniqueIdentifier>{6ccc0d03-709d-4223-955e-ea669dcaa866}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\example\program\comparison\main.cpp">
@@ -33,6 +36,9 @@
     </ClInclude>
     <ClInclude Include="..\..\omi\latency\comparison.hpp">
       <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\utility\stopwatch.hpp">
+      <Filter>Header Files\utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

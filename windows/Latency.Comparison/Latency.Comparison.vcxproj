@@ -153,6 +153,7 @@
     <ClInclude Include="..\..\omi\latency\comparison\components.hpp" />
     <ClInclude Include="..\..\omi\latency\comparison\configuration.hpp" />
     <ClInclude Include="..\..\omi\latency\comparison\options.hpp" />
+    <ClInclude Include="..\..\omi\utility\stopwatch.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
