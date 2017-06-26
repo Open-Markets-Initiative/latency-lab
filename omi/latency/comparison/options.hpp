@@ -17,7 +17,7 @@ struct options {
   //// Member Variables ///////////
 
     comparison::configuration report;  // Latency comparison report options
-    event::inputs files;               // Event inputs (files/dir)
+	std::string directory;             // Directory of events files (for comparison)
     std::string path;                  // Html report output path
     bool verbose;                      // Print status to standard out
 
@@ -26,10 +26,8 @@ struct options {
     // Construct options from args or ini file
     template<class setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
-        files.dir = option.template required<std::string>(::events::directory::option);
+		directory = option.template required<std::string>(::events::directory::option);
         path = option.template required<std::string>(::html::report::option);
-        files.inbound = option.template required<std::string>(::inbound::file::option);
-        files.outbound = option.template required<std::string>(::outbound::file::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
@@ -44,8 +42,6 @@ struct options {
         description.add_options()
             (::ini::file::option, boost::program_options::value<std::string>(), ::ini::file::note)
             (::events::directory::option, boost::program_options::value<std::string>(), ::events::directory::note)
-            (::inbound::file::option, boost::program_options::value<std::string>(), ::inbound::file::note)
-            (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note)
             (::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)

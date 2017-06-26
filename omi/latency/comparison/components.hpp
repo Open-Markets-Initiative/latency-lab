@@ -7,7 +7,6 @@
 #include <omi/styles/one.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
-#include <omi/event/inputs.hpp>
 #include <omi/html/sections.hpp>
 #include <map>
 
@@ -22,7 +21,6 @@ struct components {
   //// Member Variables ///////////
 
     comparison::configuration layout;       // Common layout options
-    event::inputs files;                    // Input files
     std::map<std::string, std::vector<double>> delta_map; // Ordered event times for each run
 
   //// Methods ////////////////////

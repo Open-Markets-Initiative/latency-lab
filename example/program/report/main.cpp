@@ -2,7 +2,7 @@
 #include <example/events/outbound.hpp>
 #include <omi/latency/report.hpp>
 
-// Generate an example wireshark latency report
+// Generate a html wireshark latency report
 
 int main(int argc, char *argv[]) {
     try {
