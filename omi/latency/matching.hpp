@@ -31,11 +31,11 @@ void of(int argc, char *argv[]) {
 
     // Match events
     if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto matched = event::matcher<inbound, outbound> { inbounds, outbounds }; // refactor?
-    if (options.verbose) { std::cout << matched; }
+    const auto events = event::matcher<inbound, outbound> { inbounds, outbounds }; // refactor?
+    if (options.verbose) { std::cout << events; }
 
     // Writes matches file 
-    matched.matched.infos(options.path);
+	events.matched.infos(options.path);
 
 	// TODO: allow matches infos and/or ids based on optional args
 };
