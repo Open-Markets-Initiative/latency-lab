@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.5)
 project(omilatencylab)
 
 # Set compiler flags
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_CXX_STANDARD 14)
 
 # Set directories
@@ -32,10 +31,7 @@ include_directories(${Boost_INCLUDE_DIR})
 include_directories(${Boost_LIBRARY_DIR})
 
 # Build example projects
-#add_executable(latency_report example/program/report/main.cpp)
-#target_link_libraries(latency_report ${Boost_LIBRARY_DIR}/libboost_program_options.so)
-
-add_executable(latency_comparison example/program/comparison/main.cpp)
+add_executable(latency_comparison example/comparison/main.cpp)
 target_link_libraries(latency_comparison
         ${Boost_LIBRARY_DIR}/libboost_filesystem.so
         ${Boost_LIBRARY_DIR}/libboost_system.so
