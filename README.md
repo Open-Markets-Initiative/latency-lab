@@ -14,9 +14,14 @@ The example data represents a series of outbound cme fix orders triggered by cm
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos
 
+The example data represents a series of responses.  Records format: frame number [Match Id] frame number
+
 #### Comparison report:
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html
+
+This comparison report shows the system response load at differnt data speeds.
+
 
 # Build
 Use CMake with dependency on boost.
