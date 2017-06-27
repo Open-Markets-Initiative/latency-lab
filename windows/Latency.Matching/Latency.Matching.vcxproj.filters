@@ -80,7 +80,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\program\matching\main.cpp">
+    <ClCompile Include="..\..\example\matching\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

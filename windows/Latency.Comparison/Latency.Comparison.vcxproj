@@ -143,9 +143,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\program\comparison\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +151,9 @@
     <ClInclude Include="..\..\omi\latency\comparison\configuration.hpp" />
     <ClInclude Include="..\..\omi\latency\comparison\options.hpp" />
     <ClInclude Include="..\..\omi\utility\stopwatch.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\example\comparison\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
