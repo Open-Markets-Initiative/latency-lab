@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\email">
+      <UniqueIdentifier>{350788f4-e1a6-4095-ad0b-a5611ca10712}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cme">
+      <UniqueIdentifier>{c1e41195-7f34-4634-91fe-69d49a0c30d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\html">
+      <UniqueIdentifier>{fc207ff7-66b1-4497-8a80-3999e4072d26}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\example\email\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\omi\latency\email\components.hpp">
+      <Filter>Header Files\email</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\email\configuration.hpp">
+      <Filter>Header Files\email</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\email\options.hpp">
+      <Filter>Header Files\email</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\latency\email.hpp">
+      <Filter>Header Files\email</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\example\report\cme\fix.hpp">
+      <Filter>Header Files\cme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\example\report\cme\sbe.hpp">
+      <Filter>Header Files\cme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\attributes.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\close.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\declarations.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\div.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\doctype.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\elements.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\graph.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\head.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\headings.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\meta.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\open.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\paragraph.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\script.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\src.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\table.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\tag.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\html\title.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
