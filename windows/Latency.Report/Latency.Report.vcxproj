@@ -146,6 +146,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\example\report\cme\fix.hpp" />
+    <ClInclude Include="..\..\example\report\cme\sbe.hpp" />
     <ClInclude Include="..\..\omi\css\declarations.hpp" />
     <ClInclude Include="..\..\omi\css\rules.hpp" />
     <ClInclude Include="..\..\omi\html\attributes.hpp" />

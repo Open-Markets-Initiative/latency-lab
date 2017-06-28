@@ -33,6 +33,9 @@
     <Filter Include="Header Files\table">
       <UniqueIdentifier>{165b3a3a-3ba2-4d4c-b2ea-a2294f72e266}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\cme">
+      <UniqueIdentifier>{11e94332-a1e8-4432-8779-cff995d18fa0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -133,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="..\..\omi\table\statistics.hpp">
       <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\example\report\cme\fix.hpp">
+      <Filter>Header Files\cme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\example\report\cme\sbe.hpp">
+      <Filter>Header Files\cme</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 #include <example/events/outbound.hpp>
 #include <omi/latency/matching.hpp>
 
-// Generate an example wireshark latency matches
+// Generate an example wireshark event matching
 
 int main(int argc, char *argv[]) {
     try {

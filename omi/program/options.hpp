@@ -4,6 +4,7 @@
 #include <boost/program_options.hpp>
 
 #include <iostream>
+#include <iso646.h>
 
 // Omi program options
 

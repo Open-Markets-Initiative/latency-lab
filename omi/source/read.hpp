@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <iso646.h>
 
 // Read records line by line
 
