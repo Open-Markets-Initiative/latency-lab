@@ -4,7 +4,7 @@ Composable tools for automated network application latency measurement and repor
 As modern computing architectures have increased in complexity, latency and benchmarking have increasingly become more and more non-deterministic. Fortunately, networked application throughput can be measured scientifically by matching outbound response events to inbound trigger events.  Automated analysis can quickly find outliers and can be used to systematically tune the components of a trading platform.  Provided a standard packet capture, this latency lab provides components to quickly create custom tools for accurate benchmarking and verification.
 
 # Examples
-#### Html Latency Report:
+#### Latency Report:
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html
 
@@ -16,11 +16,17 @@ https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/o
 
 The example data represents a series of responses.  Records format: frame number [Match Id] frame number
 
-#### Comparison report:
+#### Comparison Report:
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html
 
 This comparison report shows the system response load at differnt data speeds.
+
+#### Emailable Report:
+
+https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/email/output/email.html
+
+Email report uses only html (no javascript) for scripted automated test emails per run.
 
 
 # Build
