@@ -6,6 +6,7 @@
 
 #include <omi/html/doctype.hpp>
 #include <omi/html/head.hpp>
+#include <omi/html/link.hpp>
 #include <omi/html/title.hpp>
 #include <omi/html/meta.hpp>
 #include <omi/html/script.hpp>

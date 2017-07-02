@@ -4,10 +4,11 @@
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
 #include <omi/html/graph.hpp>
-#include <omi/styles/one.hpp>
+#include <omi/styles/standard.hpp>
 #include <omi/source/write.hpp>
-#include <omi/latency/email/configuration.hpp>
 #include <omi/event/inputs.hpp>
+#include <omi/latency/email/configuration.hpp>
+
 
 // Generate single run html latency report
 
@@ -40,7 +41,7 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.layout.title}
                <<   html::tag{"style"}
-               <<     css::one{} // TODO: Make this an option
+               <<     style::standard{} // TODO: Make this an option
                <<   html::close{"style"}
                << html::close{"head"}
                << std::endl

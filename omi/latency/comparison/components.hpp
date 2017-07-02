@@ -4,7 +4,6 @@
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
 #include <omi/javascript/google/compchart.hpp>
-#include <omi/styles/one.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
 #include <omi/html/sections.hpp>
@@ -38,8 +37,8 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
-               <<   "<LINK REL=StyleSheet HREF=\"omi.css\" TITLE=\"Default\"/>" << std::endl
-               <<   "<script type=\"text/javascript\" src=\"omi.js\"></script>" << std::endl
+               << html::link{"stylesheet", "text/css", "omi.css"} << std::endl // have this come in through options
+               <<   "<script type=\"text/javascript\" src=\"omi.js\"></script>" << std::endl // remove this
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.layout.title}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}

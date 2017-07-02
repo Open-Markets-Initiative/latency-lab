@@ -94,6 +94,9 @@
     <ClInclude Include="..\..\omi\html\title.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\omi\html\link.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

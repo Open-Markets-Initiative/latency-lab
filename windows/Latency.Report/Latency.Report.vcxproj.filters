@@ -128,9 +128,6 @@
     <ClInclude Include="..\..\omi\source\write.hpp">
       <Filter>Header Files\source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\styles\one.hpp">
-      <Filter>Header Files\styles</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\omi\table\percentiles.hpp">
       <Filter>Header Files\table</Filter>
     </ClInclude>
@@ -142,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="..\..\example\report\cme\sbe.hpp">
       <Filter>Header Files\cme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\styles\standard.hpp">
+      <Filter>Header Files\styles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\styles\css.hpp">
+      <Filter>Header Files\styles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

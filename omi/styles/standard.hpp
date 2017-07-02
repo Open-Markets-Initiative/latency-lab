@@ -1,22 +1,22 @@
-#ifndef OMI_STYLE_ONE_HPP_
-#define OMI_STYLE_ONE_HPP_
+#ifndef OMI_CSS_STANDARD_HPP_
+#define OMI_CSS_STANDARD_HPP_
 
 #include <omi/css/rules.hpp>
 
 // Common omi css style 1
 
 namespace omi {
-namespace css {
+namespace style {
 
-struct one {
+struct standard {
     std::string whitespace;
 
-    explicit one(const std::string &whitespace = "")
+    explicit standard(const std::string &whitespace = "")
      : whitespace {whitespace} {}
 };
 
 //TODO: break this up
-inline std::ostream &operator<<(std::ostream &out, const one &one) {
+inline std::ostream &operator<<(std::ostream &out, const standard &one) {
     return out << css::rule{"body",
                     css::declaration{"font-family", "Verdana,sans-serif"},
                     css::declaration{"font-size", "0.9em"}}

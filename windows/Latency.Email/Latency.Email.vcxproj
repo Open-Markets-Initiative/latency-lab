@@ -157,6 +157,7 @@
     <ClInclude Include="..\..\omi\html\graph.hpp" />
     <ClInclude Include="..\..\omi\html\head.hpp" />
     <ClInclude Include="..\..\omi\html\headings.hpp" />
+    <ClInclude Include="..\..\omi\html\link.hpp" />
     <ClInclude Include="..\..\omi\html\meta.hpp" />
     <ClInclude Include="..\..\omi\html\open.hpp" />
     <ClInclude Include="..\..\omi\html\paragraph.hpp" />
