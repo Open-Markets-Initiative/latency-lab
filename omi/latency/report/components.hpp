@@ -4,7 +4,7 @@
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
 #include <omi/javascript/google/chart.hpp>
-#include <omi/styles/css.hpp>
+#include <omi/stylesheet/options.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/report/configuration.hpp>
 #include <omi/event/inputs.hpp>
@@ -45,7 +45,7 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                <<     javascript::google::linechart{report.data, "chart"}
                <<   html::close{"script"}
                <<   html::tag{"style"}
-               <<     style::options{} // TODO: Pass in option
+               <<     stylesheet::options{} // TODO: Pass in program option
                <<   html::close{"style"}
                << html::close{"head"}
                << std::endl

@@ -27,14 +27,14 @@
     <Filter Include="Header Files\source">
       <UniqueIdentifier>{60c440bc-0d63-487c-83d5-f3e7667f0ac6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\styles">
-      <UniqueIdentifier>{be7f234d-29cf-486c-9719-c2471bbeddc7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\table">
       <UniqueIdentifier>{165b3a3a-3ba2-4d4c-b2ea-a2294f72e266}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\cme">
       <UniqueIdentifier>{11e94332-a1e8-4432-8779-cff995d18fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\stylesheet">
+      <UniqueIdentifier>{be7f234d-29cf-486c-9719-c2471bbeddc7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,11 +140,11 @@
     <ClInclude Include="..\..\example\report\cme\sbe.hpp">
       <Filter>Header Files\cme</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\styles\standard.hpp">
-      <Filter>Header Files\styles</Filter>
+    <ClInclude Include="..\..\omi\stylesheet\options.hpp">
+      <Filter>Header Files\stylesheet</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\styles\css.hpp">
-      <Filter>Header Files\styles</Filter>
+    <ClInclude Include="..\..\omi\stylesheet\standard.hpp">
+      <Filter>Header Files\stylesheet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -177,8 +177,8 @@
     <ClInclude Include="..\..\omi\source\read.hpp" />
     <ClInclude Include="..\..\omi\source\whitespace.hpp" />
     <ClInclude Include="..\..\omi\source\write.hpp" />
-    <ClInclude Include="..\..\omi\styles\css.hpp" />
-    <ClInclude Include="..\..\omi\styles\standard.hpp" />
+    <ClInclude Include="..\..\omi\stylesheet\options.hpp" />
+    <ClInclude Include="..\..\omi\stylesheet\standard.hpp" />
     <ClInclude Include="..\..\omi\table\percentiles.hpp" />
     <ClInclude Include="..\..\omi\table\statistics.hpp" />
   </ItemGroup>

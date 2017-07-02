@@ -1,12 +1,12 @@
-#ifndef OMI_CSS_STANDARD_HPP_
-#define OMI_CSS_STANDARD_HPP_
+#ifndef OMI_STYLESHEET_STANDARD_HPP_
+#define OMI_STYLESHEET_STANDARD_HPP_
 
 #include <omi/css/rules.hpp>
 
 // Common omi css style 1
 
 namespace omi {
-namespace style {
+namespace stylesheet {
 
 struct standard {
     std::string whitespace;
