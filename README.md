@@ -14,25 +14,24 @@ The example data represents a series of outbound cme fix orders triggered by cm
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos
 
-The example data represents a series of responses.  Records format: frame number [Match Id] frame number
+The example data represents a series of matched events.  Records format: 
+    frame number [Match Id] frame number
 
 #### Comparison Report:
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html
 
-This comparison report shows the system response load at differnt data speeds.
+A comparison report allows for quickly comparing application response to multiple different data speeds.
 
 #### Emailable Report:
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/email/output/email.html
 
-Email report uses only html (no javascript) for scripted automated test emails per run.
+Email report uses only html (no javascript) for automated test emails per run.
 
 
 # Build
-Use CMake with dependency on boost.
-
-An easy to use example solution is provided for Visual Studio in the windows directory. 
+Use CMake. Visual studio 2017 projects are provided for rapid development.  Some program templates contain a dependency on boost 1.64.  
 
 # Disclaimer
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
