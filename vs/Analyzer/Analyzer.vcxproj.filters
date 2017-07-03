@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\wireshark">
+      <UniqueIdentifier>{5dd61a02-353d-4c2f-9caa-2b71edad3a87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\analysis">
+      <UniqueIdentifier>{a21a514c-6e93-47ad-9b13-3d97e025b119}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\example\program\analyzer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\omi\wireshark\database.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\event.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\events.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\frame.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\match.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\matcher.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\matches.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\matching.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp">
+      <Filter>Header Files\wireshark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\analysis\delta.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\analysis\deltas.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\analysis\percentile.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\analysis\percentiles.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\analysis\statistics.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\omi\analysis\results.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
