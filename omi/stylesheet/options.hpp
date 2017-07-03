@@ -1,30 +1,34 @@
 #ifndef OMI_STYLEHEET_OPTIONS_HPP_
 #define OMI_STYLEHEET_OPTIONS_HPP_
 
-#include <omi/stylesheet/standard.hpp>
 #include <omi/source/whitespace.hpp>
 #include <omi/html/declarations.hpp>
+#include <omi/stylesheet/standard.hpp>
 
 // Optional link to external style or inline default css declarations
 
 namespace omi {
 namespace stylesheet {
 
-struct options { // need new name
+struct options {
 	omi::whitespace whitespace;
-	std::string link;
+	std::string import;
 
     explicit options(const std::string &file = "", indent whitespace = indent::none)
-		: whitespace{ whitespace }, link{ file } {}
+		: whitespace{ whitespace }, import{ file } {}
 };
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const options &options) {
-	if (options.link.empty()) {
-		return out << stylesheet::standard{};
+	// Inlcude link to external file
+	if (not options.import.empty()) { // TODO: check css extension?
+		return out << html::link{ "stylesheet", "text/css", options.import };
 	}
 
-	return out << html::link{ "stylesheet", "text/css", options.link };
+	// Print standard css inline in
+	return out << html::tag{ "style" }
+		       <<   stylesheet::standard{}
+	           << html::close{ "style" };
 }
 
 } }

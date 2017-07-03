@@ -32,21 +32,19 @@ struct components {
 };
 
 
-// Stream operator (composes html report from layout and data) 
+// Stream operator
 inline std::ostream &operator<<(std::ostream &out, const components &report) {
     return out << html::doctype{"html"}
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
-               <<   html::meta{"charset", "utf-8" }
-               <<   html::title{report.layout.title}
+               <<   html::meta{"charset", "utf-8"}
+	           <<   html::title{report.layout.title}
+		       <<   stylesheet::options{report.layout.css}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
                <<   html::script{"text/javascript"}
                <<     javascript::google::linechart{report.data, "chart"}
                <<   html::close{"script"}
-               <<   html::tag{"style"}
-               <<     stylesheet::options{} // TODO: Pass in program option
-               <<   html::close{"style"}
                << html::close{"head"}
                << std::endl
                << html::tag{"body"}

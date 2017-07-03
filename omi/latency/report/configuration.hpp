@@ -10,10 +10,12 @@ namespace latency {
 namespace report {
 
 struct configuration {
-    std::string title;
-    std::string header;
-    std::string copyright;
+    std::string title;         // Report html title
+    std::string header;        // Report header text
+    std::string copyright;     // Copyright text
     // add note?
+
+	std::string css;           // optional link to external css file 
 };
 
 } } }

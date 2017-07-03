@@ -34,7 +34,10 @@ namespace html { namespace header { static constexpr const char * option = "html
 namespace html { namespace header { static constexpr const char * note = "Report header (Optional)"; } }
 
 namespace html { namespace copyright { static constexpr const char * option = "html-copyright"; } }
-namespace html { namespace copyright { static constexpr const char * note = "Report copyight (Optional)"; } }
+namespace html { namespace copyright { static constexpr const char * note = "Report Copyright (Optional)"; } }
+
+namespace css { namespace file { static constexpr const char * option = "css-file"; } }
+namespace css { namespace file { static constexpr const char * note = "Link report to external css file (Optional)"; } }
 
 // Most of these need name changes
 
