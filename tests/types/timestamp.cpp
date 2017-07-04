@@ -22,7 +22,6 @@ BOOST_AUTO_TEST_CASE(VerifyNowConstructor) {
 }
 
 BOOST_AUTO_TEST_CASE(VerifySecondsConstructor) {
-
     auto timstamp = omi::timestamp::seconds(2);
 
     auto expected = 2;
@@ -32,7 +31,6 @@ BOOST_AUTO_TEST_CASE(VerifySecondsConstructor) {
 }
 
 BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
-
     auto timstamp = omi::timestamp::microseconds(2000000);
 
     auto expected = 2;
@@ -42,7 +40,6 @@ BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
 }
 
 BOOST_AUTO_TEST_CASE(VerifyMillisecondsConstructor) {
-
     auto timstamp = omi::timestamp::milliseconds(2000);
 
     auto expected = 2;
