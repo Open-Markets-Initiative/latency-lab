@@ -90,6 +90,10 @@ struct timestamp {
         return value == time.value;
     }
 
+	bool operator!=(const timestamp &time) const {
+		return value != time.value;
+	}
+
     timestamp operator+(const timestamp& other) const {
         return timestamp(value + other.value);
     }

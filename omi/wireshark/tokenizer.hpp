@@ -54,13 +54,13 @@ public:
     bool frame(omi::frame &field) {
         if (not token()) { return false; }
 
-        auto value = 0;
+        uint64_t value = 0;
         for (; *current != delimiter and *current != '\0'; current++) {
             if (*current < '0' or *current > '9') { return false; }
             value = (value * 10) + (*current - '0');
         }
         if (current != nullptr) { current++; }
-        field = value;
+        field = omi::frame(value);
         return true;
     }
 
