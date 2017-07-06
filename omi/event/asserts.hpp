@@ -1,8 +1,6 @@
 #ifndef OMI_EVENT_ASSERTS_HPP_
 #define OMI_EVENT_ASSERTS_HPP_
 
-#include <omi/event/info.hpp>
-
 #include <type_traits>
 
 // Compiletime event asserts

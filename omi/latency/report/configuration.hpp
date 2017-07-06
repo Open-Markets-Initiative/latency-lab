@@ -15,7 +15,7 @@ struct configuration {
     std::string copyright;     // Copyright text
     // add note?
 
-	std::string css;           // optional link to external css file 
+    std::string css;           // optional link to external css file 
 };
 
 } } }

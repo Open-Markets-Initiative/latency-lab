@@ -39,8 +39,8 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                << std::endl
                << html::tag{"head"}
                <<   html::meta{"charset", "utf-8"}
-	           <<   html::title{report.layout.title}
-		       <<   stylesheet::options{report.layout.css}
+               <<   html::title{report.layout.title}
+               <<   stylesheet::options{report.layout.css}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
                <<   html::script{"text/javascript"}
                <<     javascript::google::linechart{report.data, "chart"}

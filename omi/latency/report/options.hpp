@@ -32,7 +32,7 @@ struct options {
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
-		report.css = option.template conditional<std::string>(::css::file::option, "");
+        report.css = option.template conditional<std::string>(::css::file::option, "");
     }
 
   //// Interface ////////////////
@@ -48,7 +48,7 @@ struct options {
             (::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
-			(::css::file::option, boost::program_options::value<std::string>(), ::css::file::note)
+            (::css::file::option, boost::program_options::value<std::string>(), ::css::file::note)
             (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
 
         // If ini file exists, read options from file
