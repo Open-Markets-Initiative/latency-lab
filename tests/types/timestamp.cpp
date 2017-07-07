@@ -1,7 +1,7 @@
 #include <boost/test/unit_test.hpp>
 #include <omi/types/timestamp.hpp>
 
-// Regression tests for timestamp type
+// Regression tests for portable timestamp type
 BOOST_AUTO_TEST_SUITE(TypesTimestamp)
 
 BOOST_AUTO_TEST_CASE(VerifyDefaultConstructor) {
