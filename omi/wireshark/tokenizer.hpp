@@ -51,7 +51,7 @@ public:
     }
 
     // Optimized wireshark frame number parse method
-    bool frame(omi::frame &field) {
+    bool wireshark(frame &field) {
         if (not token()) { return false; }
 
         uint64_t value = 0;
@@ -65,7 +65,7 @@ public:
     }
 
     // Optimized wireshark timestamp parse method
-    bool wireshark(omi::timestamp &field) {
+    bool wireshark(timestamp &field) {
         if (not token()) { return false; }
 
         uint64_t seconds{ 0 };

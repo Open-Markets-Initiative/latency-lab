@@ -34,12 +34,12 @@ struct match {
         return trigger.id();
     }
 
-    // Return time delta
-    double delta() const { // need to make this professional
+    // Return match time delta in microseconds
+    double delta() const { // Need to make this professional/general
         return (response.time().nanoseconds() - trigger.time().nanoseconds()) / 1000.;
     }
 
-    // Todo: Make an info 
+	// Return match info
     auto info() const {
         return event::info<inbound, outbound>{trigger, response};
     }
@@ -48,7 +48,7 @@ struct match {
 // Stream operator
 template <class inbound, class outbound>
 std::ostream &operator<<(std::ostream &out, const match<inbound, outbound> &match) {
-    return out; // TODO: << match.trigger << " | " << match.response;
+    return out; // TODO: << match.trigger << " | " << match.response; requires stream operator
 }
 
 } }

@@ -27,7 +27,7 @@ struct inbound {
     // Construct from csv record string
     explicit inbound(const std::string &record, uint32_t number = 0) : line{ number } {
         auto parse = omi::wireshark::tokenizer{ record };
-        processed = parse.frame(frame) and
+        processed = parse.wireshark(frame) and
                     parse.wireshark(timestamp) and
                     parse.string(sequence);
     }
