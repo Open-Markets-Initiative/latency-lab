@@ -1,8 +1,8 @@
-#include <example/events/inbound.hpp>
-#include <example/events/outbound.hpp>
+#include <example/matching/events/inbound.hpp>
+#include <example/matching/events/outbound.hpp>
 #include <omi/latency/matching.hpp>
 
-// Generate an example wireshark event matching
+// Generate an example wireshark matching report
 
 int main(int argc, char *argv[]) {
     try {

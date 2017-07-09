@@ -20,10 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{84C2EEFA-EE16-4022-B000-C007C66A0A64}</ProjectGuid>
+    <ProjectGuid>{9A933650-61DC-4402-8127-D4EB7097D27B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LatencyReport</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <RootNamespace>LatencyComparison</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,10 +70,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -82,19 +82,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>
@@ -102,7 +89,20 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,7 +117,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,7 +134,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,44 +146,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\example\report\cme\fix.hpp" />
-    <ClInclude Include="..\..\example\report\cme\sbe.hpp" />
-    <ClInclude Include="..\..\omi\css\declarations.hpp" />
-    <ClInclude Include="..\..\omi\css\rules.hpp" />
-    <ClInclude Include="..\..\omi\html\attributes.hpp" />
-    <ClInclude Include="..\..\omi\html\close.hpp" />
-    <ClInclude Include="..\..\omi\html\declarations.hpp" />
-    <ClInclude Include="..\..\omi\html\div.hpp" />
-    <ClInclude Include="..\..\omi\html\doctype.hpp" />
-    <ClInclude Include="..\..\omi\html\elements.hpp" />
-    <ClInclude Include="..\..\omi\html\graph.hpp" />
-    <ClInclude Include="..\..\omi\html\head.hpp" />
-    <ClInclude Include="..\..\omi\html\headings.hpp" />
-    <ClInclude Include="..\..\omi\html\meta.hpp" />
-    <ClInclude Include="..\..\omi\html\open.hpp" />
-    <ClInclude Include="..\..\omi\html\paragraph.hpp" />
-    <ClInclude Include="..\..\omi\html\script.hpp" />
-    <ClInclude Include="..\..\omi\html\src.hpp" />
-    <ClInclude Include="..\..\omi\html\table.hpp" />
-    <ClInclude Include="..\..\omi\html\tag.hpp" />
-    <ClInclude Include="..\..\omi\html\title.hpp" />
-    <ClInclude Include="..\..\omi\javascript\google\chart.hpp" />
-    <ClInclude Include="..\..\omi\latency\report.hpp" />
-    <ClInclude Include="..\..\omi\latency\report\components.hpp" />
-    <ClInclude Include="..\..\omi\latency\report\configuration.hpp" />
-    <ClInclude Include="..\..\omi\latency\report\options.hpp" />
-    <ClInclude Include="..\..\omi\program\options.hpp" />
-    <ClInclude Include="..\..\omi\program\settings.hpp" />
-    <ClInclude Include="..\..\omi\source\read.hpp" />
-    <ClInclude Include="..\..\omi\source\whitespace.hpp" />
-    <ClInclude Include="..\..\omi\source\write.hpp" />
-    <ClInclude Include="..\..\omi\stylesheet\options.hpp" />
-    <ClInclude Include="..\..\omi\stylesheet\standard.hpp" />
-    <ClInclude Include="..\..\omi\table\percentiles.hpp" />
-    <ClInclude Include="..\..\omi\table\statistics.hpp" />
+    <ClCompile Include="..\..\comparison\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\report\main.cpp" />
+    <ClInclude Include="..\..\..\omi\latency\comparison.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\comparison\components.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\comparison\configuration.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\comparison\options.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,8 +4,10 @@
 // Regression tests for portable timestamp type
 BOOST_AUTO_TEST_SUITE(TypesTimestamp)
 
+using namespace omi;
+
 BOOST_AUTO_TEST_CASE(VerifyDefaultConstructor) {
-    auto timestamp = omi::timestamp();
+    timestamp timestamp{};
 
     auto expected = 0;
     auto actual = timestamp.seconds();
@@ -15,14 +17,14 @@ BOOST_AUTO_TEST_CASE(VerifyDefaultConstructor) {
 
 BOOST_AUTO_TEST_CASE(VerifyNowConstructor) {
     // Time when this test was written
-    auto expected = omi::timestamp::seconds(1492308754);
-    auto actual = omi::timestamp::now();
+    auto expected = timestamp::seconds(1492308754);
+    auto actual = timestamp::now();
 
     BOOST_CHECK_LT(expected, actual);
 }
 
 BOOST_AUTO_TEST_CASE(VerifySecondsConstructor) {
-    auto timstamp = omi::timestamp::seconds(2);
+    auto timstamp = timestamp::seconds(2);
 
     auto expected = 2;
     auto actual = timstamp.seconds();
@@ -31,7 +33,7 @@ BOOST_AUTO_TEST_CASE(VerifySecondsConstructor) {
 }
 
 BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
-    auto timstamp = omi::timestamp::microseconds(2000000);
+    auto timstamp = timestamp::microseconds(2000000);
 
     auto expected = 2;
     auto actual = timstamp.seconds();
@@ -40,7 +42,7 @@ BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
 }
 
 BOOST_AUTO_TEST_CASE(VerifyMillisecondsConstructor) {
-    auto timstamp = omi::timestamp::milliseconds(2000);
+    auto timstamp = timestamp::milliseconds(2000);
 
     auto expected = 2;
     auto actual = timstamp.seconds();

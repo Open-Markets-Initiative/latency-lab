@@ -20,10 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{06EF95F7-600B-48B4-95D8-A57FF7065230}</ProjectGuid>
+    <ProjectGuid>{B8B1F4AB-BB19-48DE-A50B-D0DAF3F9D31E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Tests</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <RootNamespace>LatencyEmail</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -89,7 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,7 +102,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,7 +117,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,7 +134,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,14 +143,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\tests\analysis\percentile.cpp" />
-    <ClCompile Include="..\..\tests\analysis\percentiles.cpp" />
-    <ClCompile Include="..\..\tests\analysis\statistics.cpp" />
-    <ClCompile Include="..\..\tests\tests.cpp" />
-    <ClCompile Include="..\..\tests\types\timestamp.cpp" />
+    <ClInclude Include="..\..\..\omi\latency\email.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\email\components.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\email\configuration.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\email\options.hpp" />
+    <ClInclude Include="..\..\email\cme\fix.hpp" />
+    <ClInclude Include="..\..\email\cme\sbe.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\email\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

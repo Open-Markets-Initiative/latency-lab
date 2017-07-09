@@ -26,57 +26,57 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\omi\event\database.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\event\events.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\event\info.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\event\inputs.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\event\match.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\event\matcher.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\event\matches.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\example\events\inbound.hpp">
-      <Filter>Header Files\events</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\example\events\outbound.hpp">
-      <Filter>Header Files\events</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\types\frame.hpp">
-      <Filter>Header Files\types</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\types\timestamp.hpp">
-      <Filter>Header Files\types</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\wireshark\tokenizer.hpp">
+    <ClInclude Include="..\..\..\omi\wireshark\tokenizer.hpp">
       <Filter>Header Files\wireshark</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\event\asserts.hpp">
+    <ClInclude Include="..\..\..\omi\types\frame.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timestamp.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\matching\options.hpp">
+      <Filter>Header Files\matching</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\matching.hpp">
+      <Filter>Header Files\matching</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\asserts.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\matching\options.hpp">
-      <Filter>Header Files\matching</Filter>
+    <ClInclude Include="..\..\..\omi\event\database.hpp">
+      <Filter>Header Files\event</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\matching.hpp">
-      <Filter>Header Files\matching</Filter>
+    <ClInclude Include="..\..\..\omi\event\events.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\info.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\inputs.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\match.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\matcher.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\matches.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\matching\events\inbound.hpp">
+      <Filter>Header Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\matching\events\outbound.hpp">
+      <Filter>Header Files\events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\matching\main.cpp">
+    <ClCompile Include="..\..\matching\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

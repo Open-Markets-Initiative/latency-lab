@@ -20,10 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9A933650-61DC-4402-8127-D4EB7097D27B}</ProjectGuid>
+    <ProjectGuid>{06EF95F7-600B-48B4-95D8-A57FF7065230}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LatencyComparison</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <RootNamespace>Tests</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -89,7 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,7 +102,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,7 +117,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,7 +134,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\;$(ProjectDir)..\packages\boost.1.64.0.0\lib\native\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,14 +146,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\omi\latency\comparison.hpp" />
-    <ClInclude Include="..\..\omi\latency\comparison\components.hpp" />
-    <ClInclude Include="..\..\omi\latency\comparison\configuration.hpp" />
-    <ClInclude Include="..\..\omi\latency\comparison\options.hpp" />
-    <ClInclude Include="..\..\omi\utility\stopwatch.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\example\comparison\main.cpp" />
+    <ClCompile Include="..\..\..\tests\analysis\percentile.cpp" />
+    <ClCompile Include="..\..\..\tests\analysis\percentiles.cpp" />
+    <ClCompile Include="..\..\..\tests\analysis\statistics.cpp" />
+    <ClCompile Include="..\..\..\tests\tests.cpp" />
+    <ClCompile Include="..\..\..\tests\types\timestamp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

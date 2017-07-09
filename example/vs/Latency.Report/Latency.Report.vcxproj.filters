@@ -41,114 +41,120 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\omi\css\declarations.hpp">
+    <ClInclude Include="..\..\report\cme\fix.hpp">
+      <Filter>Header Files\cme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\report\cme\sbe.hpp">
+      <Filter>Header Files\cme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\css\declarations.hpp">
       <Filter>Header Files\css</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\css\rules.hpp">
+    <ClInclude Include="..\..\..\omi\css\rules.hpp">
       <Filter>Header Files\css</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\attributes.hpp">
+    <ClInclude Include="..\..\..\omi\html\attributes.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\close.hpp">
+    <ClInclude Include="..\..\..\omi\html\close.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\declarations.hpp">
+    <ClInclude Include="..\..\..\omi\html\declarations.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\div.hpp">
+    <ClInclude Include="..\..\..\omi\html\div.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\doctype.hpp">
+    <ClInclude Include="..\..\..\omi\html\doctype.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\elements.hpp">
+    <ClInclude Include="..\..\..\omi\html\elements.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\graph.hpp">
+    <ClInclude Include="..\..\..\omi\html\graph.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\head.hpp">
+    <ClInclude Include="..\..\..\omi\html\head.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\headings.hpp">
+    <ClInclude Include="..\..\..\omi\html\headings.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\meta.hpp">
+    <ClInclude Include="..\..\..\omi\html\link.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\open.hpp">
+    <ClInclude Include="..\..\..\omi\html\meta.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\paragraph.hpp">
+    <ClInclude Include="..\..\..\omi\html\open.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\script.hpp">
+    <ClInclude Include="..\..\..\omi\html\paragraph.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\src.hpp">
+    <ClInclude Include="..\..\..\omi\html\script.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\table.hpp">
+    <ClInclude Include="..\..\..\omi\html\sections.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\tag.hpp">
+    <ClInclude Include="..\..\..\omi\html\src.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\html\title.hpp">
+    <ClInclude Include="..\..\..\omi\html\table.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\javascript\google\chart.hpp">
+    <ClInclude Include="..\..\..\omi\html\tag.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\html\title.hpp">
+      <Filter>Header Files\html</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\javascript\google\chart.hpp">
       <Filter>Header Files\javascript</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\program\options.hpp">
+    <ClInclude Include="..\..\..\omi\program\options.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\program\settings.hpp">
+    <ClInclude Include="..\..\..\omi\program\settings.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\report.hpp">
+    <ClInclude Include="..\..\..\omi\latency\report\components.hpp">
       <Filter>Header Files\report</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\report\components.hpp">
+    <ClInclude Include="..\..\..\omi\latency\report\configuration.hpp">
       <Filter>Header Files\report</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\report\configuration.hpp">
+    <ClInclude Include="..\..\..\omi\latency\report\options.hpp">
       <Filter>Header Files\report</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\latency\report\options.hpp">
+    <ClInclude Include="..\..\..\omi\latency\report.hpp">
       <Filter>Header Files\report</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\source\read.hpp">
+    <ClInclude Include="..\..\..\omi\source\read.hpp">
       <Filter>Header Files\source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\source\whitespace.hpp">
+    <ClInclude Include="..\..\..\omi\source\whitespace.hpp">
       <Filter>Header Files\source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\source\write.hpp">
+    <ClInclude Include="..\..\..\omi\source\write.hpp">
       <Filter>Header Files\source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\table\percentiles.hpp">
-      <Filter>Header Files\table</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\table\statistics.hpp">
-      <Filter>Header Files\table</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\example\report\cme\fix.hpp">
-      <Filter>Header Files\cme</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\example\report\cme\sbe.hpp">
-      <Filter>Header Files\cme</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\omi\stylesheet\options.hpp">
+    <ClInclude Include="..\..\..\omi\stylesheet\options.hpp">
       <Filter>Header Files\stylesheet</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\omi\stylesheet\standard.hpp">
+    <ClInclude Include="..\..\..\omi\stylesheet\standard.hpp">
       <Filter>Header Files\stylesheet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\percentiles.hpp">
+      <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\statistics.hpp">
+      <Filter>Header Files\table</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\example\report\main.cpp">
+    <ClCompile Include="..\..\report\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
