@@ -1,0 +1,108 @@
+body {
+font-family: Verdana,sans-serif;
+font-size: 0.9em;
+}
+
+header {
+padding: 10px;
+color: white;
+background-color: #3366cc;
+}
+
+footer {
+padding: 5px;
+color: white;
+background-color: #669999;
+}
+
+section {
+margin: 0px;
+padding: 10px;
+background-color: white;
+}
+
+article {
+margin: 5px;
+padding: 10px;
+background-color: lightgrey;
+}
+
+nav ul {
+padding: 0;
+}
+
+nav ul {
+display: inline;
+margin: 5px;
+}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* Style the close button */
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.topright:hover {color: red;}
+
+table.gridtable {
+font-family: verdana,arial,sans-serif;
+font-size: 11px;
+color: #333333;
+border-width: 1px;
+border-color: #666666;
+border-collapse: collapse;
+}
+
+table.gridtable th {
+padding: 8px;
+border-width: 1px;
+border-style: solid;
+border-color: #666666;
+background-color: #dedede;
+}
+
+table.gridtable td {
+padding: 8px;
+border-width: 1px;
+border-style: solid;
+border-color: #666666;
+background-color: #ffffff;
+}
