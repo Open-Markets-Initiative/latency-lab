@@ -56,7 +56,7 @@ struct options {
         if (args.exists(ini::file::option)) {
             auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
             return options{ ini.section("report"), args.verbose() }; // How to make this seamless?
-        } 
+        }
 
         // Otherwise initialize from program args
         return options{ args, args.verbose() };

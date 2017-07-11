@@ -17,7 +17,7 @@ struct options {
   //// Member Variables ///////////
 
     comparison::configuration report;  // Latency comparison report options
-	std::string directory;             // Directory of events files (for comparison)
+    std::string directory;             // Directory of events files (for comparison)
     std::string path;                  // Html report output path
     bool verbose;                      // Print status to standard out
 
@@ -26,7 +26,7 @@ struct options {
     // Construct options from args or ini file
     template<class setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
-		directory = option.template required<std::string>(::events::directory::option);
+        directory = option.template required<std::string>(::events::directory::option);
         path = option.template required<std::string>(::html::report::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
@@ -52,7 +52,7 @@ struct options {
         if (args.exists(ini::file::option)) {
             auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
             return options{ ini.section("comparison"), args.verbose() }; // How to make this seamless?
-        } 
+        }
 
         // Otherwise initialize from program args
         return options{ args, args.verbose() };
