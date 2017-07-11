@@ -18,8 +18,8 @@ struct statistics {
 
     // Standard constructor
     explicit statistics(const std::vector<double> &values, indent whitespace = indent::none)
-      : standard{ values, "Standard" },
-        steady{ analysis::percentile::range(values, 0, 70), "Steady State" }, // make this take values directly
+      : standard{ values},
+        steady{ analysis::percentile::range(values, 0, 70)}, // make this take values directly
         whitespace { whitespace } {}
 };
 
@@ -28,8 +28,8 @@ inline std::ostream &operator<<(std::ostream &out, const statistics &table) {
     return out << table.whitespace << html::table{ "gridtable" }
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"th", indent::two }
-               << table.whitespace <<   html::element{"th", table.standard.name, indent::two }
-               << table.whitespace <<   html::element{"th", table.steady.name, indent::two }
+               << table.whitespace <<   html::element{"th", "Standard", indent::two }
+               << table.whitespace <<   html::element{"th", "Steady State", indent::two }
                << table.whitespace << html::close{"tr"}
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"td", "Average", indent::two}

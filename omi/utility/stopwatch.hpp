@@ -19,19 +19,19 @@ struct stopwatch {
   //// Construction ///////////////
 
     // TODO: start bool for printing?
-	// TODO: make an autotimer that starts on construction
+    // TODO: make an autotimer that starts on construction
 
     // Default constructor 
     stopwatch() {}
 
   //// Implementation /////////////
 
-	// Start timer
+    // Start timer
     void start() {
         begin = std::chrono::high_resolution_clock::now();
     }
 
-	// Stop timer
+    // Stop timer
     void stop() {
         end = std::chrono::high_resolution_clock::now();
     }
@@ -48,6 +48,6 @@ inline std::ostream &operator<<(std::ostream &out, const stopwatch &watch) {
                << "  " << watch.seconds() << std::endl;
 }
 
-} 
+}
 
 #endif
