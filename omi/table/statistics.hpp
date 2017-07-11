@@ -23,7 +23,7 @@ struct statistics {
         whitespace { whitespace } {}
 };
 
-// Stream operator (prints formatted html statistics table columns and rows)
+// Stream operator
 inline std::ostream &operator<<(std::ostream &out, const statistics &table) {
     return out << table.whitespace << html::table{ "gridtable" }
                << table.whitespace << html::tag{"tr"}
