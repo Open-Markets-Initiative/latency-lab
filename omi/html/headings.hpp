@@ -25,7 +25,7 @@ inline std::ostream &operator<<(std::ostream &out, const h1 &h1) {
 struct h2 : html::element {
 
     explicit h2(const std::string &value, indent whitespace = indent::none)
-        : element{ "h2", value, whitespace } {}
+      : element{ "h2", value, whitespace } {}
 };
 
 inline std::ostream &operator<<(std::ostream &out, const h2 &h2) {

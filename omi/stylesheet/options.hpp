@@ -11,24 +11,24 @@ namespace omi {
 namespace stylesheet {
 
 struct options {
-	omi::whitespace whitespace;
-	std::string import;
+    omi::whitespace whitespace;
+    std::string import;
 
     explicit options(const std::string &file = "", indent whitespace = indent::none)
-		: whitespace{ whitespace }, import{ file } {}
+      : whitespace{ whitespace }, import{ file } {}
 };
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const options &options) {
-	// Inlcude link to external file
-	if (not options.import.empty()) { // TODO: check css extension?
-		return out << html::link{ "stylesheet", "text/css", options.import };
-	}
+    // Inlcude link to external file
+    if (not options.import.empty()) { // TODO: check css extension?
+        return out << html::link{ "stylesheet", "text/css", options.import };
+    }
 
-	// Print standard css inline in
-	return out << html::tag{ "style" }
-		       <<   stylesheet::standard{}
-	           << html::close{ "style" };
+    // Include  standard directly
+    return out << html::tag{ "style" }
+               <<   stylesheet::standard{}
+               << html::close{ "style" };
 }
 
 } }

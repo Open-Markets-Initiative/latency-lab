@@ -9,6 +9,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Header Files\analysis">
+      <UniqueIdentifier>{a41cd870-4e94-43ce-a71c-2ed74ca548aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\analysis\main.cpp">
@@ -24,6 +27,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\analysis.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\delta.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\deltas.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\percentile.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\percentiles.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\results.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\statistics.hpp">
+      <Filter>Header Files\analysis</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

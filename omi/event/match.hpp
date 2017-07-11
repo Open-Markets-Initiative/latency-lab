@@ -39,7 +39,7 @@ struct match {
         return (response.time().nanoseconds() - trigger.time().nanoseconds()) / 1000.;
     }
 
-	// Return match info
+    // Return match info
     auto info() const {
         return event::info<inbound, outbound>{trigger, response};
     }

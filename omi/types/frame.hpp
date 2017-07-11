@@ -23,12 +23,12 @@ struct frame {
 
   ///// Methods ///////////////////
 
-	// Cast operator
+    // Cast operator
     explicit operator frame() const {
         return frame(value);
     }
 
-	// Return underlying value
+    // Return underlying value
     uint64_t get() const {
         return value;
     }

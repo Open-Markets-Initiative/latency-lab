@@ -1,7 +1,6 @@
 #ifndef OMI_TYPES_TIMESTAMP_HPP_
 #define OMI_TYPES_TIMESTAMP_HPP_
 
-#include <iostream>
 #include <string>
 #include <chrono>
 #include <iso646.h>

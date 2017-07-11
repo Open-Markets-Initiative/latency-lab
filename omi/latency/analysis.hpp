@@ -30,7 +30,7 @@ void of(int argc, char *argv[]) {
 
     // Match events
     if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto events = event::matcher<inbound, outbound> { inbounds, outbounds }; // refactor?
+    const auto events = event::matcher<inbound, outbound>(inbounds, outbounds);
     if (options.verbose) { std::cout << events; }
 
     std::cout << omi::analysis::results{ events.matched.deltas() };

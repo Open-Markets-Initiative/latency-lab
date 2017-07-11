@@ -27,7 +27,6 @@ struct options {
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
-        path = option.template required<std::string>(::matching::file::option);
     }
 
   //// Interface ////////////////
@@ -38,8 +37,7 @@ struct options {
         boost::program_options::options_description description(title);
         description.add_options()
             (::inbound::file::option, boost::program_options::value<std::string>(), ::inbound::file::note)
-            (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note)
-            (::matching::file::option, boost::program_options::value<std::string>(), ::matching::file::note);
+            (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note);
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);

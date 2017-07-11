@@ -1,8 +1,6 @@
 #ifndef OMI_HTML_SECTIONS_HPP_
 #define OMI_HTML_SECTIONS_HPP_
 
-#include <omi/analysis/statistics.hpp>
-#include <omi/analysis/percentile.hpp>
 #include <omi/html/declarations.hpp>
 
 // Html test section. contains graph, stat tables
@@ -15,15 +13,12 @@ struct sections {
     // this will create chart and tables for each test
 
     // check Member variables
-    //analysis::statistics standard; // Standard statistics
-    //analysis::statistics steady;   // Steady state statistics
     std::map<std::string, std::vector<double>> values_map;
     omi::whitespace whitespace;
 
     // Standard constructor
-    explicit sections(const std::map<std::string,std::vector<double>> &values_map,
-                   indent whitespace = indent::none)
-            : values_map{values_map}, whitespace { whitespace } {}
+    explicit sections(const std::map<std::string,std::vector<double>> &values_map, indent whitespace = indent::none)
+      : values_map{values_map}, whitespace { whitespace } {}
 };
 
 // Stream operator (prints chart and tables)
@@ -74,7 +69,7 @@ inline std::ostream &operator<<(std::ostream &out, const sections &secs) {
             << html::close{"div"};
     }
 
-        return out;
+    return out;
 }
 
 } }

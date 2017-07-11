@@ -35,9 +35,9 @@ void of(int argc, char *argv[]) {
     if (options.verbose) { std::cout << events; }
 
     // Writes matches file 
-	events.matched.infos(options.path);
+    events.matched.infos(options.path);
 
-	// TODO: allow matches infos and/or ids based on optional args
+    // TODO: allow matches infos and/or ids based on optional args
 };
 
 } } }
