@@ -1,7 +1,7 @@
 # Omi Latency Lab
 Composable tools for automated network application latency measurement and reporting.
 
-External application throughput can be measured scientifically by matching outbound response events to inbound trigger events.  Automated analysis can quickly find outliers and can be used to systematically tune the components of a trading platform.  Provided a standard packet capture, this latency lab provides components to quickly create custom tools for accurate benchmarking and verification.
+External application throughput can be measured scientifically by matching outbound response events to inbound trigger events.  Provided a standard packet capture, this latency lab provides components to quickly create custom tools for accurate benchmarking, verification and system analysis.
 
 # Examples
 #### Latency Report:
@@ -38,7 +38,7 @@ Email report uses only html (no javascript) for automated test emails per run.
 
 
 # Build
-Use CMake. Visual studio 2017 projects are provided for rapid development.  Some program templates contain a dependency on boost 1.64.  
+Use CMake. Visual studio projects are provided for rapid development.  Some program templates contain a dependency on boost 1.64.  
 
 # Disclaimer
 The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
