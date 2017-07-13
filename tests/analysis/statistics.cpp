@@ -14,56 +14,56 @@ BOOST_AUTO_TEST_CASE(VerifyCount) {
     auto expected = 4;
     auto actual = statistics.count;
 
-	BOOST_CHECK_EQUAL(expected, actual);
+    BOOST_CHECK_EQUAL(expected, actual);
 }
 
 BOOST_AUTO_TEST_CASE(VerifyCountEmptyList) {
-	// Verify count for empty list
-	auto statistics = omi::analysis::statistics({});
+    // Verify count for empty list
+    auto statistics = omi::analysis::statistics({});
 
-	// Verify value
-	auto expected = 0.;
-	auto actual = statistics.count;
+    // Verify value
+    auto expected = 0.;
+    auto actual = statistics.count;
 
-	BOOST_CHECK_EQUAL(expected, actual);
+    BOOST_CHECK_EQUAL(expected, actual);
 }
 
 ///////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(VerifyAverage) {
     // Verify average
-	auto statistics = omi::analysis::statistics({1., 2., 3.});
+    auto statistics = omi::analysis::statistics({1., 2., 3.});
 
     // Verify value
     auto expected = 2.;
     auto actual = statistics.average;
 
-	BOOST_CHECK_EQUAL(expected, actual);
+    BOOST_CHECK_EQUAL(expected, actual);
 }
 
 ///////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(VerifyStandardDeviation) {
-	// Verify standard deviation
+    // Verify standard deviation
 
-	auto statistics = omi::analysis::statistics({1., 2. });
+    auto statistics = omi::analysis::statistics({1., 2. });
 
     // Verify value
     auto expected = .5;
     auto actual = statistics.deviation;
 
-	BOOST_CHECK_EQUAL(expected, actual);
+    BOOST_CHECK_EQUAL(expected, actual);
 }
 
 BOOST_AUTO_TEST_CASE(VerifyStandardDeviationEmptyList) {
-	// Verify average for empty list
-	auto statistics = omi::analysis::statistics({});
+    // Verify average for empty list
+    auto statistics = omi::analysis::statistics({});
 
-	// Verify value
-	auto expected = 0.;
-	auto actual = statistics.deviation;
+    // Verify value
+    auto expected = 0.;
+    auto actual = statistics.deviation;
 
-	BOOST_CHECK_EQUAL(expected, actual);
+    BOOST_CHECK_EQUAL(expected, actual);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

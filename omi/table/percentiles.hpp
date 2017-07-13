@@ -10,7 +10,7 @@ namespace omi {
 namespace html {
 
 struct percentiles {
-    // Memeber Variables
+    // Member Variables
     analysis::percentiles percents;
     omi::whitespace whitespace;
 

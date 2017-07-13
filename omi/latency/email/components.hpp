@@ -33,13 +33,13 @@ struct components {
 };
 
 // Stream operator (composes html email from layout and data) 
-inline std::ostream &operator<<(std::ostream &out, const components &report) {
+inline std::ostream &operator<<(std::ostream &out, const components &email) {
     return out << html::doctype{"html"}
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
                <<   html::meta{"charset", "utf-8" }
-               <<   html::title{report.layout.title}
+               <<   html::title{email.layout.title}
                <<   html::tag{"style"}
                <<     stylesheet::standard{} // TODO: Make this an option
                <<   html::close{"style"}
@@ -47,26 +47,26 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                << std::endl
                << html::tag{"body"}
                << html::tag{"section"}
-               <<   html::h3{report.layout.header}
+               <<   html::h3{email.layout.header}
                <<   std::endl
                <<   html::tag{"article"}
-               <<     html::graph{ report.data}
+               <<     html::graph{email.data}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Statistics"}
-               <<     html::statistics{report.data}
+               <<     html::statistics{email.data}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Percentiles"}
-               <<     html::percentiles{report.data}
+               <<     html::percentiles{email.data}
                <<   html::close{"article"}
                << html::close{"section"}
                << html::close{"body"}
                << std::endl
                << html::tag{"footer"}
-               <<   html::p{"&copy; " + report.layout.copyright, indent::two}
+               <<   html::p{"&copy; " + email.layout.copyright, indent::two}
                << html::close{"footer"}
                << html::close{"html"};
 }

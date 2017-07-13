@@ -10,11 +10,18 @@ https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/out
 
 The example data represents a series of outbound cme fix orders triggered by cme sbe market data packets. The spike at the beginning is due to core warming.
 
+#### Latency Analysis:
+
+https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/analysis/output/analysis.txt
+
+Latency statistics in text format.
+
 #### Event Matches:
 
 https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos
 
-The example data represents a series of matched events.  Records format: 
+The example data represents a series of matched events.  
+Records format: 
     frame number [Match Id] frame number
 
 #### Comparison Report:

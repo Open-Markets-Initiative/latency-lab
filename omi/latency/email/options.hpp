@@ -38,7 +38,7 @@ struct options {
   //// Interface ////////////////
 
     // Parse program args into options
-    static options parse(int argc, char *argv[], std::string title = "Latency Report") {
+    static options parse(int argc, char *argv[], std::string title = "Latency Email") {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()
