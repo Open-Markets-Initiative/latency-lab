@@ -5,16 +5,14 @@
 
 // Inbound market data events
 struct sbe {
-	static constexpr char * description = "sbe mdp market data";
+   static constexpr char * description = "sbe mdp market data";
 
   //// Member Variables ///////////
 
-    // Inbound sbe market data event fields from tshark csv
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
     std::string sequence;          // Sbe message sequence number
 
-    // Record properties
     uint32_t line;                 // Record line number in file
     bool processed { false };      // Was record processed correctly?
 
@@ -38,11 +36,10 @@ struct sbe {
 
 // Outbound orders events
 struct fix {
-	static constexpr char * description = "ilink fix message";
+    static constexpr char * description = "ilink fix message";
 
   //// Member Variables ///////////
 
-    // Outbound triggered event fields (cme fix)
     omi::frame frame;
     omi::timestamp timestamp;
     std::string tag9702;
