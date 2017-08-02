@@ -1,9 +1,10 @@
-# Example Emailable Latency report
+# Emailable Latency Report
 
-cme sbe inbound events
-cme fix outbound events
+Inbound events: cme sbe 
 
-Example of single file main
+Outbound events: cme fix 
+
+Example of self contained main file  
 
 
 
