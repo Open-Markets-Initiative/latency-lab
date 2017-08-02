@@ -147,8 +147,6 @@
     <ClInclude Include="..\..\..\omi\latency\email\components.hpp" />
     <ClInclude Include="..\..\..\omi\latency\email\configuration.hpp" />
     <ClInclude Include="..\..\..\omi\latency\email\options.hpp" />
-    <ClInclude Include="..\..\email\cme\fix.hpp" />
-    <ClInclude Include="..\..\email\cme\sbe.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
