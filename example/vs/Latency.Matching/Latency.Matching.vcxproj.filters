@@ -71,6 +71,9 @@
     <ClInclude Include="..\..\matching\events\outbound.hpp">
       <Filter>Header Files\events</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\sequence.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -3,6 +3,7 @@
 
 #include <omi/types/frame.hpp>
 #include <omi/types/timestamp.hpp>
+#include <omi/types/sequence.hpp>
 
 #include <iso646.h>
 
@@ -94,6 +95,35 @@ public:
         
         field = omi::timestamp(seconds, nanoseconds);
         
+        return true;
+    }
+
+    // Optimized sequence number parse method
+    bool sequence(omi::sequence &field) {
+        if (not token()) { return false; }
+
+        uint64_t value = 0;
+        for (; *current != delimiter and *current != '\0'; current++) {
+            if (*current < '0' or *current > '9') { return false; }
+            value = (value * 10) + (*current - '0');
+        }
+        if (current != nullptr) { current++; }
+        field = omi::sequence(value);
+        return true;
+    }
+
+  /////////////////////
+
+    // Skip to next field
+    bool skip() {
+        if (not token()) { return false; }
+
+        auto next = find(current, delimiter);
+        if (next) {
+            current = ++next;
+            return true;
+        }
+        current = nullptr;
         return true;
     }
 

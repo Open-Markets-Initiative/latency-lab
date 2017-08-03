@@ -3,69 +3,56 @@
 
 // Example emailable latency report for cme tick to trade
 
-// Inbound market data events
 struct sbe {
    static constexpr char * description = "sbe mdp market data";
 
-  //// Member Variables ///////////
-
+  // Record Fields //
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
-    std::string sequence;          // Sbe message sequence number
+    omi::sequence msgseqnum;       // Sbe message sequence number
 
     uint32_t line;                 // Record line number in file
     bool processed { false };      // Was record processed correctly?
 
-  //// Construction ///////////////
-
-    // Construct from csv record string
-    explicit sbe(const std::string &record, uint32_t number = 0) : line{ number } {
+  // Construct from csv record string
+    explicit sbe(const std::string &record, uint32_t line = 0) : line{ line } {
         auto parse = omi::wireshark::tokenizer{ record };
         processed = parse.wireshark(frame) and
                     parse.wireshark(timestamp) and
-                    parse.string(sequence);
+                    parse.sequence(msgseqnum);
     }
 
-  //// Methods ////////////////////
-
-    std::string id() const noexcept { return sequence; }
+  // Required Methods //
+    omi::sequence id() const noexcept { return msgseqnum; }
     omi::timestamp time() const noexcept { return timestamp; }
     omi::frame info() const noexcept { return frame; }
     bool valid() const noexcept { return processed; }
 };
 
-// Outbound orders events
 struct fix {
     static constexpr char * description = "ilink fix message";
 
-  //// Member Variables ///////////
+  // Record Fields //
+    omi::frame frame;              // Pcap frame number
+    omi::timestamp timestamp;      // Pcap time in nanoseconds 
+    omi::sequence value9717;       // Sbe message sequence number in fix tag 9717
 
-    omi::frame frame;
-    omi::timestamp timestamp;
-    std::string tag9702;
-    std::string tag9717;
-    std::string value9702;
-    std::string value9717;
+    uint32_t line;                 // Record line number in file
+    bool processed { false };      // Was record processed correctly?
 
-    uint32_t line;
-    bool processed { false };
-
-  //// Construction ///////////////
-
-    // Construct from csv record string
+  // Construct from csv record string
     explicit fix(const std::string &record, uint32_t number = 0) : line{ number } {
         auto parse = omi::wireshark::tokenizer{ record };
         processed = parse.wireshark(frame) and 
                     parse.wireshark(timestamp) and
-                    parse.string(tag9702) and
-                    parse.string(tag9717) and
-                    parse.string(value9702) and
-                    parse.string(value9717);
+                    parse.skip() and 
+                    parse.skip() and 
+                    parse.skip() and
+                    parse.sequence(value9717);
     }
 
-  //// Methods ////////////////////
-
-    std::string id() const noexcept { return value9717; }
+  // Required Methods //
+    omi::sequence id() const noexcept { return value9717; }
     omi::timestamp time() const noexcept { return timestamp; }
     omi::frame info() const noexcept { return frame; }
     bool valid() const noexcept { return processed; }

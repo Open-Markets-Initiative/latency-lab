@@ -154,6 +154,7 @@
     <ClInclude Include="..\..\..\omi\latency\matching.hpp" />
     <ClInclude Include="..\..\..\omi\latency\matching\options.hpp" />
     <ClInclude Include="..\..\..\omi\types\frame.hpp" />
+    <ClInclude Include="..\..\..\omi\types\sequence.hpp" />
     <ClInclude Include="..\..\..\omi\types\timestamp.hpp" />
     <ClInclude Include="..\..\..\omi\wireshark\tokenizer.hpp" />
     <ClInclude Include="..\..\matching\events\inbound.hpp" />
