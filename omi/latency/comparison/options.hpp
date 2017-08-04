@@ -17,8 +17,10 @@ struct options {
   //// Member Variables ///////////
 
     comparison::configuration report;  // Latency comparison report options
-    std::string directory;             // Directory of events files (for comparison)
+    std::string inbound_directory;     // Inbound events directory
+    std::string outbound_directory;    // Outbound events directory
     std::string path;                  // Html report output path
+    std::string css_file;              // optional user css file
     bool verbose;                      // Print status to standard out
 
   //// Construction //////////////
@@ -26,11 +28,13 @@ struct options {
     // Construct options from args or ini file
     template<class setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
-        directory = option.template required<std::string>(::events::directory::option);
+		inbound_directory = option.template required<std::string>(::inbound::directory::option);
+        outbound_directory = option.template required<std::string>(::outbound::directory::option);
         path = option.template required<std::string>(::html::report::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
+        report.css_file = option.template conditional<std::string>(::css::file::option, "omi.css");
     }
 
   //// Interface ////////////////
@@ -41,18 +45,20 @@ struct options {
         boost::program_options::options_description description(title);
         description.add_options()
             (::ini::file::option, boost::program_options::value<std::string>(), ::ini::file::note)
-            (::events::directory::option, boost::program_options::value<std::string>(), ::events::directory::note)
+            (::inbound::directory::option, boost::program_options::value<std::string>(), ::inbound::directory::note)
+            (::outbound::directory::option, boost::program_options::value<std::string>(), ::outbound::directory::note)
             (::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
-            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
+            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note)
+            (::css::file::option, boost::program_options::value<std::string>(), ::css::file::note);
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);
         if (args.exists(ini::file::option)) {
             auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
             return options{ ini.section("comparison"), args.verbose() }; // How to make this seamless?
-        }
+        } 
 
         // Otherwise initialize from program args
         return options{ args, args.verbose() };

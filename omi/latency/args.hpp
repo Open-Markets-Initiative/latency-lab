@@ -9,6 +9,12 @@ namespace ini { namespace file { static constexpr const char * note = "Use ini f
 namespace events { namespace directory { static constexpr const char * option = "events-dir"; } }
 namespace events { namespace directory { static constexpr const char * note = "Events directory"; } }
 
+namespace inbound { namespace directory { static constexpr const char * option = "inbound-events-dir"; } }
+namespace inbound { namespace directory { static constexpr const char * note = "Input inbound events directory"; } }
+
+namespace outbound { namespace directory { static constexpr const char * option = "outbound-events-dir"; } }
+namespace outbound { namespace directory { static constexpr const char * note = "Input outbound events directory"; } }
+
 namespace inbound { namespace file { static constexpr const char * option = "inbound-events"; } }
 namespace inbound { namespace file { static constexpr const char * note = "Input inbound events csv file"; } }
 

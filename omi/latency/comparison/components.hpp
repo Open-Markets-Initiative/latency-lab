@@ -37,8 +37,8 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
-               << html::link{"stylesheet", "text/css", "omi.css"} << std::endl // have this come in through options
-               <<   "<script type=\"text/javascript\" src=\"omi.js\"></script>" << std::endl // remove this
+               << html::link{"stylesheet", "text/css", report.layout.css_file}
+               << html::src{"omi.js"}
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.layout.title}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
