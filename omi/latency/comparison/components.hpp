@@ -37,7 +37,7 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
-               << html::link{"stylesheet", "text/css", report.layout.css_file}
+               << html::link{"stylesheet", "text/css", report.layout.css}
                << html::src{"omi.js"}
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.layout.title}

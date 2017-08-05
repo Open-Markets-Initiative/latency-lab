@@ -13,7 +13,7 @@ struct configuration {
     std::string title;
     std::string header;
     std::string copyright;
-    std::string css_file;
+    std::string css;
     // add note?
 };
 

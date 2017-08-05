@@ -15,6 +15,9 @@
     <Filter Include="Header Files\utility">
       <UniqueIdentifier>{ca1dbd55-9ef3-41b6-af86-b9034a54e4a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\directory">
+      <UniqueIdentifier>{24c7db6a-d922-4f4e-a6da-b3db3e1f355e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -39,6 +42,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp">
       <Filter>Header Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\directory\parsing.hpp">
+      <Filter>Header Files\directory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

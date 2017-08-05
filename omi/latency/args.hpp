@@ -1,7 +1,7 @@
-#ifndef EXAMPLE_PROGRAM_ARGS_HPP_
-#define EXAMPLE_PROGRAM_ARGS_HPP_
+#ifndef LAB_PROGRAM_ARGS_HPP_
+#define LAB_PROGRAM_ARGS_HPP_
 
-// Standard options for example programs
+// Standard options for program templates
 
 namespace ini { namespace file { static constexpr const char * option = "ini-file"; } }
 namespace ini { namespace file { static constexpr const char * note = "Use ini file for program options"; } }
@@ -9,11 +9,11 @@ namespace ini { namespace file { static constexpr const char * note = "Use ini f
 namespace events { namespace directory { static constexpr const char * option = "events-dir"; } }
 namespace events { namespace directory { static constexpr const char * note = "Events directory"; } }
 
-namespace inbound { namespace directory { static constexpr const char * option = "inbound-events-dir"; } }
-namespace inbound { namespace directory { static constexpr const char * note = "Input inbound events directory"; } }
+namespace inbound { namespace directory { static constexpr const char * option = "inbound-dir"; } }
+namespace inbound { namespace directory { static constexpr const char * note = "Inbound events directory"; } }
 
-namespace outbound { namespace directory { static constexpr const char * option = "outbound-events-dir"; } }
-namespace outbound { namespace directory { static constexpr const char * note = "Input outbound events directory"; } }
+namespace outbound { namespace directory { static constexpr const char * option = "outbound-dir"; } }
+namespace outbound { namespace directory { static constexpr const char * note = "Outbound events directory"; } }
 
 namespace inbound { namespace file { static constexpr const char * option = "inbound-events"; } }
 namespace inbound { namespace file { static constexpr const char * note = "Input inbound events csv file"; } }

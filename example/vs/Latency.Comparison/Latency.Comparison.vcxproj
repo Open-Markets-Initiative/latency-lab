@@ -149,6 +149,7 @@
     <ClCompile Include="..\..\comparison\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\omi\directory\parsing.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\components.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\configuration.hpp" />

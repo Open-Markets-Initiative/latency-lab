@@ -17,10 +17,8 @@ struct options {
   //// Member Variables ///////////
 
     comparison::configuration report;  // Latency comparison report options
-    std::string inbound_directory;     // Inbound events directory
-    std::string outbound_directory;    // Outbound events directory
+    event::inputs directory;           // Inbound events directory
     std::string path;                  // Html report output path
-    std::string css_file;              // optional user css file
     bool verbose;                      // Print status to standard out
 
   //// Construction //////////////
@@ -28,13 +26,13 @@ struct options {
     // Construct options from args or ini file
     template<class setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
-		inbound_directory = option.template required<std::string>(::inbound::directory::option);
-        outbound_directory = option.template required<std::string>(::outbound::directory::option);
-        path = option.template required<std::string>(::html::report::option);
+		directory.inbound = option.template required<std::string>(::inbound::directory::option);
+        directory.outbound = option.template required<std::string>(::outbound::directory::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
-        report.css_file = option.template conditional<std::string>(::css::file::option, "omi.css");
+        report.css = option.template conditional<std::string>(::css::file::option, "omi.css");
+        path = option.template required<std::string>(::html::report::option);
     }
 
   //// Interface ////////////////
@@ -51,7 +49,7 @@ struct options {
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
             (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note)
-            (::css::file::option, boost::program_options::value<std::string>(), ::css::file::note);
+            (::css::file::option, boost::program_options::value<std::string>(), ::css::file::note); // make this html::css
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);

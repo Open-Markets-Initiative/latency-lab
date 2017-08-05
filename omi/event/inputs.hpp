@@ -3,7 +3,7 @@
 
 #include <string>
 
-    // Matcher input files
+    // Matcher input files or directories
 
 namespace omi { 
 namespace event {
