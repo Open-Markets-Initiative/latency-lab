@@ -16,10 +16,10 @@ namespace comparison {
 template <class inbound, class outbound>
 void of(int argc, char *argv[]) {
 	// Parse program options for settings
-	auto options = comparison::options::parse(argc, argv);
+	auto options = options::parse(argc, argv);
 	if (options.verbose) { std::cout << "Generate Latency Comparison Report" << std::endl; }
 
-    // Search Direcories for matching latency data files
+    // Search directories for matching latency data files
     auto runs = directory::parse(options.directory.inbound, options.directory.outbound);
 	if (options.verbose) { std::cout << "Directories have " << runs.size() << " matching data sets" << std::endl; }
 
