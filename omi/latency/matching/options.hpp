@@ -4,7 +4,7 @@
 #include <omi/program/options.hpp>
 #include <omi/program/settings.hpp>
 #include <omi/latency/args.hpp>
-#include <omi/event/inputs.hpp>
+#include <omi/match/inputs.hpp>
 
 //  Options for omi latency matching
 
@@ -16,7 +16,7 @@ struct options {
 
   //// Member Variables ///////////
 
-    event::inputs files;           // Event input files
+    match::inputs files;           // Event input files
     std::string path;              // Matches list output path
     bool verbose;                  // Print status to standard out
 

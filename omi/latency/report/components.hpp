@@ -7,7 +7,7 @@
 #include <omi/stylesheet/options.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/report/configuration.hpp>
-#include <omi/event/inputs.hpp>
+#include <omi/match/inputs.hpp>
 
 // Generate single run html latency report
 
@@ -20,7 +20,7 @@ struct components {
   //// Member Variables ///////////
 
     report::configuration layout;  // Common layout options
-    event::inputs files;           // Input files
+    match::inputs files;           // Input files
     std::vector<double> data;      // Ordered event times
 
   //// Methods ////////////////////

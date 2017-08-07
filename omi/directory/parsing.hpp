@@ -34,7 +34,7 @@ inline boost::filesystem::path find(const boost::filesystem::path &inbound_file,
 }
 
 // Return matching inputs from directories
-inline std::vector<omi::event::inputs> parse(const boost::filesystem::path &in, const boost::filesystem::path &out) {
+inline auto parse(const boost::filesystem::path &in, const boost::filesystem::path &out) {
     if (not boost::filesystem::exists(in) or not boost::filesystem::is_directory(in)) {
         throw std::invalid_argument("Invalid inbound directory: " + in.string());
     }
@@ -43,7 +43,7 @@ inline std::vector<omi::event::inputs> parse(const boost::filesystem::path &in, 
         throw std::invalid_argument("Invalid outbound directory: " + out.string());
     }
 
-    std::vector<omi::event::inputs> input_vector;
+    std::vector<omi::match::inputs> input_vector;
     for (boost::filesystem::directory_entry& entry : boost::filesystem::directory_iterator(in)) {
         auto isInboundFile = entry.path().filename().string().find(INBOUND_EVENT_SUFFIX) != std::string::npos;
 
@@ -53,7 +53,7 @@ inline std::vector<omi::event::inputs> parse(const boost::filesystem::path &in, 
             auto outbound = find(inboundFile, out);
 
             if (boost::filesystem::exists(outbound)) {
-                event::inputs item;
+                match::inputs item;
                   item.inbound = entry.path().string();
                   item.outbound = outbound.string();
 
@@ -66,7 +66,7 @@ inline std::vector<omi::event::inputs> parse(const boost::filesystem::path &in, 
 }
 
 // Return matching inputs from directories 
-inline std::vector<omi::event::inputs> parse(const std::string &inbound, const std::string &outbound) {
+inline auto parse(const std::string &inbound, const std::string &outbound) {
     return parse(boost::filesystem::path{inbound}, boost::filesystem::path{outbound});
 }
 

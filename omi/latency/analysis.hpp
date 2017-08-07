@@ -1,7 +1,7 @@
 #ifndef OMI_LATENCY_ANALYSIS_HPP_
 #define OMI_LATENCY_ANALYSIS_HPP_
 
-#include <omi/event/matcher.hpp>
+#include <omi/match/events.hpp>
 #include <omi/analysis/results.hpp>
 #include <omi/latency/analysis/options.hpp>
 
@@ -30,7 +30,7 @@ void of(int argc, char *argv[]) {
 
     // Match events
     if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto events = event::matcher<inbound, outbound>(inbounds, outbounds);
+    const auto events = match::events<inbound, outbound>(inbounds, outbounds);
     if (options.verbose) { std::cout << events; }
 
     std::cout << omi::analysis::results{ events.matched.deltas() };

@@ -1,12 +1,12 @@
-#ifndef OMI_EVENT_INPUTS_HPP_
-#define OMI_EVENT_INPUTS_HPP_
+#ifndef OMI_MATCH_INPUTS_HPP_
+#define OMI_MATCH_INPUTS_HPP_
 
 #include <string>
 
     // Matcher input files or directories
 
 namespace omi { 
-namespace event {
+namespace match {
 
 struct inputs {
     std::string inbound;    // Inbound events file

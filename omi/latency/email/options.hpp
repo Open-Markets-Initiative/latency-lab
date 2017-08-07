@@ -5,7 +5,7 @@
 #include <omi/program/settings.hpp>
 #include <omi/latency/args.hpp>
 #include <omi/latency/email/configuration.hpp>
-#include <omi/event/inputs.hpp>
+#include <omi/match/inputs.hpp>
 
 //  Options for omi html latency report (single run)
 
@@ -18,7 +18,7 @@ struct options {
   //// Member Variables ///////////
 
     email::configuration email;    // Emailable report options
-    event::inputs files;           // Event input files
+    match::inputs files;           // Event input files
     std::string path;              // Html report output path
     bool verbose;                  // Print status to standard out
 

@@ -1,7 +1,7 @@
 #ifndef OMI_LATENCY_REPORT_HPP_
 #define OMI_LATENCY_REPORT_HPP_
 
-#include <omi/event/matcher.hpp>
+#include <omi/match/events.hpp>
 #include <omi/latency/report/options.hpp>
 #include <omi/latency/report/components.hpp> 
 #include <omi/utility/stopwatch.hpp>
@@ -36,7 +36,7 @@ void of(int argc, char *argv[]) {
 
     // Match events
     if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto events = event::matcher<inbound, outbound>{ inbounds, outbounds };
+    const auto events = match::events<inbound, outbound>{ inbounds, outbounds };
     if (options.verbose) { std::cout << events; }
 
     components report;

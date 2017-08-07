@@ -1,7 +1,7 @@
 #ifndef OMI_LATENCY_COMPARISON_HPP_
 #define OMI_LATENCY_COMPARISON_HPP_
 
-#include <omi/event/matcher.hpp>
+#include <omi/match/events.hpp>
 #include <omi/directory/parsing.hpp>
 #include <omi/latency/comparison/options.hpp>
 #include <omi/latency/comparison/components.hpp>
@@ -27,7 +27,7 @@ void of(int argc, char *argv[]) {
     std::map<std::string, std::vector<double>> delta_map;
     for (const auto& run : runs) {
         auto name = directory::name(run.inbound);
-        auto matched = event::matcher<inbound, outbound> {run.inbound, run.outbound};
+        auto matched = match::events<inbound, outbound> {run.inbound, run.outbound};
         delta_map.insert(std::make_pair(name, matched.matched.deltas()));
     }
 

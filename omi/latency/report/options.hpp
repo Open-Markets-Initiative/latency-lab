@@ -17,7 +17,7 @@ struct options {
   //// Member Variables ///////////
 
     report::configuration report;  // Html report options
-    event::inputs files;           // Event input files
+    match::inputs files;           // Event input files
     std::string path;              // Html report output path
     bool verbose;                  // Print status to standard out
 

@@ -17,7 +17,7 @@ struct options {
   //// Member Variables ///////////
 
     comparison::configuration report;  // Latency comparison report options
-    event::inputs directory;           // Inbound events directory
+    match::inputs directory;           // Inbound events directory
     std::string path;                  // Html report output path
     bool verbose;                      // Print status to standard out
 
