@@ -11,9 +11,6 @@ struct outbound {
 
   //// Member Variables ///////////
 
-    // Event description
-    static constexpr char * description = "ilink fix message";
-
     // Outbound triggered event fields (cme fix)
     omi::frame frame;
     omi::timestamp timestamp;

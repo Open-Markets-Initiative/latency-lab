@@ -16,7 +16,7 @@ namespace email {
 struct description {
     static constexpr char * title = "Generate Emailable Latency Report";
     static constexpr char * inbound = "events";
-    static constexpr char * outbound = " responses";
+    static constexpr char * outbound = "responses";
 };
 
 // Latency report program template

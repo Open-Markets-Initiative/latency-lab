@@ -4,7 +4,7 @@
 // Example emailable latency report for cme tick to trade
 
 struct sbe {
-  // Record Fields //
+  // Record Fields
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
     omi::sequence msgseqnum;       // Sbe message sequence number
@@ -20,7 +20,7 @@ struct sbe {
                     parse.sequence(msgseqnum);
     }
 
-  // Required Methods //
+  // Required Methods
     omi::sequence id() const noexcept { return msgseqnum; }
     omi::timestamp time() const noexcept { return timestamp; }
     omi::frame info() const noexcept { return frame; }
@@ -28,7 +28,7 @@ struct sbe {
 };
 
 struct fix {
-  // Record Fields //
+  // Record Fields
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
     omi::sequence value9717;       // Sbe message sequence number in fix tag 9717
@@ -36,7 +36,7 @@ struct fix {
     uint32_t line;                 // Record line number in file
     bool processed { false };      // Was record processed correctly?
 
-  // Construct from csv record string
+  // Construct from csv record
     explicit fix(const std::string &record, uint32_t number = 0) : line{ number } {
         auto parse = omi::tokenizer{ record };
         processed = parse.wireshark(frame) and 
@@ -45,7 +45,7 @@ struct fix {
                     parse.sequence(value9717);
     }
 
-  // Required Methods //
+  // Required Methods
     omi::sequence id() const noexcept { return value9717; }
     omi::timestamp time() const noexcept { return timestamp; }
     omi::frame info() const noexcept { return frame; }
@@ -53,7 +53,7 @@ struct fix {
 };
 
 struct description {
-  // Program description //
+  // Optional program description
     static constexpr char * title = "Generate Emailable Latency Report for Cme Tick to Trade";
     static constexpr char * inbound = "sbe mdp market data events";
     static constexpr char * outbound = "ilink fix messages";
