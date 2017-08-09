@@ -1,7 +1,7 @@
 #ifndef OMI_EXAMPLE_INBOUND_EVENT_HPP_
 #define OMI_EXAMPLE_INBOUND_EVENT_HPP_
 
-#include <omi/wireshark/tokenizer.hpp>
+#include <omi/types/tokenizer.hpp>
 
 // Example cme inbound mdp record
 
@@ -26,7 +26,7 @@ struct sbe {
 
     // Construct from csv record string
     explicit sbe(const std::string &record, uint32_t number = 0) : line{ number } {
-        auto parse = omi::wireshark::tokenizer{ record };
+        auto parse = omi::tokenizer{ record };
         processed = parse.wireshark(frame) and
                     parse.wireshark(timestamp) and
                     parse.string(sequence);

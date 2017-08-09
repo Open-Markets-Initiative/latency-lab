@@ -6,7 +6,7 @@
 #include <omi/html/graph.hpp>
 #include <omi/stylesheet/standard.hpp>
 #include <omi/source/write.hpp>
-#include <omi/match/inputs.hpp>
+#include <omi/match/results.hpp>
 #include <omi/latency/email/configuration.hpp>
 
 // Generate single run html latency report
@@ -20,8 +20,7 @@ struct components {
   //// Member Variables ///////////
 
     email::configuration layout;   // Common layout options
-    match::inputs files;           // Input files
-    std::vector<double> data;      // Ordered event times
+    match::results matching;       // Matching information
 
   //// Methods ////////////////////
 
@@ -49,19 +48,19 @@ inline std::ostream &operator<<(std::ostream &out, const components &email) {
                <<   html::h3{email.layout.header}
                <<   std::endl
                <<   html::tag{"article"}
-               <<     html::graph{email.data}
+               <<     html::graph{email.matching.data}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Statistics"}
-               <<     html::statistics{email.data}
+               <<     html::statistics{email.matching.data}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Percentiles"}
-               <<     html::percentiles{email.data}
+               <<     html::percentiles{email.matching.data}
                <<   html::close{"article"}
-               << html::close{"section"}
+               << html::close{"section"} // TODO: add run information
                << html::close{"body"}
                << std::endl
                << html::tag{"footer"}

@@ -12,37 +12,44 @@ namespace omi {
 namespace latency {
 namespace email {
 
+// Default email program template notes 
+struct description {
+    static constexpr char * title = "Generate Emailable Latency Report";
+    static constexpr char * inbound = "events";
+    static constexpr char * outbound = " responses";
+};
+
 // Latency report program template
-template <class inbound, class outbound>
+template <class inbound, class outbound, class description = description>
 void of(int argc, char *argv[]) {
     // TODO: static assert on descriptions
 
     // Parse program options for settings
     auto options = options::parse(argc, argv);
-    if (options.verbose) { std::cout << "Generate Emailable Latency Report" << std::endl; }
+    if (options.verbose) { std::cout << description::title << std::endl; }
 
     stopwatch time; // need to make this better, add to opptions, with date?
       time.start();
 
     // Load all inbound events for trigger matching
-    if (options.verbose) { std::cout << "Loading inbound " << inbound::description << " events" << std::endl; }
+    if (options.verbose) { std::cout << "Loading inbound " << description::inbound << std::endl; }
     const auto inbounds = event::database<inbound>::read(options.files.inbound);
     if (options.verbose) { std::cout << inbounds; }
 
     // Load response records
-    if (options.verbose) { std::cout << "Loading outbound " << outbound::description << " responses" << std::endl; } // add full qualified path with boost filesystem
+    if (options.verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; } // add full qualified path with boost filesystem
     const auto outbounds = event::responses<outbound>::read(options.files.outbound);
     if (options.verbose) { std::cout << outbounds; }
 
     // Match events
-    if (options.verbose) { std::cout << "Matching Events" << std::endl; }
+    if (options.verbose) { std::cout << "Match events" << std::endl; }
     const auto events = match::events<inbound, outbound>{ inbounds, outbounds };
     if (options.verbose) { std::cout << events; }
 
-    components email;
+    email::components email;
       email.layout = options.email;
-      email.files = options.files;
-      email.data = events.matched.deltas();
+      email.matching.path = options.files;
+      email.matching.data = events.matched.deltas();
 
     // Generate report
     if (options.verbose) { std::cout << "Generating Html Latency Report Email" << std::endl; }

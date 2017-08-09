@@ -18,9 +18,6 @@
     <Filter Include="Header Files\types">
       <UniqueIdentifier>{435706c7-3abf-4f0b-94b5-264d5210b8b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\wireshark">
-      <UniqueIdentifier>{f149966a-f328-4ef1-ad71-c1d72a9dee5b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\matching">
       <UniqueIdentifier>{22b60691-6de2-4993-a3dc-c0afddefb907}</UniqueIdentifier>
     </Filter>
@@ -29,9 +26,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\omi\wireshark\tokenizer.hpp">
-      <Filter>Header Files\wireshark</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\types\frame.hpp">
       <Filter>Header Files\types</Filter>
     </ClInclude>
@@ -76,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\match\inputs.hpp">
       <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\results.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\tokenizer.hpp">
+      <Filter>Header Files\types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,6 @@
 // Optimized wireshark tokenizer
 
 namespace omi {
-namespace wireshark {
 
 class tokenizer {
 
@@ -127,6 +126,15 @@ public:
         return true;
     }
 
+    // Skip to next field
+    bool skip(uint32_t count) { // check this
+        while (count--) {
+            if (not skip()) { return false; }
+        }
+
+        return true;
+    }
+
   //// Utility Methods ////////////
 
     // Does string have another token?
@@ -144,6 +152,6 @@ public:
     }
 };
 
-} }
+}
 
 #endif

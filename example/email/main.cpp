@@ -1,11 +1,9 @@
 #include <omi/latency/email.hpp>
-#include <omi/wireshark/tokenizer.hpp>
+#include <omi/types/tokenizer.hpp>
 
 // Example emailable latency report for cme tick to trade
 
 struct sbe {
-   static constexpr char * description = "sbe mdp market data";
-
   // Record Fields //
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
@@ -14,9 +12,9 @@ struct sbe {
     uint32_t line;                 // Record line number in file
     bool processed { false };      // Was record processed correctly?
 
-  // Construct from csv record string
+  // Construct from csv record
     explicit sbe(const std::string &record, uint32_t line = 0) : line{ line } {
-        auto parse = omi::wireshark::tokenizer{ record };
+        auto parse = omi::tokenizer{ record };
         processed = parse.wireshark(frame) and
                     parse.wireshark(timestamp) and
                     parse.sequence(msgseqnum);
@@ -30,8 +28,6 @@ struct sbe {
 };
 
 struct fix {
-    static constexpr char * description = "ilink fix message";
-
   // Record Fields //
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
@@ -42,12 +38,10 @@ struct fix {
 
   // Construct from csv record string
     explicit fix(const std::string &record, uint32_t number = 0) : line{ number } {
-        auto parse = omi::wireshark::tokenizer{ record };
+        auto parse = omi::tokenizer{ record };
         processed = parse.wireshark(frame) and 
                     parse.wireshark(timestamp) and
-                    parse.skip() and 
-                    parse.skip() and 
-                    parse.skip() and
+                    parse.skip(3) and 
                     parse.sequence(value9717);
     }
 
@@ -58,9 +52,16 @@ struct fix {
     bool valid() const noexcept { return processed; }
 };
 
+struct description {
+  // Program description //
+    static constexpr char * title = "Generate Emailable Latency Report for Cme Tick to Trade";
+    static constexpr char * inbound = "sbe mdp market data events";
+    static constexpr char * outbound = "ilink fix messages";
+};
+
 int main(int argc, char *argv[]) {
     try {
-        omi::latency::email::of<sbe, fix>(argc, argv);
+        omi::latency::email::of<sbe, fix, description>(argc, argv);
     } catch (std::exception &exception) {
         std::cerr << "Error: " << exception.what() << std::endl;
         return 1;
