@@ -12,12 +12,19 @@ namespace omi {
 namespace latency {
 namespace comparison {
 
+// Default comparison program template notes 
+struct description {
+    static constexpr char * title = "Latency Comparison Report";
+    static constexpr char * inbound = "events";
+    static constexpr char * outbound = "responses";
+};
+
 // Latency comparison html report program template
-template <class inbound, class outbound>
+template <class inbound, class outbound, class description = description>
 void of(int argc, char *argv[]) {
 	// Parse program options for settings
-	auto options = options::parse(argc, argv);
-	if (options.verbose) { std::cout << "Generate Latency Comparison Report" << std::endl; }
+	auto options = options::parse(argc, argv, description::title);
+	if (options.verbose) { std::cout << description::title << std::endl; }
 
     // Search directories for matching latency data files
     auto runs = directory::parse(options.directory.inbound, options.directory.outbound);

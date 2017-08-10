@@ -1,5 +1,5 @@
-#ifndef OMI_EXAMPLE_OUTBOUND_EVENT_HPP_
-#define OMI_EXAMPLE_OUTBOUND_EVENT_HPP_
+#ifndef OMI_EXAMPLE_RECORD_OUTBOUND_HPP_
+#define OMI_EXAMPLE_RECORD_OUTBOUND_HPP_
 
 #include <omi/types/tokenizer.hpp>
 
@@ -10,9 +10,6 @@ namespace example {
 struct outbound {
 
   //// Member Variables ///////////
-
-    // Event description
-    static constexpr char * description = "ilink fix message";
 
     // Outbound triggered event fields (cme fix)
     omi::frame frame;

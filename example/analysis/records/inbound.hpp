@@ -1,5 +1,5 @@
-#ifndef OMI_EXAMPLE_INBOUND_EVENT_HPP_
-#define OMI_EXAMPLE_INBOUND_EVENT_HPP_
+#ifndef OMI_EXAMPLE_RECORD_INBOUND_HPP_
+#define OMI_EXAMPLE_RECORD_INBOUND_HPP_
 
 #include <omi/types/tokenizer.hpp>
 
@@ -10,8 +10,6 @@ namespace example {
 struct inbound {
 
   //// Member Variables ///////////
-
-    static constexpr char * description = "sbe market data";
 
     // Inbound sbe market data event fields from tshark csv
     omi::frame frame;              // Pcap frame number

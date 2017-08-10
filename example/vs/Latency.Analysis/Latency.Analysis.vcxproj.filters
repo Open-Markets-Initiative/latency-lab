@@ -12,6 +12,9 @@
     <Filter Include="Header Files\analysis">
       <UniqueIdentifier>{a41cd870-4e94-43ce-a71c-2ed74ca548aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\records">
+      <UniqueIdentifier>{87e01df0-f3f6-45f7-9edf-126e1fcccf35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\analysis\main.cpp">
@@ -45,6 +48,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\analysis\statistics.hpp">
       <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\analysis\records\inbound.hpp">
+      <Filter>Header Files\records</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\analysis\records\outbound.hpp">
+      <Filter>Header Files\records</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

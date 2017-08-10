@@ -157,6 +157,8 @@
     <ClInclude Include="..\..\..\omi\analysis\statistics.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp" />
+    <ClInclude Include="..\..\analysis\records\inbound.hpp" />
+    <ClInclude Include="..\..\analysis\records\outbound.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,8 +22,6 @@ struct description {
 // Latency report program template
 template <class inbound, class outbound, class description = description>
 void of(int argc, char *argv[]) {
-    // TODO: static assert on descriptions
-
     // Parse program options for settings
     auto options = options::parse(argc, argv);
     if (options.verbose) { std::cout << description::title << std::endl; }

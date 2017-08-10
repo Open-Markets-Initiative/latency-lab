@@ -1,5 +1,5 @@
-#include <example/analysis/events/inbound.hpp>
-#include <example/analysis/events/outbound.hpp>
+#include <example/analysis/records/inbound.hpp>
+#include <example/analysis/records/outbound.hpp>
 #include <omi/latency/analysis.hpp>
 
 // Generate an example wireshark matching report
