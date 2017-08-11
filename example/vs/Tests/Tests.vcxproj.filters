@@ -35,5 +35,8 @@
     <ClCompile Include="..\..\..\tests\types\timestamp.cpp">
       <Filter>Source Files\types</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\tests\types\sequence.cpp">
+      <Filter>Source Files\types</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

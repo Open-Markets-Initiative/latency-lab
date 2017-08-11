@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\..\tests\analysis\percentiles.cpp" />
     <ClCompile Include="..\..\..\tests\analysis\statistics.cpp" />
     <ClCompile Include="..\..\..\tests\tests.cpp" />
+    <ClCompile Include="..\..\..\tests\types\sequence.cpp" />
     <ClCompile Include="..\..\..\tests\types\timestamp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

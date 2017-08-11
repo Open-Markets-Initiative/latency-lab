@@ -11,6 +11,7 @@
 namespace omi {
 
 struct sequence {
+    using type = uint64_t;
 
   ///// Construction //////////////
 
@@ -19,7 +20,7 @@ struct sequence {
       : value{ 0 } {}
 
     // Standard constructor
-    explicit sequence(const uint64_t &number)
+    explicit sequence(const type &number)
       : value{ number } {}
 
   ///// Methods ///////////////////
@@ -30,15 +31,14 @@ struct sequence {
     }
 
     // Return underlying value
-    uint64_t get() const {
+    type get() const {
         return value;
     }
 
   //// Properties /////////////////
 
   protected:
-
-    uint64_t value;
+      type value;
 };
 
 ///////////////////////////////////////////////
@@ -82,9 +82,9 @@ inline std::ostream &operator<<(std::ostream &out, const sequence &number) {
 
 // Hash 
 namespace std {
-template <> struct hash<omi::sequence> {
+template<> struct hash<omi::sequence> {
     size_t operator()(const omi::sequence& number) const {
-        return hash<uint64_t>()(number.get());
+        return hash<omi::sequence::type>()(number.get());
     }
 };}
 
