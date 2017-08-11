@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <ostream>
+#include <functional>
 #include <iso646.h>
 
 // Generic Sequence Number
@@ -80,10 +81,11 @@ inline std::ostream &operator<<(std::ostream &out, const sequence &number) {
 }
 
 // Hash 
-template <>
-struct std::hash<omi::sequence> {
-size_t operator()(const omi::sequence& number) const {
-    return std::hash<uint64_t>()(number.get());
-}};
+namespace std {
+template <> struct hash<omi::sequence> {
+    size_t operator()(const omi::sequence& number) const {
+        return hash<uint64_t>()(number.get());
+    }
+};}
 
 #endif

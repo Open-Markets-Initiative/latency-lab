@@ -53,8 +53,8 @@ struct fix {
 };
 
 struct description {
-  // Optional program description
-    static constexpr char * title = "Generate Emailable Latency Report for Cme Tick to Trade";
+  // Program description
+    static constexpr char * title = "Emailable Latency Report for Cme Tick to Trade";
     static constexpr char * inbound = "sbe mdp market data events";
     static constexpr char * outbound = "ilink fix messages";
 };
