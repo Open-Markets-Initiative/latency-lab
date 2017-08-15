@@ -1,7 +1,7 @@
 #ifndef OMI_EXAMPLE_OUTBOUND_EVENT_HPP_
 #define OMI_EXAMPLE_OUTBOUND_EVENT_HPP_
 
-#include <omi/wireshark/tokenizer.hpp>
+#include <omi/types/tokenizer.hpp>
 
 // Example outbound event
 
@@ -29,8 +29,8 @@ struct outbound {
 
     // Construct from csv record string
     explicit outbound(const std::string &record, uint32_t number = 0) : line{ number } {
-        auto parse = omi::wireshark::tokenizer{ record };
-        processed = parse.frame(frame) and 
+        auto parse = omi::tokenizer{ record };
+        processed = parse.wireshark(frame) and 
                     parse.wireshark(timestamp) and
                     parse.string(tag9702) and
                     parse.string(tag9717) and

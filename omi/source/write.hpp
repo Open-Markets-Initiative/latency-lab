@@ -9,14 +9,14 @@ namespace omi {
 namespace source {
 
 template<typename output>
-void write(const output &report, const std::string &path) {
+void write(const output &out, const std::string &path) {
     // Verify output file
     std::ofstream stream(path);
-    if (stream.bad()) {
+    if (not stream.good()) {
         throw std::invalid_argument("Invalid file: " + path);
     }
 
-    stream << report;
+    stream << out;
 }
 
 } }

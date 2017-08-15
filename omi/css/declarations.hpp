@@ -26,6 +26,6 @@ inline std::ostream &operator<<(std::ostream &out, const declaration &rule) {
 
 using declarations = std::vector<declaration>;
 
-} } 
+} }
 
 #endif

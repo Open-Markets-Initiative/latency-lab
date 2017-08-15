@@ -24,15 +24,15 @@ struct results {
     // Standard constructor
     explicit results(const std::vector<double> &values) 
       : percentiles{ values },
-        standard{ values, "Standard" },
-        steadystate{ percentile::range(values, 0, 70), "Steady State" } {}
+        standard{ values},
+        steadystate{ percentile::range(values, 0, 70)} {}
 };
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const results &results) {
-    return out << results.percentiles << std::endl
-               << results.standard << std::endl
-               << results.steadystate << std::endl;
+    return out << "Percentiles" << std::endl << results.percentiles
+               << "Standard Statistics" << std::endl << results.standard
+               << "Steady State Statistics" << std::endl << results.steadystate;
 }
 
 } }

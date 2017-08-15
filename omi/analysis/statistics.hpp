@@ -19,7 +19,6 @@ struct statistics {
     double average { 0. };
     double deviation { 0. };
 
-    std::string name;
     size_t precision { 4 };
 
   //// Construction ///////////////
@@ -28,7 +27,7 @@ struct statistics {
     statistics() {}
 
     // Standard constructor
-    explicit statistics(const std::vector<double> &values, const std::string &name = "Statistics") : name{ name } {
+    explicit statistics(const std::vector<double> &values) {
         // Count
         count = values.size();
         if (count < 1) { return; }
@@ -46,11 +45,9 @@ struct statistics {
     }
 };
 
-
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const statistics &statistics) {
-    return out << statistics.name.c_str() << std::endl
-               << std::fixed << std::setprecision(statistics.precision)
+    return out << std::fixed << std::setprecision(statistics.precision)
                << "  Average:   " << statistics.average << std::endl
                << "  Deviation: " << statistics.deviation << std::endl;
 }

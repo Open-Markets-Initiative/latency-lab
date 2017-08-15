@@ -17,7 +17,7 @@ struct options {
   //// Member Variables ///////////
 
     report::configuration report;  // Html report options
-    event::inputs files;           // Event input files
+    match::inputs files;           // Event input files
     std::string path;              // Html report output path
     bool verbose;                  // Print status to standard out
 
@@ -32,6 +32,7 @@ struct options {
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
+        report.css = option.template conditional<std::string>(::css::file::option, "");
     }
 
   //// Interface ////////////////
@@ -47,14 +48,15 @@ struct options {
             (::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
+            (::css::file::option, boost::program_options::value<std::string>(), ::css::file::note)
             (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);
         if (args.exists(ini::file::option)) {
             auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
-            return options{ ini.section("report"), args.verbose() }; // How to make this seemless?
-        } 
+            return options{ ini.section("report"), args.verbose() }; // How to make this seamless?
+        }
 
         // Otherwise initialize from program args
         return options{ args, args.verbose() };

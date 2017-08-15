@@ -1,5 +1,5 @@
-#ifndef OMI_XML_WHITESPACE_HPP_
-#define OMI_XML_WHITESPACE_HPP_
+#ifndef OMI_SOURCE_WHITESPACE_HPP_
+#define OMI_SOURCE_WHITESPACE_HPP_
 
 #include <string>
 
@@ -22,7 +22,7 @@ struct whitespace {
 };
 
 inline std::ostream &operator<<(std::ostream &out, const whitespace &whitespace) {
-    switch(whitespace.type) {
+    switch (whitespace.type) {
         case indent::two:
             return out << "  ";
         case indent::four:

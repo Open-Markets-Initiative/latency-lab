@@ -12,24 +12,24 @@ namespace html {
 
 struct statistics {
     // Member variables
-    analysis::statistics standard; // Standard statistics     
-    analysis::statistics steady;   // Steady state statistics 
+    analysis::statistics standard; // Standard statistics
+    analysis::statistics steady;   // Steady state statistics
     omi::whitespace whitespace;
 
     // Standard constructor
     explicit statistics(const std::vector<double> &values, indent whitespace = indent::none)
-      : standard{ values, "Standard" },
-        steady{ analysis::percentile::range(values, 0, 70), "Steady State" }, // make this take values directly
+      : standard{ values},
+        steady{ analysis::percentile::range(values, 0, 70)}, // make this take values directly
         whitespace { whitespace } {}
 };
 
-// Stream operator (prints formatted html statistics table columns and rows)
+// Stream operator
 inline std::ostream &operator<<(std::ostream &out, const statistics &table) {
     return out << table.whitespace << html::table{ "gridtable" }
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"th", indent::two }
-               << table.whitespace <<   html::element{"th", table.standard.name, indent::two }
-               << table.whitespace <<   html::element{"th", table.steady.name, indent::two }
+               << table.whitespace <<   html::element{"th", "Standard", indent::two }
+               << table.whitespace <<   html::element{"th", "Steady State", indent::two }
                << table.whitespace << html::close{"tr"}
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"td", "Average", indent::two}

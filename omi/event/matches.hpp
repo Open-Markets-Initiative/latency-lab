@@ -23,7 +23,6 @@ struct matches : std::vector<event::match<trigger, response>> {
         return result;
     }
 
-
     // Build list of infos from matches
     auto infos() const {
         // To preallocate we need a cool way to make this default constructable

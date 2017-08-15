@@ -4,6 +4,7 @@
 #include <boost/program_options.hpp>
 
 #include <iostream>
+#include <iso646.h>
 
 // Omi program options
 
@@ -16,7 +17,7 @@ namespace help    { static constexpr const char* note = "Program Usage"; }
 namespace verbose { static constexpr const char* option = "verbose"; }
 namespace verbose { static constexpr const char* note = "Verbose Output"; }
 
-struct options { // should be a class
+struct options {
 
   //// Member Variables ///////////
 

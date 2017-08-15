@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <iso646.h>
 
 // Read records line by line
 
@@ -13,7 +14,7 @@ template<class input, class record>
 auto read(const std::string &path) {
     // Verify file
     std::ifstream stream(path.c_str());
-    if (stream.bad()) {
+    if (not stream.good()) {
         throw std::invalid_argument("Invalid file: " + path);
     }
 

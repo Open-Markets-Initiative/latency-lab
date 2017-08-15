@@ -1,9 +1,9 @@
 #ifndef OMI_TYPES_TIMESTAMP_HPP_
 #define OMI_TYPES_TIMESTAMP_HPP_
 
-#include <iostream>
 #include <string>
 #include <chrono>
+#include <iso646.h>
 
 // Simple 64bit portable inline timestamp
 
@@ -86,10 +86,6 @@ struct timestamp {
         return value == time;
     }
 
-    bool operator==(const timestamp &time) const {
-        return value == time.value;
-    }
-
     timestamp operator+(const timestamp& other) const {
         return timestamp(value + other.value);
     }
@@ -106,39 +102,19 @@ struct timestamp {
         value -= other.value; return *this;
     }
 
-  /////////////////////////////////
+  ///// Methods ///////////////////
 
-    // Less than operator
-    bool operator<(const timestamp& time) const {
-        return value < time.value;
-    }
-
-    // Less than or equals operator
-    bool operator<=(const timestamp& time) const {
-        return value <= time.value;
-    }
-
-    // Greater than operator
-    bool operator>(const timestamp& time) const {
-        return value > time.value;
-    }
-
-    // Greater than or equals operator
-    bool operator>=(const timestamp& time) const {
-        return value >= time.value;
-    }
-
-  /////////////////////////////////
-
+    // Cast operator
     explicit operator timestamp() const {
         return timestamp(value);
     }
 
+    // Return underlying value
     uint64_t get() const {
         return value;
     }
 
-  /////////////////////////////////
+  //// Properties /////////////////
 
     std::string text() const {
         return std::string("todo");
@@ -149,6 +125,38 @@ struct timestamp {
     uint64_t value;
 };
 
+
+///////////////////////////////////////////////
+
+// Equals operator
+inline bool operator==(const timestamp& lhs, const timestamp& rhs) {
+    return lhs.get() == rhs.get();
+}
+
+// Not equals operator
+inline bool operator!=(const timestamp& lhs, const timestamp& rhs) {
+    return not operator==(lhs, rhs);
+}
+
+// Less than operator
+inline bool operator<(const timestamp& lhs, const timestamp& rhs) {
+    return lhs.get() < rhs.get();
+}
+
+// Greater than operator
+inline bool operator>(const timestamp& lhs, const timestamp& rhs) {
+    return operator<(rhs, lhs);
+}
+
+// Less than or equals operator
+inline bool operator<=(const timestamp& lhs, const timestamp& rhs) {
+    return not operator>(lhs, rhs);
+}
+
+// Greater than or equals operator
+inline bool operator>=(const timestamp& lhs, const timestamp& rhs) {
+    return not operator<(lhs, rhs);
+}
 
 // Stream operator
 inline std::ostream & operator<<(std::ostream &out, const timestamp &timestamp) {

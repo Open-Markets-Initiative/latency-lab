@@ -1,7 +1,0 @@
-With Cme.Sbe.Mdp.v8.1.Script.lua, tshark will pull out the required data for matching on message sequence number
-
-Windows:
-tshark -r "example.pcap" -Y "udp && cme.sbe.v80.templateid == 32" -T "fields" -e "frame.number" -e "frame.time_relative" -e "cme.sbe.v80.messagesequencenumber" -E "separator=," > inbound.events
-
-Linux:
-tshark -r 'example.pcap' -Y 'udp && cme.sbe.v80.templateid == 32' -T 'fields' -e 'frame.number' -e 'frame.time_relative' -e 'cme.sbe.v80.messagesequencenumber' -E 'separator=,' > inbound.events"
