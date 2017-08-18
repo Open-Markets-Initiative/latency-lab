@@ -2,7 +2,8 @@
 #define OMI_EVENT_MATCH_HPP_
 
 #include <omi/analysis/delta.hpp>
-#include <omi/event/info.hpp>
+#include <omi/match/info.hpp>
+#include <omi/match/timestamps.hpp>
 #include <omi/event/asserts.hpp>
 
 // Matched events 
@@ -34,14 +35,22 @@ struct match {
         return trigger.id();
     }
 
-    // Return match time delta in microseconds
-    double delta() const { // Need to make this professional/general
-        return (response.time().nanoseconds() - trigger.time().nanoseconds()) / 1000.;
-    }
-
     // Return match info
     auto info() const {
-        return event::info<inbound, outbound>{trigger, response};
+        return omi::match::info<inbound, outbound>{trigger, response};
+    }
+
+    // Return match timestamps
+    auto timestamps() const {
+        return omi::match::timestamps<decltype(std::declval<inbound>().timestamp()),
+            decltype(std::declval<outbound>().timestamp())>{trigger.time(), response.time()};
+    }
+
+  // TODO: remove this
+
+    // Return match time delta in microseconds
+    auto delta() const { // Need to make this professional/general
+        return response.time().microseconds() - trigger.time().microseconds();
     }
 };
 
