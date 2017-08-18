@@ -146,14 +146,15 @@
     <ClInclude Include="..\..\..\omi\event\asserts.hpp" />
     <ClInclude Include="..\..\..\omi\event\database.hpp" />
     <ClInclude Include="..\..\..\omi\event\list.hpp" />
-    <ClInclude Include="..\..\..\omi\event\info.hpp" />
     <ClInclude Include="..\..\..\omi\event\match.hpp" />
     <ClInclude Include="..\..\..\omi\event\matches.hpp" />
     <ClInclude Include="..\..\..\omi\latency\matching.hpp" />
     <ClInclude Include="..\..\..\omi\latency\matching\options.hpp" />
     <ClInclude Include="..\..\..\omi\match\events.hpp" />
+    <ClInclude Include="..\..\..\omi\match\info.hpp" />
     <ClInclude Include="..\..\..\omi\match\inputs.hpp" />
     <ClInclude Include="..\..\..\omi\match\results.hpp" />
+    <ClInclude Include="..\..\..\omi\match\timestamps.hpp" />
     <ClInclude Include="..\..\..\omi\types\frame.hpp" />
     <ClInclude Include="..\..\..\omi\types\sequence.hpp" />
     <ClInclude Include="..\..\..\omi\types\timestamp.hpp" />

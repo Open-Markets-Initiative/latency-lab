@@ -66,13 +66,13 @@ struct timestamp {
   ///// Accessors /////////////////
 
     // Number of seconds since epoch
-    uint64_t seconds() const {
-        return value / nanoseconds::per::second;
+    double seconds() const {
+        return value / static_cast<double>(nanoseconds::per::second);
     }
 
     // Number of microseconds since epoch
-    uint64_t microseconds() const {
-        return value / nanoseconds::per::microsecond;
+    double microseconds() const {
+        return value / static_cast<double>(nanoseconds::per::microsecond);
     }
 
     // Number of nanoseconds since epoch

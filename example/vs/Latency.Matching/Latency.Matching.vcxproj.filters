@@ -44,9 +44,6 @@
     <ClInclude Include="..\..\..\omi\event\database.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\event\info.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\event\match.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
@@ -76,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\types\tokenizer.hpp">
       <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\info.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\timestamps.hpp">
+      <Filter>Header Files\match</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
