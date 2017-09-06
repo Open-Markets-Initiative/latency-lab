@@ -18,11 +18,11 @@ if (WIN64)
     # Find boost
     find_package(Boost COMPONENTS program_options REQUIRED)
 else()
-    set(BOOST_ROOT /home/parallels/Downloads/boost_1_63_0)
+    set(BOOST_ROOT /home/parallels/Downloads/boost_1_64_0)
     find_package(Boost)
 
     set(Boost_INCLUDE_DIR ${BOOST_ROOT})
-    set(Boost_LIBRARY_DIR ${BOOST_ROOT}/stage/lib)
+    set(Boost_LIBRARY_DIR ${BOOST_ROOT}/lib)
 endif()
 
 # Include directories
