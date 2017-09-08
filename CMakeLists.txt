@@ -31,8 +31,6 @@ include_directories(${Boost_INCLUDE_DIR})
 include_directories(${Boost_LIBRARY_DIR})
 
 # Build example projects
-add_executable(latency_comparison example/comparison/main.cpp)
-target_link_libraries(latency_comparison
-        ${Boost_LIBRARY_DIR}/libboost_filesystem.so
-        ${Boost_LIBRARY_DIR}/libboost_system.so
-        ${Boost_LIBRARY_DIR}/libboost_program_options.so)
+ADD_SUBDIRECTORY(example/comparison)
+ADD_SUBDIRECTORY(example/report)
+
