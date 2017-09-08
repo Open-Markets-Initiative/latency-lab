@@ -16,6 +16,7 @@ install:
     - ./b2 install -d0
 
 before_script:  
+    - cd ..
     - mkdir build
     - cd build
     - cmake ..
