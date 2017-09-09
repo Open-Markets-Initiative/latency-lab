@@ -19,7 +19,7 @@ if (WIN64)
     find_package(Boost COMPONENTS program_options REQUIRED)
 else()
     set(BOOST_ROOT /home/parallels/Downloads/boost_1_64_0)
-    find_package(Boost)
+    find_package(Boost REQUIRED COMPONENTS program_options filesystem system)
 
     set(Boost_INCLUDE_DIR ${BOOST_ROOT})
     set(Boost_LIBRARY_DIR ${BOOST_ROOT}/lib)
@@ -28,9 +28,12 @@ endif()
 # Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${Boost_INCLUDE_DIR})
-include_directories(${Boost_LIBRARY_DIR})
+link_directories(${Boost_LIBRARY_DIR})
 
 # Build example projects
+ADD_SUBDIRECTORY(example/analysis)
 ADD_SUBDIRECTORY(example/comparison)
+ADD_SUBDIRECTORY(example/email)
+ADD_SUBDIRECTORY(example/matching)
 ADD_SUBDIRECTORY(example/report)
 

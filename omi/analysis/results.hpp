@@ -13,7 +13,7 @@ struct results {
 
   //// Member Variables ///////////
 
-    percentiles percentiles;
+    percentiles percents;
     statistics standard;
     statistics steadystate;
     // add normalized (ie no outliers)
@@ -23,14 +23,14 @@ struct results {
 
     // Standard constructor
     explicit results(const std::vector<double> &values) 
-      : percentiles{ values },
+      : percents{ values },
         standard{ values},
         steadystate{ percentile::range(values, 0, 70)} {}
 };
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const results &results) {
-    return out << "Percentiles" << std::endl << results.percentiles
+    return out << "Percentiles" << std::endl << results.percents
                << "Standard Statistics" << std::endl << results.standard
                << "Steady State Statistics" << std::endl << results.steadystate;
 }
