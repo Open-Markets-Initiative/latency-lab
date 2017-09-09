@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <ostream>
+#include <cmath>
 
 // Time delta
 
