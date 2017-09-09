@@ -14,8 +14,8 @@ before_install:
 
 install: 
   # C++14
-  - apt-get install -qq g++-6
-  - update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
   - wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download
   - tar -xzf boost_1_64_0.tar.gz
   - cd boost_1_64_0/
