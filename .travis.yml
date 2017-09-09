@@ -20,8 +20,8 @@ install:
   - tar -zxf cmake-3.9.2.tar.gz
   - cd cmake-3.9.2
   - ./bootstrap
-  - ./make -s
-  - sudo ./make install
+  - make -s
+  - sudo make install
   - cmake --version
   - cd ..
   - wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download
