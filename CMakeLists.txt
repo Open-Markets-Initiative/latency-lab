@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.9)
 project(omilatencylab)
 
 # Set compiler flags
@@ -20,9 +20,6 @@ if (WIN64)
 else()
     set(BOOST_ROOT /home/parallels/Downloads/boost_1_64_0)
     find_package(Boost REQUIRED COMPONENTS program_options filesystem system)
-
-    set(Boost_INCLUDE_DIR ${BOOST_ROOT})
-    set(Boost_LIBRARY_DIR ${BOOST_ROOT}/lib)
 endif()
 
 # Include directories
