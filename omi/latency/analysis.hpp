@@ -13,9 +13,9 @@ namespace analysis {
 
 // Default analysis program template notes 
 struct description {
-    static constexpr char * title = "Latency Analysis";
-    static constexpr char * inbound = "events";
-    static constexpr char * outbound = "responses";
+    static constexpr const char * title = "Latency Analysis";
+    static constexpr const char * inbound = "events";
+    static constexpr const char * outbound = "responses";
 };
 
 template <class inbound, class outbound, class description = description>
