@@ -14,9 +14,9 @@ namespace comparison {
 
 // Default comparison program template notes 
 struct description {
-    static constexpr char * title = "Latency Comparison Report";
-    static constexpr char * inbound = "events";
-    static constexpr char * outbound = "responses";
+    static constexpr const char * title = "Latency Comparison Report";
+    static constexpr const char * inbound = "events";
+    static constexpr const char * outbound = "responses";
 };
 
 // Latency comparison html report program template
