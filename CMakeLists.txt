@@ -19,7 +19,7 @@ if (WIN64)
     # Find boost
     find_package(Boost COMPONENTS program_options REQUIRED)
 else()
-    set(BOOST_ROOT /usr/local/boost_1_65_0)
+    set(BOOST_ROOT /home/travis/build/Open-Markets-Initiative/latency-lab/boost_1_64_0)
     find_package(Boost COMPONENTS program_options filesystem system unit_test_framework REQUIRED)
 endif()
 
