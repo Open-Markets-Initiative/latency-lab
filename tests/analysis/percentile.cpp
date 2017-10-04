@@ -36,4 +36,13 @@ BOOST_AUTO_TEST_CASE(VerifyIndexReturnValueTen) {
     BOOST_CHECK_EQUAL(expected, actual);
 }
 
+BOOST_AUTO_TEST_CASE(VerifyElementZeroReturnValue) {
+    // Verify value
+    auto expected = 0.0; // 0 based
+    auto vector = std::vector<double>{0.0, 0.0, 0.0, 0.0};
+    auto actual = omi::analysis::percentile::element(vector, 0.0);
+
+    BOOST_CHECK_EQUAL(expected, actual);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
