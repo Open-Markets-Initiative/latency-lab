@@ -1,46 +1,61 @@
-# Omi Latency Lab
-Composable tools for automated network application latency measurement and reporting.
+# Latency Lab
 
-External application throughput can be measured scientifically by matching outbound response events to inbound trigger events.  Provided a standard packet capture, this latency lab provides components to quickly create custom tools for accurate benchmarking, verification and system analysis.
+[![Travis](https://img.shields.io/travis/Open-Markets-Initiative/latency-lab.svg)]()
 
-# Examples
-#### Latency Report:
+Composable tools for automated network application latency measurement and 
+reporting.
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html
+External application throughput can be measured scientifically by matching
+outbound response events to inbound trigger events.  Provided a standard 
+packet capture, this latency lab provides components to quickly create 
+custom tools for accurate benchmarking, verification and system analysis.
 
-The example data represents a series of outbound cme fix orders triggered by cme sbe market data packets. The spike at the beginning is due to core warming.
+## Examples
 
-#### Latency Analysis:
+### [Latency Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html)
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/analysis/output/analysis.txt
+The example data represents a series of outbound CME fix orders triggered
+by CME SBE market data packets. The spike at the beginning is due to core 
+warming.
+
+### [Latency Analysis](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/analysis/output/analysis.txt)
 
 Latency statistics in text format.
 
-#### Event Matches:
+### [Event Matches](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos)
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos
+The example data represents a series of matched events.
 
-The example data represents a series of matched events.  
 Records format: 
-    frame number [Match Id] frame number
 
-#### Comparison Report:
+```
+frame number [Match Id] frame number
+```
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html
+### [Comparison Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html)
 
-A comparison report allows for quickly comparing application response to multiple different data speeds.
+A comparison report allows for quickly comparing application response to 
+multiple different data speeds.
 
-#### Emailable Report:
+### [Emailable Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/email/output/email.html)
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/email/output/email.html
+Email report uses only html (no javascript) for automated test emails per
+run.
 
-Email report uses only html (no javascript) for automated test emails per run.
 
+## Build
 
-# Build
-Use CMake. Visual studio projects are provided for rapid development.  Some program templates contain a dependency on boost 1.64.  
+Use CMake. Visual studio projects are provided for rapid development. Some 
+program templates contain a dependency on Boost 1.64.
 
-# Disclaimer
-The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
+## Disclaimer
 
-All example input data are faked records modeled on tshark dissections. Any similaraity between existing people, places and/or protocols is purely incidental. Enjoy.
+The Open Markets Initiative (Omi) is a group of technologists dedicated to 
+enhancing the stability of electronic financial markets using modern 
+development methods.
+
+All example input data are faked records modeled on tshark dissections. 
+Any similaraity between existing people, places and/or protocols is purely 
+incidental. 
+
+Enjoy.
