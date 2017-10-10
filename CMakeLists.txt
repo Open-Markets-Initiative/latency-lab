@@ -19,8 +19,7 @@ if (WIN64)
     # Find boost
     find_package(Boost COMPONENTS program_options REQUIRED)
 else()
-    set(BOOST_ROOT /home/travis/build/Open-Markets-Initiative/latency-lab/boost_1_64_0)
-    find_package(Boost COMPONENTS program_options filesystem system unit_test_framework REQUIRED)
+    find_package(Boost COMPONENTS program_options filesystem system REQUIRED)
 endif()
 
 # Include directories
@@ -29,11 +28,11 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
 # Build example projects
-ADD_SUBDIRECTORY(example/analysis)
-ADD_SUBDIRECTORY(example/comparison)
-ADD_SUBDIRECTORY(example/email)
-ADD_SUBDIRECTORY(example/matching)
-ADD_SUBDIRECTORY(example/report)
+add_subdirectory(example/analysis)
+add_subdirectory(example/comparison)
+add_subdirectory(example/email)
+add_subdirectory(example/matching)
+add_subdirectory(example/report)
 
 # Tests
 
