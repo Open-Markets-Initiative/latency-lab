@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 project(omilatencylab)
+enable_testing()
 
 # Set compiler flags
 set(CMAKE_CXX_STANDARD 14)
@@ -18,8 +19,7 @@ if (WIN64)
     # Find boost
     find_package(Boost COMPONENTS program_options REQUIRED)
 else()
-    set(BOOST_ROOT /home/travis/build/Open-Markets-Initiative/latency-lab/boost_1_64_0)
-    find_package(Boost REQUIRED COMPONENTS program_options filesystem system)
+    find_package(Boost COMPONENTS program_options filesystem system REQUIRED)
 endif()
 
 # Include directories
@@ -28,9 +28,12 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
 # Build example projects
-ADD_SUBDIRECTORY(example/analysis)
-ADD_SUBDIRECTORY(example/comparison)
-ADD_SUBDIRECTORY(example/email)
-ADD_SUBDIRECTORY(example/matching)
-ADD_SUBDIRECTORY(example/report)
+add_subdirectory(example/analysis)
+add_subdirectory(example/comparison)
+add_subdirectory(example/email)
+add_subdirectory(example/matching)
+add_subdirectory(example/report)
 
+# Tests
+
+add_subdirectory(tests)

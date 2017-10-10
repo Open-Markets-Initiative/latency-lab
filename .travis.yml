@@ -28,6 +28,7 @@ install:
   - ./bootstrap.sh --prefix=. --with-libraries=program_options,filesystem,system
   - ./b2 -d0
   - ./b2 install -d0
+  - export BOOST_ROOT="/home/travis/build/Open-Markets-Initiative/latency-lab/boost_1_64_0"
 
 before_script:  
   - cd ..

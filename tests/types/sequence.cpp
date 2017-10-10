@@ -1,4 +1,4 @@
-#include <boost/test/unit_test.hpp>
+#include <boost/test/included/unit_test.hpp>
 #include <omi/types/sequence.hpp>
 
 // Regression tests for portable timestamp type
@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE(VerifyLessthanOperatoReturnsTrue) {
 BOOST_AUTO_TEST_CASE(VerifyOperatLessThanReturnsFalse) {
     auto comment = "Verify sequence type less than operator returns false";
 
-    auto condition = sequence{ 10 } > sequence{ 6 };
+    auto condition = sequence{ 1 } > sequence{ 6 };
 
     BOOST_CHECK_MESSAGE(not condition, comment);
 }

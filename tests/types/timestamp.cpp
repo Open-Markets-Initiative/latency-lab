@@ -1,4 +1,4 @@
-#include <boost/test/unit_test.hpp>
+#include <boost/test/included/unit_test.hpp>
 #include <omi/types/timestamp.hpp>
 
 // Regression tests for portable timestamp type

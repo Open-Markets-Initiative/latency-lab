@@ -1,4 +1,4 @@
-#include <boost/test/unit_test.hpp>
+#include <boost/test/included/unit_test.hpp>
 #include <omi/analysis/statistics.hpp>
 
 // Unit tests for statistics
@@ -19,7 +19,8 @@ BOOST_AUTO_TEST_CASE(VerifyCount) {
 
 BOOST_AUTO_TEST_CASE(VerifyCountEmptyList) {
     // Verify count for empty list
-    auto statistics = omi::analysis::statistics({});
+    auto empty = std::vector<double>{};
+    auto statistics = omi::analysis::statistics(empty);
 
     // Verify value
     auto expected = 0.;
@@ -57,7 +58,8 @@ BOOST_AUTO_TEST_CASE(VerifyStandardDeviation) {
 
 BOOST_AUTO_TEST_CASE(VerifyStandardDeviationEmptyList) {
     // Verify average for empty list
-    auto statistics = omi::analysis::statistics({});
+    auto empty = std::vector<double>{};
+    auto statistics = omi::analysis::statistics(empty);
 
     // Verify value
     auto expected = 0.;
