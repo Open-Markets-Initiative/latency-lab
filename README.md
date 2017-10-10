@@ -1,8 +1,8 @@
+# Latency Lab
+
 <p align="left">
 <a href="https://travis-ci.org/Open-Markets-Initiative/latency-lab"><img src="https://img.shields.io/travis/Open-Markets-Initiative/latency-lab.svg?style=flat-square"/></a>
 </p>
-
-# Latency Lab
 
 Composable tools for automated network application latency measurement and 
 reporting.
