@@ -12,9 +12,9 @@ namespace matching {
 
     // Default email program template notes 
 struct description {
-    static constexpr char * title = "Matched Event List";
-    static constexpr char * inbound = "events";
-    static constexpr char * outbound = "responses";
+    static constexpr const char * title = "Matched Event List";
+    static constexpr const char * inbound = "events";
+    static constexpr const char * outbound = "responses";
 };
 
 template <class inbound, class outbound, class description = description>

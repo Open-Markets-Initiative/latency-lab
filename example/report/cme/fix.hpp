@@ -12,7 +12,7 @@ struct fix {
   //// Member Variables ///////////
 
     // Event description
-    static constexpr char * description = "ilink fix message";
+    static constexpr const char * description = "ilink fix message";
 
     // Outbound triggered event fields (cme fix)
     omi::frame frame;
