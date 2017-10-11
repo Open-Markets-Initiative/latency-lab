@@ -11,7 +11,7 @@ struct sbe {
 
   //// Member Variables ///////////
 
-    static constexpr char * description = "sbe mdp market data";
+    static constexpr const char * description = "sbe mdp market data";
 
     // Inbound sbe market data event fields from tshark csv
     omi::frame frame;              // Pcap frame number

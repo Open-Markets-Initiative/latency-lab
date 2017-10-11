@@ -54,9 +54,9 @@ struct fix {
 
 struct description {
   // Program description
-    static constexpr char * title = "Emailable Latency Report for Cme Tick to Trade";
-    static constexpr char * inbound = "sbe mdp market data events";
-    static constexpr char * outbound = "ilink fix messages";
+    static constexpr const char * title = "Emailable Latency Report for Cme Tick to Trade";
+    static constexpr const char * inbound = "sbe mdp market data events";
+    static constexpr const char * outbound = "ilink fix messages";
 };
 
 int main(int argc, char *argv[]) {
