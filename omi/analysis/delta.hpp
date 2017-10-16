@@ -23,7 +23,7 @@ struct delta {
     delta() 
       : initial{ 0. }, value{ 0 } {}
 
-    // Standard onstructor
+    // Standard constructor
     delta(double one, double two)
         : initial{ std::min(one, two) }, value{ std::abs(one - two) }
     {}

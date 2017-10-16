@@ -10,17 +10,19 @@ set(OMI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/omi)
 set(EXAMPLE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/example)
 set(TESTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
-if (WIN64)
+if (WIN32)
     # Set boost location
-    set(BOOST_ROOT "C:\\boost_1_63_0\\boost")
-    set(BOOST_INCLUDE_DIR "C:\\boost_1_63_0")
-    set(BOOST_LIBRARY_DIR "C:\\boost_1_63_0\\stage\\lib")
-
-    # Find boost
-    find_package(Boost COMPONENTS program_options REQUIRED)
+    set(BOOST_ROOT "C:\\boost_1_64_0")
+    set(BOOST_INCLUDE_DIR "C:\\boost_1_64_0")
+    set(BOOST_LIBRARY_DIR "C:\\boost_1_64_0\\stage\\lib")
 else()
-    find_package(Boost COMPONENTS program_options filesystem system REQUIRED)
+    # Find boost
+    set(BOOST_ROOT /home/parallels/Downloads/boost_1_64_0)
+    set(Boost_INCLUDE_DIR ${BOOST_ROOT})
+    set(Boost_LIBRARY_DIR ${BOOST_ROOT}/lib)
 endif()
+
+find_package(Boost REQUIRED COMPONENTS program_options filesystem system)
 
 # Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
@@ -35,5 +37,4 @@ add_subdirectory(example/matching)
 add_subdirectory(example/report)
 
 # Tests
-
 add_subdirectory(tests)
