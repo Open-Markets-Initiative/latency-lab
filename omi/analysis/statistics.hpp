@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 // Calculate standard statistics
 
