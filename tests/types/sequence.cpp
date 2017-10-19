@@ -1,7 +1,7 @@
-#include <boost/test/included/unit_test.hpp>
+#include <boost/test/unit_test.hpp>
 #include <omi/types/sequence.hpp>
 
-// Regression tests for portable timestamp type
+// Regression tests for portable sequence number type
 BOOST_AUTO_TEST_SUITE(TypesSequence)
 
 using namespace omi;

@@ -1,4 +1,4 @@
-#include <boost/test/included/unit_test.hpp>
+#include <boost/test/unit_test.hpp>
 #include <omi/analysis/statistics.hpp>
 
 // Unit tests for statistics

@@ -17,11 +17,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\..\tests\tests.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tests\types\sequence.cpp">
+      <Filter>Source Files\types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tests\types\timestamp.cpp">
+      <Filter>Source Files\types</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\tests\analysis\percentile.cpp">
       <Filter>Source Files\analysis</Filter>
@@ -32,11 +35,13 @@
     <ClCompile Include="..\..\..\tests\analysis\statistics.cpp">
       <Filter>Source Files\analysis</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\tests\types\timestamp.cpp">
-      <Filter>Source Files\types</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\tests\types\sequence.cpp">
-      <Filter>Source Files\types</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\tests\definitions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
-#ifndef OMI_WIRESHARK_TOKENIZER_HPP_
-#define OMI_WIRESHARK_TOKENIZER_HPP_
+#ifndef OMI_TYPES_TOKENIZER_HPP_
+#define OMI_TYPES_TOKENIZER_HPP_
 
 #include <omi/types/frame.hpp>
 #include <omi/types/timestamp.hpp>

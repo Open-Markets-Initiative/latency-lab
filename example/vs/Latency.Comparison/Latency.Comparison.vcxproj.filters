@@ -20,9 +20,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\comparison\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -46,5 +43,8 @@
     <ClInclude Include="..\..\..\omi\directory\parsing.hpp">
       <Filter>Header Files\directory</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
