@@ -14,7 +14,7 @@ BOOST_AUTO_TEST_CASE(VerifyDefaultConstructor) {
     auto expected = 0;
     auto actual = sequence.get();
 
-    BOOST_CHECK_EQUAL(expected, actual, comment);
+    CHECK_EQUAL(expected, actual, comment);
 }
 
 ///////////////////////
