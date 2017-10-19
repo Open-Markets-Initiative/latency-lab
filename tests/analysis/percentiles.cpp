@@ -1,4 +1,4 @@
-#include <tests/definitions.hpp>
+#include <omi/test/definitions.hpp>
 #include <omi/analysis/percentiles.hpp>
 
 // Unit tests for percentiles

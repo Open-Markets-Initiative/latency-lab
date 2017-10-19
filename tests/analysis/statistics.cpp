@@ -1,71 +1,93 @@
-#include <boost/test/unit_test.hpp>
+#include <omi/test/definitions.hpp>
 #include <omi/analysis/statistics.hpp>
 
-// Unit tests for statistics
+// Regression tests for statistics
 BOOST_AUTO_TEST_SUITE(AnalysisStatistics)
+
+using namespace omi;
 
 ///////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(VerifyCount) {
-    // Verify count after construction
-    auto statistics = omi::analysis::statistics({1., 2., 3., 4.});
+    auto comment = "Verify count after construction";
+
+    auto statistics = analysis::statistics({1., 2., 3., 4.});
 
     // Verify value
     auto expected = 4;
     auto actual = statistics.count;
 
-    BOOST_CHECK_EQUAL(expected, actual);
+    CHECK_EQUAL(expected, actual, comment);
 }
 
 BOOST_AUTO_TEST_CASE(VerifyCountEmptyList) {
-    // Verify count for empty list
+    auto comment = "Verify count for empty list";
+
+    // Construct from empty list
     auto empty = std::vector<double>{};
-    auto statistics = omi::analysis::statistics(empty);
+    auto statistics = analysis::statistics(empty);
 
     // Verify value
     auto expected = 0.;
     auto actual = statistics.count;
 
-    BOOST_CHECK_EQUAL(expected, actual);
+    CHECK_EQUAL(expected, actual, comment);
 }
 
 ///////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(VerifyAverage) {
-    // Verify average
-    auto statistics = omi::analysis::statistics({1., 2., 3.});
+    auto comment = "Verify statistics average";
 
-    // Verify value
+    auto statistics = analysis::statistics({1., 2., 3.});
+
     auto expected = 2.;
     auto actual = statistics.average;
 
-    BOOST_CHECK_EQUAL(expected, actual);
+    CHECK_EQUAL(expected, actual, comment);
+}
+
+BOOST_AUTO_TEST_CASE(VerifyAverageEmptyList) {
+    auto comment = "Verify statistics average for empty list";
+
+    // Verify average for empty list
+    auto empty = std::vector<double>{};
+    auto statistics = analysis::statistics(empty);
+
+    // Verify value
+    auto expected = 0.;
+    auto actual = statistics.average;
+
+    CHECK_EQUAL(expected, actual, comment);
 }
 
 ///////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(VerifyStandardDeviation) {
-    // Verify standard deviation
+    auto comment = "Verify statistics standard deviation";
 
-    auto statistics = omi::analysis::statistics({1., 2. });
+    // Calculate statistics
+    auto statistics = analysis::statistics({1., 2. });
 
     // Verify value
     auto expected = .5;
     auto actual = statistics.deviation;
 
-    BOOST_CHECK_EQUAL(expected, actual);
+    CHECK_EQUAL(expected, actual, comment);
 }
 
 BOOST_AUTO_TEST_CASE(VerifyStandardDeviationEmptyList) {
-    // Verify average for empty list
+    auto comment = "Verify statistics standard deviation for empty list";
+
+    // Calculate statistics
     auto empty = std::vector<double>{};
-    auto statistics = omi::analysis::statistics(empty);
+    auto statistics = analysis::statistics(empty);
 
     // Verify value
     auto expected = 0.;
     auto actual = statistics.deviation;
 
-    BOOST_CHECK_EQUAL(expected, actual);
+    CHECK_EQUAL(expected, actual, comment);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
