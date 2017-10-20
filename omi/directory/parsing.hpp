@@ -35,11 +35,11 @@ inline boost::filesystem::path find(const boost::filesystem::path &file, const b
 
 // Return matching inputs from directories
 inline auto parse(const boost::filesystem::path &in, const boost::filesystem::path &out) {
-    if (not boost::filesystem::exists(in) or not boost::filesystem::is_directory(in)) {
+    if (not boost::filesystem::is_directory(in)) {
         throw std::invalid_argument("Invalid inbound directory: " + in.string());
     }
 
-    if (not boost::filesystem::exists(out) or not boost::filesystem::is_directory(out)) {
+    if (not boost::filesystem::is_directory(out)) {
         throw std::invalid_argument("Invalid outbound directory: " + out.string());
     }
 
