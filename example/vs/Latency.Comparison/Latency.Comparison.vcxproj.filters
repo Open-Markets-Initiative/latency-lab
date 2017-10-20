@@ -18,6 +18,9 @@
     <Filter Include="Header Files\directory">
       <UniqueIdentifier>{24c7db6a-d922-4f4e-a6da-b3db3e1f355e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\table">
+      <UniqueIdentifier>{da3a079d-d17a-4ca6-8b33-b01ed9a6a0a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\comparison\main.cpp">
@@ -42,6 +45,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\directory\parsing.hpp">
       <Filter>Header Files\directory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\sections.hpp">
+      <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\percentiles.hpp">
+      <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\statistics.hpp">
+      <Filter>Header Files\table</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

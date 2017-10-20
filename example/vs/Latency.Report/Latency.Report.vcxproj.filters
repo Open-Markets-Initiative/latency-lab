@@ -92,9 +92,6 @@
     <ClInclude Include="..\..\..\omi\html\script.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\html\sections.hpp">
-      <Filter>Header Files\html</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\html\src.hpp">
       <Filter>Header Files\html</Filter>
     </ClInclude>

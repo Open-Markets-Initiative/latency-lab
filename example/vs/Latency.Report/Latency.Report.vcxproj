@@ -159,7 +159,6 @@
     <ClInclude Include="..\..\..\omi\html\open.hpp" />
     <ClInclude Include="..\..\..\omi\html\paragraph.hpp" />
     <ClInclude Include="..\..\..\omi\html\script.hpp" />
-    <ClInclude Include="..\..\..\omi\html\sections.hpp" />
     <ClInclude Include="..\..\..\omi\html\src.hpp" />
     <ClInclude Include="..\..\..\omi\html\table.hpp" />
     <ClInclude Include="..\..\..\omi\html\tag.hpp" />

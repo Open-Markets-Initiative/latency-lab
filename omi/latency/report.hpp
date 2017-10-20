@@ -13,16 +13,16 @@ namespace latency {
 namespace report {
 
 // Latency report program template
-template <class inbound, class outbound>
+template <typename inbound, typename  outbound>
 void of(int argc, char *argv[]) {
-    // TODO: static assert on descriptions
+    // TODO: constexpr
 
     // Parse program options for settings
     auto options = options::parse(argc, argv);
     if (options.verbose) { std::cout << "Generate Latency Report" << std::endl; }
 
-    stopwatch time; // need to make this better, add to opptions, with date?
-    time.start();
+    stopwatch time; // need to make this better, add to options, with date?
+      time.start();
 
     // Load all inbound events for trigger matching
     if (options.verbose) { std::cout << "Loading inbound " << inbound::description << " events" << std::endl; }

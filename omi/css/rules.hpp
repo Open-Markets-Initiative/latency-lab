@@ -15,10 +15,10 @@ struct rule {
     css::declarations declarations;
     omi::whitespace whitespace;
 
-    explicit rule(const std::string &selector, const declaration &declaration, indent whitespace = indent::none)
+    explicit rule(const std::string &selector, const declaration &declaration, const indent whitespace = indent::none)
       : selector{ selector }, declarations{ declaration }, whitespace{ whitespace } {}
 
-    explicit rule(const std::string &selector, const declaration &one, const declaration &two, indent whitespace = indent::none)
+    explicit rule(const std::string &selector, const declaration &one, const declaration &two, const indent whitespace = indent::none)
       : selector{ selector }, declarations{ one, two }, whitespace{ whitespace } {}
 
     explicit rule(const std::string &selector, const declaration &one, const declaration &two, const declaration &three, indent whitespace = indent::none)
@@ -36,7 +36,7 @@ struct rule {
 };
 
 inline std::ostream &operator<<(std::ostream &out, const rule &rule) {
-    auto whitespace = rule.whitespace;
+    const auto whitespace = rule.whitespace;
     out << whitespace << rule.selector <<" {" << std::endl;
 
     for (const auto &declaration : rule.declarations) {

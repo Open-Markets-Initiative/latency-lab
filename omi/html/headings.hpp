@@ -12,7 +12,7 @@ namespace html {
 
 struct h1 : html::element {
 
-    explicit h1(const std::string &value, indent whitespace = indent::none)
+    explicit h1(const std::string &value, const indent whitespace = indent::none)
      : element{"h1", value, whitespace} {}
 };
 
@@ -24,7 +24,7 @@ inline std::ostream &operator<<(std::ostream &out, const h1 &h1) {
 
 struct h2 : html::element {
 
-    explicit h2(const std::string &value, indent whitespace = indent::none)
+    explicit h2(const std::string &value, const indent whitespace = indent::none)
       : element{ "h2", value, whitespace } {}
 };
 
@@ -36,7 +36,7 @@ inline std::ostream &operator<<(std::ostream &out, const h2 &h2) {
 
 struct h3 : html::element {
 
-    explicit h3(const std::string &value, indent whitespace = indent::none)
+    explicit h3(const std::string &value, const indent whitespace = indent::none)
      : element{"h3", value, whitespace} {}
 };
 
@@ -72,7 +72,7 @@ inline std::ostream &operator<<(std::ostream &out, const h5 &h5) {
 
 struct h6 : html::element {
 
-    explicit h6(const std::string &value, indent whitespace = indent::none)
+    explicit h6(const std::string &value, const indent whitespace = indent::none)
         : element{ "h6", value, whitespace } {}
 };
 

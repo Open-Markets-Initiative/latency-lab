@@ -10,7 +10,7 @@
 namespace omi {
 namespace match {
 
-template <class inbound, class outbound>
+template <typename inbound, typename outbound>
 struct info {
 
     // Verify record id compatibility
@@ -33,7 +33,7 @@ struct info {
 };
 
 // Stream operator
-template <class inbound, class outbound>
+template <typename inbound, typename outbound>
 std::ostream &operator<<(std::ostream &out, const info<inbound, outbound> &info) {
     return out << info.trigger << " [" << info.id << "] " << info.response;
 }

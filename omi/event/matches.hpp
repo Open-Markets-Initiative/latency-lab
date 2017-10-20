@@ -13,7 +13,7 @@
 namespace omi { 
 namespace event {
 
-template <class trigger, class response>
+template <typename trigger, typename response>
 struct matches : std::vector<event::match<trigger, response>> {
 
     // Build list of deltas from matches
@@ -50,7 +50,7 @@ struct matches : std::vector<event::match<trigger, response>> {
 };
 
 // Stream operator
-template <class trigger, class response>
+template <typename trigger, typename response>
 std::ostream &operator<<(std::ostream &out, const matches<trigger, response> &matches) {
     for (const auto &match : matches) {
         out << match << std::endl;

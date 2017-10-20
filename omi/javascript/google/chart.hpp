@@ -21,7 +21,7 @@ struct linechart {
     std::vector<double> values;
 
     // Constructor
-    explicit linechart(std::vector<double> values, const std::string &element = "latency", const std::string &title = "", indent whitespace = indent::none)
+    explicit linechart(const std::vector<double> values, const std::string &element = "latency", const std::string &title = "", const indent whitespace = indent::none)
       : whitespace{whitespace}, title{title}, element{ element }, values{values} {}
 };
 

@@ -10,7 +10,7 @@ namespace html {
 
 struct src : html::element {
 
-    explicit src(const std::string &src, indent whitespace = indent::none)
+    explicit src(const std::string &src, const indent whitespace = indent::none)
       : element{ "script", attribute{ "type", "text/javascript" }, attribute{ "src", src }, whitespace } {}
 };
 

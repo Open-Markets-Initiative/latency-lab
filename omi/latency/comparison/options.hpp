@@ -24,7 +24,7 @@ struct options {
   //// Construction //////////////
 
     // Construct options from args or ini file
-    template<class setting>
+    template<typename setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
 		directory.inbound = option.template required<std::string>(::inbound::directory::option);
         directory.outbound = option.template required<std::string>(::outbound::directory::option);

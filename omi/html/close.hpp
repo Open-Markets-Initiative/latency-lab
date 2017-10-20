@@ -12,7 +12,7 @@ struct close {
     std::string name;
     omi::whitespace whitespace;
 
-    explicit close(const std::string &name, indent whitespace = indent::none)
+    explicit close(const std::string &name, const indent whitespace = indent::none)
       : name{ name }, whitespace{ whitespace } {}
 };
 

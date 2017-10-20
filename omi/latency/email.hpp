@@ -6,7 +6,7 @@
 #include <omi/latency/email/components.hpp> 
 #include <omi/utility/stopwatch.hpp>
 
-// Single run omi html latency report generation
+// Single run omi html only latency report generation
 
 namespace omi {
 namespace latency {

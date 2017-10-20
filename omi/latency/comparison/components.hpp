@@ -6,7 +6,8 @@
 #include <omi/javascript/google/compchart.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
-#include <omi/html/sections.hpp>
+#include <omi/table/sections.hpp>
+
 #include <map>
 
 // Generate multi-run latency comparison html report
@@ -19,8 +20,8 @@ struct components {
 
   //// Member Variables ///////////
 
-    comparison::configuration layout;       // Common layout options
-    std::map<std::string, std::vector<double>> delta_map; // Ordered event times for each run
+    comparison::configuration layout;
+    std::map<std::string, std::vector<double>> delta_map;
 
   //// Methods ////////////////////
 

@@ -17,7 +17,7 @@ struct description {
     static constexpr const char * outbound = "responses";
 };
 
-template <class inbound, class outbound, class description = description>
+template <typename inbound, typename outbound, typename description = description>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);

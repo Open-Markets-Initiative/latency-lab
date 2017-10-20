@@ -13,7 +13,7 @@ namespace html {
 
 struct link : html::element {
 
-    explicit link(const std::string &rel, const std::string &type, const std::string &href, indent whitespace = indent::none)
+    explicit link(const std::string &rel, const std::string &type, const std::string &href, const indent whitespace = indent::none)
      : element{"link", attribute{ "rel", rel }, attribute{ "type", type }, attribute{ "href", href }, whitespace} {}
 };
 

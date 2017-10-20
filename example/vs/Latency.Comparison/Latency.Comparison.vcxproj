@@ -151,6 +151,9 @@
     <ClInclude Include="..\..\..\omi\latency\comparison\components.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\configuration.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\options.hpp" />
+    <ClInclude Include="..\..\..\omi\table\percentiles.hpp" />
+    <ClInclude Include="..\..\..\omi\table\sections.hpp" />
+    <ClInclude Include="..\..\..\omi\table\statistics.hpp" />
     <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp" />
   </ItemGroup>
   <ItemGroup>

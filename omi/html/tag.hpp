@@ -13,13 +13,13 @@ struct tag : html::open {
 
     explicit tag() : open{} {}
 
-    explicit tag(std::string name, indent whitespace = indent::none)
+    explicit tag(const std::string name, const indent whitespace = indent::none)
       : open{ name, whitespace }  {}
 
-    explicit tag(std::string name, attribute attribute, indent whitespace = indent::none)
+    explicit tag(const std::string name, const attribute attribute, const indent whitespace = indent::none)
       : open{ name, attribute, whitespace } {}
 
-    explicit tag(std::string name, attribute one, attribute two, indent whitespace = indent::none)
+    explicit tag(const std::string name, attribute one, attribute two, const indent whitespace = indent::none)
       : open{ name, one, two, whitespace } {}
 };
 

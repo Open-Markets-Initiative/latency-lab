@@ -12,7 +12,7 @@ namespace html {
 
 struct div : html::element {
 
-    explicit div(const std::string &id, indent whitespace = indent::none)
+    explicit div(const std::string &id, const indent whitespace = indent::none)
      : element{"div", attribute{ "id", id }, whitespace} {}
 };
 

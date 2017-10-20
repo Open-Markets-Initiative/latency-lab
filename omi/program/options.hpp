@@ -2,6 +2,7 @@
 #define OMI_PROGRAM_OPTIONS_HPP_
 
 #include <boost/program_options.hpp>
+#include <boost/optional/optional.hpp>
 
 #include <iostream>
 #include <iso646.h>
@@ -33,7 +34,7 @@ struct options {
             (verbose::option, verbose::note);
 
         // Parse command line
-        auto parse = boost::program_options::parse_command_line(argc, argv, description);
+        const auto parse = boost::program_options::parse_command_line(argc, argv, description);
         boost::program_options::store(parse, values);
         boost::program_options::notify(values);
 
@@ -52,13 +53,12 @@ struct options {
         return exists(arg) ? values[arg].as<T>() : value;
     }
 
-/*
     // Convenience method for setting optional value only if setting exists
     template<typename T>
     boost::optional<T> optional(const std::string arg) const {
-        return exists(arg) ? values[arg].as<T>() : T;
+        return exists(arg) ? values[arg].as<T>() : T{};
     }
-*/
+
     // Returns program argument, throws exception if required arg is missing
     template<typename T>
     T required(const std::string arg) const {

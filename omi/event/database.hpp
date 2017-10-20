@@ -11,7 +11,7 @@
 namespace omi { 
 namespace event {
 
-template <class record>
+template <typename record>
 struct database {
 
   //// Member Variables ///////////
@@ -63,7 +63,7 @@ struct database {
 };
 
 // Stream operator
-template <class record>
+template <typename record>
 std::ostream &operator<<(std::ostream &out, const database<record> &database) {
     return out << "  Processed: " << database.records() << std::endl
                << "  Valid: " << database.events.size() << std::endl

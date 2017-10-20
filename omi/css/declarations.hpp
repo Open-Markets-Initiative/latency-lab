@@ -16,7 +16,7 @@ struct declaration {
     std::string value;
     omi::whitespace whitespace;
 
-    explicit declaration(const std::string &property, const std::string &value, indent whitespace = indent::none)
+    explicit declaration(const std::string &property, const std::string &value, const indent whitespace = indent::none)
       : property{ property }, value{ value }, whitespace{ whitespace } {}
 };
 

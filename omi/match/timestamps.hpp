@@ -8,7 +8,7 @@
 namespace omi {
 namespace match {
 
-template <class inbound, class outbound = inbound>
+template <typename inbound, typename outbound = inbound>
 struct timestamps {
 
   //// Member Variables ///////////
@@ -25,7 +25,7 @@ struct timestamps {
 };
 
 // Stream operator
-template<class inbound, class outbound>
+template<typename inbound, typename outbound>
 std::ostream &operator<<(std::ostream &out, const timestamps<inbound, outbound> &time) {
     return out << time.trigger << "," << time.response;
 }

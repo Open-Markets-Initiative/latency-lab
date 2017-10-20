@@ -17,7 +17,7 @@ enum class indent {
 struct whitespace {
     indent type;
 
-    explicit whitespace(indent type = indent::none)
+    explicit whitespace(const indent type = indent::none)
       : type{ type } {}
 };
 

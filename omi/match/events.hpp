@@ -11,7 +11,7 @@
 namespace omi { 
 namespace match {
 
-template <class inbound, class outbound>
+template <typename inbound, typename outbound>
 struct events {
     // Verify record id compatibility
     static_assert(event::is_matchable<inbound, outbound>, "Inbound and outbound event record must use the same id() type");

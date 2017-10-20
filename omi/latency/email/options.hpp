@@ -25,7 +25,7 @@ struct options {
   //// Construction //////////////
 
     // Construct options from args or ini file
-    template<class setting>
+    template<typename setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
@@ -38,7 +38,7 @@ struct options {
   //// Interface ////////////////
 
     // Parse program args into options
-    static options parse(int argc, char *argv[], std::string title = "Latency Email") {
+    static options parse(int argc, char *argv[], const std::string title = "Latency Email") {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()

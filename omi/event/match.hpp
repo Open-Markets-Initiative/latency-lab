@@ -12,7 +12,7 @@ namespace omi {
 namespace event {
 
 // Event match
-template <class inbound, class outbound>
+template <typename inbound, typename outbound>
 struct match {
     // Verify record id compatibility
     static_assert(is_matchable<inbound, outbound>, "Inbound and outbound records must use the same id() type");
@@ -55,7 +55,7 @@ struct match {
 };
 
 // Stream operator
-template <class inbound, class outbound>
+template <typename inbound, typename outbound>
 std::ostream &operator<<(std::ostream &out, const match<inbound, outbound> &match) {
     return out; // TODO: << match.trigger << " | " << match.response; requires stream operator
 }
