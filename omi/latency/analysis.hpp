@@ -31,7 +31,7 @@ void of(int argc, char *argv[]) {
 
     // Load response events
     if (options.verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; }
-    const auto outbounds = event::responses<outbound>::read(options.files.outbound);
+    const auto outbounds = event::list<outbound>::read(options.files.outbound);
     if (options.verbose) { std::cout << outbounds; }
 
     // Match events

@@ -36,7 +36,7 @@ void of(int argc, char *argv[]) {
 
     // Load response records
     if (options.verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; } // add full qualified path with boost filesystem
-    const auto outbounds = event::responses<outbound>::read(options.files.outbound);
+    const auto outbounds = event::list<outbound>::read(options.files.outbound);
     if (options.verbose) { std::cout << outbounds; }
 
     // Match events
