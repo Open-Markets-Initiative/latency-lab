@@ -1,5 +1,3 @@
-# Latency Lab Examples
-
 ## Examples
 
 ### [Latency Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html)
