@@ -41,6 +41,8 @@ void of(int argc, char *argv[]) {
     // Writes matches file 
     events.matched.infos(options.path);
 
+    auto yo = events.matched.timestamps();
+
     // TODO: allow matches, infos and/or ids based on optional args
 };
 

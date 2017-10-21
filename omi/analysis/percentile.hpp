@@ -11,14 +11,14 @@ namespace percentile {
 
 // Return index of nth number
 static int index(size_t count, uint32_t percentile) {
-    auto offset = static_cast<int>(count * percentile / 100); // check this
+    const auto offset = static_cast<int>(count * percentile / 100); // check this
     return offset > 0 ? offset - 1 : 0;
 };
 
     // template version?
 
 // Returns value at percentile
-static double element(std::vector<double> &values, uint32_t percentile) {
+static double element(std::vector<double> &values, const uint32_t percentile) {
     if (values.begin() == values.end()) { return 0.; }
 
     auto index = percentile::index(values.size(), percentile);

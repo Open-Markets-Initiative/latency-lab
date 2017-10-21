@@ -15,6 +15,9 @@
     <Filter Include="Source Files\types">
       <UniqueIdentifier>{5c219176-fe46-4456-be49-feeb2f43ef54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\match">
+      <UniqueIdentifier>{0b7cc04d-4631-4893-8457-6b9e4747cf56}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\tests\types\sequence.cpp">
@@ -35,12 +38,18 @@
     <ClCompile Include="..\..\..\omi\test\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\tests\match\timestamps.cpp">
+      <Filter>Source Files\match</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\test\definitions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\test\event.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

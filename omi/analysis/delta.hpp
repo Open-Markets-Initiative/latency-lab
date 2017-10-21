@@ -24,7 +24,7 @@ struct delta {
       : initial{ 0. }, value{ 0 } {}
 
     // Standard constructor
-    delta(double one, double two)
+    delta(const double one, const double two)
         : initial{ std::min(one, two) }, value{ std::abs(one - two) }
     {}
 };

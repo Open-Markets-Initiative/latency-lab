@@ -155,6 +155,7 @@
     <ClCompile Include="..\..\..\tests\analysis\percentile.cpp" />
     <ClCompile Include="..\..\..\tests\analysis\percentiles.cpp" />
     <ClCompile Include="..\..\..\tests\analysis\statistics.cpp" />
+    <ClCompile Include="..\..\..\tests\match\timestamps.cpp" />
     <ClCompile Include="..\..\..\tests\types\sequence.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </ExcludedFromBuild>
@@ -177,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\test\definitions.hpp" />
+    <ClInclude Include="..\..\..\omi\test\event.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

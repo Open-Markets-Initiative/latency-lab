@@ -17,6 +17,8 @@ struct match {
     // Verify record id compatibility
     static_assert(is_matchable<inbound, outbound>, "Inbound and outbound records must use the same id() type");
 
+    // TODO: add some traits
+
   //// Member Variables ///////////
 
     inbound trigger;                  // Inbound trigger event
@@ -42,20 +44,13 @@ struct match {
 
     // Return match timestamps
     auto timestamps() const {
-        return omi::match::timestamps<decltype(std::declval<inbound>().timestamp()),
-            decltype(std::declval<outbound>().timestamp())>{trigger.time(), response.time()};
+        return omi::match::timestamps<inbound, outbound>{trigger, response};
     }
 
-  // TODO: remove this
-
-    // Return match time delta in microseconds
-    auto delta() const { // Need to make this professional/general
-        return response.time().microseconds() - trigger.time().microseconds();
-    }
 };
 
 // Stream operator
-template <typename inbound, typename outbound>
+template <typename inbound, typename  outbound>
 std::ostream &operator<<(std::ostream &out, const match<inbound, outbound> &match) {
     return out; // TODO: << match.trigger << " | " << match.response; requires stream operator
 }

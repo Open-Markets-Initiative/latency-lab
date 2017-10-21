@@ -16,10 +16,21 @@ namespace event {
 template <typename trigger, typename response>
 struct matches : std::vector<event::match<trigger, response>> {
 
+    // Build list of matches times from matches
+    auto timestamps() const {
+        // To preallocate we need a cool way to make this default constructable
+        std::vector<omi::match::timestamps<trigger, response>> result;
+        for (const auto &match : *this) {
+            result.push_back(match.timestamps());
+        }
+        return result;
+    }
+
+
     // Build list of deltas from matches
     auto deltas() const {
         std::vector<double> result(this->size());
-        std::transform(this->begin(), this->end(), result.begin(), [](const auto &current) { return current.delta(); });
+        std::transform(this->begin(), this->end(), result.begin(), [](const auto &current) { return current.timestamps().delta().microseconds(); }); // Do this better
         return result;
     }
 
@@ -33,11 +44,22 @@ struct matches : std::vector<event::match<trigger, response>> {
         return result;
     }
 
+  /////////////////////////////////
+
     // Write infos to file
     void infos(const std::string &path) const {
         std::stringstream file; 
         for (const auto &info : infos()) { // template for this
             file << info << std::endl;
+        }
+
+        source::write(file.str(), path);
+    }
+
+    void timestamps(const std::string &path) const {
+        std::stringstream file;
+        for (const auto &timestamp : timestamps()) { // template for this
+            file << timestamp << std::endl;
         }
 
         source::write(file.str(), path);

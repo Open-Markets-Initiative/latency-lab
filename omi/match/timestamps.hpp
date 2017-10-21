@@ -8,26 +8,34 @@
 namespace omi {
 namespace match {
 
-template <typename inbound, typename outbound = inbound>
+template <typename inbound, typename outbound>
 struct timestamps {
+
+    // Probably need a static assert for - existence
 
   //// Member Variables ///////////
 
-    inbound trigger;
-    outbound response;
+    decltype(std::declval<outbound>().time()) trigger;
+    decltype(std::declval<inbound>().time()) response;
 
   //// Construction ///////////////
 
     // Standard constructor
-    timestamps(const inbound &trigger, outbound &response)
-      : trigger{ trigger }, response{ response } {}
+    timestamps(const inbound &in, const outbound &out)
+      : trigger{ in.time() }, response{ out.time() } {}
 
+  //// Methods ////////////////////
+
+    // Change in time
+    auto delta() {
+        return response - trigger;
+    }
 };
 
 // Stream operator
 template<typename inbound, typename outbound>
 std::ostream &operator<<(std::ostream &out, const timestamps<inbound, outbound> &time) {
-    return out << time.trigger << "," << time.response;
+    return out << time.trigger << "," << time.response, time.delta();
 }
 
 } }
