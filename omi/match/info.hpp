@@ -38,6 +38,22 @@ std::ostream &operator<<(std::ostream &out, const info<inbound, outbound> &info)
     return out << info.trigger << " [" << info.id << "] " << info.response;
 }
 
+///////////////////////////////////////////////
+
+template <typename inbound, typename outbound>
+using infos = std::vector<match::info<inbound, outbound>>;
+
+// Stream operator
+template <typename inbound, typename outbound>
+std::ostream &operator<<(std::ostream &out, const infos<inbound, outbound> &infos) {
+    for (const auto &info : infos) {
+        out << info << std::endl;
+    }
+
+    return out;
+}
+
+
 } }
 
 #endif

@@ -6,63 +6,57 @@
 #include <omi/source/write.hpp>
 
 #include <vector>
-#include <sstream>
+#include <algorithm>
+#include <type_traits>
 
 // Matches 
 
 namespace omi { 
 namespace event {
 
+// transform vector acoording to operation (move this)
+template<typename type, typename function>
+std::vector<std::result_of_t<function(type)>> transform(const std::vector<type>& inputs, function operation) {
+    std::vector<std::result_of_t<function(type)>> result(inputs.size());
+    std::transform(inputs.begin(), inputs.end(), result.begin(), operation);
+    return result;
+}
+
 template <typename trigger, typename response>
 struct matches : std::vector<event::match<trigger, response>> {
 
     // Build list of matches times from matches
     auto timestamps() const {
-        // To preallocate we need a cool way to make this default constructable
-        std::vector<omi::match::timestamps<trigger, response>> result;
-        for (const auto &match : *this) {
-            result.push_back(match.timestamps());
-        }
-        return result;
+        return transform(*this, [](const auto &current) { return current.timestamps(); });
     }
 
-
-    // Build list of deltas from matches
+    // Build list of deltas from matches...need to move this out of here
     auto deltas() const {
-        std::vector<double> result(this->size());
-        std::transform(this->begin(), this->end(), result.begin(), [](const auto &current) { return current.timestamps().delta().microseconds(); }); // Do this better
-        return result;
+        return transform(*this, [](const auto &current) { return current.timestamps().delta().microseconds(); });
     }
 
     // Build list of infos from matches
     auto infos() const {
         // To preallocate we need a cool way to make this default constructable
-        std::vector<omi::match::info<trigger, response>> result;
+        // ...but that should not be a requirement, probably can add this to transform
+        omi::match::infos<trigger, response> result;
         for (const auto &match : *this) {
             result.push_back(match.info());
         }
         return result;
+      //  return transform(*this, [](const auto &current) { return current.info(); });
     }
 
   /////////////////////////////////
 
     // Write infos to file
     void infos(const std::string &path) const {
-        std::stringstream file; 
-        for (const auto &info : infos()) { // template for this
-            file << info << std::endl;
-        }
-
-        source::write(file.str(), path);
+        source::write(infos(), path);
     }
 
+    // Write timestamps to file
     void timestamps(const std::string &path) const {
-        std::stringstream file;
-        for (const auto &timestamp : timestamps()) { // template for this
-            file << timestamp << std::endl;
-        }
-
-        source::write(file.str(), path);
+        source::write(timestamps(), path);
     }
 
     // Write matches to file 

@@ -20,6 +20,9 @@ struct timestamps {
 
   //// Construction ///////////////
 
+    // Default constructor
+    timestamps() = default;
+
     // Standard constructor
     timestamps(const inbound &in, const outbound &out)
       : trigger{ in.time() }, response{ out.time() } {}
