@@ -47,7 +47,7 @@ void of(int argc, char *argv[]) {
     email::components email;
       email.layout = options.email;
       email.matching.path = options.files;
-      email.matching.data = events.matched.deltas();
+      email.matching.data = event::transform(events.matched, [](const auto &current) { return current.timestamps().delta().microseconds(); });
 
     // Generate report
     if (options.verbose) { std::cout << "Generating Html Latency Report Email" << std::endl; }

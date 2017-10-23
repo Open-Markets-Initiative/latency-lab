@@ -1,6 +1,8 @@
 #ifndef OMI_TYPES_TIMESTAMP_HPP_
 #define OMI_TYPES_TIMESTAMP_HPP_
 
+#include <omi/types/period.hpp>
+
 #include <string>
 #include <chrono>
 #include <iso646.h>
@@ -8,11 +10,6 @@
 // Simple 64bit portable inline timestamp
 
 namespace omi {
-
-// Better way to do this?
-namespace nanoseconds { namespace per { static constexpr uint64_t second = 1000000000; }}
-namespace nanoseconds { namespace per { static constexpr uint64_t microsecond = 1000; }}
-namespace nanoseconds { namespace per { static constexpr uint64_t millisecond = 1000000; }}
 
 struct timestamp {
 
@@ -34,7 +31,7 @@ struct timestamp {
 
     // Get current time from system clock
     static timestamp now() {
-        auto duration = std::chrono::system_clock::now().time_since_epoch();
+        const auto duration = std::chrono::system_clock::now().time_since_epoch();
         return nanoseconds(std::chrono::duration_cast<std::chrono::nanoseconds>(duration).count());
     }
 

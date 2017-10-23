@@ -80,6 +80,9 @@
     <ClInclude Include="..\..\..\omi\match\timestamps.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\period.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\matching\main.cpp">

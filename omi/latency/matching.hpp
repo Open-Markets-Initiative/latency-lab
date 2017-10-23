@@ -10,7 +10,7 @@ namespace omi {
 namespace latency {
 namespace matching {
 
-    // Default email program template notes 
+// Default program template settings
 struct description {
     static constexpr const char * title = "Matched Event List";
     static constexpr const char * inbound = "events";
@@ -35,17 +35,15 @@ void of(int argc, char *argv[]) {
 
     // Match events
     if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto events = match::events<inbound, outbound> { inbounds, outbounds };
+    const auto events = match::events<inbound, outbound>{ inbounds, outbounds };
     if (options.verbose) { std::cout << events; }
 
-    // Writes matches file 
+    // Writes matches to file 
     events.matched.infos(options.path);
-
-    auto yo = events.matched.timestamps();
 
     // TODO: allow matches, infos and/or ids based on optional args
 };
 
 } } }
 
-#endif
+#endif 

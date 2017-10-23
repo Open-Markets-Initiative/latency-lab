@@ -39,7 +39,8 @@ void of(int argc, char *argv[]) {
     const auto events = match::events<inbound, outbound>{inbounds, outbounds};
     if (options.verbose) { std::cout << events; }
 
-    std::cout << omi::analysis::results{ events.matched.deltas() };
+    auto deltas = event::transform(events.matched, [](const auto &current) { return current.timestamps().delta().microseconds(); });
+    std::cout << omi::analysis::results{ deltas };
 };
 
 } } }

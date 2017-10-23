@@ -8,31 +8,42 @@
 #include <vector>
 #include <algorithm>
 #include <type_traits>
+#include <iterator>
 
 // Matches 
 
 namespace omi { 
 namespace event {
 
-// transform vector acoording to operation (move this)
+// Transform vector acoording to operation (move this)
 template<typename type, typename function>
 std::vector<std::result_of_t<function(type)>> transform(const std::vector<type>& inputs, function operation) {
     std::vector<std::result_of_t<function(type)>> result(inputs.size());
     std::transform(inputs.begin(), inputs.end(), result.begin(), operation);
     return result;
+} // make one that decides default constructability at compiletime
+
+template<typename type>
+std::ostream & out(std::ostream &out, const type &list) {
+    for (const auto &element : list) {
+        out << element << std::endl;
+    }
+
+    return out;
 }
+
 
 template <typename trigger, typename response>
 struct matches : std::vector<event::match<trigger, response>> {
 
-    // Build list of matches times from matches
+    // Returns a list of matched timestamps
     auto timestamps() const {
         return transform(*this, [](const auto &current) { return current.timestamps(); });
     }
 
-    // Build list of deltas from matches...need to move this out of here
+    // Returns a list of deltas from matched timestamps
     auto deltas() const {
-        return transform(*this, [](const auto &current) { return current.timestamps().delta().microseconds(); });
+        return transform(*this, [](const auto &current) { return current.timestamps().delta(); });
     }
 
     // Build list of infos from matches
@@ -67,12 +78,8 @@ struct matches : std::vector<event::match<trigger, response>> {
 
 // Stream operator
 template <typename trigger, typename response>
-std::ostream &operator<<(std::ostream &out, const matches<trigger, response> &matches) {
-    for (const auto &match : matches) {
-        out << match << std::endl;
-    }
-
-    return out;
+std::ostream &operator<<(std::ostream &stream, const matches<trigger, response> &matches) {
+    return out(stream, matches);
 }
 
 } }
