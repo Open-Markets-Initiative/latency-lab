@@ -29,7 +29,7 @@ BOOST_AUTO_TEST_CASE(Verify0thPercentile) {
 
     // Verify value
     auto expected = 10.;
-    auto actual = percentiles.p100;
+    auto actual = percentiles.p10;
 
     CHECK_EQUAL(expected, actual, comment);
 }
