@@ -12,6 +12,7 @@
 namespace omi {
 namespace analysis {
 
+template <typename container = std::vector<double>>
 struct statistics {
 
   //// Member Variables ///////////
@@ -28,26 +29,27 @@ struct statistics {
     statistics() {}
 
     // Standard constructor
-    explicit statistics(const std::vector<double> &values) {
+    explicit statistics(const container &values) {
         // Count
         count = values.size();
         if (count < 1) { return; }
 
         // Average
-        auto sum = std::accumulate(values.begin(), values.end(), 0.0);
+        auto sum = std::accumulate(values.begin(), values.end(), static_cast<typename container::value_type>(0));
         average = sum / count;
 
         // Standard deviation
-        std::vector<double> residuals(count);
+        container residuals(count);
         auto residual = [&](double value) { return value - average; };
         std::transform(values.begin(), values.end(), residuals.begin(), residual);
-        auto squares = std::inner_product(residuals.begin(), residuals.end(), residuals.begin(), 0.0);
+        auto squares = std::inner_product(residuals.begin(), residuals.end(), residuals.begin(), static_cast<typename container::value_type>(0));
         deviation = std::sqrt(squares / count);
     }
 };
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const statistics &statistics) {
+template <typename contanier>
+std::ostream &operator<<(std::ostream &out, const statistics<contanier> &statistics) {
     return out << std::fixed << std::setprecision(statistics.precision)
                << "  Average:   " << statistics.average << std::endl
                << "  Deviation: " << statistics.deviation << std::endl;

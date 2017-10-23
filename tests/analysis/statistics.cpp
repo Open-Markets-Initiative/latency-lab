@@ -11,7 +11,7 @@ using namespace omi;
 BOOST_AUTO_TEST_CASE(VerifyCount) {
     auto comment = "Verify count after construction";
 
-    auto statistics = analysis::statistics({1., 2., 3., 4.});
+    auto statistics = analysis::statistics<>({1., 2., 3., 4.});
 
     // Verify value
     auto expected = 4;
@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(VerifyCountEmptyList) {
 
     // Construct from empty list
     auto empty = std::vector<double>{};
-    auto statistics = analysis::statistics(empty);
+    auto statistics = analysis::statistics<>(empty);
 
     // Verify value
     auto expected = 0.;
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(VerifyCountEmptyList) {
 BOOST_AUTO_TEST_CASE(VerifyAverage) {
     auto comment = "Verify statistics average";
 
-    auto statistics = analysis::statistics({1., 2., 3.});
+    auto statistics = analysis::statistics<>({1., 2., 3.});
 
     auto expected = 2.;
     auto actual = statistics.average;
@@ -52,7 +52,7 @@ BOOST_AUTO_TEST_CASE(VerifyAverageEmptyList) {
 
     // Verify average for empty list
     auto empty = std::vector<double>{};
-    auto statistics = analysis::statistics(empty);
+    auto statistics = analysis::statistics<>(empty);
 
     // Verify value
     auto expected = 0.;
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(VerifyStandardDeviation) {
     auto comment = "Verify statistics standard deviation";
 
     // Calculate statistics
-    auto statistics = analysis::statistics({1., 2. });
+    auto statistics = analysis::statistics<>({1., 2. });
 
     // Verify value
     auto expected = .5;
@@ -81,7 +81,7 @@ BOOST_AUTO_TEST_CASE(VerifyStandardDeviationEmptyList) {
 
     // Calculate statistics
     auto empty = std::vector<double>{};
-    auto statistics = analysis::statistics(empty);
+    auto statistics = analysis::statistics<>(empty);
 
     // Verify value
     auto expected = 0.;

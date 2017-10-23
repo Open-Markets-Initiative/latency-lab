@@ -10,7 +10,7 @@ namespace analysis {
 namespace percentile {
 
 // Return index of nth number
-static int index(size_t count, uint32_t percentile) {
+static int index(const size_t count, const uint32_t percentile) {
     const auto offset = static_cast<int>(count * percentile / 100); // check this
     return offset > 0 ? offset - 1 : 0;
 };
@@ -29,8 +29,8 @@ static double element(std::vector<double> &values, const uint32_t percentile) {
 
     // template version?
 
-// Return a vector of values as within percentile
-static std::vector<double> range(const std::vector<double> &values, unsigned int lower, unsigned int upper) {
+// Return a vector of values as within upper and lower percentile limits
+static std::vector<double> range(const std::vector<double> &values, const unsigned int lower, const unsigned int upper) {
     // Throw exception on invalid args (check upper/lower)?
     if (values.begin() == values.end()) {
         return std::vector<double>{};

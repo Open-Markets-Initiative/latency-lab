@@ -12,8 +12,8 @@ namespace html {
 
 struct statistics {
     // Member variables
-    analysis::statistics standard; // Standard statistics
-    analysis::statistics steady;   // Steady state statistics
+    analysis::statistics<> standard; // Standard statistics
+    analysis::statistics<> steady;   // Steady state statistics
     omi::whitespace whitespace;
 
     // Standard constructor

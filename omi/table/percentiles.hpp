@@ -11,7 +11,7 @@ namespace html {
 
 struct percentiles {
     // Member Variables
-    analysis::percentiles percents;
+    analysis::percentiles<> percents;
     omi::whitespace whitespace;
 
     // Standard constructor

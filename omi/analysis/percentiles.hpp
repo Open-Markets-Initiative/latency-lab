@@ -7,11 +7,12 @@
 #include <algorithm>
 #include <vector>
 
-    // Calculate percentiles of a vector of values
+    // Calculate percentiles of a container of values
 
 namespace omi {
 namespace analysis {
 
+template <typename container = std::vector<double>>
 struct percentiles {
 
   //// Member Variables ///////////
@@ -35,14 +36,15 @@ struct percentiles {
     // Default constructor
     percentiles() {}
 
-    // Standard constructor (uses a copy - is this best?)
-    explicit percentiles(std::vector<double> values) {
-        if (values.empty()) { return; }
+    // Standard constructor
+    explicit percentiles(const container &original) {
+        if (original.empty()) { return; }
 
-        // sort
+        // Copy and sort
+        auto values = original;
         std::sort(values.begin(), values.end());
 
-        // Get these before nth elment reorders the elements
+        // Get these before percentiles reorders the elements
         count = values.size();
         p00 = values.front();
         p100 = values.back();
@@ -60,7 +62,8 @@ struct percentiles {
 
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const percentiles &percentile) {
+template <typename contanier>
+std::ostream &operator<<(std::ostream &out, const percentiles<contanier> &percentile) {
     return out << std::fixed << std::setprecision(percentile.precision)
                << "  Max: " << percentile.p100 << std::endl
                << "  99%: " << percentile.p99 << std::endl

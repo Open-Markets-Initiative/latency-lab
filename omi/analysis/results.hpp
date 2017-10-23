@@ -13,9 +13,9 @@ struct results {
 
   //// Member Variables ///////////
 
-    percentiles percents;
-    statistics standard;
-    statistics steadystate;
+    percentiles<> percents;
+    statistics<> standard;
+    statistics<> steadystate;
     // add normalized (ie no outliers)
     // add outliers (check for repeating outlier pattern)
 
