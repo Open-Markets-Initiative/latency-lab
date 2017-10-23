@@ -1,9 +1,9 @@
 #ifndef OMI_LATENCY_REPORT_HPP_
 #define OMI_LATENCY_REPORT_HPP_
 
-#include <omi/match/events.hpp>
 #include <omi/latency/report/options.hpp>
-#include <omi/latency/report/components.hpp> 
+#include <omi/latency/report/components.hpp>
+#include <omi/latency/process/run.hpp>
 #include <omi/utility/stopwatch.hpp>
 
 // Single run omi html latency report generation
@@ -24,25 +24,11 @@ template <typename inbound, typename outbound, typename description = descriptio
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);
-    if (options.verbose) { std::cout << description::title << std::endl; }
-
-    stopwatch time; // need to make this better, add to options, with date?
+    stopwatch time; // need to make this better, add to opptions, with date?
       time.start();
 
-    // Load all possible inbound trigger events
-    if (options.verbose) { std::cout << "Loading inbound " << description::inbound << std::endl; }
-    const auto inbounds = event::database<inbound>::read(options.files.inbound);
-    if (options.verbose) { std::cout << inbounds; }
-
-    // Load response events
-    if (options.verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; }  // Add fully qualified path
-    const auto outbounds = event::list<outbound>::read(options.files.outbound);
-    if (options.verbose) { std::cout << outbounds; }
-
-    // Match events
-    if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto events = match::events<inbound, outbound>{ inbounds, outbounds };
-    if (options.verbose) { std::cout << events; }
+    // Load files and match events
+    auto events = process::run<inbound, outbound, description>(options.files, options.verbose);
 
     // Configure options
     components report;

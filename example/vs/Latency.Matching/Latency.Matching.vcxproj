@@ -150,6 +150,7 @@
     <ClInclude Include="..\..\..\omi\event\matches.hpp" />
     <ClInclude Include="..\..\..\omi\latency\matching.hpp" />
     <ClInclude Include="..\..\..\omi\latency\matching\options.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\process\run.hpp" />
     <ClInclude Include="..\..\..\omi\match\events.hpp" />
     <ClInclude Include="..\..\..\omi\match\info.hpp" />
     <ClInclude Include="..\..\..\omi\match\inputs.hpp" />

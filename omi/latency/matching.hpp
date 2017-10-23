@@ -1,8 +1,8 @@
 #ifndef OMI_LATENCY_MATCHING_HPP_
 #define OMI_LATENCY_MATCHING_HPP_
 
-#include <omi/match/events.hpp>
 #include <omi/latency/matching/options.hpp>
+#include <omi/latency/process/run.hpp>
 
 // Latency event matching program template
 
@@ -17,27 +17,13 @@ struct description {
     static constexpr const char * outbound = "responses";
 };
 
+// Latency event matching program template
 template <typename inbound, typename outbound, typename description = description>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);
-    if (options.verbose) { std::cout << description::title << std::endl; }
-
-    // Load all possible inbound trigger events
-    if (options.verbose) { std::cout << "Loading inbound " << description::inbound << std::endl; }
-    const auto inbounds = event::database<inbound>::read(options.files.inbound);
-    if (options.verbose) { std::cout << inbounds; }
-
-    // Load response events
-    if (options.verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; }
-    const auto outbounds = event::list<outbound>::read(options.files.outbound);
-    if (options.verbose) { std::cout << outbounds; }
-
-    // Match events
-    if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto events = match::events<inbound, outbound>{ inbounds, outbounds };
-    if (options.verbose) { std::cout << events; }
-
+    // Load files and match events
+    auto events = process::run<inbound, outbound, description>(options.files, options.verbose);
     // Writes matches to file 
     events.matched.infos(options.path);
 

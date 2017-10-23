@@ -83,6 +83,9 @@
     <ClInclude Include="..\..\..\omi\types\period.hpp">
       <Filter>Header Files\types</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\process\run.hpp">
+      <Filter>Header Files\matching</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\matching\main.cpp">

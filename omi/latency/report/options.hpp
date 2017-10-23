@@ -5,6 +5,7 @@
 #include <omi/program/settings.hpp>
 #include <omi/latency/args.hpp>
 #include <omi/latency/report/configuration.hpp>
+#include <omi/match/inputs.hpp>
 
 //  Options for omi html latency report (single run)
 
