@@ -30,7 +30,8 @@ struct percentiles {
     value_type p01  { 0 };
     value_type p00  { 0 };
 
-    size_t precision { 3 }; // Set this globally?
+    // Display precision for decimal types
+    size_t precision { 3 };
 
   //// Construction ///////////////
 

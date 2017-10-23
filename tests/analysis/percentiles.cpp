@@ -20,6 +20,8 @@ BOOST_AUTO_TEST_CASE(VerifyCount) {
     CHECK_EQUAL(expected, actual, comment);
 }
 
+///////////////////////////////////
+
 BOOST_AUTO_TEST_CASE(Verify0thPercentile) {
     auto comment = "Verify value count";
 
@@ -29,10 +31,25 @@ BOOST_AUTO_TEST_CASE(Verify0thPercentile) {
 
     // Verify value
     auto expected = 10.;
-    auto actual = percentiles.p10;
+    auto actual = percentiles.p00;
 
     CHECK_EQUAL(expected, actual, comment);
 }
+
+BOOST_AUTO_TEST_CASE(VerifyDefault0thPercentile) {
+    auto comment = "Verify value 0th percentile default value";
+
+    // Initialize data
+    analysis::percentiles<> percentiles;
+
+    // Verify value
+    auto expected = 0.;
+    auto actual = percentiles.p00;
+
+    CHECK_EQUAL(expected, actual, comment);
+}
+
+///////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(Verify100thPercentile) {
     auto comment = "Verify 100th percentile value";

@@ -14,13 +14,15 @@ namespace analysis {
 
 template <typename container = std::vector<double>>
 struct statistics {
+    using value_type = typename container::value_type;
 
   //// Member Variables ///////////
 
     size_t count { 0 };
-    double average { 0. };
-    double deviation { 0. };
+    value_type average { 0 };
+    value_type deviation { 0 };
 
+    // Display precision for decimal types
     size_t precision { 4 };
 
   //// Construction ///////////////
@@ -35,14 +37,14 @@ struct statistics {
         if (count < 1) { return; }
 
         // Average
-        auto sum = std::accumulate(values.begin(), values.end(), static_cast<typename container::value_type>(0));
+        auto sum = std::accumulate(values.begin(), values.end(), static_cast<value_type>(0));
         average = sum / count;
 
         // Standard deviation
         container residuals(count);
         auto residual = [&](double value) { return value - average; };
         std::transform(values.begin(), values.end(), residuals.begin(), residual);
-        auto squares = std::inner_product(residuals.begin(), residuals.end(), residuals.begin(), static_cast<typename container::value_type>(0));
+        auto squares = std::inner_product(residuals.begin(), residuals.end(), residuals.begin(), static_cast<value_type>(0));
         deviation = std::sqrt(squares / count);
     }
 };
