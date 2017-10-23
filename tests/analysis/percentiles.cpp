@@ -28,7 +28,7 @@ BOOST_AUTO_TEST_CASE(Verify0thPercentile) {
     auto percentiles = analysis::percentiles<>{ values };
 
     // Verify value
-    auto expected = 10;
+    auto expected = 10.;
     auto actual = percentiles.p100;
 
     CHECK_EQUAL(expected, actual, comment);
@@ -42,7 +42,7 @@ BOOST_AUTO_TEST_CASE(Verify100thPercentile) {
     auto percentiles = analysis::percentiles<>{ values };
 
     // Verify value
-    auto expected = 100;
+    auto expected = 100.;
     auto actual = percentiles.p100;
 
     CHECK_EQUAL(expected, actual, comment);

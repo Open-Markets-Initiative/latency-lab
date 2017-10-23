@@ -14,22 +14,23 @@ namespace analysis {
 
 template <typename container = std::vector<double>>
 struct percentiles {
+    using value_type = typename container::value_type;
 
   //// Member Variables ///////////
 
     size_t count { 0 };
 
-    double p100 { 0.};
-    double p99  { 0.};
-    double p90  { 0.};
-    double p75  { 0.};
-    double p50  { 0.};
-    double p25  { 0.};
-    double p10  { 0.};
-    double p01  { 0.};
-    double p00  { 0.};
+    value_type p100 { 0 };
+    value_type p99  { 0 };
+    value_type p90  { 0 };
+    value_type p75  { 0 };
+    value_type p50  { 0 };
+    value_type p25  { 0 };
+    value_type p10  { 0 };
+    value_type p01  { 0 };
+    value_type p00  { 0 };
 
-    size_t precision { 3 };
+    size_t precision { 3 }; // Set this globally?
 
   //// Construction ///////////////
 
