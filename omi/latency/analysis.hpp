@@ -26,7 +26,7 @@ void of(int argc, char *argv[]) {
     auto events = process::run<inbound, outbound, description>(options.files, options.verbose);
     // Print results
     auto deltas = event::transform(events.matched, [](const auto &current) { return current.timestamps().delta().microseconds(); });
-    std::cout << omi::analysis::results{ deltas };
+    std::cout << omi::analysis::results<decltype(deltas)>{ deltas };
 };
 
 } } }

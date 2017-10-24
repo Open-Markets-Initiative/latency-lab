@@ -12,7 +12,7 @@ namespace omi {
 namespace latency {
 namespace report {
 
-// Default program template settings
+// Default template settings
 struct description {
     static constexpr const char * title = "Generate Latency Report";
     static constexpr const char * inbound = "events";

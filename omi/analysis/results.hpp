@@ -9,27 +9,29 @@
 namespace omi {
 namespace analysis {
 
+template <typename container = std::vector<double>> // Remove these defaults
 struct results {
 
   //// Member Variables ///////////
 
-    percentiles<> percents;
-    statistics<> standard;
-    statistics<> steadystate;
+    percentiles<container> percents;
+    statistics<container> standard;
+    statistics<container> steadystate;
     // add normalized (ie no outliers)
     // add outliers (check for repeating outlier pattern)
 
   //// Construction ///////////////
 
     // Standard constructor
-    explicit results(const std::vector<double> &values) 
+    explicit results(const container &values) 
       : percents{ values },
         standard{ values},
         steadystate{ percentile::range(values, 0, 70)} {}
 };
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const results &results) {
+template <typename container = std::vector<double>>
+std::ostream &operator<<(std::ostream &out, const results<container> &results) {
     return out << "Percentiles" << std::endl << results.percents
                << "Standard Statistics" << std::endl << results.standard
                << "Steady State Statistics" << std::endl << results.steadystate;
