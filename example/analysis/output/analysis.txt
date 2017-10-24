@@ -1,10 +1,10 @@
 Latency Analysis
-Loading inbound sbe market data events
+Loading inbound events
   Processed: 19362
   Valid: 4841
   Duplicate: 4840
   Invalid: 9681
-Loading outbound ilink fix message responses
+Loading outbound responses
   Processed: 20
   Valid: 20
   Invalid: 0
@@ -27,3 +27,5 @@ Standard Statistics
 Steady State Statistics
   Average:   5.3732
   Deviation: 0.9630
+Elapsed Time: 
+  0.5318
