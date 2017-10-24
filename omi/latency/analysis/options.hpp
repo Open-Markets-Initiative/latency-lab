@@ -4,6 +4,7 @@
 #include <omi/program/options.hpp>
 #include <omi/latency/args.hpp>
 #include <omi/match/inputs.hpp>
+#include <omi/utility/autotimer.hpp>
 
 //  Options for omi latency analysis
 
@@ -18,6 +19,7 @@ struct options {
     match::inputs files;           // Event input files
     std::string path;              // Matches list output path
     bool verbose;                  // Print status to standard out
+    autotimer timer;               // Program time
 
   //// Construction //////////////
 
@@ -43,6 +45,11 @@ struct options {
         return options{ args, args.verbose() };
     }
 };
+
+// Stream operator
+inline std::ostream &operator<<(std::ostream &out, const options &program) {
+    return out << program.timer;
+}
 
 } } }
 

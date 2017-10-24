@@ -24,6 +24,9 @@
     <Filter Include="Header Files\match">
       <UniqueIdentifier>{b0d2c4f8-9d0a-4997-8493-ec361f09b16a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{0f47cc0d-5ceb-4fa5-b058-58ee8ec8365e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\types\frame.hpp">
@@ -85,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\process\run.hpp">
       <Filter>Header Files\matching</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\utility\autotimer.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

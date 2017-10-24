@@ -161,6 +161,8 @@
     <ClInclude Include="..\..\..\omi\types\sequence.hpp" />
     <ClInclude Include="..\..\..\omi\types\timestamp.hpp" />
     <ClInclude Include="..\..\..\omi\types\tokenizer.hpp" />
+    <ClInclude Include="..\..\..\omi\utility\autotimer.hpp" />
+    <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp" />
     <ClInclude Include="..\..\matching\events\inbound.hpp" />
     <ClInclude Include="..\..\matching\events\outbound.hpp" />
   </ItemGroup>

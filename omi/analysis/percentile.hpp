@@ -19,7 +19,9 @@ static int index(const size_t count, const uint32_t percentile) {
 template <typename container>
 static typename container::value_type element(container &values, const uint32_t percentile) {
     // Default value is zero
-    if (values.begin() == values.end()) { return static_cast<typename container::value_type>(0); }
+    if (values.begin() == values.end()) {
+        return static_cast<typename container::value_type>(0);
+    }
 
     auto index = percentile::index(values.size(), percentile);
     std::nth_element(values.begin(), std::next(values.begin(), index), values.end());
