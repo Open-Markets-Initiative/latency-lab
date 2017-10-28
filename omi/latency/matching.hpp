@@ -22,10 +22,12 @@ template <typename inbound, typename outbound, typename titles = defaults>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);
+
     // Load files and match events
-    auto events = process::run<inbound, outbound, titles>(options.files, options.verbose);
+    auto result = process::run<inbound, outbound, titles>(options.files, options.verbose);
+
     // Writes matches to file 
-    events.matched.infos(options.path);
+    result.data.matched.infos(options.path);
 
     // TODO: allow matches, infos and/or ids based on optional args
 };

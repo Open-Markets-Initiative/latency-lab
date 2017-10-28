@@ -25,13 +25,13 @@ void of(int argc, char *argv[]) {
     auto options = options::parse(argc, argv);
 
     // Load and match events
-    auto events = process::run<inbound, outbound, titles>(options.files, options.verbose);
+    auto result = process::run<inbound, outbound, titles>(options.files, options.verbose);
 
     // Configure report
     components report;
       report.layout = options.report;
       report.files = options.files;
-      report.data = event::transform(events.matched.deltas(), [](const auto &current) { return current.microseconds(); }); // make a fluent version
+      report.data = event::transform(result.data.matched.deltas(), [](const auto &current) { return current.microseconds(); }); // make a fluent version
 
     // Generate report
     if (options.verbose) { std::cout << "Generating Html Report" << std::endl; }

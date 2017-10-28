@@ -26,12 +26,12 @@ void of(int argc, char *argv[]) {
     auto options = options::parse(argc, argv);
 
     // Load and match events
-    auto events = process::run<inbound, outbound, titles>(options.files, options.verbose);
+    auto result = process::run<inbound, outbound, titles>(options.files, options.verbose);
 
     email::components email;
       email.layout = options.email;
-      email.matching.path = options.files;
-      email.matching.data = event::transform(events.matched, [](const auto &current) { return current.timestamps().delta().microseconds(); });
+      email.files = options.files;
+      email.data = event::transform(result.data.matched.deltas(), [](const auto & current) { return current.microseconds(); });
 
     // Generate report
     if (options.verbose) { std::cout << "Generating Html Latency Report Email" << std::endl; }

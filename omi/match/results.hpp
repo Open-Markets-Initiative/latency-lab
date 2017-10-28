@@ -1,17 +1,18 @@
 #ifndef OMI_MATCH_RESULTS_HPP_
 #define OMI_MATCH_RESULTS_HPP_
 
-#include <vector>
 #include <omi/match/inputs.hpp>
+#include <omi/match/events.hpp>
 
 // Matching results
 
 namespace omi { 
 namespace match {
 
-struct results { // always pass this with auto to use templates?
-    inputs path;                // Data Files
-    std::vector<double> data;   // Matching Deltas
+template <typename inbound, typename outbound>
+struct result {
+    inputs path;                       // Data Files
+    events<inbound, outbound> data;    // Matching Deltas
 };
 
 /*

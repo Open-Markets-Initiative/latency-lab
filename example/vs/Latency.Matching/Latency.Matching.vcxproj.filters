@@ -71,9 +71,6 @@
     <ClInclude Include="..\..\..\omi\match\inputs.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\match\results.hpp">
-      <Filter>Header Files\match</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\types\tokenizer.hpp">
       <Filter>Header Files\types</Filter>
     </ClInclude>
@@ -94,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\results.hpp">
+      <Filter>Header Files\match</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
