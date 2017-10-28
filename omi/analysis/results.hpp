@@ -27,12 +27,11 @@ struct results {
       : percents{ values },
         standard{ values},
         steadystate{ percentile::range(values, 0, 70)} {}
-
 };
 
 // Static constructor
 template <typename container>
-results<container> of(const container &values) {
+static constexpr results<container> of(const container &values) {
     return results<container>{ values };
 }
 

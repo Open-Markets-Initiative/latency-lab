@@ -6,6 +6,7 @@
 #include <omi/latency/args.hpp>
 #include <omi/latency/email/configuration.hpp>
 #include <omi/match/inputs.hpp>
+#include <omi/utility/autotimer.hpp>
 
 //  Options for omi html latency report (single run)
 
@@ -21,6 +22,7 @@ struct options {
     match::inputs files;           // Event input files
     std::string path;              // Html report output path
     bool verbose;                  // Print status to standard out
+    autotimer timer;               // Program timer
 
   //// Construction //////////////
 
@@ -61,6 +63,11 @@ struct options {
         return options{ args, args.verbose() };
     }
 };
+
+// Stream operator
+inline std::ostream &operator<<(std::ostream &out, const options &program) {
+    return out << program.timer;
+}
 
 } } }
 

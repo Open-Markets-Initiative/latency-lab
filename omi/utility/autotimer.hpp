@@ -23,7 +23,7 @@ struct autotimer {
 
   //// Methods ////////////////////
 
-  // Return elapsed seconds
+    // Return elapsed seconds
     double seconds() const {
         return std::chrono::duration<double>(now() - begin).count();
     }
