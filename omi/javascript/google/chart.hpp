@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <iso646.h>
 
 // Google chart javascript
 

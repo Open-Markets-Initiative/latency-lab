@@ -30,7 +30,7 @@ struct timestamps {
   //// Methods ////////////////////
 
     // Change in time
-    auto delta() {
+    auto delta() const {
         return response - trigger;
     }
 };

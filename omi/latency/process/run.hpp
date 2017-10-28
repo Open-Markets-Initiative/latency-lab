@@ -10,7 +10,7 @@ namespace latency {
 namespace process {
 
 template <typename inbound, typename outbound, typename description>
-match::result<inbound, outbound> run(const match::inputs &file, const bool verbose) {
+auto run(const match::inputs &file, const bool verbose) {
     // Print title
     if (verbose) { std::cout << description::title << std::endl; }
 
@@ -20,7 +20,7 @@ match::result<inbound, outbound> run(const match::inputs &file, const bool verbo
     if (verbose) { std::cout << inbounds; }
 
     // Load response events
-    if (verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; }  // Todo theses should be fully qualified path
+    if (verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; }  // Todo theses should be fully qualified path objects and return those1
     const auto outbounds = event::list<outbound>::read(file.outbound);
     if (verbose) { std::cout << outbounds; }
 
@@ -29,7 +29,9 @@ match::result<inbound, outbound> run(const match::inputs &file, const bool verbo
     auto events = match::events<inbound, outbound>{ inbounds, outbounds };
     if (verbose) { std::cout << events; }
 
-    return { file, events };
+    // Create name and return result
+    auto name = std::string(description::inbound) + std::string(" to ") + std::string(description::outbound);
+    return match::result<inbound, outbound>{ name, file, events };
 };
 
 } } }

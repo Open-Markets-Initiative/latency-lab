@@ -11,8 +11,9 @@ namespace match {
 
 template <typename inbound, typename outbound>
 struct result {
+    std::string name;                  // Result Name
     inputs path;                       // Data Files
-    events<inbound, outbound> data;    // Matching Deltas
+    events<inbound, outbound> data;    // Matched Events
 };
 
 /*

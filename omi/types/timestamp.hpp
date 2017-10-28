@@ -6,6 +6,7 @@
 #include <string>
 #include <chrono>
 #include <iso646.h>
+#include <boost/program_options/value_semantic.hpp>
 
 // Simple 64bit portable inline timestamp
 
@@ -64,7 +65,7 @@ struct timestamp {
 
     // Number of seconds since epoch
     double seconds() const {
-        return value / static_cast<double>(nanoseconds::per::second);
+        return value / static_cast<double>(nanoseconds::per::second);  // use inline function
     }
 
     // Number of microseconds since epoch
@@ -122,8 +123,7 @@ struct timestamp {
     uint64_t value;
 };
 
-
-///////////////////////////////////////////////
+///////////////////////////////////
 
 // Equals operator
 inline bool operator==(const timestamp& lhs, const timestamp& rhs) {
@@ -158,6 +158,18 @@ inline bool operator>=(const timestamp& lhs, const timestamp& rhs) {
 // Stream operator
 inline std::ostream & operator<<(std::ostream &out, const timestamp &timestamp) {
   return out << timestamp.text();
+}
+
+///////////////////////////////////
+
+// Convert omi timestamp to seconds
+inline double seconds(const timestamp &timestamp) {
+    return timestamp.get() / static_cast<double>(nanoseconds::per::second);
+}
+
+// Convert omi timestamp to microseconds
+inline double microseconds(const timestamp &timestamp) {
+    return timestamp.get() / static_cast<double>(nanoseconds::per::microsecond);;
 }
 
 }
