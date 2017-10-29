@@ -58,7 +58,7 @@ void of(int argc, char *argv[]) {
     case period::second: break;
     case period::minute: break;
     default: 
-        throw new std::exception("Not implemented") ;
+        throw new std::invalid_argument("Not implemented") ;
     }
 
     // Program information
