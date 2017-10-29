@@ -47,8 +47,8 @@ void of(int argc, char *argv[]) {
     if (options.verbose) { std::cout << "Generating Html Report" << std::endl; }
     switch (options.report.period) {
     case period::nanosecond: {
-      //  auto report = generate<inbound, outbound, nanoseconds>(options.report, result);
-      //  report.write(options.path);
+        auto report = generate<inbound, outbound, nanoseconds>(options.report, result);
+        report.write(options.path);
         break; }
     case period::microsecond: {
         auto report = generate<inbound, outbound, microseconds>(options.report, result);

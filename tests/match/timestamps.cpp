@@ -8,7 +8,7 @@ BOOST_AUTO_TEST_SUITE(MatchTimestamps)
 using namespace omi;
 
 BOOST_AUTO_TEST_CASE(VerifyConstructorSetsDefaultTrigger) {
-    auto comment = "Verify standard constructor sets trigger time";
+    auto comment = "Verify standard constructor sets default trigger time";
 
     test::event inbound, outbound;
     auto time = match::timestamps<test::event, test::event>{inbound, outbound};
@@ -20,7 +20,7 @@ BOOST_AUTO_TEST_CASE(VerifyConstructorSetsDefaultTrigger) {
 }
 
 BOOST_AUTO_TEST_CASE(VerifyConstructorSetsDefaultResponse) {
-    auto comment = "Verify standard constructor sets response time";
+    auto comment = "Verify standard constructor sets default response time";
 
     test::event inbound, outbound;
     auto time = match::timestamps<test::event, test::event>{ inbound, outbound };
@@ -43,7 +43,7 @@ BOOST_AUTO_TEST_CASE(VerifyDelta) {
 
     auto time = match::timestamps<test::event, test::event>{ trigger, response };
 
-    auto expected = timestamp{ 100 };
+    auto expected = timespan{ 100 };
     auto actual = time.delta();
 
     CHECK_EQUAL(expected, actual, comment);

@@ -31,7 +31,7 @@ struct timestamps {
 
     // Change in time
     auto delta() const {
-        return response - trigger;
+        return difference(trigger, response);
     }
 };
 

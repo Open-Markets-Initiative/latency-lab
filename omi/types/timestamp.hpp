@@ -1,12 +1,11 @@
 #ifndef OMI_TYPES_TIMESTAMP_HPP_
 #define OMI_TYPES_TIMESTAMP_HPP_
 
-#include <omi/types/period.hpp>
+#include <omi/types/timespan.hpp>
 
 #include <string>
 #include <chrono>
 #include <iso646.h>
-#include <boost/program_options/value_semantic.hpp>
 
 // Simple 64bit portable inline timestamp
 
@@ -154,6 +153,15 @@ inline bool operator<=(const timestamp& lhs, const timestamp& rhs) {
 inline bool operator>=(const timestamp& lhs, const timestamp& rhs) {
     return not operator<(lhs, rhs);
 }
+
+///////////////////////////////////
+
+// delta time => Required method for analysis
+inline auto difference(const timestamp& start, const timestamp& finish) {
+    return timespan::nanoseconds(start.nanoseconds(), finish.nanoseconds());
+}
+
+///////////////////////////////////
 
 // Stream operator
 inline std::ostream & operator<<(std::ostream &out, const timestamp &timestamp) {

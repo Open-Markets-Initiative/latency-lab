@@ -95,6 +95,9 @@
     <ClInclude Include="..\..\..\omi\match\results.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timespan.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\matching\main.cpp">
