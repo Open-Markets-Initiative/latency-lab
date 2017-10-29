@@ -42,7 +42,7 @@ struct statistics {
 
         // Standard deviation
         container residuals(count);
-        auto residual = [&](double value) { return value - average; };
+        auto residual = [&](value_type value) { return value - average; };
         std::transform(values.begin(), values.end(), residuals.begin(), residual);
         auto squares = std::inner_product(residuals.begin(), residuals.end(), residuals.begin(), static_cast<value_type>(0));
         deviation = std::sqrt(squares / count);

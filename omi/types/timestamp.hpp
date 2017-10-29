@@ -160,18 +160,6 @@ inline std::ostream & operator<<(std::ostream &out, const timestamp &timestamp) 
   return out << timestamp.text();
 }
 
-///////////////////////////////////
-
-// Convert omi timestamp to seconds
-inline double seconds(const timestamp &timestamp) {
-    return timestamp.get() / static_cast<double>(nanoseconds::per::second);
-}
-
-// Convert omi timestamp to microseconds
-inline double microseconds(const timestamp &timestamp) {
-    return timestamp.get() / static_cast<double>(nanoseconds::per::microsecond);;
-}
-
 }
 
 #endif

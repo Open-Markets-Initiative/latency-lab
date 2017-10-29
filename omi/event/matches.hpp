@@ -8,7 +8,6 @@
 #include <vector>
 #include <algorithm>
 #include <type_traits>
-#include <iterator>
 
 // Matches 
 
@@ -17,15 +16,16 @@ namespace event {
 
 // Transform vector acoording to operation (move this)
 template<typename type, typename function>
-std::vector<std::result_of_t<function(type)>> transform(const std::vector<type>& inputs, function operation) {
+auto transform(const std::vector<type>& inputs, function operation) {
     std::vector<std::result_of_t<function(type)>> result(inputs.size());
     std::transform(inputs.begin(), inputs.end(), result.begin(), operation);
     return result;
 } // make one that decides default constructability at compiletime
 
-template<typename type>
-std::ostream & out(std::ostream &out, const type &list) {
-    for (const auto &element : list) {
+// Stream out all elements in a container 
+template<typename container>
+auto out(std::ostream &out, const container &elements) {
+    for (const auto &element : elements) {
         out << element << std::endl;
     }
 
@@ -55,7 +55,6 @@ struct matches : std::vector<event::match<trigger, response>> {
             result.push_back(match.info());
         }
         return result;
-      //  return transform(*this, [](const auto &current) { return current.info(); });
     }
 
   /////////////////////////////////

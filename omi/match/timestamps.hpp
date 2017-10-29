@@ -15,8 +15,8 @@ struct timestamps {
 
   //// Member Variables ///////////
 
-    decltype(std::declval<outbound>().time()) trigger;
-    decltype(std::declval<inbound>().time()) response;
+    decltype(std::declval<inbound>().time()) trigger;
+    decltype(std::declval<outbound>().time()) response;
 
   //// Construction ///////////////
 

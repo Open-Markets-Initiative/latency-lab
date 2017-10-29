@@ -33,21 +33,16 @@ struct components {
     }
 };
 
-// Microseconds functor
-template <typename inbound, typename outbound>
-struct microseconds {
-    using type = match::timestamps<inbound, outbound>;
-    auto operator()(const type& current) { return current.delta().microseconds(); }
-};
 
-// Microseconds functor
-template<typename inbound, typename outbound, typename period = microseconds<inbound, outbound>> // add functor
+// Generate report based on transform
+template<typename inbound, typename outbound, template <typename, typename> typename functor>
 auto generate(const configuration config, match::result<inbound, outbound> result) {
-    using container = std::vector<double>; // need to get this from functor
+    // Get type from functor.. is there a more elegant way to do this?
+    using container = std::vector<std::result_of_t<functor<inbound, outbound>(match::timestamps<inbound, outbound>)>>;
     components<container> report;
       report.layout = config;
       report.files = result.path;
-      report.data = event::transform(result.data.matched.timestamps(), period());
+      report.data = event::transform(result.data.matched.timestamps(), functor<inbound, outbound>());
 
     return report;
 };
