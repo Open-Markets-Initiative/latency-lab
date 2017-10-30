@@ -32,7 +32,7 @@ void of(int argc, char *argv[]) {
     components email;
       email.layout = options.email;
       email.files = options.files;
-      email.data = result.data.matched.deltas(options.email.period);
+      email.data = result.deltas(options.email.period);
 
     // Write email
     email.write(options.path);

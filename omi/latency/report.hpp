@@ -35,7 +35,7 @@ void of(const int argc, char *argv[]) {
     components report;
       report.layout = options.report;
       report.files = result.path;
-      report.data = result.data.matched.deltas(options.report.period);
+      report.data = result.deltas(options.report.period);
 
     // Write report
     report.write(options.path);

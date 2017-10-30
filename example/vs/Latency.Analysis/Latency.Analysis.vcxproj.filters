@@ -18,6 +18,9 @@
     <Filter Include="Header Files\container">
       <UniqueIdentifier>{f4d00a3e-0328-4f66-ab94-db7f6087c0b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\program">
+      <UniqueIdentifier>{9a8c8858-fb08-426e-85e0-3a60b23be53a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\analysis\main.cpp">
@@ -25,12 +28,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\analysis.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\analysis\delta.hpp">
       <Filter>Header Files\analysis</Filter>
     </ClInclude>
@@ -54,6 +51,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\container\definitions.hpp">
       <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\analysis.hpp">
+      <Filter>Header Files\program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp">
+      <Filter>Header Files\program</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

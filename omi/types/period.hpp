@@ -15,7 +15,7 @@ namespace nanoseconds { namespace per { static constexpr uint64_t millisecond = 
 
 // Time period enum
 enum struct period {
-    invalid,
+    unknown,
     nanosecond,
     microsecond,
     millisecond,

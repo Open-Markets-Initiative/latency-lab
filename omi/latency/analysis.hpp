@@ -11,13 +11,14 @@ namespace omi {
 namespace latency {
 namespace analysis {
 
-// Default analysis program template notes 
+// Analysis program defaults 
 struct defaults {
     static constexpr const char * title = "Latency Analysis";
     static constexpr const char * inbound = "events";
     static constexpr const char * outbound = "responses";
 };
 
+// Default analysis program template
 template <class inbound, class outbound, class descriptions = defaults>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
@@ -27,7 +28,7 @@ void of(int argc, char *argv[]) {
     auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
     // Analyze data
-    auto deltas = result.data.matched.deltas(options.period);
+    auto deltas = result.deltas(options.period);
     std::cout << omi::analysis::of(deltas);
     std::cout << options;
 };

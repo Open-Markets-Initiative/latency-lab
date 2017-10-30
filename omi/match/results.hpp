@@ -11,9 +11,20 @@ namespace match {
 
 template <typename inbound, typename outbound>
 struct result {
+
+  //// Member Variables ///////////
+
     std::string name;                  // Result Name
     inputs path;                       // Data Files
     events<inbound, outbound> data;    // Matched Events
+
+  //// Methods ///////////
+
+    // Return delta calculation by time period
+    auto deltas(period period) const {
+        return data.matched.deltas(period);
+    }
+
 };
 
 /*
