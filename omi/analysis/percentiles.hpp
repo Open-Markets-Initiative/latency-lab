@@ -18,6 +18,7 @@ struct percentiles {
 
   //// Member Variables ///////////
 
+    // Total number of values
     size_t count { 0 };
 
     value_type p100 { 0 };
@@ -39,7 +40,7 @@ struct percentiles {
     percentiles() {}
 
     // Standard constructor
-    explicit percentiles(const container &original) {
+    explicit percentiles(const container &original, size_t precision = 3) : precision{ precision } {
         if (original.empty()) { return; }
 
         // Copy and sort

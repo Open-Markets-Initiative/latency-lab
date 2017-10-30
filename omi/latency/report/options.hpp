@@ -20,7 +20,6 @@ struct options {
 
     report::configuration report;  // Html report options
     match::inputs files;           // Event input files
-    std::string path;              // Html report output path
     bool verbose;                  // Print status to standard out
     autotimer timer;               // Program timer
 
@@ -31,7 +30,7 @@ struct options {
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
-        path = option.template required<std::string>(::html::report::option);
+        report.path = option.template required<std::string>(::html::report::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
@@ -70,7 +69,8 @@ struct options {
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const options &program) {
-    return out << program.timer;
+    return out << program.report
+               << program.timer;
 }
 
 } } }

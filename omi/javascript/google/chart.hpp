@@ -19,11 +19,12 @@ struct linechart {
     omi::whitespace whitespace;
     std::string title;
     std::string element;
+    std::string unit;
     std::vector<double> values;
 
     // Constructor
-    explicit linechart(const std::vector<double> values, const std::string &element = "latency", const std::string &title = "", const indent whitespace = indent::none)
-      : whitespace{whitespace}, title{title}, element{ element }, values{values} {}
+    explicit linechart(const std::vector<double> values, const std::string &unit, const std::string &element = "latency", const std::string &title = "", const indent whitespace = indent::none)
+      : whitespace{ whitespace }, title{ title }, element{ element }, unit{ unit }, values{ values } {}
 };
 
 
@@ -37,7 +38,7 @@ inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
         << chart.whitespace << "  function linegraph() {" << std::endl << std::endl // TODO: Break this down into composable parts
         << chart.whitespace << "    var data = new google.visualization.DataTable();" << std::endl
         << chart.whitespace << "      data.addColumn('number', 'Event');" << std::endl
-        << chart.whitespace << "      data.addColumn('number', 'Microseconds');" << std::endl
+        << chart.whitespace << "      data.addColumn('number', '"<< chart.unit << "');" << std::endl
         << chart.whitespace << "      data.addRows([" << std::endl;
     for (size_t i = 0, count = chart.values.size(); i < count; ++i) {
         out << chart.whitespace << "        [" << i + 1 << ", " << std::fixed << std::setprecision(4) << chart.values[i] <<"]" << (i != count - 1 ? "," : "") << std::endl;

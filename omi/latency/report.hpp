@@ -38,7 +38,7 @@ void of(const int argc, char *argv[]) {
       report.data = result.deltas(options.report.period);
 
     // Write report
-    report.write(options.path);
+    report.write(options.report.path);
 
     // Program information
     if (options.verbose) { std::cout << options << std::endl; }

@@ -15,10 +15,20 @@ struct configuration {
     std::string header;        // Report header text
     std::string copyright;     // Copyright text
     omi::period period;        // Delta time period
+    std::string path;          // Html report output path
     // add note?
 
     std::string css;           // optional link to external css file 
 };
+
+// Stream operator
+inline std::ostream &operator<<(std::ostream &out, const configuration &report) {
+    return out << "  Title: " << report.title << std::endl
+               << "  Header: " << report.header << std::endl
+               << "  Copyright: " << report.copyright << std::endl
+               << "  Period: " << report.period << std::endl;
+}
+
 
 } } }
 

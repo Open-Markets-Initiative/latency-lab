@@ -28,15 +28,15 @@ enum struct period {
 inline const char * text(const period period) {
     switch(period) {
     case period::nanosecond:
-        return "nanoseconds";
+        return "Nanoseconds";
     case period::microsecond:
-        return "microseconds";
+        return "Microseconds";
     case period::millisecond:
-        return "microseconds";
+        return "Microseconds";
     case period::second:
-        return "seconds";
+        return "Seconds";
     case period::minute:
-        return "minutes";
+        return "Minutes";
     default:
         return "INVALID (PERIOD)";
     }

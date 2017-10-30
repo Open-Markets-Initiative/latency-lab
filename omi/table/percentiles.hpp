@@ -15,8 +15,8 @@ struct percentiles {
     omi::whitespace whitespace;
 
     // Standard constructor
-    explicit percentiles(const std::vector<double> &values, const indent whitespace = indent::none)
-        : percents{ values }, whitespace{ whitespace } {}
+    explicit percentiles(const std::vector<double> &values, const size_t precision = 3, const indent whitespace = indent::none)
+        : percents{ values, precision }, whitespace{ whitespace } {}
 };
 
 // Stream operator (build html horizontal table for displaying percentiles)
