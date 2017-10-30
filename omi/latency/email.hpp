@@ -3,8 +3,7 @@
 
 #include <omi/latency/process/run.hpp>
 #include <omi/latency/email/options.hpp>
-#include <omi/latency/email/components.hpp> 
-#include <omi/utility/autotimer.hpp>
+#include <omi/latency/email/components.hpp>
 
 // Single run omi html only latency report generation
 
@@ -20,21 +19,22 @@ struct defaults {
 };
 
 // Latency email program template
-template <class inbound, class outbound, class titles = defaults>
+template <class inbound, class outbound, class descriptions = defaults>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);
 
     // Load and match events
-    auto result = process::run<inbound, outbound, titles>(options.files, options.verbose);
+    auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
-    email::components email;
+    // Configure email report
+    if (options.verbose) { std::cout << "Generating Html Latency Report Email" << std::endl; }
+    components email;
       email.layout = options.email;
       email.files = options.files;
-      email.data = transform(result.data.matched.deltas(), [](const auto & current) { return current.microseconds(); });
+      email.data = result.data.matched.deltas(options.email.period);
 
-    // Generate report
-    if (options.verbose) { std::cout << "Generating Html Latency Report Email" << std::endl; }
+    // Write email
     email.write(options.path);
 
     // Program information

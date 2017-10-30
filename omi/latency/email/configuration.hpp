@@ -13,6 +13,7 @@ struct configuration {
     std::string title;
     std::string header;
     std::string copyright;
+    omi::period period = omi::period::microsecond; // get this from options
     // add note?
 };
 

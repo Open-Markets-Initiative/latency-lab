@@ -28,4 +28,3 @@ Steady State Statistics
   Average:   5.3732
   Deviation: 0.9630
 Elapsed Time: 
-  0.5318

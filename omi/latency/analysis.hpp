@@ -18,16 +18,16 @@ struct defaults {
     static constexpr const char * outbound = "responses";
 };
 
-template <class inbound, class outbound, class titles = defaults>
+template <class inbound, class outbound, class descriptions = defaults>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);
 
     // Load files and match events
-    auto result = process::run<inbound, outbound, titles>(options.files, options.verbose);
+    auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
     // Analyze data
-    auto deltas = transform(result.data.matched.deltas(), [](const auto & current) { return current.microseconds(); });
+    auto deltas = result.data.matched.deltas(options.period);
     std::cout << omi::analysis::of(deltas);
     std::cout << options;
 };

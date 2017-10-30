@@ -18,13 +18,13 @@ struct defaults {
 };
 
 // Latency event matching program template
-template <typename inbound, typename outbound, typename titles = defaults>
+template <typename inbound, typename outbound, typename descriptions = defaults>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);
 
     // Load files and match events
-    auto result = process::run<inbound, outbound, titles>(options.files, options.verbose);
+    auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
     // Writes matches to file 
     result.data.matched.infos(options.path);

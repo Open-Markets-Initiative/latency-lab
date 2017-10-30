@@ -19,6 +19,7 @@ struct options {
 
     match::inputs files;           // Event input files
     std::string path;              // Matches list output path
+    omi::period period = omi::period::microsecond; // get this from options
     bool verbose;                  // Print status to standard out
     autotimer timer;               // Program timer
 
