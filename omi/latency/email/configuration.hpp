@@ -10,10 +10,10 @@ namespace latency {
 namespace email {
 
 struct configuration {
-    std::string title;
-    std::string header;
-    std::string copyright;
-    omi::period period = omi::period::microsecond; // get this from options
+    std::string title;             // Email html title
+    std::string header;            // Header text
+    std::string copyright;         // Copyright text
+    omi::period period;            // Delta time period
     // add note?
 };
 

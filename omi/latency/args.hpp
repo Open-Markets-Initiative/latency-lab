@@ -45,6 +45,9 @@ namespace html { namespace copyright { static constexpr const char * note = "Rep
 namespace css { namespace file { static constexpr const char * option = "css-file"; } }
 namespace css { namespace file { static constexpr const char * note = "Link report to external css file (Optional)"; } }
 
+namespace delta { namespace period { static constexpr const char * option = "time-period"; } }
+namespace delta { namespace period { static constexpr const char * note = "Event delta time period: nanoseconds, micoseconds, milliseconds, seconds, minutes"; } }
+
 // Most of these need name changes
 
 #endif

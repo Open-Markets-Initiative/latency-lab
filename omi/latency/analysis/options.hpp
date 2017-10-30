@@ -18,7 +18,7 @@ struct options {
 
     match::inputs files;           // Event input files
     std::string path;              // Matches list output path
-    omi::period period = omi::period::microsecond; // get this from options
+    omi::period period;            // Delta time period
     bool verbose;                  // Print status to standard out
     autotimer timer;               // Program time
 
@@ -29,6 +29,7 @@ struct options {
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
+        period = parse::period(option.template conditional<std::string>(::delta::period::option, "microseconds"));
     }
 
   //// Interface ////////////////
@@ -39,7 +40,8 @@ struct options {
         boost::program_options::options_description description(title);
         description.add_options()
             (::inbound::file::option, boost::program_options::value<std::string>(), ::inbound::file::note)
-            (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note);
+            (::outbound::file::option, boost::program_options::value<std::string>(), ::outbound::file::note)
+            (::delta::period::option, boost::program_options::value<std::string>(), ::delta::period::note);
 
         // Read program args
         auto args = omi::program::options(argc, argv, description);

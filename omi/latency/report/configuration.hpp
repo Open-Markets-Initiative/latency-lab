@@ -14,7 +14,7 @@ struct configuration {
     std::string title;         // Report html title
     std::string header;        // Report header text
     std::string copyright;     // Copyright text
-    omi::period period = omi::period::microsecond; // get this from options
+    omi::period period;        // Delta time period
     // add note?
 
     std::string css;           // optional link to external css file 

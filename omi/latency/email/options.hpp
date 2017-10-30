@@ -35,6 +35,8 @@ struct options {
         email.title = option.template conditional<std::string>(::html::title::option, "Omi");
         email.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         email.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
+        email.period = parse::period(option.template conditional<std::string>(::delta::period::option, "microseconds"));
+
     }
 
   //// Interface ////////////////
@@ -50,7 +52,8 @@ struct options {
             (::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
-            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
+            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note)
+            (::delta::period::option, boost::program_options::value<std::string>(), ::delta::period::note);;
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);

@@ -1,6 +1,7 @@
 #ifndef OMI_TYPES_PERIOD_HPP_
 #define OMI_TYPES_PERIOD_HPP_
 
+#include <algorithm>
 #include <ostream>
 
 // Time periods
@@ -24,12 +25,6 @@ enum struct period {
 };
 
 // Format period as text 
-inline period parse(const std::string& period) {
-    // TODO: parse
-    return period::microsecond;
-}
-
-// Format period as text 
 inline const char * text(const period period) {
     switch(period) {
     case period::nanosecond:
@@ -46,6 +41,43 @@ inline const char * text(const period period) {
         return "INVALID (PERIOD)";
     }
 }
+
+// parse text as time period
+namespace parse { inline auto period(const std::string& text) {
+    // Convert text to lower
+    auto value = text;
+    std::transform(text.begin(), text.end(), value.begin(), ::tolower);
+
+    // Dispatch to enum value
+    if (value == "nanoseconds" ||
+        value == "nanosecond" ||
+        value == "nanos" ||
+        value == "nano" ||
+        value == "n") {
+        return period::nanosecond;
+    } if (value == "microseconds" ||
+        value == "microsecond" ||
+        value == "micros" ||
+        value == "nano" ||
+        value == "u") {
+        return period::microsecond;
+    } if (value == "milliseconds" ||
+        value == "millsecond" ||
+        value == "millis" ||
+        value == "milli" ||
+        value == "m") {
+        return period::millisecond;
+    } if (value == "seconds" ||
+        value == "second" ||
+        value == "s") {
+        return period::second;
+    } if (value == "minutes" ||
+        value == "minute") {
+        return period::minute;
+    }
+
+    return period::unknown;
+}}
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const period &period) {
