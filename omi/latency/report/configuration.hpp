@@ -10,11 +10,18 @@ namespace omi {
 namespace latency {
 namespace report {
 
+
+
 struct configuration {
     std::string title;         // Report html title
     std::string header;        // Report header text
     std::string copyright;     // Copyright text
     omi::period period;        // Delta time period
+    struct precision {
+        size_t chart = 4;          // Report chart precision
+        size_t statistics = 2;     // Report statistics precision
+        size_t percentiles = 2;    // Report percentiles precision
+    }  precision;
     std::string path;          // Html report output path
     // add note?
 
@@ -25,7 +32,6 @@ struct configuration {
 inline std::ostream &operator<<(std::ostream &out, const configuration &report) {
     return out << "  Title: " << report.title << std::endl
                << "  Header: " << report.header << std::endl
-               << "  Copyright: " << report.copyright << std::endl
                << "  Period: " << report.period << std::endl;
 }
 

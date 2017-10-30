@@ -48,6 +48,15 @@ namespace css { namespace file { static constexpr const char * note = "Link repo
 namespace delta { namespace period { static constexpr const char * option = "time-period"; } }
 namespace delta { namespace period { static constexpr const char * note = "Event delta time period: nanoseconds, micoseconds, milliseconds, seconds, minutes"; } }
 
+namespace precision { namespace percentiles { static constexpr const char * option = "percentiles-precision"; } }
+namespace precision { namespace percentiles { static constexpr const char * note = "Percentiles decimal precision"; } }
+
+namespace precision { namespace statistics { static constexpr const char * option = "statistics-precision"; } }
+namespace precision { namespace statistics { static constexpr const char * note = "Statistics decimal precision"; } }
+
+namespace precision { namespace chart { static constexpr const char * option = "chart-precision"; } }
+namespace precision { namespace chart { static constexpr const char * note = "Chart element decimal precision"; } }
+
 // Most of these need name changes
 
 #endif

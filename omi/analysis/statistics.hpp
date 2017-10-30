@@ -31,7 +31,7 @@ struct statistics {
     statistics() {}
 
     // Standard constructor
-    explicit statistics(const container &values) {
+    explicit statistics(const container &values, const size_t precision = 4) : precision{ precision } {
         // Count
         count = values.size();
         if (count < 1) { return; }

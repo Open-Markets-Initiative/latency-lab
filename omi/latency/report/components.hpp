@@ -42,7 +42,7 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                <<   stylesheet::options{report.layout.css}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
                <<   html::script{"text/javascript"}
-               <<     javascript::google::linechart{report.data, text(report.layout.period), "chart"}
+               <<     javascript::google::linechart{report.data, text(report.layout.period), report.layout.precision.chart, "chart"}
                <<   html::close{"script"}
                << html::close{"head"}
                << std::endl
@@ -56,12 +56,12 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Statistics"}
-               <<     html::statistics{report.data}
+               <<     html::statistics{report.data, report.layout.precision.statistics}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Percentiles"}
-               <<     html::percentiles{report.data, 3}
+               <<     html::percentiles{report.data, report.layout.precision.percentiles}
                <<   html::close{"article"}
                << html::close{"section"}
                << html::close{"body"}

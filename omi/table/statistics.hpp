@@ -17,7 +17,7 @@ struct statistics {
     omi::whitespace whitespace;
 
     // Standard constructor
-    explicit statistics(const std::vector<double> &values, indent whitespace = indent::none)
+    explicit statistics(const std::vector<double> &values, const size_t precision = 4, indent whitespace = indent::none)
       : standard{ values},
         steady{ analysis::percentile::range(values, 0, 70)}, // make this take values directly
         whitespace { whitespace } {}

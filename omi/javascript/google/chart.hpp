@@ -21,10 +21,11 @@ struct linechart {
     std::string element;
     std::string unit;
     std::vector<double> values;
+    size_t precision{ 4 };
 
     // Constructor
-    explicit linechart(const std::vector<double> values, const std::string &unit, const std::string &element = "latency", const std::string &title = "", const indent whitespace = indent::none)
-      : whitespace{ whitespace }, title{ title }, element{ element }, unit{ unit }, values{ values } {}
+    explicit linechart(const std::vector<double> values, const std::string &unit, const size_t precision, const std::string &element = "latency", const std::string &title = "", const indent whitespace = indent::none)
+      : whitespace{ whitespace }, title{ title }, element{ element }, unit{ unit }, values{ values }, precision{ precision } {}
 };
 
 
@@ -41,7 +42,7 @@ inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
         << chart.whitespace << "      data.addColumn('number', '"<< chart.unit << "');" << std::endl
         << chart.whitespace << "      data.addRows([" << std::endl;
     for (size_t i = 0, count = chart.values.size(); i < count; ++i) {
-        out << chart.whitespace << "        [" << i + 1 << ", " << std::fixed << std::setprecision(4) << chart.values[i] <<"]" << (i != count - 1 ? "," : "") << std::endl;
+        out << chart.whitespace << "        [" << i + 1 << ", " << std::fixed << std::setprecision(chart.precision) << chart.values[i] <<"]" << (i != count - 1 ? "," : "") << std::endl;
     }
     out << chart.whitespace << "      ]);" << std::endl
         << std::endl
@@ -54,7 +55,7 @@ inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
         << chart.whitespace << "        title: 'Events'" << std::endl // TODO: calculate this kind of thing
         << chart.whitespace << "      }," << std::endl
         << chart.whitespace << "      vAxis: {" << std::endl
-        << chart.whitespace << "        title: 'Latency (Microseconds)'," << std::endl
+        << chart.whitespace << "        title: 'Latency (" << chart.unit << ")'," << std::endl
 //        << chart.whitespace << "      ticks: [0, 500, 1000, 1500]" << std::endl need this
         << chart.whitespace << "      }" << std::endl
         << chart.whitespace << "  };" << std::endl
