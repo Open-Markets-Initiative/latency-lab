@@ -59,13 +59,23 @@ struct timespan {
   ///// Accessors /////////////////
 
     // Number of seconds
+    double minutes() const {
+        return value / nanoseconds::per::minute;
+    }
+
+    // Number of seconds
     double seconds() const {
-        return value / static_cast<double>(nanoseconds::per::second);
+        return value / nanoseconds::per::second;
+    }
+
+    // Number of microseconds
+    double milliseconds() const {
+        return value / nanoseconds::per::millisecond;
     }
 
     // Number of microseconds
     double microseconds() const {
-        return value / static_cast<double>(nanoseconds::per::microsecond);
+        return value / nanoseconds::per::microsecond;
     }
 
     // Number of nanoseconds

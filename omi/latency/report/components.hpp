@@ -6,9 +6,8 @@
 #include <omi/javascript/google/chart.hpp>
 #include <omi/stylesheet/options.hpp>
 #include <omi/source/write.hpp>
-#include <omi/latency/report/configuration.hpp>
 #include <omi/match/inputs.hpp>
-#include <omi/match/results.hpp>
+#include <omi/latency/report/configuration.hpp>
 
 // Generate single run html latency report
 
@@ -16,14 +15,13 @@ namespace omi {
 namespace latency {
 namespace report {
 
-template<typename container = std::vector<double>>
 struct components {
 
   //// Member Variables ///////////
 
-    configuration layout;  // Report layout options
-    match::inputs files;   // Input files
-    container data;        // Ordered event times
+    configuration layout;          // Report layout options
+    match::inputs files;           // Input files
+    std::vector<double> data;      // Ordered event times
 
   //// Methods ////////////////////
 
@@ -33,23 +31,8 @@ struct components {
     }
 };
 
-
-// Generate report based on transform
-template<typename inbound, typename outbound, template <typename, typename> typename functor>
-auto generate(const configuration config, match::result<inbound, outbound> result) {
-    // Get type from functor.. is there a more elegant way to do this?
-    using container = std::vector<std::result_of_t<functor<inbound, outbound>(match::timestamps<inbound, outbound>)>>;
-    components<container> report;
-      report.layout = config;
-      report.files = result.path;
-      report.data = event::transform(result.data.matched.timestamps(), functor<inbound, outbound>());
-
-    return report;
-};
-
 // Stream operator
-template<typename container>
-inline std::ostream &operator<<(std::ostream &out, const components<container> &report) {
+inline std::ostream &operator<<(std::ostream &out, const components &report) {
     return out << html::doctype{"html"}
                << html::tag{"html"}
                << std::endl

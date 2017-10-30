@@ -2,49 +2,17 @@
 #define OMI_EVENT_MATCHES_HPP_
 
 #include <omi/event/match.hpp>
-#include <omi/analysis/deltas.hpp>
 #include <omi/source/write.hpp>
-
-#include <vector>
-#include <algorithm>
-#include <type_traits>
+#include <omi/container/definitions.hpp>
+#include <omi/types/period.hpp>
 
 // Matches 
 
 namespace omi { 
 namespace event {
 
-// Transform vector acoording to operation (move this)
-template<typename type, typename function>
-auto transform(const std::vector<type>& inputs, function operation) {
-    std::vector<std::result_of_t<function(type)>> result(inputs.size());
-    std::transform(inputs.begin(), inputs.end(), result.begin(), operation);
-    return result;
-} // make one that decides default constructability at compiletime
-
-// Stream out all elements in a container 
-template<typename container>
-auto out(std::ostream &out, const container &elements) {
-    for (const auto &element : elements) {
-        out << element << std::endl;
-    }
-
-    return out;
-}
-
-
 template <typename trigger, typename response>
 struct matches : std::vector<event::match<trigger, response>> {
-
-    // Returns a list of matched timestamps
-    auto timestamps() const {
-        return transform(*this, [](const auto &current) { return current.timestamps(); });
-    }
-
-    // Returns a list of deltas from matched timestamps
-    auto deltas() const {
-        return transform(*this, [](const auto &current) { return current.timestamps().delta(); });
-    }
 
     // Build list of infos from matches
     auto infos() const {
@@ -55,6 +23,34 @@ struct matches : std::vector<event::match<trigger, response>> {
             result.push_back(match.info());
         }
         return result;
+    }
+
+    // Returns a list of matched timestamps
+    auto timestamps() const {
+        return transform(*this, [](const auto &current) { return current.timestamps(); });
+    }
+
+    // Returns a list of deltas timespans  from matched timestamps
+    auto deltas() const {
+        return transform(*this, [](const auto &current) { return current.timestamps().delta(); });
+    }
+
+    // Returns a list of delta values based on period
+    auto deltas(const period period) const {
+        switch (period) {
+        case period::nanosecond:
+            return transform(*this, [](const auto & current) { return current.timestamps().delta().nanoseconds(); });
+        case period::microsecond:
+            return transform(*this, [](const auto & current) { return current.timestamps().delta().microseconds(); });
+        case period::millisecond:
+            return transform(*this, [](const auto & current) { return current.timestamps().delta().milliseconds(); });
+        case period::second:
+            return transform(*this, [](const auto & current) { return current.timestamps().delta().seconds(); });
+        case period::minute:
+            return transform(*this, [](const auto & current) { return current.timestamps().delta().minutes(); });
+        default:
+            throw new std::invalid_argument("Not implemented");
+        }
     }
 
   /////////////////////////////////

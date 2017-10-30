@@ -27,7 +27,7 @@ void of(int argc, char *argv[]) {
     auto result = process::run<inbound, outbound, titles>(options.files, options.verbose);
 
     // Analyze data
-    auto deltas = event::transform(result.data.matched.deltas(), [](const auto & current) { return current.microseconds(); });
+    auto deltas = transform(result.data.matched.deltas(), [](const auto & current) { return current.microseconds(); });
     std::cout << omi::analysis::of(deltas);
     std::cout << options;
 };

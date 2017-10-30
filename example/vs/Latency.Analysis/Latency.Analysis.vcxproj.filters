@@ -15,6 +15,9 @@
     <Filter Include="Header Files\records">
       <UniqueIdentifier>{87e01df0-f3f6-45f7-9edf-126e1fcccf35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\container">
+      <UniqueIdentifier>{f4d00a3e-0328-4f66-ab94-db7f6087c0b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\analysis\main.cpp">
@@ -29,9 +32,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\analysis\delta.hpp">
-      <Filter>Header Files\analysis</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\analysis\deltas.hpp">
       <Filter>Header Files\analysis</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\analysis\percentile.hpp">
@@ -51,6 +51,9 @@
     </ClInclude>
     <ClInclude Include="..\..\analysis\records\outbound.hpp">
       <Filter>Header Files\records</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\container\definitions.hpp">
+      <Filter>Header Files\container</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -35,7 +35,7 @@ void of(int argc, char *argv[]) {
     for (const auto& run : runs) {
         auto name = directory::name(run.inbound);
         auto events = match::events<inbound, outbound>{run.inbound, run.outbound};
-        auto deltas = event::transform(events.matched, [](const auto &current) { return current.timestamps().delta().microseconds(); });
+        auto deltas = transform(events.matched, [](const auto &current) { return current.timestamps().delta().microseconds(); });
         delta_map.insert(std::make_pair(name, deltas));
     }
 

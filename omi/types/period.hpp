@@ -8,6 +8,7 @@
 namespace omi {
 
 // Move to time definitions
+namespace nanoseconds { namespace per { static constexpr uint64_t minute = 60000000000; } }
 namespace nanoseconds { namespace per { static constexpr uint64_t second = 1000000000; } }
 namespace nanoseconds { namespace per { static constexpr uint64_t microsecond = 1000; } }
 namespace nanoseconds { namespace per { static constexpr uint64_t millisecond = 1000000; } }

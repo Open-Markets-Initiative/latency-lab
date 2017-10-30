@@ -147,11 +147,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\analysis\delta.hpp" />
-    <ClInclude Include="..\..\..\omi\analysis\deltas.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\percentile.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\percentiles.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\results.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\statistics.hpp" />
+    <ClInclude Include="..\..\..\omi\container\definitions.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp" />
     <ClInclude Include="..\..\analysis\records\inbound.hpp" />
