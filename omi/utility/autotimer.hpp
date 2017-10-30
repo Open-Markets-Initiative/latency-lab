@@ -44,7 +44,7 @@ struct autotimer {
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const autotimer &timer) {
     return out << timer.name << std::endl
-               << "  " << timer.seconds() << std::endl;
+               << "  " << timer.seconds() <<  " seconds" << std::endl;
 }
 
 }
