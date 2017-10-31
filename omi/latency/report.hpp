@@ -27,8 +27,16 @@ void of(const int argc, char *argv[]) {
     // Load and match events
     auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
-    // Determine report period and precision automatically
-    // TODO: Figure out how to do this
+    // Determine report period and precision
+    if (not options.report.precision.chart.is_initialized()) { // make a method for this
+        options.report.precision.chart = 3;
+    }
+    if (not options.report.precision.statistics.is_initialized()) {
+        options.report.precision.statistics = 4;
+    }
+    if (not options.report.precision.percentiles.is_initialized()) {
+        options.report.precision.percentiles = 3;
+    }
 
     // Configure report
     if (options.verbose) { std::cout << "Generating Html Report" << std::endl; }

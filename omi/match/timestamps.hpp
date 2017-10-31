@@ -11,7 +11,7 @@ namespace match {
 template <typename inbound, typename outbound>
 struct timestamps {
 
-    // Probably need a static assert for - existence
+    // Probably need a static assert for difference()
 
   //// Member Variables ///////////
 
@@ -38,7 +38,7 @@ struct timestamps {
 // Stream operator
 template<typename inbound, typename outbound>
 std::ostream &operator<<(std::ostream &out, const timestamps<inbound, outbound> &time) {
-    return out << time.trigger << "," << time.response, time.delta();
+    return out << time.trigger << "," << time.response << "," << time.delta();
 }
 
 } }

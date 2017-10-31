@@ -36,6 +36,9 @@ struct options {
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
         report.css = option.template conditional<std::string>(::css::file::option, "");
         report.period = parse::period(option.template conditional<std::string>(::delta::period::option, "microseconds"));
+        report.precision.chart = option.template optional<size_t>(::precision::chart::option);
+        report.precision.statistics = option.template optional<size_t>(::precision::statistics::option);
+        report.precision.percentiles = option.template optional<size_t>(::precision::percentiles::option);
     }
 
   //// Interface ////////////////
@@ -53,7 +56,10 @@ struct options {
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
             (::css::file::option, boost::program_options::value<std::string>(), ::css::file::note)
             (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note)
-            (::delta::period::option, boost::program_options::value<std::string>(), ::delta::period::note);;
+            (::delta::period::option, boost::program_options::value<std::string>(), ::delta::period::note)
+            (::precision::chart::option, boost::program_options::value<std::string>(), ::precision::chart::note)
+            (::precision::statistics::option, boost::program_options::value<std::string>(), ::precision::statistics::note)
+            (::precision::percentiles::option, boost::program_options::value<std::string>(), ::precision::percentiles::note);
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);

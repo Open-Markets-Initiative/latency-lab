@@ -14,18 +14,21 @@ struct statistics {
     // Member variables
     analysis::statistics<> standard; // Standard statistics
     analysis::statistics<> steady;   // Steady state statistics
+    size_t precision;                // Table precision
     omi::whitespace whitespace;
 
     // Standard constructor
     explicit statistics(const std::vector<double> &values, const size_t precision = 4, indent whitespace = indent::none)
       : standard{ values},
         steady{ analysis::percentile::range(values, 0, 70)}, // make this take values directly
+        precision{precision},
         whitespace { whitespace } {}
 };
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const statistics &table) {
-    return out << table.whitespace << html::table{ "gridtable" }
+    return out << std::fixed << std::setprecision(table.precision)
+               << table.whitespace << html::table{ "gridtable" }
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"th", indent::two }
                << table.whitespace <<   html::element{"th", "Standard", indent::two }

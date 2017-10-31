@@ -11,17 +11,19 @@ namespace html {
 
 struct percentiles {
     // Member Variables
-    analysis::percentiles<> percents;
+    analysis::percentiles<> percents;    // Percentiles
+    size_t precision;                    // Table precision
     omi::whitespace whitespace;
 
     // Standard constructor
     explicit percentiles(const std::vector<double> &values, const size_t precision = 3, const indent whitespace = indent::none)
-        : percents{ values, precision }, whitespace{ whitespace } {}
+        : percents{ values }, precision{ precision }, whitespace{ whitespace } {}
 };
 
 // Stream operator (build html horizontal table for displaying percentiles)
 inline std::ostream &operator<<(std::ostream &out, const percentiles &table) {
-    return out << table.whitespace << html::table{"gridtable"}
+    return out << std::fixed << std::setprecision(table.precision) 
+               << table.whitespace << html::table{"gridtable"}
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"th", "100%", indent::two}
                << table.whitespace <<   html::element{"th", "99%", indent::two}
@@ -34,7 +36,6 @@ inline std::ostream &operator<<(std::ostream &out, const percentiles &table) {
                << table.whitespace <<   html::element{"th", "0%", indent::two}
                << table.whitespace << html::close{"tr"}
                << table.whitespace << html::tag{"tr"}
-               << std::fixed << std::setprecision(table.percents.precision)
                << table.whitespace <<   html::open{"td", indent::two} << table.percents.p100 << html::close{"td"}
                << table.whitespace <<   html::open{"td", indent::two} << table.percents.p99 << html::close{"td"}
                << table.whitespace <<   html::open{"td", indent::two} << table.percents.p90 << html::close{"td"}

@@ -56,7 +56,7 @@ struct options {
     // Convenience method for setting optional value only if setting exists
     template<typename T>
     boost::optional<T> optional(const std::string arg) const {
-        return exists(arg) ? values[arg].as<T>() : T{};
+        return exists(arg) ? values[arg].as<T>() : boost::optional<T>{};
     }
 
     // Returns program argument, throws exception if required arg is missing
