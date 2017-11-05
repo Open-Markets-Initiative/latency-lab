@@ -11,12 +11,10 @@ struct sbe {
 
   //// Member Variables ///////////
 
-    static constexpr const char * description = "sbe mdp market data";
-
     // Inbound sbe market data event fields from tshark csv
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
-    std::string sequence;          // Sbe message sequence number
+    omi::sequence sequence;        // Sbe message sequence number
 
     // Record properties
     uint32_t line;                 // Record line number in file
@@ -29,13 +27,13 @@ struct sbe {
         auto parse = omi::tokenizer{ record };
         processed = parse.wireshark(frame) and
                     parse.wireshark(timestamp) and
-                    parse.string(sequence);
+                    parse.sequence(sequence);
     }
 
   //// Methods ////////////////////
 
     // Return event identifier
-    std::string id() const noexcept {
+    auto id() const noexcept {
         return sequence;
     }
 

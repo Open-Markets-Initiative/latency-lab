@@ -1,7 +1,7 @@
 #include <omi/latency/report.hpp>
 
-#include "cme/fix.hpp"
 #include "cme/sbe.hpp"
+#include "cme/fix.hpp"
 
 // Generate a html wireshark latency report
 
