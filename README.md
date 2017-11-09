@@ -25,7 +25,7 @@ warming.
 A comparison report allows for quickly comparing application response to 
 multiple different data speeds.
 
-See [examples](https://github.com/Open-Markets-Initiative/latency-lab/tree/master/example, "List of Example Latency Measurements") directory for more use cases and build instructions.
+See [examples](https://github.com/Open-Markets-Initiative/latency-lab/tree/master/example "List of Example Latency Measurements") directory for more use cases and build instructions.
 
 ## Disclaimer
 
