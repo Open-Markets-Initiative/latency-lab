@@ -55,6 +55,12 @@
     <ClInclude Include="..\..\..\omi\table\statistics.hpp">
       <Filter>Header Files\table</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\tabs.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -27,23 +27,6 @@ struct sections {
 // Stream operator (prints chart and tables)
 inline std::ostream &operator<<(std::ostream &out, const sections &secs) {
 
-        // create tabs
-        out << "<div class=\"tab\">" << std::endl;
-
-        auto first_rec = true;
-        for (auto &&it: secs.values_map) {
-            if (first_rec) {
-                out << "<button class=\"tablinks\" onclick=\"openTest(event, '"+ it.first +"')\" id=\"defaultOpen\">"+
-                        it.first +" Test</button>" << std::endl;
-            } else {
-                out << "<button class=\"tablinks\" onclick=\"openTest(event, '"+ it.first +"')\">"+
-                        it.first +" Test</button>" << std::endl;
-            }
-
-            first_rec = false;
-        }
-        out << html::close{"div"};
-
         // tab content
     for (auto &&it: secs.values_map) {
 

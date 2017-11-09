@@ -29,6 +29,9 @@ struct element {
     explicit element(const std::string &name, attribute one, attribute two, indent whitespace = indent::none)
       : name{ name }, attributes{ one, two }, whitespace{ whitespace } {}
 
+    explicit element(const std::string &name, attribute one, attribute two, const std::string value = "", indent whitespace = indent::none)
+      : name{ name }, attributes{ one, two }, value {value}, whitespace{ whitespace } {}
+
     explicit element(const std::string &name, const attribute one, attribute two, attribute three, indent whitespace = indent::none)
       : name{ name }, attributes{ one, two, three}, whitespace{ whitespace } {}
 

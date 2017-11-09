@@ -7,6 +7,8 @@
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
 #include <omi/table/sections.hpp>
+#include <omi/latency/comparison/summary.hpp>
+#include <omi/latency/comparison/tabs.hpp>
 
 #include <map>
 
@@ -43,13 +45,16 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.layout.title}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
-               <<     javascript::google::compchart{report.delta_map, "chart"}
+               <<     javascript::google::compchart{report.delta_map, "chart"} // this needs to be refactored
                << html::close{"head"}
                << html::tag{"body"}
                << html::tag{"header"}
                << html::h3{report.layout.header}
                << html::close{"header"}
-               << html::sections{report.delta_map}
+               << std::endl
+               << tabs{ report.delta_map }             // This needs to be refactored
+               << summary{ }                           // "
+               << html::sections{report.delta_map}     // "
                << html::tag{"script"}
                <<   "document.getElementById(\"defaultOpen\").click();" << std::endl
                << html::close{"script"}

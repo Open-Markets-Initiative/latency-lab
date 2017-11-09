@@ -167,11 +167,24 @@
 <header>
 <h3>Omi Latency Lab</h3>
 </header>
+
 <div class="tab">
-<button class="tablinks" onclick="openTest(event, '2017_06_04')" id="defaultOpen">2017_06_04 Test</button>
+<button class="tablinks" onclick="openTest(event, 'summary')" id="defaultOpen">Summary</button>
+<button class="tablinks" onclick="openTest(event, '2017_06_04')">2017_06_04 Test</button>
 <button class="tablinks" onclick="openTest(event, '2017_06_05')">2017_06_05 Test</button>
 <button class="tablinks" onclick="openTest(event, '2017_06_06')">2017_06_06 Test</button>
 </div>
+
+<div id="summary" class="tabcontent">
+<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+<section>
+<h3>Summary</h3>
+<article>
+Click on tabs for run statistics
+</article>
+</section>
+</div>
+
 <div id="2017_06_04" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
@@ -255,13 +268,13 @@
 </tr>
 <tr>
   <td>Average</td>
-  <td>9.582</td>
-  <td>5.373</td>
+  <td>9.5817</td>
+  <td>5.3732</td>
 </tr>
 <tr>
   <td>Standard Deviation</td>
-  <td>14.325</td>
-  <td>0.963</td>
+  <td>14.3252</td>
+  <td>0.9630</td>
 </tr>
 <tr>
   <td>Events</td>
@@ -319,13 +332,13 @@
 </tr>
 <tr>
   <td>Average</td>
-  <td>9.582</td>
-  <td>5.373</td>
+  <td>9.5817</td>
+  <td>5.3732</td>
 </tr>
 <tr>
   <td>Standard Deviation</td>
-  <td>14.325</td>
-  <td>0.963</td>
+  <td>14.3252</td>
+  <td>0.9630</td>
 </tr>
 <tr>
   <td>Events</td>
