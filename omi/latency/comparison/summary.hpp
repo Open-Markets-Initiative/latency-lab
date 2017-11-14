@@ -15,6 +15,7 @@ struct summary {
   //// Member Variables ///////////
 
     configuration layout; // probably need a whitespace
+    match::runs runs;
 };
 
 // Stream operator (composes html report from layout and data) 
@@ -24,9 +25,7 @@ inline std::ostream &operator<<(std::ostream &out, const summary &summary) {
         << html::element{"span", html::attribute{"onclick", "this.parentElement.style.display='none'" }, html::attribute{ "class", "topright" }, "x" }
         << html::tag{ "section" }
         <<   html::h3{ "Summary" }
-        <<   html::tag{ "article" }
-        <<     "Click on tabs for run statistics" << std::endl
-        <<   html::close{ "article" }
+        <<   html::element{ "article", "Click on tabs for run statistics" }
         << html::close{ "section" }
         << html::close{ "div" }
         << std::endl;

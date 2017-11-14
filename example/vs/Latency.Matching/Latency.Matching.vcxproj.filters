@@ -62,23 +62,11 @@
     <ClInclude Include="..\..\..\omi\types\sequence.hpp">
       <Filter>Header Files\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\match\events.hpp">
-      <Filter>Header Files\match</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\event\list.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\match\inputs.hpp">
-      <Filter>Header Files\match</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\types\tokenizer.hpp">
       <Filter>Header Files\types</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\match\info.hpp">
-      <Filter>Header Files\match</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\match\timestamps.hpp">
-      <Filter>Header Files\match</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\types\period.hpp">
       <Filter>Header Files\types</Filter>
@@ -92,11 +80,32 @@
     <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timespan.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\events.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\info.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\inputs.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\result.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\omi\match\results.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\types\timespan.hpp">
-      <Filter>Header Files\types</Filter>
+    <ClInclude Include="..\..\..\omi\match\run.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\runs.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\timestamps.hpp">
+      <Filter>Header Files\match</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -154,7 +154,10 @@
     <ClInclude Include="..\..\..\omi\match\events.hpp" />
     <ClInclude Include="..\..\..\omi\match\info.hpp" />
     <ClInclude Include="..\..\..\omi\match\inputs.hpp" />
+    <ClInclude Include="..\..\..\omi\match\result.hpp" />
     <ClInclude Include="..\..\..\omi\match\results.hpp" />
+    <ClInclude Include="..\..\..\omi\match\run.hpp" />
+    <ClInclude Include="..\..\..\omi\match\runs.hpp" />
     <ClInclude Include="..\..\..\omi\match\timestamps.hpp" />
     <ClInclude Include="..\..\..\omi\types\frame.hpp" />
     <ClInclude Include="..\..\..\omi\types\period.hpp" />

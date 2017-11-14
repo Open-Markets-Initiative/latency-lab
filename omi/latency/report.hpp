@@ -1,8 +1,8 @@
 #ifndef OMI_LATENCY_REPORT_HPP_
 #define OMI_LATENCY_REPORT_HPP_
 
-#include <omi/latency/report/components.hpp>
 #include <omi/latency/report/options.hpp>
+#include <omi/latency/report/layout.hpp>
 #include <omi/latency/process/run.hpp>
 
 // Single run omi html latency report generation
@@ -40,10 +40,7 @@ void of(const int argc, char *argv[]) {
 
     // Configure report
     if (options.verbose) { std::cout << "Generating Html Report" << std::endl; }
-    components report;
-      report.layout = options.report;
-      report.files = result.path;
-      report.data = result.deltas(options.report.period);
+    layout report{ options.report, result.run(options.report.period) };
 
     // Write report
     report.write(options.report.path);

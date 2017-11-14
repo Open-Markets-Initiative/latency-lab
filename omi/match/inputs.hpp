@@ -2,9 +2,8 @@
 #define OMI_MATCH_INPUTS_HPP_
 
 #include <string>
-#include <iostream>
 
-    // Matcher input files or directories
+// Matcher input files or directories
 
 namespace omi { 
 namespace match {

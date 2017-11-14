@@ -6,11 +6,9 @@
 #include <omi/javascript/google/compchart.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
-#include <omi/table/sections.hpp>
 #include <omi/latency/comparison/summary.hpp>
 #include <omi/latency/comparison/tabs.hpp>
-
-#include <map>
+#include <omi/latency/comparison/sections.hpp>
 
 // Generate multi-run latency comparison html report
 
@@ -18,12 +16,12 @@ namespace omi {
 namespace latency {
 namespace comparison {
 
-struct components {
+struct layout {
 
   //// Member Variables ///////////
 
-    comparison::configuration layout;
-    std::map<std::string, std::vector<double>> delta_map;
+    comparison::configuration options;
+    match::runs runs;
 
   //// Methods ////////////////////
 
@@ -35,32 +33,32 @@ struct components {
 
 
 // Stream operator (composes html report from layout and data) 
-inline std::ostream &operator<<(std::ostream &out, const components &report) {
+inline std::ostream &operator<<(std::ostream &out, const layout &report) {
     return out << html::doctype{"html"}
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
-               << html::link{"stylesheet", "text/css", report.layout.css}
+               << html::link{"stylesheet", "text/css", report.options.css}
                << html::src{"omi.js"}
                <<   html::meta{"charset", "utf-8" }
-               <<   html::title{report.layout.title}
-               <<   html::src{"https://www.gstatic.com/charts/loader.js"}
-               <<     javascript::google::compchart{report.delta_map, "chart"} // this needs to be refactored
+               <<   html::title{report.options.title}
+                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
+               <<     javascript::google::charts{report.runs, "chart"} // this needs to be refactored
                << html::close{"head"}
                << html::tag{"body"}
                << html::tag{"header"}
-               << html::h3{report.layout.header}
+               << html::h3{report.options.header}
                << html::close{"header"}
                << std::endl
-               << tabs{ report.delta_map }             // This needs to be refactored
-               << summary{ }                           // "
-               << html::sections{report.delta_map}     // "
+               << tabs{report.runs}                    // This needs to be refactored
+               << summary{ report.options, report.runs } // "
+               << sections{report.runs}                  // "
                << html::tag{"script"}
                <<   "document.getElementById(\"defaultOpen\").click();" << std::endl
                << html::close{"script"}
                << html::close{"body"}
                << html::tag{"footer"}
-               <<   html::p{"&copy; " + report.layout.copyright, indent::two}
+               <<   html::p{"&copy; " + report.options.copyright, indent::two}
                << html::close{"footer"}
                << html::close{"html"};
 }

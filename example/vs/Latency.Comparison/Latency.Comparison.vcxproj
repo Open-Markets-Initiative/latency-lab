@@ -148,14 +148,17 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\directory\parsing.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison.hpp" />
-    <ClInclude Include="..\..\..\omi\latency\comparison\components.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\comparison\layout.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\configuration.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\options.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\comparison\sections.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\tabs.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\process\runs.hpp" />
     <ClInclude Include="..\..\..\omi\table\percentiles.hpp" />
     <ClInclude Include="..\..\..\omi\table\sections.hpp" />
     <ClInclude Include="..\..\..\omi\table\statistics.hpp" />
+    <ClInclude Include="..\..\..\omi\text\natural.hpp" />
     <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp" />
   </ItemGroup>
   <ItemGroup>

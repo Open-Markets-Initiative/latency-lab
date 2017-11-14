@@ -1,28 +1,26 @@
 #ifndef OMI_MATCH_RESULTS_HPP_
 #define OMI_MATCH_RESULTS_HPP_
 
-#include <omi/match/inputs.hpp>
-#include <omi/match/events.hpp>
+#include <omi/match/result.hpp>
+#include <omi/match/runs.hpp>
 
-// Matching results
+// Matching runs
 
 namespace omi { 
 namespace match {
 
 template <typename inbound, typename outbound>
-struct result {
-
-  //// Member Variables ///////////
-
-    std::string name;                  // Result Name
-    inputs path;                       // Data Files
-    events<inbound, outbound> data;    // Matched Events
+struct results : std::vector<match::result<inbound, outbound>> {
 
   //// Methods ///////////
 
-    // Return delta calculation by time period
-    auto deltas(period period) const {
-        return data.matched.deltas(period);
+    // Return deltas by period
+    auto runs(const period period) const {
+        match::runs runs;
+        for (const auto &result : *this) {
+            runs.push_back(result.run(period));
+        }
+        return runs;
     }
 
 };

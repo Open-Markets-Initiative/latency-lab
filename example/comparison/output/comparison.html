@@ -12,9 +12,9 @@
 <script type="text/javascript">
 
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_2017_06_04);
+  google.charts.setOnLoadCallback(drawChart_1x);
 
-  function drawChart_2017_06_04() {
+  function drawChart_1x() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -42,7 +42,7 @@
       ]);
 
     var options = {
-      title: '2017_06_04',
+      title: '1x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -54,7 +54,7 @@
       }
   };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_2017_06_04'));
+  var chart = new google.visualization.LineChart(document.getElementById('chart_1x'));
 
   chart.draw(data, options);
   }
@@ -63,9 +63,9 @@
 <script type="text/javascript">
 
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_2017_06_05);
+  google.charts.setOnLoadCallback(drawChart_2x);
 
-  function drawChart_2017_06_05() {
+  function drawChart_2x() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -93,7 +93,7 @@
       ]);
 
     var options = {
-      title: '2017_06_05',
+      title: '2x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -105,7 +105,7 @@
       }
   };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_2017_06_05'));
+  var chart = new google.visualization.LineChart(document.getElementById('chart_2x'));
 
   chart.draw(data, options);
   }
@@ -114,9 +114,9 @@
 <script type="text/javascript">
 
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_2017_06_06);
+  google.charts.setOnLoadCallback(drawChart_10x);
 
-  function drawChart_2017_06_06() {
+  function drawChart_10x() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -144,7 +144,7 @@
       ]);
 
     var options = {
-      title: '2017_06_06',
+      title: '10x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -156,7 +156,7 @@
       }
   };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_2017_06_06'));
+  var chart = new google.visualization.LineChart(document.getElementById('chart_10x'));
 
   chart.draw(data, options);
   }
@@ -170,28 +170,26 @@
 
 <div class="tab">
 <button class="tablinks" onclick="openTest(event, 'summary')" id="defaultOpen">Summary</button>
-<button class="tablinks" onclick="openTest(event, '2017_06_04')">2017_06_04 Test</button>
-<button class="tablinks" onclick="openTest(event, '2017_06_05')">2017_06_05 Test</button>
-<button class="tablinks" onclick="openTest(event, '2017_06_06')">2017_06_06 Test</button>
+<button class="tablinks" onclick="openTest(event, '1x')">1x</button>
+<button class="tablinks" onclick="openTest(event, '2x')">2x</button>
+<button class="tablinks" onclick="openTest(event, '10x')">10x</button>
 </div>
 
 <div id="summary" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
 <h3>Summary</h3>
-<article>
-Click on tabs for run statistics
-</article>
+<article>Click on tabs for run statistics</article>
 </section>
 </div>
 
-<div id="2017_06_04" class="tabcontent">
+<div id="1x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>2017_06_04</h3>
+<h3>1x</h3>
 
 <article>
-<div id="chart_2017_06_04"></div>
+<div id="chart_1x"></div>
 </article>
 
 <article>
@@ -249,13 +247,13 @@ Click on tabs for run statistics
 </article>
 </section>
 </div>
-<div id="2017_06_05" class="tabcontent">
+<div id="2x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>2017_06_05</h3>
+<h3>2x</h3>
 
 <article>
-<div id="chart_2017_06_05"></div>
+<div id="chart_2x"></div>
 </article>
 
 <article>
@@ -313,13 +311,13 @@ Click on tabs for run statistics
 </article>
 </section>
 </div>
-<div id="2017_06_06" class="tabcontent">
+<div id="10x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>2017_06_06</h3>
+<h3>10x</h3>
 
 <article>
-<div id="chart_2017_06_06"></div>
+<div id="chart_10x"></div>
 </article>
 
 <article>

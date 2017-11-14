@@ -21,6 +21,12 @@
     <Filter Include="Header Files\table">
       <UniqueIdentifier>{da3a079d-d17a-4ca6-8b33-b01ed9a6a0a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\process">
+      <UniqueIdentifier>{b85d8472-149b-47f3-9ecd-1a6b7971c2b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\text">
+      <UniqueIdentifier>{f5c4fbca-7b45-4382-96f1-4e5b6cf3656d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\comparison\main.cpp">
@@ -28,9 +34,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\omi\latency\comparison\components.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\comparison\configuration.hpp">
       <Filter>Header Files\comparison</Filter>
     </ClInclude>
@@ -60,6 +63,18 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\comparison\tabs.hpp">
       <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\process\runs.hpp">
+      <Filter>Header Files\process</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\sections.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\layout.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\text\natural.hpp">
+      <Filter>Header Files\text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
