@@ -1,20 +1,19 @@
-#ifndef OMI_LATENCY_COMPARISON_SUMMARY_HPP_
+#ifndef OMI_LATENCY_PAGE_SUMMARY_HPP_
 #define OMI_LATENCY_COMPARISON_SUMMARY_HPP_
 
 #include <omi/html/declarations.hpp>
-#include <omi/latency/comparison/configuration.hpp>
+#include <omi/match/runs.hpp>
 
 // Generate multi-run latency comparison html summary section
 
 namespace omi { 
 namespace latency {
-namespace comparison {
+namespace page {
 
 struct summary {
 
   //// Member Variables ///////////
 
-    configuration layout; // probably need a whitespace
     match::runs runs;
 };
 

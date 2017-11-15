@@ -27,6 +27,9 @@
     <Filter Include="Header Files\compare">
       <UniqueIdentifier>{5a58fecf-664c-4055-bd19-bedb984f16f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\page">
+      <UniqueIdentifier>{b473b9b3-237a-4715-ae06-ee5692c8efe7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\comparison\main.cpp">
@@ -58,9 +61,6 @@
     <ClInclude Include="..\..\..\omi\table\statistics.hpp">
       <Filter>Header Files\table</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\process\runs.hpp">
       <Filter>Header Files\process</Filter>
     </ClInclude>
@@ -70,20 +70,23 @@
     <ClInclude Include="..\..\..\omi\compare\natural.hpp">
       <Filter>Header Files\compare</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\comparison\charts.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\comparison\buttons.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\comparison\page.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\comparison\pages.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\process\run.hpp">
       <Filter>Header Files\process</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\buttons.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\page.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\pages.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\summary.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\charts.hpp">
+      <Filter>Header Files\page</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

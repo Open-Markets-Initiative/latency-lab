@@ -3,10 +3,10 @@
 
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
-#include <omi/latency/comparison/charts.hpp>
-#include <omi/latency/comparison/buttons.hpp>
-#include <omi/latency/comparison/summary.hpp>
-#include <omi/latency/comparison/pages.hpp>
+#include <omi/latency/page/charts.hpp>
+#include <omi/latency/page/buttons.hpp>
+#include <omi/latency/page/summary.hpp>
+#include <omi/latency/page/pages.hpp>
 
 // Generate multi-run latency comparison html report
 
@@ -40,16 +40,16 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::src{"omi.js"}
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.options.title}
-               <<   comparison::charts{report.runs} 
+               <<   page::charts{report.runs} 
                << html::close{"head"}
                << html::tag{"body"}
                << html::tag{"header"}
-               << html::h3{report.options.header}
+               <<   html::h3{report.options.header}
                << html::close{"header"}
                << std::endl
-               <<   comparison::buttons{report.runs}
-               <<   comparison::summary{report.options, report.runs}
-               <<   comparison::pages{report.runs}
+               <<   page::buttons{report.runs}
+               <<   page::summary{report.runs}
+               <<   page::pages{report.runs}
                << html::tag{"script"}
                <<   "document.getElementById(\"defaultOpen\").click();" << std::endl
                << html::close{"script"}

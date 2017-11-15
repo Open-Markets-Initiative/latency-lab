@@ -1,5 +1,5 @@
-#ifndef OMI_LATENCY_COMPARISON_PAGE_HPP_
-#define OMI_LATENCY_COMPARISON_PAGE_HPP_
+#ifndef OMI_LATENCY_PAGE_PAGE_HPP_
+#define OMI_LATENCY_PAGE_PAGE_HPP_
 
 #include <omi/html/declarations.hpp>
 #include <omi/table/statistics.hpp>
@@ -10,7 +10,7 @@
 
 namespace omi {
 namespace latency {
-namespace comparison {
+namespace page {
 
 struct page {
     // Member variables

@@ -1,14 +1,14 @@
-#ifndef OMI_LATENCY_COMPARISON_PAGES_HPP_
-#define OMI_LATENCY_COMPARISON_PAGES_HPP_
+#ifndef OMI_LATENCY_PAGE_PAGES_HPP_
+#define OMI_LATENCY_PAGE_PAGES_HPP_
 
-#include <omi/latency/comparison/page.hpp>
+#include <omi/latency/page/page.hpp>
 #include <omi/match/runs.hpp>
 
 // Html report pages
 
 namespace omi {
 namespace latency {
-namespace comparison {
+namespace page {
 
 struct pages {
     // Member variables
@@ -23,7 +23,7 @@ struct pages {
 // Stream operator (prints chart and tables)
 inline std::ostream &operator<<(std::ostream &out, const pages &report) {
     for (auto &&run: report.runs) {
-        out << comparison::page{run};
+        out << page{run};
     }
 
     return out;

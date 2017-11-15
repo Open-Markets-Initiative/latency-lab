@@ -4,7 +4,7 @@
 #include <string>
 #include <ostream>
 
-// Matcher input files or directories
+// Match input files or directories
 
 namespace omi { 
 namespace match {

@@ -1,5 +1,5 @@
-#ifndef OMI_LATENCY_COMPARISON_BUTTONS_HPP_
-#define OMI_LATENCY_COMPARISON_BUTTONS_HPP_
+#ifndef OMI_LATENCY_PAGE_BUTTONS_HPP_
+#define OMI_LATENCY_PAGE_BUTTONS_HPP_
 
 #include <omi/html/declarations.hpp>
 #include <omi/match/runs.hpp>
@@ -8,7 +8,7 @@
 
 namespace omi { 
 namespace latency {
-namespace comparison {
+namespace page {
 
 struct buttons {
 
