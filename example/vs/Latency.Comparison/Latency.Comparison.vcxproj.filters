@@ -61,14 +61,8 @@
     <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp">
       <Filter>Header Files\comparison</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\comparison\tabs.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\process\runs.hpp">
       <Filter>Header Files\process</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\comparison\sections.hpp">
-      <Filter>Header Files\comparison</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\comparison\layout.hpp">
       <Filter>Header Files\comparison</Filter>
@@ -77,6 +71,15 @@
       <Filter>Header Files\compare</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\comparison\charts.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\buttons.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\page.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\pages.hpp">
       <Filter>Header Files\comparison</Filter>
     </ClInclude>
   </ItemGroup>

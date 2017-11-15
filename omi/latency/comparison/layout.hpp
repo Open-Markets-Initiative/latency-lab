@@ -1,14 +1,12 @@
-#ifndef OMI_LATENCY_COMPARISON_COMPONENTS_HPP_
-#define OMI_LATENCY_COMPARISON_COMPONENTS_HPP_
+#ifndef OMI_LATENCY_COMPARISON_LAYOUT_HPP_
+#define OMI_LATENCY_COMPARISON_LAYOUT_HPP_
 
-#include <omi/table/statistics.hpp>
-#include <omi/table/percentiles.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
 #include <omi/latency/comparison/charts.hpp>
+#include <omi/latency/comparison/buttons.hpp>
 #include <omi/latency/comparison/summary.hpp>
-#include <omi/latency/comparison/tabs.hpp>
-#include <omi/latency/comparison/sections.hpp>
+#include <omi/latency/comparison/pages.hpp>
 
 // Generate multi-run latency comparison html report
 
@@ -42,7 +40,6 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::src{"omi.js"}
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.options.title}
-               <<   html::src{"https://www.gstatic.com/charts/loader.js"}
                <<   comparison::charts{report.runs} 
                << html::close{"head"}
                << html::tag{"body"}
@@ -50,9 +47,9 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::h3{report.options.header}
                << html::close{"header"}
                << std::endl
-               << tabs{report.runs}                    // This needs to be refactored
-               << summary{ report.options, report.runs } // "
-               << sections{report.runs}                  // "
+               <<   comparison::buttons{report.runs}
+               <<   comparison::summary{report.options, report.runs}
+               <<   comparison::pages{report.runs}
                << html::tag{"script"}
                <<   "document.getElementById(\"defaultOpen\").click();" << std::endl
                << html::close{"script"}

@@ -18,7 +18,7 @@ struct charts {
     // chart options
     omi::whitespace whitespace;
     match::runs runs;
-    size_t precision {4};
+    size_t precision{4};
 
     // Constructor
     explicit charts(const match::runs &runs, indent whitespace = indent::none)
@@ -27,6 +27,7 @@ struct charts {
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const charts &chart) {
+    out << html::src{ "https://www.gstatic.com/charts/loader.js" };
     for (auto&& run : chart.runs) {
         out << html::script{ "text/javascript" }
             << javascript::google::linechart{ run.data, text(run.period), chart.precision, run.name, "draw" + run.name, run.name + "chart"}
