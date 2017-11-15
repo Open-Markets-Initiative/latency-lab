@@ -7,6 +7,7 @@
 #include <omi/latency/page/buttons.hpp>
 #include <omi/latency/page/summary.hpp>
 #include <omi/latency/page/pages.hpp>
+#include "omi/javascript/paging.hpp"
 
 // Generate multi-run latency comparison html report
 
@@ -36,11 +37,13 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
-               << html::link{"stylesheet", "text/css", report.options.css}
-               << html::src{"omi.js"}
+               <<   html::link{"stylesheet", "text/css", report.options.css}
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.options.title}
                <<   page::charts{report.runs} 
+               <<   html::script{ "text/javascript" }
+               <<     javascript::paging{} << std::endl
+               <<   html::close{ "script" }
                << html::close{"head"}
                << html::tag{"body"}
                << html::tag{"header"}

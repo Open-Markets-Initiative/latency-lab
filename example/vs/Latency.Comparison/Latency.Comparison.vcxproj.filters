@@ -30,6 +30,9 @@
     <Filter Include="Header Files\page">
       <UniqueIdentifier>{b473b9b3-237a-4715-ae06-ee5692c8efe7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\javascript">
+      <UniqueIdentifier>{ae428cc0-99cd-497b-b28d-9350a5b6d840}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\comparison\main.cpp">
@@ -87,6 +90,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\page\charts.hpp">
       <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\javascript\paging.hpp">
+      <Filter>Header Files\javascript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\javascript\google\chart.hpp">
+      <Filter>Header Files\javascript</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

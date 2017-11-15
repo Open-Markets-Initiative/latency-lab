@@ -148,6 +148,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\compare\natural.hpp" />
     <ClInclude Include="..\..\..\omi\directory\parsing.hpp" />
+    <ClInclude Include="..\..\..\omi\javascript\google\chart.hpp" />
+    <ClInclude Include="..\..\..\omi\javascript\paging.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\layout.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\configuration.hpp" />

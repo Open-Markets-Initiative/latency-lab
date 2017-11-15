@@ -3,7 +3,6 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="omi.css"></link>
-<script type="text/javascript" src="omi.js"></script>
 <meta charset="utf-8">
 
 <title>Omi</title>
@@ -159,6 +158,22 @@
   }
 </script>
 
+<script type="text/javascript">
+  function select(evt, testName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent")
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(testName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+</script>
 </head>
 <body>
 <header>
@@ -166,10 +181,10 @@
 </header>
 
 <div class="tab">
-<button class="tablinks" onclick="openTest(event, 'summary')" id="defaultOpen">Summary</button>
-<button class="tablinks" onclick="openTest(event, '1x')">1x</button>
-<button class="tablinks" onclick="openTest(event, '2x')">2x</button>
-<button class="tablinks" onclick="openTest(event, '10x')">10x</button>
+<button class="tablinks" onclick="select(event, 'summary')" id="defaultOpen">Summary</button>
+<button class="tablinks" onclick="select(event, '1x')">1x</button>
+<button class="tablinks" onclick="select(event, '2x')">2x</button>
+<button class="tablinks" onclick="select(event, '10x')">10x</button>
 </div>
 
 <div id="summary" class="tabcontent">
