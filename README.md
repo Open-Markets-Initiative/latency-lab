@@ -16,14 +16,15 @@ custom tools for accurate benchmarking, verification and system analysis.
 
 ### [Latency Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html)
 
-The example data represents a series of outbound CME fix orders triggered
+The example data represents a series of outbound CME FIX orders triggered
 by CME SBE market data packets. The spike at the beginning is due to core 
 warming.
 
 ### [Comparison Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html)
 
-A comparison report allows for quickly comparing application response to 
-multiple different data speeds.
+A comparison report allows for quickly comparing application response at 
+multiple data speeds. This example contains market data playback speeds of
+1x, 2x, and 10x for stress testing.
 
 See [examples](https://github.com/Open-Markets-Initiative/latency-lab/tree/master/example "List of Example Latency Measurements") directory for more use cases and build instructions.
 
