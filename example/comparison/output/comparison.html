@@ -10,11 +10,10 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_1x);
+  google.charts.setOnLoadCallback(draw1xchart);
 
-  function drawChart_1x() {
+  function draw1xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -52,44 +51,43 @@
       vAxis: {
         title: 'Latency (Microseconds)',
       }
-  };
+    };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_1x'));
+  var chart = new google.visualization.LineChart(document.getElementById('1xchart'));
 
   chart.draw(data, options);
   }
 </script>
 
 <script type="text/javascript">
-
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_2x);
+  google.charts.setOnLoadCallback(draw2xchart);
 
-  function drawChart_2x() {
+  function draw2xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
       data.addColumn('number', 'Microseconds');
       data.addRows([
-        [1, 69.9860],
-        [2, 5.0000],
-        [3, 7.1990],
-        [4, 6.3720],
-        [5, 6.0970],
-        [6, 4.9700],
-        [7, 4.0220],
-        [8, 5.6510],
-        [9, 6.1970],
-        [10, 7.0950],
-        [11, 8.6010],
-        [12, 10.4230],
-        [13, 4.9100],
+        [1, 70.0860],
+        [2, 5.0300],
+        [3, 7.2990],
+        [4, 7.3720],
+        [5, 6.1470],
+        [6, 4.9780],
+        [7, 4.4220],
+        [8, 5.7510],
+        [9, 6.3970],
+        [10, 7.0850],
+        [11, 9.0010],
+        [12, 10.4330],
+        [13, 34.9200],
         [14, 6.1900],
-        [15, 6.0970],
-        [16, 6.0990],
-        [17, 7.8980],
-        [18, 3.0960],
-        [19, 6.1500]
+        [15, 6.1670],
+        [16, 6.1790],
+        [17, 7.8080],
+        [18, 3.1960],
+        [19, 6.2000]
       ]);
 
     var options = {
@@ -103,20 +101,19 @@
       vAxis: {
         title: 'Latency (Microseconds)',
       }
-  };
+    };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_2x'));
+  var chart = new google.visualization.LineChart(document.getElementById('2xchart'));
 
   chart.draw(data, options);
   }
 </script>
 
 <script type="text/javascript">
-
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_10x);
+  google.charts.setOnLoadCallback(draw10xchart);
 
-  function drawChart_10x() {
+  function draw10xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -154,9 +151,9 @@
       vAxis: {
         title: 'Latency (Microseconds)',
       }
-  };
+    };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_10x'));
+  var chart = new google.visualization.LineChart(document.getElementById('10xchart'));
 
   chart.draw(data, options);
   }
@@ -189,7 +186,7 @@
 <h3>1x</h3>
 
 <article>
-<div id="chart_1x"></div>
+<div id="1xchart"></div>
 </article>
 
 <article>
@@ -253,7 +250,7 @@
 <h3>2x</h3>
 
 <article>
-<div id="chart_2x"></div>
+<div id="2xchart"></div>
 </article>
 
 <article>
@@ -266,13 +263,13 @@
 </tr>
 <tr>
   <td>Average</td>
-  <td>9.5817</td>
-  <td>5.3732</td>
+  <td>11.2979</td>
+  <td>5.6452</td>
 </tr>
 <tr>
   <td>Standard Deviation</td>
-  <td>14.3252</td>
-  <td>0.9630</td>
+  <td>15.3202</td>
+  <td>1.0158</td>
 </tr>
 <tr>
   <td>Events</td>
@@ -297,15 +294,15 @@
   <th>0%</th>
 </tr>
 <tr>
-  <td>69.986</td>
-  <td>10.423</td>
-  <td>8.601</td>
-  <td>7.095</td>
-  <td>6.099</td>
-  <td>4.970</td>
-  <td>3.096</td>
-  <td>3.096</td>
-  <td>3.096</td>
+  <td>70.086</td>
+  <td>34.920</td>
+  <td>10.433</td>
+  <td>7.372</td>
+  <td>6.190</td>
+  <td>5.030</td>
+  <td>3.196</td>
+  <td>3.196</td>
+  <td>3.196</td>
 </tr>
 </table>
 </article>
@@ -317,7 +314,7 @@
 <h3>10x</h3>
 
 <article>
-<div id="chart_10x"></div>
+<div id="10xchart"></div>
 </article>
 
 <article>

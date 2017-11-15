@@ -3,9 +3,9 @@
 
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
-#include <omi/javascript/google/compchart.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/comparison/configuration.hpp>
+#include <omi/latency/comparison/charts.hpp>
 #include <omi/latency/comparison/summary.hpp>
 #include <omi/latency/comparison/tabs.hpp>
 #include <omi/latency/comparison/sections.hpp>
@@ -42,8 +42,8 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::src{"omi.js"}
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.options.title}
-                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
-               <<     javascript::google::charts{report.runs, "chart"} // this needs to be refactored
+               <<   html::src{"https://www.gstatic.com/charts/loader.js"}
+               <<   comparison::charts{report.runs} 
                << html::close{"head"}
                << html::tag{"body"}
                << html::tag{"header"}

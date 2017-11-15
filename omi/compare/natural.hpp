@@ -8,19 +8,19 @@
 // Natural Text Methods
 
 namespace omi {
-namespace format {
+namespace compare {
 
 // Natural text comparison
 inline bool natural(const std::string& a, const std::string& b) {
-    // Standard checks
+    // Check string empty
     if (a.empty()) { return true; }
     if (b.empty()) { return false; }
 
-    // Check special characters
-    if (std::isdigit(a[0]) && !std::isdigit(b[0])) {
-        return true;}
-    if (!std::isdigit(a[0]) && std::isdigit(b[0])) {
-        return false;}
+    // Check if character is same type
+    if (std::isdigit(a[0]) && !std::isdigit(b.front())) { return true; }
+    if (!std::isdigit(a[0]) && std::isdigit(b[0])) { return false; }
+
+    // Check alpha values
     if (!std::isdigit(a[0]) && !std::isdigit(b[0])) {
         if (std::toupper(a[0]) == std::toupper(b[0])) {
             return natural(a.substr(1), b.substr(1));
@@ -29,7 +29,7 @@ inline bool natural(const std::string& a, const std::string& b) {
         return std::toupper(a[0]) < std::toupper(b[0]);
     }
 
-    // Both strings begin with digit, parse both as numbers
+    // Check digits
     std::istringstream issa(a);
     std::istringstream issb(b);
     int ia, ib;
@@ -40,7 +40,7 @@ inline bool natural(const std::string& a, const std::string& b) {
     }
 
     // If digits are the same, remove numbers and recurse
-    std::string anew, bnew;
+    std::string anew(a), bnew(b);
     std::getline(issa, anew);
     std::getline(issb, bnew);
 

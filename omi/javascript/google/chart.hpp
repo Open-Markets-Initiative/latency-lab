@@ -18,14 +18,15 @@ struct linechart {
     // script options
     omi::whitespace whitespace;
     std::string title;
+    std::string function;
     std::string element;
     std::string unit;
     std::vector<double> values;
     size_t precision{ 4 };
 
     // Constructor
-    explicit linechart(const std::vector<double> values, const std::string &unit, const size_t precision, const std::string &element = "latency", const std::string &title = "", const indent whitespace = indent::none)
-      : whitespace{ whitespace }, title{ title }, element{ element }, unit{ unit }, values{ values }, precision{ precision } {}
+    explicit linechart(const std::vector<double> values, const std::string &unit, const size_t precision, const std::string &title = "", const std::string &function = "draw", const std::string &element = "", const indent whitespace = indent::none)
+      : whitespace{ whitespace }, title{ title }, function{ function }, element{ element }, unit{ unit }, values{ values }, precision{ precision } {}
 };
 
 
@@ -34,10 +35,10 @@ struct linechart {
 // Stream operator (prints javascript close tag)
 inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
     out << chart.whitespace << "  google.charts.load('current', {'packages':['corechart', 'line']});" << std::endl
-        << chart.whitespace << "  google.charts.setOnLoadCallback(linegraph);" << std::endl
+        << chart.whitespace << "  google.charts.setOnLoadCallback(draw" << chart.element << ");" << std::endl
         << std::endl
-        << chart.whitespace << "  function linegraph() {" << std::endl << std::endl // TODO: Break this down into composable parts
-        << chart.whitespace << "    var data = new google.visualization.DataTable();" << std::endl
+        << chart.whitespace << "  function draw" << chart.element << "() {" << std::endl << std::endl // TODO: Break this down into composable parts
+        << chart.whitespace << "      var data = new google.visualization.DataTable();" << std::endl
         << chart.whitespace << "      data.addColumn('number', 'Event');" << std::endl
         << chart.whitespace << "      data.addColumn('number', '"<< chart.unit << "');" << std::endl
         << chart.whitespace << "      data.addRows([" << std::endl;
@@ -58,7 +59,7 @@ inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
         << chart.whitespace << "        title: 'Latency (" << chart.unit << ")'," << std::endl
 //        << chart.whitespace << "      ticks: [0, 500, 1000, 1500]" << std::endl need this
         << chart.whitespace << "      }" << std::endl
-        << chart.whitespace << "  };" << std::endl
+        << chart.whitespace << "    };" << std::endl
         << std::endl
         << chart.whitespace << "  var chart = new google.visualization.LineChart(document.getElementById('" << chart.element << "'));" << std::endl << std::endl
         << chart.whitespace << "  chart.draw(data, options);" << std::endl

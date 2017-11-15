@@ -20,7 +20,7 @@ struct sections {
 
     // Standard constructor
     explicit sections(const match::runs &runs, const indent whitespace = indent::none)
-      : runs{runs}, whitespace { whitespace } {}
+      : runs{ runs }, whitespace{ whitespace } {}
 };
 
 // Stream operator (prints chart and tables)
@@ -32,7 +32,7 @@ inline std::ostream &operator<<(std::ostream &out, const sections &secs) {
             <<   html::h3{run.name}
             << std::endl
             << html::tag{"article"}
-            <<   html::div{"chart_" + run.name}
+            <<   html::div{run.name + "chart"}
             <<   html::close{"article"}
             << std::endl
             << html::tag{"article"}

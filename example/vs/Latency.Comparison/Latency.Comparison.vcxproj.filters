@@ -24,8 +24,8 @@
     <Filter Include="Header Files\process">
       <UniqueIdentifier>{b85d8472-149b-47f3-9ecd-1a6b7971c2b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\text">
-      <UniqueIdentifier>{f5c4fbca-7b45-4382-96f1-4e5b6cf3656d}</UniqueIdentifier>
+    <Filter Include="Header Files\compare">
+      <UniqueIdentifier>{5a58fecf-664c-4055-bd19-bedb984f16f2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,8 +73,11 @@
     <ClInclude Include="..\..\..\omi\latency\comparison\layout.hpp">
       <Filter>Header Files\comparison</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\text\natural.hpp">
-      <Filter>Header Files\text</Filter>
+    <ClInclude Include="..\..\..\omi\compare\natural.hpp">
+      <Filter>Header Files\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\charts.hpp">
+      <Filter>Header Files\comparison</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

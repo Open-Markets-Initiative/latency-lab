@@ -27,11 +27,12 @@ void of(int argc, char *argv[]) {
     // Load and match events
     auto results = process::runs<inbound, outbound, description>(options.directories, options.verbose);
 
+    // Generate report
     if (options.verbose) { std::cout << "Generating Report" << std::endl; }
-    layout report{options.report, results.runs(options.report.period)};
+    layout comparison{options.report, results.runs(options.report.period)};
 
-	// Generate report
-	report.write(options.path);
+    // Write report
+    comparison.write(options.path);
    
     // Program information
     if (options.verbose) { std::cout << options << std::endl; }
