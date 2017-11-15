@@ -82,6 +82,9 @@
     <ClInclude Include="..\..\..\omi\latency\comparison\pages.hpp">
       <Filter>Header Files\comparison</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\process\run.hpp">
+      <Filter>Header Files\process</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -3,6 +3,8 @@
 
 #include <omi/match/results.hpp>
 
+#include <iostream>
+
 // Single run omi html latency match processing
 
 namespace omi {

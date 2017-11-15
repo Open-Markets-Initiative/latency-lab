@@ -2,6 +2,7 @@
 #define OMI_MATCH_INPUTS_HPP_
 
 #include <string>
+#include <ostream>
 
 // Matcher input files or directories
 

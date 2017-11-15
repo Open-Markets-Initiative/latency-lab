@@ -157,6 +157,7 @@
     <ClInclude Include="..\..\..\omi\latency\comparison\pages.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp" />
     <ClInclude Include="..\..\..\omi\latency\comparison\buttons.hpp" />
+    <ClInclude Include="..\..\..\omi\latency\process\run.hpp" />
     <ClInclude Include="..\..\..\omi\latency\process\runs.hpp" />
     <ClInclude Include="..\..\..\omi\table\percentiles.hpp" />
     <ClInclude Include="..\..\..\omi\table\sections.hpp" />
