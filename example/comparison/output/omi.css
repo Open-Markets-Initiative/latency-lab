@@ -1,6 +1,6 @@
 body {
 font-family: Verdana,sans-serif;
-font-size: 0.9em;
+font-size: 0.8em;
 }
 
 header {
@@ -52,7 +52,8 @@ div.tab button {
     cursor: pointer;
     padding: 10px;
     transition: 0.3s;
-    font-size: 17px;
+    font-family: Verdana,sans-serif;
+	font-size: 14px;
 }
 
 /* Change background color of buttons on hover */

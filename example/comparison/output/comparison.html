@@ -4,14 +4,15 @@
 <head>
 <link rel="stylesheet" type="text/css" href="omi.css"></link>
 <meta charset="utf-8">
-
 <title>Omi</title>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(draw1xchart);
 
+  <!-- 1x chart -->
+  google.charts.setOnLoadCallback(draw1xchart);
   function draw1xchart() {
 
       var data = new google.visualization.DataTable();
@@ -53,15 +54,11 @@
     };
 
   var chart = new google.visualization.LineChart(document.getElementById('1xchart'));
-
   chart.draw(data, options);
   }
-</script>
 
-<script type="text/javascript">
-  google.charts.load('current', {'packages':['corechart', 'line']});
+  <!-- 2x chart -->
   google.charts.setOnLoadCallback(draw2xchart);
-
   function draw2xchart() {
 
       var data = new google.visualization.DataTable();
@@ -106,12 +103,9 @@
 
   chart.draw(data, options);
   }
-</script>
 
-<script type="text/javascript">
-  google.charts.load('current', {'packages':['corechart', 'line']});
+  <!-- 10x chart -->
   google.charts.setOnLoadCallback(draw10xchart);
-
   function draw10xchart() {
 
       var data = new google.visualization.DataTable();
@@ -152,13 +146,11 @@
       }
     };
 
-  var chart = new google.visualization.LineChart(document.getElementById('10xchart'));
-
-  chart.draw(data, options);
+	var chart = new google.visualization.LineChart(document.getElementById('10xchart'));
+	chart.draw(data, options);
   }
-</script>
-
-<script type="text/javascript">
+  
+  <!-- tab script -->
   function select(evt, testName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent")
@@ -175,6 +167,7 @@
 
 </script>
 </head>
+
 <body>
 <header>
 <h3>Omi Latency Lab</h3>
@@ -387,10 +380,12 @@
 </article>
 </section>
 </div>
-<script>
-document.getElementById("defaultOpen").click();
-</script>
 </body>
+
+<script>
+  document.getElementById("defaultOpen").click();
+</script>
+
 <footer>
   <p>&copy; OMI. All rights reserved.</p>
 </footer>
