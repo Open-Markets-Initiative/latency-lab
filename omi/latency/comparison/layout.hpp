@@ -40,11 +40,13 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                <<   html::link{"stylesheet", "text/css", report.options.css}
                <<   html::meta{"charset", "utf-8" }
                <<   html::title{report.options.title}
-               <<   page::charts{report.runs} 
-               <<   html::script{ "text/javascript" }
-               <<     javascript::paging{} << std::endl
+               <<   html::src{ "https://www.gstatic.com/charts/loader.js" }
+               <<   html::script{"text/javascript"}
+               <<     page::charts{report.runs} 
+               <<     javascript::paging{}
                <<   html::close{ "script" }
                << html::close{"head"}
+               << std::endl
                << html::tag{"body"}
                << html::tag{"header"}
                <<   html::h3{report.options.header}
@@ -54,7 +56,7 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                <<   page::summary{report.runs}
                <<   page::pages{report.runs}
                << html::tag{"script"}
-               <<   "document.getElementById(\"defaultOpen\").click();" << std::endl
+               <<   "document.getElementById(\"defaultOpen\").click();" << std::endl // method for this
                << html::close{"script"}
                << html::close{"body"}
                << html::tag{"footer"}

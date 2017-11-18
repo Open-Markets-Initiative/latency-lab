@@ -34,9 +34,7 @@ struct linechart {
 
 // Stream operator (prints javascript close tag)
 inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
-    out << chart.whitespace << "  google.charts.load('current', {'packages':['corechart', 'line']});" << std::endl
-        << chart.whitespace << "  google.charts.setOnLoadCallback(draw" << chart.element << ");" << std::endl
-        << std::endl
+    out << chart.whitespace << "  google.charts.setOnLoadCallback(draw" << chart.element << ");" << std::endl
         << chart.whitespace << "  function draw" << chart.element << "() {" << std::endl << std::endl // TODO: Break this down into composable parts
         << chart.whitespace << "      var data = new google.visualization.DataTable();" << std::endl
         << chart.whitespace << "      data.addColumn('number', 'Event');" << std::endl
@@ -61,8 +59,8 @@ inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
         << chart.whitespace << "      }" << std::endl
         << chart.whitespace << "    };" << std::endl
         << std::endl
-        << chart.whitespace << "  var chart = new google.visualization.LineChart(document.getElementById('" << chart.element << "'));" << std::endl << std::endl
-        << chart.whitespace << "  chart.draw(data, options);" << std::endl
+        << chart.whitespace << "    var chart = new google.visualization.LineChart(document.getElementById('" << chart.element << "'));" << std::endl
+        << chart.whitespace << "    chart.draw(data, options);" << std::endl
         << chart.whitespace << "  }" << std::endl;
 
     return out;

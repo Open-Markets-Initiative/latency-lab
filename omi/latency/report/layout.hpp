@@ -41,6 +41,7 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                <<   stylesheet::options{report.options.css}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
                <<   html::script{"text/javascript"}
+               <<     "  google.charts.load('current', {'packages':['corechart', 'line']});" << std::endl // make method for this
                <<     javascript::google::linechart{report.run.data, text(report.run.period), report.options.precision.chart.get(), "chart"}
                <<   html::close{"script"}
                << html::close{"head"}

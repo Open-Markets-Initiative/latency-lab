@@ -26,11 +26,10 @@ struct charts {
 
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const charts &chart) {
-    out << html::src{ "https://www.gstatic.com/charts/loader.js" };
-    for (auto&& run : chart.runs) {
-        out << html::script{ "text/javascript" } // need common name methods for the elements and stuff
-            <<   javascript::google::linechart{ run.data, text(run.period), chart.precision, run.name, "draw" + run.name, run.name + "chart"}
-            << html::close{ "script" } << std::endl;
+    out << "  google.charts.load('current', {'packages':['corechart', 'line']});" << std::endl << std::endl; // make method for this
+    for (auto && run : chart.runs) {
+        out << javascript::google::linechart{ run.data, text(run.period), chart.precision, run.name, "draw" + run.name, run.name + "chart"}
+            << std::endl;
     }
             
     return out;

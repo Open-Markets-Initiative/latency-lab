@@ -4,14 +4,13 @@
 <head>
 <link rel="stylesheet" type="text/css" href="omi.css"></link>
 <meta charset="utf-8">
+
 <title>Omi</title>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart', 'line']});
 
-  <!-- 1x chart -->
   google.charts.setOnLoadCallback(draw1xchart);
   function draw1xchart() {
 
@@ -53,11 +52,10 @@
       }
     };
 
-  var chart = new google.visualization.LineChart(document.getElementById('1xchart'));
-  chart.draw(data, options);
+    var chart = new google.visualization.LineChart(document.getElementById('1xchart'));
+    chart.draw(data, options);
   }
 
-  <!-- 2x chart -->
   google.charts.setOnLoadCallback(draw2xchart);
   function draw2xchart() {
 
@@ -99,12 +97,10 @@
       }
     };
 
-  var chart = new google.visualization.LineChart(document.getElementById('2xchart'));
-
-  chart.draw(data, options);
+    var chart = new google.visualization.LineChart(document.getElementById('2xchart'));
+    chart.draw(data, options);
   }
 
-  <!-- 10x chart -->
   google.charts.setOnLoadCallback(draw10xchart);
   function draw10xchart() {
 
@@ -146,11 +142,10 @@
       }
     };
 
-	var chart = new google.visualization.LineChart(document.getElementById('10xchart'));
-	chart.draw(data, options);
+    var chart = new google.visualization.LineChart(document.getElementById('10xchart'));
+    chart.draw(data, options);
   }
-  
-  <!-- tab script -->
+
   function select(evt, testName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent")
@@ -164,7 +159,6 @@
     document.getElementById(testName).style.display = "block";
     evt.currentTarget.className += " active";
   }
-
 </script>
 </head>
 
@@ -380,11 +374,10 @@
 </article>
 </section>
 </div>
-</body>
 <script>
-  document.getElementById("defaultOpen").click();
+document.getElementById("defaultOpen").click();
 </script>
-
+</body>
 <footer>
   <p>&copy; OMI. All rights reserved.</p>
 </footer>
