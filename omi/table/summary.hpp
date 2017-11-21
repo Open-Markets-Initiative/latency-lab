@@ -5,14 +5,14 @@
 #include <omi/analysis/percentile.hpp>
 #include <omi/html/declarations.hpp>
 
-// Html table of common latency statistics
+// Html table of common latency summay statistics
 
 namespace omi {
 namespace html {
 
 struct summary {
     // Member variables
-    std::string name;
+    std::string name;             // Name
     analysis::summary<> standard; // Standard statistics
     analysis::summary<> steady;   // Steady state statistics
     size_t precision;             // Table precision
@@ -42,10 +42,10 @@ inline std::ostream &operator<<(std::ostream &out, const summary &table) {
                << table.whitespace << html::tag{"tr"}
                << table.whitespace <<   html::element{"td", "Standard", indent::two }
                << table.whitespace <<   html::open{"td", indent::two} << table.standard.average << html::close{"td"}
-               << table.whitespace <<   html::open{"td", indent::two } << table.standard.deviation << html::close{"td"}
-               << table.whitespace <<   html::open{"td", indent::two } << table.standard.minimum << html::close{"td"}
-               << table.whitespace <<   html::open{"td", indent::two } << table.standard.maximum << html::close{"td"}
-               << table.whitespace <<   html::open{"td", indent::two } << table.standard.count << html::close{ "td" }
+               << table.whitespace <<   html::open{"td", indent::two} << table.standard.deviation << html::close{"td"}
+               << table.whitespace <<   html::open{"td", indent::two} << table.standard.minimum << html::close{"td"}
+               << table.whitespace <<   html::open{"td", indent::two} << table.standard.maximum << html::close{"td"}
+               << table.whitespace <<   html::open{"td", indent::two} << table.standard.count << html::close{ "td" }
                << table.whitespace << html::close{"tr"}
                << table.whitespace << html::tag{"tr"}
                << table.whitespace << html::element{"td", "Steady State", indent::two}

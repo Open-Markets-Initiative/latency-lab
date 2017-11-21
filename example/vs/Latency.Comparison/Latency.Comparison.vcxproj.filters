@@ -85,9 +85,6 @@
     <ClInclude Include="..\..\..\omi\latency\page\pages.hpp">
       <Filter>Header Files\page</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\page\summary.hpp">
-      <Filter>Header Files\page</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\page\charts.hpp">
       <Filter>Header Files\page</Filter>
     </ClInclude>
@@ -99,6 +96,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\table\summary.hpp">
       <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp">
+      <Filter>Header Files\comparison</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

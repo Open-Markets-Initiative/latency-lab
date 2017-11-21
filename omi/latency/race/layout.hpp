@@ -1,25 +1,25 @@
-#ifndef OMI_LATENCY_COMPARISON_LAYOUT_HPP_
-#define OMI_LATENCY_COMPARISON_LAYOUT_HPP_
+#ifndef OMI_LATENCY_RACE_LAYOUT_HPP_
+#define OMI_LATENCY_RACE_LAYOUT_HPP_
 
-#include <omi/source/write.hpp>
-#include <omi/latency/comparison/configuration.hpp>
-#include <omi/latency/comparison/summary.hpp>
+#include <omi/latency/race/configuration.hpp>
+#include <omi/latency/race/summary.hpp>
 #include <omi/latency/page/charts.hpp>
 #include <omi/latency/page/buttons.hpp>
 #include <omi/latency/page/pages.hpp>
 #include <omi/javascript/paging.hpp>
+#include <omi/source/write.hpp>
 
-// Generate multi-run latency comparison html report
+// Generate multi-run latency race 
 
 namespace omi { 
 namespace latency {
-namespace comparison {
+namespace race {
 
 struct layout {
 
   //// Member Variables ///////////
 
-    comparison::configuration options;
+    race::configuration options;
     match::runs runs;
 
   //// Methods ////////////////////
@@ -53,7 +53,7 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::close{"header"}
                << std::endl
                <<   page::buttons{report.runs} // move this to javascript
-               <<   comparison::summary{report.runs}
+               <<   race::summary{report.runs}
                <<   page::pages{report.runs}
                << html::tag{"script"}
                <<   "document.getElementById(\"defaultOpen\").click();" << std::endl // Method for this? Does it have to go here?

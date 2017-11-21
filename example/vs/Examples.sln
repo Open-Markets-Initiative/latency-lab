@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Latency.Report", "Latency.Report\Latency.Report.vcxproj", "{84C2EEFA-EE16-4022-B000-C007C66A0A64}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Latency.Email", "Latency.Email\Latency.Email.vcxproj", "{B8B1F4AB-BB19-48DE-A50B-D0DAF3F9D31E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Latency.Analysis", "Latency.Analysis\Latency.Analysis.vcxproj", "{47A5D0BD-0B02-42BC-92FC-858BCD38E9FE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Latency.Race", "Latency.Race\Latency.Race.vcxproj", "{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,8 +77,19 @@ Global
 		{47A5D0BD-0B02-42BC-92FC-858BCD38E9FE}.Release|x64.Build.0 = Release|x64
 		{47A5D0BD-0B02-42BC-92FC-858BCD38E9FE}.Release|x86.ActiveCfg = Release|Win32
 		{47A5D0BD-0B02-42BC-92FC-858BCD38E9FE}.Release|x86.Build.0 = Release|Win32
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Debug|x64.ActiveCfg = Debug|x64
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Debug|x64.Build.0 = Debug|x64
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Debug|x86.ActiveCfg = Debug|Win32
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Debug|x86.Build.0 = Debug|Win32
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Release|x64.ActiveCfg = Release|x64
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Release|x64.Build.0 = Release|x64
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Release|x86.ActiveCfg = Release|Win32
+		{A4C6A52A-E2D3-4FCB-8134-D086B056FD62}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EC3A4BE-CE57-4DB3-8A60-D89C8DBC7138}
 	EndGlobalSection
 EndGlobal

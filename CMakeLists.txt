@@ -34,6 +34,7 @@ add_subdirectory(example/analysis)
 add_subdirectory(example/comparison)
 add_subdirectory(example/email)
 add_subdirectory(example/matching)
+add_subdirectory(example/race)
 add_subdirectory(example/report)
 
 # Tests
