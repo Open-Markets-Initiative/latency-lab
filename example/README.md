@@ -10,6 +10,15 @@ warming.
 
 Latency statistics in text format.
 
+### [Comparison Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html)
+
+A comparison report allows for quickly comparing application response to 
+multiple different data speeds.
+
+### [Latency Race](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/race/output/race.html)
+
+A latency race will programtically determine the lowest laency of different build options.    
+
 ### [Event Matches](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos)
 
 The example data represents a series of matched events.
@@ -20,11 +29,6 @@ Records format:
 frame number [Match Id] frame number
 ```
 
-### [Comparison Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html)
-
-A comparison report allows for quickly comparing application response to 
-multiple different data speeds.
-
 ### [Emailable Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/email/output/email.html)
 
 Email report uses only html (no javascript) for automated test emails per
@@ -33,4 +37,8 @@ run.
 ## Build
 
 Use CMake. Visual studio projects are provided for rapid development. Some 
-program templates contain a dependency on Boost 1.64.
+program templates contain a dependency on Boost 1.65.1.
+
+## Directions
+
+For now use examples to understand program templates, wiki will be up shortly. 

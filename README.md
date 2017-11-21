@@ -4,11 +4,10 @@
 <a href="https://travis-ci.org/Open-Markets-Initiative/latency-lab"><img src="https://img.shields.io/travis/Open-Markets-Initiative/latency-lab.svg?style=flat-square"/></a>
 </p>
 
-Composable tools for automated network application latency measurement and 
-reporting.
+Composable tools for automated networked application latency measurement.
 
-External application throughput can be measured scientifically by matching
-outbound response events to inbound trigger events.  Provided a standard 
+External application throughput can be scientifically measured by matching
+outbound responses to inbound trigger events.  Provided a standard 
 packet capture, this latency lab provides components to quickly create 
 custom tools for accurate benchmarking, verification and system analysis.
 
