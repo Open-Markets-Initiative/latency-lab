@@ -1,4 +1,4 @@
-## Examples
+## Example Templates
 
 ### [Latency Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html)
 
@@ -17,7 +17,7 @@ multiple different data speeds.
 
 ### [Latency Race](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/race/output/race.html)
 
-A latency race will programtically determine the lowest laency of different build options.    
+A latency race will programtically determine the lowest latency of different build options.    
 
 ### [Event Matches](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos)
 
@@ -41,4 +41,4 @@ program templates contain a dependency on Boost 1.65.1.
 
 ## Directions
 
-For now use examples to understand program templates, wiki will be up shortly. 
+For now use examples to understand how to template a latency program, wiki will be up shortly. 
