@@ -7,7 +7,7 @@
 #include <omi/latency/page/buttons.hpp>
 #include <omi/latency/page/summary.hpp>
 #include <omi/latency/page/pages.hpp>
-#include "omi/javascript/paging.hpp"
+#include <omi/javascript/paging.hpp>
 
 // Generate multi-run latency comparison html report
 
@@ -52,13 +52,14 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                <<   html::h3{report.options.header}
                << html::close{"header"}
                << std::endl
-               <<   page::buttons{report.runs}
+               <<   page::buttons{report.runs} // move this to javascript
                <<   page::summary{report.runs}
                <<   page::pages{report.runs}
                << html::tag{"script"}
-               <<   "document.getElementById(\"defaultOpen\").click();" << std::endl // method for this
+               <<   "document.getElementById(\"defaultOpen\").click();" << std::endl // Method for this? Does it have to go here?
                << html::close{"script"}
                << html::close{"body"}
+               << std::endl
                << html::tag{"footer"}
                <<   html::p{"&copy; " + report.options.copyright, indent::two}
                << html::close{"footer"}

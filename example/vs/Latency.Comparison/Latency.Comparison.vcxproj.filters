@@ -97,6 +97,9 @@
     <ClInclude Include="..\..\..\omi\javascript\google\chart.hpp">
       <Filter>Header Files\javascript</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\summary.hpp">
+      <Filter>Header Files\table</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -58,6 +58,9 @@
     <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\summary.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

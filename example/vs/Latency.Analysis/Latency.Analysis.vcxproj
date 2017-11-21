@@ -151,6 +151,7 @@
     <ClInclude Include="..\..\..\omi\analysis\percentiles.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\results.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\statistics.hpp" />
+    <ClInclude Include="..\..\..\omi\analysis\summary.hpp" />
     <ClInclude Include="..\..\..\omi\container\definitions.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp" />
