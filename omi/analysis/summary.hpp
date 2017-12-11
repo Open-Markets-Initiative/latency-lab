@@ -1,11 +1,10 @@
 #ifndef OMI_ANALYSIS_SUMMARY_HPP_
 #define OMI_ANALYSIS_SUMMARY_HPP_
 
+#include <omi/analysis/calculate.hpp>
+
 #include <numeric>
-#include <iomanip>
-#include <algorithm>
 #include <vector>
-#include <cmath>
 
 // Calculate standard summary statistics
 
@@ -24,44 +23,25 @@ struct summary {
     value_type minimum{ 0 };
     value_type maximum{ 0 };
 
-    // Display precision for decimal types
-    size_t precision { 4 };
-
   //// Construction ///////////////
 
     // Default constructor
     summary() {}
 
     // Standard constructor
-    explicit summary(const container &values, const size_t precision = 4) : precision{ precision } {
-        // Count
+    explicit summary(const container &values) {
         count = values.size();
-        if (count < 1) { return; }
-
-        // Minimum value
-        minimum = *std::min_element(values.begin(), values.end());
-
-        // Maximum value
-        maximum = *std::max_element(values.begin(), values.end());
-
-        // Average
-        auto sum = std::accumulate(values.begin(), values.end(), static_cast<value_type>(0));
-        average = sum / count;
-
-        // Standard deviation
-        container residuals(count);
-        auto residual = [&](value_type value) { return value - average; };
-        std::transform(values.begin(), values.end(), residuals.begin(), residual);
-        auto squares = std::inner_product(residuals.begin(), residuals.end(), residuals.begin(), static_cast<value_type>(0));
-        deviation = std::sqrt(squares / count);
+        average = calculate::average(values);
+        deviation = calculate::deviation(values, average);
+        minimum = calculate::minimum(values);
+        maximum = calculate::maximum(values);
     }
 };
 
 // Stream operator
 template <typename contanier>
 std::ostream &operator<<(std::ostream &out, const summary<contanier> &summary) {
-    return out << std::fixed << std::setprecision(summary.precision)
-               << "  Average:   " << summary.average << std::endl
+    return out << "  Average:   " << summary.average << std::endl
                << "  Deviation: " << summary.deviation << std::endl;
 }
 

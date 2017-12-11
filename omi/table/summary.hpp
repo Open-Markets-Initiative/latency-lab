@@ -5,6 +5,8 @@
 #include <omi/analysis/percentile.hpp>
 #include <omi/html/declarations.hpp>
 
+#include <iomanip>
+
 // Html table of common latency summay statistics
 
 namespace omi {

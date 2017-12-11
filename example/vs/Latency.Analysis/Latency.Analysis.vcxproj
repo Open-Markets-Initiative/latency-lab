@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\analysis\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\omi\analysis\calculate.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\delta.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\percentile.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\percentiles.hpp" />

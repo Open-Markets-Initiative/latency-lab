@@ -24,7 +24,7 @@ inline std::ostream &operator<<(std::ostream &out, const summary &summary) {
     out << html::tag{"div", html::attribute{ "id", "summary" }, html::attribute{ "class", "tabcontent" }} // Make this one use results
         << html::element{"span", html::attribute{"onclick", "this.parentElement.style.display='none'" }, html::attribute{ "class", "topright" }, "x" };
 
-    // Add summaries per run
+    // Add results per run
     for (auto && run: summary.runs) {
     out << html::tag{ "section" }
         <<   html::summary{run.name, run.data}
