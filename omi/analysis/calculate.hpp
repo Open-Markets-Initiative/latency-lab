@@ -2,6 +2,7 @@
 #define OMI_ANALYSIS_CALCULATE_HPP_
 
 #include <numeric>
+#include <cmath>
 
 // Calculation functions
 
