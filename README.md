@@ -4,7 +4,7 @@
 <a href="https://travis-ci.org/Open-Markets-Initiative/latency-lab"><img src="https://img.shields.io/travis/Open-Markets-Initiative/latency-lab.svg?style=flat-square"/></a>
 </p>
 
-Composable automated networked application latency measurement tools.
+Composable tools for automated networked application latency measurement.
 
 External application throughput can be scientifically measured by matching
 outbound responses to inbound trigger events.  Provided a standard 

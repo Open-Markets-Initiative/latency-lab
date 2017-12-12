@@ -1,7 +1,6 @@
 #ifndef OMI_EVENT_MATCH_HPP_
 #define OMI_EVENT_MATCH_HPP_
 
-#include <omi/analysis/delta.hpp>
 #include <omi/match/info.hpp>
 #include <omi/match/timestamps.hpp>
 #include <omi/event/asserts.hpp>

@@ -25,8 +25,8 @@ struct results {
     // Standard constructor
     explicit results(const container &values) 
       : percents{ values },
-        standard{ values},
-        steadystate{ percentile::range(values, 0, 70)} {}
+        standard{ values },
+        steadystate{ percentile::range(values, 0, 70) } {}
 };
 
 // Static constructor
