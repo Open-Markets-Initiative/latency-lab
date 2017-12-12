@@ -4,6 +4,7 @@
 #include <omi/event/match.hpp>
 #include <omi/source/write.hpp>
 #include <omi/container/definitions.hpp>
+#include <omi/container/out.hpp>
 #include <omi/types/period.hpp>
 
 // Matches 
@@ -74,7 +75,7 @@ struct matches : std::vector<event::match<trigger, response>> {
 // Stream operator
 template <typename trigger, typename response>
 std::ostream &operator<<(std::ostream &stream, const matches<trigger, response> &matches) {
-    return out(stream, matches);
+    return container::out(stream, matches);
 }
 
 } }

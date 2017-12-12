@@ -1,7 +1,8 @@
 #ifndef OMI_ANALYSIS_STATISTICS_HPP_
 #define OMI_ANALYSIS_STATISTICS_HPP_
 
-#include <omi/analysis/calculate.hpp>
+#include <omi/container/calculate.hpp>
+
 #include <iomanip>
 #include <vector>
 
@@ -16,18 +17,19 @@ struct statistics {
 
   //// Member Variables ///////////
 
-    size_t count { 0 };
-    value_type average { 0 };
-    value_type deviation { 0 };
+    size_t count;
+    value_type average;
+    value_type deviation;
 
   //// Construction ///////////////
 
     // Default constructor
-    statistics() {}
+    statistics()
+      : count{0} {}
 
     // Standard constructor
     explicit statistics(const container &values) {
-        count = values.size();
+        count = calculate::count(values);
         average = calculate::average(values);
         deviation = calculate::deviation(values, average);
     }
