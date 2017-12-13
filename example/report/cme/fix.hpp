@@ -17,7 +17,7 @@ struct fix {
     std::string tag9702;
     std::string tag9717;
     std::string value9702;
-    omi::sequence value9717;
+    omi::seqnum value9717;
 
     uint32_t line;
     bool processed { false };
@@ -38,7 +38,7 @@ struct fix {
   //// Methods ////////////////////
 
     // Return event id
-    omi::sequence id() const noexcept {
+    omi::seqnum id() const noexcept {
         return value9717;
     }
 

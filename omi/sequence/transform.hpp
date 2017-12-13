@@ -1,13 +1,14 @@
-#ifndef OMI_CONTAINER_DEFINITIONS_HPP_
-#define OMI_CONTAINER_DEFINITIONS_HPP_
+#ifndef OMI_SEQUENCE_TRANSFORM_HPP_
+#define OMI_SEQUENCE_TRANSFORM_HPP_
 
 #include <vector>
 #include <algorithm>
 #include <type_traits>
 
-// Container transform
+// Sequence container transform
 
 namespace omi { 
+namespace sequence {
 
 // Transform vector acoording to operation (move this)
 template<typename type, typename function>
@@ -17,6 +18,6 @@ auto transform(const std::vector<type>& inputs, function operation) {
     return result;
 } // make one that decides default constructability at compiletime
 
-}
+} }
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef OMI_ANALYSIS_SUMMARY_HPP_
 #define OMI_ANALYSIS_SUMMARY_HPP_
 
-#include <omi/container/calculate.hpp>
+#include <omi/sequence/calculate.hpp>
 
 #include <numeric>
 #include <vector>
@@ -27,15 +27,15 @@ struct summary {
 
     // Default constructor
     summary() noexcept
-      : count{0} {}
+      : count{ 0 } {}
 
     // Standard constructor
     explicit summary(const container &values) {
-        count = calculate::count(values);
-        average = calculate::average(values);
-        deviation = calculate::deviation(values, average);
-        minimum = calculate::minimum(values);
-        maximum = calculate::maximum(values);
+        count = sequence::count(values);
+        average = sequence::average(values);
+        deviation = sequence::deviation(values, average);
+        minimum = sequence::minimum(values);
+        maximum = sequence::maximum(values);
     }
 };
 

@@ -161,7 +161,7 @@
     <ClInclude Include="..\..\..\omi\match\timestamps.hpp" />
     <ClInclude Include="..\..\..\omi\types\frame.hpp" />
     <ClInclude Include="..\..\..\omi\types\period.hpp" />
-    <ClInclude Include="..\..\..\omi\types\sequence.hpp" />
+    <ClInclude Include="..\..\..\omi\types\seqnum.hpp" />
     <ClInclude Include="..\..\..\omi\types\timespan.hpp" />
     <ClInclude Include="..\..\..\omi\types\timestamp.hpp" />
     <ClInclude Include="..\..\..\omi\types\tokenizer.hpp" />

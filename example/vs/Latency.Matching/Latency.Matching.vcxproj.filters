@@ -59,9 +59,6 @@
     <ClInclude Include="..\..\matching\events\outbound.hpp">
       <Filter>Header Files\events</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\types\sequence.hpp">
-      <Filter>Header Files\types</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\event\list.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
@@ -106,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\match\timestamps.hpp">
       <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\seqnum.hpp">
+      <Filter>Header Files\types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

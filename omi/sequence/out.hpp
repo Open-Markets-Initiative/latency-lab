@@ -1,12 +1,12 @@
-#ifndef OMI_CONTAINER_OUT_HPP_
-#define OMI_CONTAINER_OUT_HPP_
+#ifndef OMI_SEQUENCE_OUT_HPP_
+#define OMI_SEQUENCE_OUT_HPP_
 
 #include <ostream>
 
 // Container out
 
 namespace omi { 
-namespace container {
+namespace sequence {
 
 // Stream out all elements in a container 
 template<typename container>

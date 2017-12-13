@@ -3,8 +3,8 @@
 
 #include <omi/event/match.hpp>
 #include <omi/source/write.hpp>
-#include <omi/container/definitions.hpp>
-#include <omi/container/out.hpp>
+#include <omi/sequence/transform.hpp>
+#include <omi/sequence/out.hpp>
 #include <omi/types/period.hpp>
 
 // Matches 
@@ -40,15 +40,15 @@ struct matches : std::vector<event::match<trigger, response>> {
     auto deltas(const period period) const {
         switch (period) {
         case period::nanosecond:
-            return transform(*this, [](const auto & current) { return current.timestamps().delta().nanoseconds(); });
+            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().nanoseconds(); });
         case period::microsecond:
-            return transform(*this, [](const auto & current) { return current.timestamps().delta().microseconds(); });
+            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().microseconds(); });
         case period::millisecond:
-            return transform(*this, [](const auto & current) { return current.timestamps().delta().milliseconds(); });
+            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().milliseconds(); });
         case period::second:
-            return transform(*this, [](const auto & current) { return current.timestamps().delta().seconds(); });
+            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().seconds(); });
         case period::minute:
-            return transform(*this, [](const auto & current) { return current.timestamps().delta().minutes(); });
+            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().minutes(); });
         default:
             throw new std::invalid_argument("Not implemented");
         }

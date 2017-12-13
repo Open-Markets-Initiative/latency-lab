@@ -1,7 +1,7 @@
 #ifndef OMI_TEST_EVENT_HPP_
 #define OMI_TEST_EVENT_HPP_
 
-#include <omi/types/sequence.hpp>
+#include <omi/types/seqnum.hpp>
 #include <omi/types/timestamp.hpp>
 #include <omi/types/frame.hpp>
 
@@ -13,7 +13,7 @@ struct event {
 
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
-    omi::sequence sequence;        // Sbe message sequence number
+    omi::seqnum sequence;        // Sbe message sequence number
     bool processed;                //
 
   //// Methods ////////////////////

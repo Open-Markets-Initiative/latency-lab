@@ -14,7 +14,7 @@ struct sbe {
     // Inbound sbe market data event fields from tshark csv
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
-    omi::sequence sequence;        // Sbe message sequence number
+    omi::seqnum sequence;          // Sbe message sequence number
 
     // Record properties
     uint32_t line;                 // Record line number in file

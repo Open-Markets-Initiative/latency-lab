@@ -15,11 +15,11 @@
     <Filter Include="Header Files\records">
       <UniqueIdentifier>{87e01df0-f3f6-45f7-9edf-126e1fcccf35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\container">
-      <UniqueIdentifier>{f4d00a3e-0328-4f66-ab94-db7f6087c0b6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\program">
       <UniqueIdentifier>{9a8c8858-fb08-426e-85e0-3a60b23be53a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sequence">
+      <UniqueIdentifier>{f4d00a3e-0328-4f66-ab94-db7f6087c0b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +49,6 @@
     <ClInclude Include="..\..\analysis\records\outbound.hpp">
       <Filter>Header Files\records</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\container\definitions.hpp">
-      <Filter>Header Files\container</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\analysis.hpp">
       <Filter>Header Files\program</Filter>
     </ClInclude>
@@ -61,11 +58,14 @@
     <ClInclude Include="..\..\..\omi\analysis\summary.hpp">
       <Filter>Header Files\analysis</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\container\calculate.hpp">
-      <Filter>Header Files\container</Filter>
+    <ClInclude Include="..\..\..\omi\sequence\calculate.hpp">
+      <Filter>Header Files\sequence</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\container\out.hpp">
-      <Filter>Header Files\container</Filter>
+    <ClInclude Include="..\..\..\omi\sequence\out.hpp">
+      <Filter>Header Files\sequence</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\sequence\transform.hpp">
+      <Filter>Header Files\sequence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
