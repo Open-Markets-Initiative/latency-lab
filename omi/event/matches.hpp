@@ -75,7 +75,7 @@ struct matches : std::vector<event::match<trigger, response>> {
 // Stream operator
 template <typename trigger, typename response>
 std::ostream &operator<<(std::ostream &stream, const matches<trigger, response> &matches) {
-    return container::out(stream, matches);
+    return sequence::out(stream, matches);
 }
 
 } }
