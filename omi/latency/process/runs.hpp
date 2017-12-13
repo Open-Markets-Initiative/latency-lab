@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-// Single run omi html latency match processing
+// Process multiple run latency matching
 
 namespace omi {
 namespace latency {

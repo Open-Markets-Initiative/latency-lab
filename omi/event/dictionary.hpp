@@ -1,5 +1,5 @@
-#ifndef OMI_EVENT_DATABASE_HPP_
-#define OMI_EVENT_DATABASE_HPP_
+#ifndef OMI_EVENT_DICTIONARY_HPP_
+#define OMI_EVENT_DICTIONARY_HPP_
 
 #include <omi/source/read.hpp>
 
@@ -12,7 +12,7 @@ namespace omi {
 namespace event {
 
 template <typename record>
-struct database {
+struct dictionary {
 
   //// Member Variables ///////////
 
@@ -25,11 +25,11 @@ struct database {
   //// Construction ///////////////
 
     // Default constructor
-    database() {}
+    dictionary() {}
 
     // Static constructor for reading records from line by line file
     static auto read(const std::string &file) {
-        return source::read<database, record>(file);
+        return source::read<dictionary, record>(file);
     }
 
   //// Implementation /////////////
@@ -64,7 +64,7 @@ struct database {
 
 // Stream operator
 template <typename record>
-std::ostream &operator<<(std::ostream &out, const database<record> &database) {
+std::ostream &operator<<(std::ostream &out, const dictionary<record> &database) {
     return out << "  Processed: " << database.records() << std::endl
                << "  Valid: " << database.events.size() << std::endl
                << "  Duplicate: " << database.duplicates.size() << std::endl

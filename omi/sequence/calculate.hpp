@@ -51,7 +51,7 @@ static auto sum(const container &values) {
 template <typename container>
 static auto average(const container &values) {
     auto count = sequence::count(values);
-    return count == 0 ? sequence::sum(values) / count : typename container::value_type{};
+    return count > 0 ? sequence::sum(values) / count : typename container::value_type{};
 }
 
 // Calculate standard deviation with pre calulated average

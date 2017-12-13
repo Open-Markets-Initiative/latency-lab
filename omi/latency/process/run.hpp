@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-// Single run omi html latency match processing
+// Process single run latency matching
 
 namespace omi {
 namespace latency {
@@ -18,7 +18,7 @@ auto run(const match::inputs &file, const bool verbose) {
 
     // Load all possible inbound trigger events
     if (verbose) { std::cout << "Loading inbound " << description::inbound << std::endl; }
-    const auto inbounds = event::database<inbound>::read(file.inbound);
+    const auto inbounds = event::dictionary<inbound>::read(file.inbound);
     if (verbose) { std::cout << inbounds; }
 
     // Load response events

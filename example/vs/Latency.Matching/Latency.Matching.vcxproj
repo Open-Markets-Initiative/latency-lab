@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\event\asserts.hpp" />
-    <ClInclude Include="..\..\..\omi\event\database.hpp" />
+    <ClInclude Include="..\..\..\omi\event\dictionary.hpp" />
     <ClInclude Include="..\..\..\omi\event\list.hpp" />
     <ClInclude Include="..\..\..\omi\event\match.hpp" />
     <ClInclude Include="..\..\..\omi\event\matches.hpp" />

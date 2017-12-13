@@ -44,9 +44,6 @@
     <ClInclude Include="..\..\..\omi\event\asserts.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\event\database.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\event\match.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
@@ -106,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\types\seqnum.hpp">
       <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\dictionary.hpp">
+      <Filter>Header Files\event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

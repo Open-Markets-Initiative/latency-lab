@@ -2,7 +2,7 @@
 #define OMI_MATCH_EVENTS_HPP_
 
 #include <omi/match/inputs.hpp>
-#include <omi/event/database.hpp>
+#include <omi/event/dictionary.hpp>
 #include <omi/event/list.hpp> 
 #include <omi/event/matches.hpp>
 
@@ -25,14 +25,14 @@ struct events {
 
     // Construct from 2 file paths (make these static, and move out of class?)
     explicit events(const std::string &inbounds, const std::string &outbounds)
-      : events{ event::database<inbound>::read(inbounds), event::list<outbound>::read(outbounds) } {}
+      : events{ event::dictionary<inbound>::read(inbounds), event::list<outbound>::read(outbounds) } {}
 
     // Construct from event inputs
     explicit events(const match::inputs &file)
       : events{ file.inbound, file.outbound } {}
 
     // Construct from events
-    explicit events(const event::database<inbound> &inbounds, const event::list<outbound> &outbounds) {
+    explicit events(const event::dictionary<inbound> &inbounds, const event::list<outbound> &outbounds) {
         for (const auto &response : outbounds.valids) {
             const auto trigger = inbounds.events.find(response.id());
             if (trigger != inbounds.events.end()) {

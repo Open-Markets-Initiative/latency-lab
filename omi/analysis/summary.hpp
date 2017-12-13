@@ -40,10 +40,12 @@ struct summary {
 };
 
 // Stream operator
-template <typename contanier>
-std::ostream &operator<<(std::ostream &out, const summary<contanier> &summary) {
+template <typename container>
+std::ostream &operator<<(std::ostream &out, const summary<container> &summary) {
     return out << "  Average:   " << summary.average << std::endl
-               << "  Deviation: " << summary.deviation << std::endl;
+               << "  Deviation: " << summary.deviation << std::endl
+               << "  Minimum:   " << summary.minimum << std::endl
+               << "  Maximum: " << summary.maximum << std::endl;
 }
 
 } }
