@@ -40,15 +40,15 @@ struct matches : std::vector<event::match<trigger, response>> {
     auto deltas(const period period) const {
         switch (period) {
         case period::nanosecond:
-            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().nanoseconds(); });
+            return container::transform(*this, [](const auto & current) { return current.timestamps().delta().nanoseconds(); });
         case period::microsecond:
-            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().microseconds(); });
+            return container::transform(*this, [](const auto & current) { return current.timestamps().delta().microseconds(); });
         case period::millisecond:
-            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().milliseconds(); });
+            return container::transform(*this, [](const auto & current) { return current.timestamps().delta().milliseconds(); });
         case period::second:
-            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().seconds(); });
+            return container::transform(*this, [](const auto & current) { return current.timestamps().delta().seconds(); });
         case period::minute:
-            return sequence::transform(*this, [](const auto & current) { return current.timestamps().delta().minutes(); });
+            return container::transform(*this, [](const auto & current) { return current.timestamps().delta().minutes(); });
         default:
             throw new std::invalid_argument("Not implemented");
         }
@@ -75,7 +75,7 @@ struct matches : std::vector<event::match<trigger, response>> {
 // Stream operator
 template <typename trigger, typename response>
 std::ostream &operator<<(std::ostream &stream, const matches<trigger, response> &matches) {
-    return sequence::out(stream, matches);
+    return container::out(stream, matches);
 }
 
 } }
