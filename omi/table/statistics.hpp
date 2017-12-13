@@ -2,7 +2,7 @@
 #define OMI_HTML_STATISTICS_HPP_
 
 #include <omi/analysis/statistics.hpp>
-#include <omi/analysis/percentile.hpp>
+#include <omi/sequence/range.hpp>
 #include <omi/html/declarations.hpp>
 
 // Html table of common latency statistics
@@ -20,7 +20,7 @@ struct statistics {
     // Standard constructor
     explicit statistics(const std::vector<double> &values, const size_t precision = 4, indent whitespace = indent::none)
       : standard{ values},
-        steady{ analysis::percentile::range(values, 0, 70)}, // make this take values directly
+        steady{ sequence::range(values, 0, 70)}, // make this take values directly
         precision{precision},
         whitespace { whitespace } {}
 };

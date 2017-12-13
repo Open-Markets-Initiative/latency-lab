@@ -146,8 +146,6 @@
     <ClCompile Include="..\..\analysis\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\omi\analysis\delta.hpp" />
-    <ClInclude Include="..\..\..\omi\analysis\percentile.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\percentiles.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\results.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\statistics.hpp" />
@@ -155,6 +153,8 @@
     <ClInclude Include="..\..\..\omi\latency\analysis.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp" />
     <ClInclude Include="..\..\..\omi\sequence\calculate.hpp" />
+    <ClInclude Include="..\..\..\omi\sequence\percentile.hpp" />
+    <ClInclude Include="..\..\..\omi\sequence\range.hpp" />
     <ClInclude Include="..\..\..\omi\sequence\transform.hpp" />
     <ClInclude Include="..\..\..\omi\sequence\out.hpp" />
     <ClInclude Include="..\..\analysis\records\inbound.hpp" />

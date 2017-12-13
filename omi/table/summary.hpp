@@ -2,7 +2,7 @@
 #define OMI_HTML_SUMMARY_HPP_
 
 #include <omi/analysis/summary.hpp>
-#include <omi/analysis/percentile.hpp>
+#include <omi/sequence/range.hpp>
 #include <omi/html/declarations.hpp>
 
 #include <iomanip>
@@ -22,11 +22,11 @@ struct summary {
 
     // Standard constructor
     explicit summary(const std::string &name, const std::vector<double> &values, const size_t precision = 4, indent whitespace = indent::none)
-      : name{name},
+      : name{ name},
         standard{ values},
-        steady{ analysis::percentile::range(values, 0, 70)}, // make this take values directly
-        precision{precision},
-        whitespace { whitespace } {}
+        steady{ sequence::range(values, 0, 70)}, // make this take values directly
+        precision{ precision },
+        whitespace{ whitespace } {}
 };
 
 // Stream operator

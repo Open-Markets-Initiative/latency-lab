@@ -1,9 +1,8 @@
 #ifndef OMI_ANALYSIS_PERCENTILES_HPP_
 #define OMI_ANALYSIS_PERCENTILES_HPP_
  
-#include <omi/analysis/percentile.hpp>
+#include <omi/sequence/percentile.hpp>
 
-#include <iomanip>
 #include <algorithm>
 #include <vector>
 
@@ -31,16 +30,13 @@ struct percentiles {
     value_type p01  { 0 };
     value_type p00  { 0 };
 
-    // Display precision for decimal types
-    size_t precision { 3 };
-
   //// Construction ///////////////
 
     // Default constructor
     percentiles() {}
 
     // Standard constructor
-    explicit percentiles(const container &original, size_t precision = 3) : precision{ precision } {
+    explicit percentiles(const container &original) {
         if (original.empty()) { return; }
 
         // Copy and sort
@@ -53,13 +49,13 @@ struct percentiles {
         p100 = values.back();
 
         // What is the best order for these?
-        p01 = percentile::element(values, 01);
-        p10 = percentile::element(values, 10);
-        p25 = percentile::element(values, 25);
-        p50 = percentile::element(values, 50);
-        p75 = percentile::element(values, 75);
-        p90 = percentile::element(values, 90);
-        p99 = percentile::element(values, 99);
+        p01 = sequence::percentile(values, 01);
+        p10 = sequence::percentile(values, 10);
+        p25 = sequence::percentile(values, 25);
+        p50 = sequence::percentile(values, 50);
+        p75 = sequence::percentile(values, 75);
+        p90 = sequence::percentile(values, 90);
+        p99 = sequence::percentile(values, 99);
     }
 };
 
@@ -67,8 +63,7 @@ struct percentiles {
 // Stream operator
 template <typename contanier>
 std::ostream &operator<<(std::ostream &out, const percentiles<contanier> &percentile) {
-    return out << std::fixed << std::setprecision(percentile.precision)
-               << "  Max: " << percentile.p100 << std::endl
+    return out << "  Max: " << percentile.p100 << std::endl
                << "  99%: " << percentile.p99 << std::endl
                << "  90%: " << percentile.p90 << std::endl
                << "  75%: " << percentile.p75 << std::endl

@@ -3,6 +3,7 @@
 
 #include <omi/analysis/percentiles.hpp>
 #include <omi/analysis/statistics.hpp>
+#include <omi/sequence/range.hpp>
 
 // Standard analysis results
 
@@ -26,7 +27,7 @@ struct results {
     explicit results(const container &values) 
       : percents{ values },
         standard{ values },
-        steadystate{ percentile::range(values, 0, 70) } {}
+        steadystate{ sequence::range(values, 0, 70) } {}
 };
 
 // Static constructor
