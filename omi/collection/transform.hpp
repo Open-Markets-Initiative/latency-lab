@@ -11,7 +11,7 @@ namespace omi {
 namespace collection {
 
 // https://stackoverflow.com/questions/23871757/the-stdtransform-like-function-that-returns-transformed-container
-// make one that decides default constructability at compiletime
+// Make one that decides default constructability at compiletime
 
 // Transform vector acoording to operation
 template < typename container, typename function, typename type = typename container::value_type>

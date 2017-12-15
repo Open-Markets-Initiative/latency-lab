@@ -1,6 +1,8 @@
 #ifndef OMI_COLLECTION_PERCENTILE_HPP_
 #define OMI_COLLECTION_PERCENTILE_HPP_
 
+#include <omi/collection/size.hpp>
+
 #include <cstdint>
 #include <algorithm>
 
@@ -16,7 +18,7 @@ static int index(const size_t count, const uint32_t percentile) {
 // Returns value at percentile (sorts array by nth_element)
 template <typename container>
 static auto percentile(const uint32_t percentile, container &values) {
-    if (values.begin() == values.end()) {
+    if (empty(values)) {
         return typename container::value_type{};
     }
 

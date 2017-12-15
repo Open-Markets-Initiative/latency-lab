@@ -67,6 +67,9 @@
     <ClInclude Include="..\..\..\omi\collection\transform.hpp">
       <Filter>Header Files\collection</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\collection\size.hpp">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
