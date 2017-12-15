@@ -1,5 +1,5 @@
-#ifndef OMI_CONTAINER_TRANSFORM_HPP_
-#define OMI_CONTAINER_TRANSFORM_HPP_
+#ifndef OMI_COLLECTION_TRANSFORM_HPP_
+#define OMI_COLLECTION_TRANSFORM_HPP_
 
 #include <vector>
 #include <algorithm>
@@ -8,7 +8,7 @@
 // Container transform
 
 namespace omi { 
-namespace container {
+namespace collection {
 
 // https://stackoverflow.com/questions/23871757/the-stdtransform-like-function-that-returns-transformed-container
 // make one that decides default constructability at compiletime

@@ -1,7 +1,7 @@
 #ifndef OMI_ANALYSIS_PERCENTILES_HPP_
 #define OMI_ANALYSIS_PERCENTILES_HPP_
  
-#include <omi/sequence/percentile.hpp>
+#include <omi/collection/percentile.hpp>
 
 #include <algorithm>
 #include <vector>
@@ -18,17 +18,17 @@ struct percentiles {
   //// Member Variables ///////////
 
     // Total number of values
-    size_t count { 0 };
+    size_t count{ 0 };
 
-    value_type p100 { 0 };
-    value_type p99  { 0 };
-    value_type p90  { 0 };
-    value_type p75  { 0 };
-    value_type p50  { 0 };
-    value_type p25  { 0 };
-    value_type p10  { 0 };
-    value_type p01  { 0 };
-    value_type p00  { 0 };
+    value_type p100{ 0 };
+    value_type p99{ 0 };
+    value_type p90{ 0 };
+    value_type p75{ 0 };
+    value_type p50{ 0 };
+    value_type p25{ 0 };
+    value_type p10{ 0 };
+    value_type p01{ 0 };
+    value_type p00{ 0 };
 
   //// Construction ///////////////
 
@@ -49,13 +49,13 @@ struct percentiles {
         p100 = values.back();
 
         // What is the best order for these?
-        p01 = sequence::percentile(values, 01);
-        p10 = sequence::percentile(values, 10);
-        p25 = sequence::percentile(values, 25);
-        p50 = sequence::percentile(values, 50);
-        p75 = sequence::percentile(values, 75);
-        p90 = sequence::percentile(values, 90);
-        p99 = sequence::percentile(values, 99);
+        p01 = collection::percentile(01, values);
+        p10 = collection::percentile(10, values);
+        p25 = collection::percentile(25, values);
+        p50 = collection::percentile(50, values);
+        p75 = collection::percentile(75, values);
+        p90 = collection::percentile(90, values);
+        p99 = collection::percentile(99, values);
     }
 };
 

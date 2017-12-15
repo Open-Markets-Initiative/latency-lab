@@ -1,5 +1,5 @@
-#ifndef OMI_SEQUENCE_CALCULATE_HPP_
-#define OMI_SEQUENCE_CALCULATE_HPP_
+#ifndef OMI_COLLECTION_CALCULATE_HPP_
+#define OMI_COLLECTION_CALCULATE_HPP_
 
 #include <numeric>
 #include <cmath>
@@ -8,7 +8,7 @@
 // Sequence calculation functions
 
 namespace omi {
-namespace sequence {
+namespace collection {
 
 // Todo: add static_asset that value type can be calculated
 // Todo: full unit tests
@@ -50,8 +50,8 @@ static auto sum(const container &values) {
 // Calculate average
 template <typename container>
 static auto average(const container &values) {
-    auto count = sequence::count(values);
-    return count > 0 ? sequence::sum(values) / count : typename container::value_type{};
+    auto count = collection::count(values);
+    return count > 0 ? collection::sum(values) / count : typename container::value_type{};
 }
 
 // Calculate standard deviation with pre calulated average

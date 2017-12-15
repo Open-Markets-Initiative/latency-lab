@@ -1,13 +1,13 @@
-#ifndef OMI_SEQUENCE_RANGE_HPP_
-#define OMI_SEQUENCE_RANGE_HPP_
+#ifndef OMI_COLLECTION_RANGE_HPP_
+#define OMI_COLLECTION_RANGE_HPP_
 
-#include <omi/sequence/percentile.hpp>
+#include <omi/collection/percentile.hpp>
 
 #include <vector>
 #include <algorithm>
 
 namespace omi {
-namespace sequence {
+namespace collection {
 
 // Return a vector of values as within upper and lower percentile limits
 template <typename container = std::vector<double>>

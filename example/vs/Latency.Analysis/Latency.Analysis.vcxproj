@@ -150,13 +150,13 @@
     <ClInclude Include="..\..\..\omi\analysis\results.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\statistics.hpp" />
     <ClInclude Include="..\..\..\omi\analysis\summary.hpp" />
+    <ClInclude Include="..\..\..\omi\collection\calculate.hpp" />
+    <ClInclude Include="..\..\..\omi\collection\out.hpp" />
+    <ClInclude Include="..\..\..\omi\collection\percentile.hpp" />
+    <ClInclude Include="..\..\..\omi\collection\range.hpp" />
+    <ClInclude Include="..\..\..\omi\collection\transform.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis.hpp" />
     <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp" />
-    <ClInclude Include="..\..\..\omi\sequence\calculate.hpp" />
-    <ClInclude Include="..\..\..\omi\sequence\percentile.hpp" />
-    <ClInclude Include="..\..\..\omi\sequence\range.hpp" />
-    <ClInclude Include="..\..\..\omi\sequence\transform.hpp" />
-    <ClInclude Include="..\..\..\omi\sequence\out.hpp" />
     <ClInclude Include="..\..\analysis\records\inbound.hpp" />
     <ClInclude Include="..\..\analysis\records\outbound.hpp" />
   </ItemGroup>

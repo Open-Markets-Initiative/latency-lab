@@ -18,7 +18,7 @@
     <Filter Include="Header Files\program">
       <UniqueIdentifier>{9a8c8858-fb08-426e-85e0-3a60b23be53a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\sequence">
+    <Filter Include="Header Files\collection">
       <UniqueIdentifier>{f4d00a3e-0328-4f66-ab94-db7f6087c0b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -52,20 +52,20 @@
     <ClInclude Include="..\..\..\omi\analysis\summary.hpp">
       <Filter>Header Files\analysis</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\sequence\calculate.hpp">
-      <Filter>Header Files\sequence</Filter>
+    <ClInclude Include="..\..\..\omi\collection\calculate.hpp">
+      <Filter>Header Files\collection</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\sequence\out.hpp">
-      <Filter>Header Files\sequence</Filter>
+    <ClInclude Include="..\..\..\omi\collection\out.hpp">
+      <Filter>Header Files\collection</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\sequence\transform.hpp">
-      <Filter>Header Files\sequence</Filter>
+    <ClInclude Include="..\..\..\omi\collection\percentile.hpp">
+      <Filter>Header Files\collection</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\sequence\percentile.hpp">
-      <Filter>Header Files\sequence</Filter>
+    <ClInclude Include="..\..\..\omi\collection\range.hpp">
+      <Filter>Header Files\collection</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\sequence\range.hpp">
-      <Filter>Header Files\sequence</Filter>
+    <ClInclude Include="..\..\..\omi\collection\transform.hpp">
+      <Filter>Header Files\collection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
