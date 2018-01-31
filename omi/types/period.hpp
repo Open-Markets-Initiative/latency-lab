@@ -58,7 +58,7 @@ namespace parse { inline auto period(const std::string& text) {
     } if (value == "microseconds" ||
         value == "microsecond" ||
         value == "micros" ||
-        value == "nano" ||
+        value == "micro" ||
         value == "u") {
         return period::microsecond;
     } if (value == "milliseconds" ||

@@ -29,7 +29,7 @@ struct options {
     // Construct options from args or ini file
     template<typename setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
-		directories.inbound = option.template required<std::string>(::inbound::directory::option);
+        directories.inbound = option.template required<std::string>(::inbound::directory::option);
         directories.outbound = option.template required<std::string>(::outbound::directory::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
@@ -60,13 +60,13 @@ struct options {
             (::delta::period::option, boost::program_options::value<std::string>(), ::delta::period::note)
             (::precision::chart::option, boost::program_options::value<std::string>(), ::precision::chart::note)
             (::precision::statistics::option, boost::program_options::value<std::string>(), ::precision::statistics::note)
-            (::precision::percentiles::option, boost::program_options::value<std::string>(), ::precision::percentiles::note); 
-
+            (::precision::percentiles::option, boost::program_options::value<std::string>(), ::precision::percentiles::note)
+            (::race::variable::option, boost::program_options::value<std::string>(), ::race::variable::note);
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);
         if (args.exists(ini::file::option)) {
             auto ini = omi::program::settings{ args.required<std::string>(ini::file::option) };
-            return options{ ini.section("comparison"), args.verbose() }; // How to make this seamless?
+            return options{ ini.section("race"), args.verbose() }; // How to make this seamless?
         } 
 
         // Otherwise initialize from program args
