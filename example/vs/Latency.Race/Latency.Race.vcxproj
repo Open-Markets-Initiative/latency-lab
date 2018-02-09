@@ -123,6 +123,12 @@
     <ClInclude Include="..\..\..\omi\latency\race\layout.hpp" />
     <ClInclude Include="..\..\..\omi\latency\race\options.hpp" />
     <ClInclude Include="..\..\..\omi\latency\race\summary.hpp" />
+    <ClInclude Include="..\..\..\omi\types\frame.hpp" />
+    <ClInclude Include="..\..\..\omi\types\period.hpp" />
+    <ClInclude Include="..\..\..\omi\types\race.hpp" />
+    <ClInclude Include="..\..\..\omi\types\seqnum.hpp" />
+    <ClInclude Include="..\..\..\omi\types\timespan.hpp" />
+    <ClInclude Include="..\..\..\omi\types\timestamp.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

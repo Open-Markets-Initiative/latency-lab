@@ -44,6 +44,9 @@
     <ClCompile Include="..\..\..\tests\types\period.cpp">
       <Filter>Source Files\types</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\tests\types\race.cpp">
+      <Filter>Source Files\types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -57,6 +57,9 @@ namespace precision { namespace statistics { static constexpr const char * note 
 namespace precision { namespace chart { static constexpr const char * option = "chart-precision"; } }
 namespace precision { namespace chart { static constexpr const char * note = "Chart element decimal precision"; } }
 
+namespace race { namespace variable { static constexpr const char * option = "race-variable"; } }
+namespace race { namespace variable { static constexpr const char * note = "Race Variable: factor, minimum, maximum, median, average"; } }
+
 // Most of these need name changes
 
 #endif

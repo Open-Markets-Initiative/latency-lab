@@ -15,6 +15,9 @@
     <Filter Include="Header Files\page">
       <UniqueIdentifier>{c9163e24-10e1-4ecf-b2a3-50c6f0b65008}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\type">
+      <UniqueIdentifier>{a7418cea-39b5-4b84-be6e-f8dda77d4517}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\race\main.cpp">
@@ -36,6 +39,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\race\summary.hpp">
       <Filter>Header Files\race</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\race.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\frame.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\period.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\seqnum.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timespan.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timestamp.hpp">
+      <Filter>Header Files\type</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
