@@ -11,7 +11,7 @@ namespace omi {
 namespace latency {
 namespace comparison {
 
-// Default comparison program decsriptions
+// Default comparison program descriptions
 struct defaults {
     static constexpr const char * title = "Latency Comparison Report";
     static constexpr const char * inbound = "events";
@@ -21,8 +21,8 @@ struct defaults {
 // Latency comparison html report program template
 template <typename inbound, typename outbound, typename description = defaults>
 void of(int argc, char *argv[]) {
-	// Parse program options
-	auto options = options::parse(argc, argv, description::title);
+    // Parse program options
+    auto options = options::parse(argc, argv, description::title);
 
     // Load and match events
     auto results = process::runs<inbound, outbound, description>(options.directories, options.verbose);

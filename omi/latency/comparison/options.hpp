@@ -9,7 +9,7 @@
 
 //  Options for omi html latency multi run comparison report
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace comparison {
 
@@ -28,7 +28,7 @@ struct options {
     // Construct options from args or ini file
     template<typename setting>
     explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
-		directories.inbound = option.template required<std::string>(::inbound::directory::option);
+        directories.inbound = option.template required<std::string>(::inbound::directory::option);
         directories.outbound = option.template required<std::string>(::outbound::directory::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
@@ -78,7 +78,6 @@ inline std::ostream &operator<<(std::ostream &out, const options &program) {
     return out << program.report
                << program.timer;
 }
-
 
 } } }
 

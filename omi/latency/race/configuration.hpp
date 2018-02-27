@@ -6,7 +6,7 @@
 
 // Configuration options for omi html latency race
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace race {
 
@@ -30,7 +30,6 @@ inline std::ostream &operator<<(std::ostream &out, const configuration &report) 
                << "  Header: " << report.header << std::endl
                << "  Period: " << report.period << std::endl;
 }
-
 
 } } }
 

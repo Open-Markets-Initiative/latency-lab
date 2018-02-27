@@ -7,7 +7,7 @@
 
 // Generate multi-run latency comparison html summary section
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace comparison {
 

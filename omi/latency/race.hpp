@@ -5,15 +5,15 @@
 #include <omi/latency/race/options.hpp>
 #include <omi/latency/race/layout.hpp>
 
-// Latency comparison program template
+// Latency race program template
 
 namespace omi {
 namespace latency {
 namespace race {
 
-// Default latency race program decsriptions
+// Default latency race program descriptions
 struct defaults {
-    static constexpr const char * title = "Latency Comparison Report";
+    static constexpr const char * title = "Latency Race";
     static constexpr const char * inbound = "events";
     static constexpr const char * outbound = "responses";
 };
@@ -21,8 +21,8 @@ struct defaults {
 // Latency race html report program template
 template <typename inbound, typename outbound, typename description = defaults>
 void of(int argc, char *argv[]) {
-	// Parse program options
-	auto options = options::parse(argc, argv, description::title);
+    // Parse program options
+    auto options = options::parse(argc, argv, description::title);
 
     // Load and match events
     auto results = process::runs<inbound, outbound, description>(options.directories, options.verbose);

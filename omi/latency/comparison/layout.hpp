@@ -11,7 +11,7 @@
 
 // Generate multi-run latency comparison html report
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace comparison {
 

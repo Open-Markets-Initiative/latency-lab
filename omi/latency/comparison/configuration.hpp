@@ -5,7 +5,7 @@
 
 // Configuration options for omi html latency comparison report
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace comparison {
 
