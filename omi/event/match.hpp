@@ -5,7 +5,7 @@
 #include <omi/match/timestamps.hpp>
 #include <omi/event/asserts.hpp>
 
-// Matched events 
+// Matched events
 
 namespace omi {
 namespace event {

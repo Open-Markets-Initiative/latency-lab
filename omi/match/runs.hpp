@@ -5,7 +5,7 @@
 
 // Matching results
 
-namespace omi { 
+namespace omi {
 namespace match {
 
 struct runs : std::vector<match::run> {};

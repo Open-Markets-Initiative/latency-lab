@@ -5,7 +5,7 @@
 
 #include <string>
 
-// Html div element 
+// Html div element
 
 namespace omi {
 namespace html {

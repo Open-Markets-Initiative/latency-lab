@@ -10,7 +10,7 @@
 
 //  Options for omi html latency report (single run)
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace report {
 
@@ -27,7 +27,7 @@ struct options {
 
     // Construct options from args or ini file
     template<typename setting>
-    explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
+    explicit options(const setting &option, bool verbose) : verbose{ verbose } {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
         report.path = option.template required<std::string>(::html::report::option);

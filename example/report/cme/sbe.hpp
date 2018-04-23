@@ -5,7 +5,7 @@
 
 // Example cme inbound mdp record
 
-namespace cme { 
+namespace cme {
 
 struct sbe {
 

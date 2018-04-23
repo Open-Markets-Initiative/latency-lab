@@ -6,7 +6,7 @@
 
 // Matching runs
 
-namespace omi { 
+namespace omi {
 namespace match {
 
 template <typename inbound, typename outbound>

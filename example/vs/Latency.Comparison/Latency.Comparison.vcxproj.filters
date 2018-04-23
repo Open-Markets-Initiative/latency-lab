@@ -55,9 +55,6 @@
     <ClInclude Include="..\..\..\omi\directory\parsing.hpp">
       <Filter>Header Files\directory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\table\sections.hpp">
-      <Filter>Header Files\table</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\table\percentiles.hpp">
       <Filter>Header Files\table</Filter>
     </ClInclude>

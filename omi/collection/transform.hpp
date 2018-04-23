@@ -7,7 +7,7 @@
 
 // Container transform
 
-namespace omi { 
+namespace omi {
 namespace collection {
 
 // https://stackoverflow.com/questions/23871757/the-stdtransform-like-function-that-returns-transformed-container
@@ -19,7 +19,7 @@ auto transform(const container &elements, function && functor) {
     std::vector<std::result_of_t<function(type)>> result(elements.size());
     std::transform(std::begin(elements), std::end(elements), std::begin(result), functor);
     return result;
-} 
+}
 
 } }
 

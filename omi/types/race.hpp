@@ -4,18 +4,18 @@
 #include <algorithm>
 #include <ostream>
 
-// Race Types
+// Race Sorting Types
 
 namespace omi {
 
 // Time period enum
 enum struct race {
-	unknown,
+    unknown,
     factor,
     minimum,
     maximum,
     average,
-	median
+    median
 };
 
 // Format race qualifier as text 

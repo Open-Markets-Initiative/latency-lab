@@ -8,7 +8,7 @@
 
 //  Options for omi latency analysis
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace analysis {
 
@@ -26,7 +26,7 @@ struct options {
 
     // Construct options from args or ini file
     template<class setting>
-    explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
+    explicit options(const setting &option, bool verbose) : verbose{ verbose } {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
         period = parse::period(option.template conditional<std::string>(::delta::period::option, "microseconds"));

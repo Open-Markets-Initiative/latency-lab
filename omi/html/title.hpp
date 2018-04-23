@@ -3,7 +3,7 @@
 
 #include <omi/html/elements.hpp>
 
-// Html title element 
+// Html title element
 
 namespace omi {
 namespace html {

@@ -7,9 +7,9 @@
 #include <omi/collection/out.hpp>
 #include <omi/types/period.hpp>
 
-// Matches 
+// Matches
 
-namespace omi { 
+namespace omi {
 namespace event {
 
 template <typename trigger, typename response>

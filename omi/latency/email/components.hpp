@@ -11,7 +11,7 @@
 
 // Generate single run html latency report
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace email {
 
@@ -31,7 +31,7 @@ struct components {
     }
 };
 
-// Stream operator (composes html email from layout and data) 
+// Stream operator (composes html email from layout and data)
 inline std::ostream &operator<<(std::ostream &out, const components &email) {
     return out << html::doctype{"html"}
                << html::tag{"html"}

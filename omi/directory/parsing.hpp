@@ -5,7 +5,7 @@
 
     // Directory methods (Under construction)
 
-namespace omi { 
+namespace omi {
 namespace directory {
 
 const std::string INBOUND_EVENT_SUFFIX = "inbound";

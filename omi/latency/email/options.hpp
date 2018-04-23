@@ -10,7 +10,7 @@
 
 //  Options for omi html latency report (single run)
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace email {
 

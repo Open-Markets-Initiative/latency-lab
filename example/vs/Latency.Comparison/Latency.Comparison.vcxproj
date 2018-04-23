@@ -162,7 +162,6 @@
     <ClInclude Include="..\..\..\omi\latency\process\run.hpp" />
     <ClInclude Include="..\..\..\omi\latency\process\runs.hpp" />
     <ClInclude Include="..\..\..\omi\table\percentiles.hpp" />
-    <ClInclude Include="..\..\..\omi\table\sections.hpp" />
     <ClInclude Include="..\..\..\omi\table\statistics.hpp" />
     <ClInclude Include="..\..\..\omi\table\summary.hpp" />
     <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp" />

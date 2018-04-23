@@ -4,7 +4,7 @@
 #include <string>
 #include <omi/source/whitespace.hpp>
 
-// Html doctype element 
+// Html doctype element
 
 namespace omi {
 namespace html {

@@ -8,7 +8,7 @@
 
 // Match run information
 
-namespace omi { 
+namespace omi {
 namespace match {
 
 struct run {

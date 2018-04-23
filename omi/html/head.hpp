@@ -5,7 +5,7 @@
 
 #include <string>
 
-// Html head element 
+// Html head element
 
 namespace omi {
 namespace html {

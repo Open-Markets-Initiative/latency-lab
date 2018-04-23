@@ -7,13 +7,13 @@
 
 // Example event for testing template classes
 
-namespace test { 
+namespace test {
 
 struct event {
 
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
-    omi::seqnum sequence;        // Sbe message sequence number
+    omi::seqnum sequence;          // Sbe message sequence number
     bool processed;                //
 
   //// Methods ////////////////////

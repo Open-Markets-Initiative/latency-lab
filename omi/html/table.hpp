@@ -3,7 +3,7 @@
 
 #include <omi/html/tag.hpp>
 
-// Html table element 
+// Html table element
 
 namespace omi {
 namespace html {

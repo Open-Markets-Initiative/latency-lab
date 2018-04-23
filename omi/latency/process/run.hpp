@@ -34,7 +34,7 @@ auto run(const match::inputs &file, const bool verbose) {
     // Create name and return result
     auto name = std::string(description::inbound) + std::string(" to ") + std::string(description::outbound);
     return match::result<inbound, outbound>{ name, file, events };
-};
+}
 
 } } }
 

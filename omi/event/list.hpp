@@ -7,7 +7,7 @@
 
 // Processed event records
 
-namespace omi { 
+namespace omi {
 namespace event {
 
 template <typename record>

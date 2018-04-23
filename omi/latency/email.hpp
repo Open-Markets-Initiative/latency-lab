@@ -11,7 +11,7 @@ namespace omi {
 namespace latency {
 namespace email {
 
-// Email program defaults 
+// Email program defaults
 struct defaults {
     static constexpr const char * title = "Generate Emailable Latency Report";
     static constexpr const char * inbound = "events";
@@ -39,7 +39,7 @@ void of(int argc, char *argv[]) {
 
     // Program information
     if (options.verbose) { std::cout << options << std::endl; }
-};
+}
 
 } } }
 

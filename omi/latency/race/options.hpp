@@ -10,7 +10,7 @@
 
 //  Options for omi html latency multi run race
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace race {
 

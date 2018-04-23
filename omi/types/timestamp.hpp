@@ -16,7 +16,7 @@ struct timestamp {
   ///// Construction //////////////
 
     // Default constructor
-    timestamp() 
+    timestamp()
       : value{ 0 } {}
 
     // Standard constructor

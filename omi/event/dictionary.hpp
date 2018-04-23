@@ -8,7 +8,7 @@
 
 // Events database
 
-namespace omi { 
+namespace omi {
 namespace event {
 
 template <typename record>

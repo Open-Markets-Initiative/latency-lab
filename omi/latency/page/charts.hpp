@@ -31,7 +31,7 @@ inline std::ostream &operator<<(std::ostream &out, const charts &chart) {
         out << javascript::google::linechart{ run.data, text(run.period), chart.precision, run.name, "draw" + run.name, run.name + "chart"}
             << std::endl;
     }
-            
+
     return out;
 }
 

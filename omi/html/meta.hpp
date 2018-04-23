@@ -5,7 +5,7 @@
 
 #include <string>
 
-// Html meta element 
+// Html meta element
 
 namespace omi {
 namespace html {

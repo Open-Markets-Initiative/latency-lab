@@ -6,7 +6,7 @@
 
 // Match input files or directories
 
-namespace omi { 
+namespace omi {
 namespace match {
 
 struct inputs {

@@ -3,12 +3,12 @@
 
 #include <omi/match/inputs.hpp>
 #include <omi/event/dictionary.hpp>
-#include <omi/event/list.hpp> 
+#include <omi/event/list.hpp>
 #include <omi/event/matches.hpp>
 
 // Match inbound and outbound events
 
-namespace omi { 
+namespace omi {
 namespace match {
 
 template <typename inbound, typename outbound>

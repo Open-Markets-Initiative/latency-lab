@@ -11,7 +11,7 @@ namespace omi {
 namespace latency {
 namespace analysis {
 
-// Analysis program defaults 
+// Analysis program defaults
 struct defaults {
     static constexpr const char * title = "Latency Analysis";
     static constexpr const char * inbound = "events";
@@ -31,7 +31,7 @@ void of(int argc, char *argv[]) {
     auto deltas = result.deltas(options.period);
     std::cout << omi::analysis::of(deltas);
     std::cout << options;
-};
+}
 
 } } }
 

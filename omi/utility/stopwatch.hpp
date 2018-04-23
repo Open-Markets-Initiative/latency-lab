@@ -21,7 +21,7 @@ struct stopwatch {
     // TODO: start bool for printing?
     // TODO: make an autotimer that starts on construction
 
-    // Default constructor 
+    // Default constructor
     stopwatch() {}
 
   //// Implementation /////////////

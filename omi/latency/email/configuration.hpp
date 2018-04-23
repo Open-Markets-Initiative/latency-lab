@@ -5,7 +5,7 @@
 
 // Configuartion options for omi html latency email
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace email {
 

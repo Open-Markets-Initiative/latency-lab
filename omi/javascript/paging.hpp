@@ -17,8 +17,6 @@ struct paging {
       : whitespace{ whitespace } {}
 };
 
-
-
 // Stream operator
 inline std::ostream &operator<<(std::ostream &out, const paging &paging) {
     return out << paging.whitespace << "  function select(evt, testName) {" << std::endl
