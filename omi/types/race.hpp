@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <ostream>
 
-// Race Sorting Types
+// Race By Types
 
 namespace omi {
 
@@ -60,7 +60,7 @@ namespace parse { inline auto race(const std::string& text) {
         return race::median; } 
     if (value == "average" ||
         value == "ave" ||
-        value == "m") {
+        value == "a") {
         return race::average; }
 
     return race::unknown;
