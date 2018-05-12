@@ -11,21 +11,3 @@ Loading outbound responses
 Matching Events
   Matched: 19
   Unmatched: 1
-Percentiles
-  Max: 69.986
-  99%: 10.423
-  90%: 8.601
-  75%: 7.095
-  50%: 6.099
-  25%: 4.970
-  10%: 3.096
-  01%: 3.096
-  Min: 3.096
-Standard Statistics
-  Average:   9.5817
-  Deviation: 14.3252
-Steady State Statistics
-  Average:   5.3732
-  Deviation: 0.9630
-Elapsed Time: 
-  0.5322 seconds

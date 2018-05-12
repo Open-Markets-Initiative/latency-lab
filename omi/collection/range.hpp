@@ -11,7 +11,7 @@ namespace collection {
 
 // Return a vector of values as within upper and lower percentile limits
 template <typename container = std::vector<double>>
-static container range(const container &collection, const unsigned int lower, const unsigned int upper) {
+constexpr container range(const container &collection, const unsigned int lower, const unsigned int upper) {
     // Throw exception on invalid args (check upper/lower)?
     if (empty(collection)) {
         return container{};
