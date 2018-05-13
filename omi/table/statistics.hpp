@@ -1,11 +1,11 @@
 #ifndef OMI_HTML_STATISTICS_HPP_
 #define OMI_HTML_STATISTICS_HPP_
 
+#include <iomanip>
+
 #include <omi/analysis/statistics.hpp>
 #include <omi/collection/range.hpp>
 #include <omi/html/declarations.hpp>
-
-#include <iomanip>
 
 // Html table of common latency statistics
 

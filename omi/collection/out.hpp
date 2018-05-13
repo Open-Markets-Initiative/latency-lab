@@ -10,7 +10,7 @@ namespace collection {
 
 // Stream out all elements in a container 
 template<typename container>
-constexpr auto stream(std::ostream &out, const container &elements) {
+auto stream(std::ostream &out, const container &elements) {
     for (const auto &element : elements) {
         out << element << std::endl;
     }

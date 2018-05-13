@@ -15,7 +15,7 @@ namespace collection {
 
 // Transform vector acoording to operation
 template <typename container, typename function, typename type = typename container::value_type>
-constexpr auto transform(const container &elements, function && functor) {
+auto transform(const container &elements, function && functor) {
     std::vector<std::result_of_t<function(type)>> result(elements.size());
     std::transform(std::begin(elements), std::end(elements), std::begin(result), functor);
     return result;

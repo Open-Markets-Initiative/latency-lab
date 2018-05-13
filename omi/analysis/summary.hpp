@@ -1,10 +1,10 @@
 #ifndef OMI_ANALYSIS_SUMMARY_HPP_
 #define OMI_ANALYSIS_SUMMARY_HPP_
 
-#include <omi/collection/calculate.hpp>
-
 #include <numeric>
 #include <vector>
+
+#include <omi/collection/calculate.hpp>
 
 // Calculate standard summary statistics
 

@@ -1,9 +1,9 @@
 #ifndef OMI_MATCH_INFO_HPP_
 #define OMI_MATCH_INFO_HPP_
 
-#include <omi/event/asserts.hpp>
-
 #include <ostream>
+
+#include <omi/event/asserts.hpp>
 
 // Matched event info
 

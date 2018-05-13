@@ -1,12 +1,12 @@
 #ifndef OMI_LATENCY_PROCESS_RUNS_HPP_
 #define OMI_LATENCY_PROCESS_RUNS_HPP_
 
+#include <iostream>
+
 #include <omi/match/events.hpp>
 #include <omi/match/results.hpp>
 #include <omi/directory/parsing.hpp>
 #include <omi/compare/natural.hpp>
-
-#include <iostream>
 
 // Process multiple run latency matching
 

@@ -1,17 +1,17 @@
 #ifndef OMI_COLLECTION_RANGE_HPP_
 #define OMI_COLLECTION_RANGE_HPP_
 
-#include <omi/collection/percentile.hpp>
-
 #include <vector>
 #include <algorithm>
+
+#include <omi/collection/percentile.hpp>
 
 namespace omi {
 namespace collection {
 
 // Return a vector of values as within upper and lower percentile limits
 template <typename container = std::vector<double>>
-constexpr container range(const container &collection, const unsigned int lower, const unsigned int upper) {
+container range(const container &collection, const unsigned int lower, const unsigned int upper) {
     // Throw exception on invalid args (check upper/lower)?
     if (empty(collection)) {
         return container{};

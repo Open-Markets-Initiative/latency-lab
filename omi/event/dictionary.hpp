@@ -1,10 +1,10 @@
 #ifndef OMI_EVENT_DICTIONARY_HPP_
 #define OMI_EVENT_DICTIONARY_HPP_
 
-#include <omi/source/read.hpp>
-
 #include <vector>
 #include <unordered_map>
+
+#include <omi/source/read.hpp>
 
 // Events database
 

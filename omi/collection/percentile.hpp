@@ -10,14 +10,14 @@ namespace omi {
 namespace collection {
 
 // Return index of percentile
-constexpr int index(const size_t count, const uint32_t percentile) {
+inline int index(const size_t count, const uint32_t percentile) {
     const auto offset = static_cast<int>(count * percentile / 100); // check this
     return offset > 0 ? offset - 1 : 0;
 }
 
 // Returns value at percentile (sorts array by nth_element)
 template <typename container>
-constexpr auto percentile(const uint32_t percentile, container &values) {
+auto percentile(const uint32_t percentile, container &values) {
     if (empty(values)) {
         return typename container::value_type{};
     }

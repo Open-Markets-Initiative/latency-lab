@@ -1,9 +1,9 @@
 #ifndef OMI_EVENT_EVENTS_HPP_
 #define OMI_EVENT_EVENTS_HPP_
 
-#include <omi/source/read.hpp>
-
 #include <vector>
+
+#include <omi/source/read.hpp>
 
 // Processed event records
 

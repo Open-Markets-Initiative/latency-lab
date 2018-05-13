@@ -1,9 +1,9 @@
 #ifndef OMI_ANALYSIS_STATISTICS_HPP_
 #define OMI_ANALYSIS_STATISTICS_HPP_
 
-#include <omi/collection/calculate.hpp>
-
 #include <vector>
+
+#include <omi/collection/calculate.hpp>
 
 // Calculate standard statistics
 

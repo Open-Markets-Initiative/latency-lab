@@ -1,9 +1,9 @@
 #ifndef OMI_LATENCY_PROCESS_RUN_HPP_
 #define OMI_LATENCY_PROCESS_RUN_HPP_
 
-#include <omi/match/results.hpp>
-
 #include <iostream>
+
+#include <omi/match/results.hpp>
 
 // Process single run latency matching
 

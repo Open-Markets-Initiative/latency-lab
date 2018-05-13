@@ -17,13 +17,13 @@ namespace collection {
 
 // Calculate minimum
 template <typename container>
-constexpr auto minimum(const container &collection) {
+auto minimum(const container &collection) {
     return empty(collection) ? typename container::value_type{} : *std::min_element(std::begin(collection), std::end(collection));
 }
 
 // Calculate minimum
 template <typename container>
-constexpr auto maximum(const container &collection) {
+auto maximum(const container &collection) {
     return empty(collection) ? typename container::value_type{} : *std::max_element(std::begin(collection), std::end(collection));
 }
 
@@ -31,20 +31,20 @@ constexpr auto maximum(const container &collection) {
 
 // Calculate sum
 template <typename container>
-constexpr auto sum(const container &collection) {
+auto sum(const container &collection) {
     return std::accumulate(std::begin(collection), std::end(collection), typename container::value_type{});
 }
 
 // Calculate average
 template <typename container>
-constexpr auto average(const container &elements) {
+auto average(const container &elements) {
     auto count = collection::count(elements);
     return count > 0 ? collection::sum(elements) / count : typename container::value_type{};
 }
 
 // Calculate standard deviation with pre calulated average
 template <typename container>
-constexpr auto deviation(const container &values, typename container::value_type average) {
+auto deviation(const container &values, typename container::value_type average) {
     // Verify that array has elements
     auto count = collection::count(values);
     if (count == 0) { return typename container::value_type{}; }
@@ -59,7 +59,7 @@ constexpr auto deviation(const container &values, typename container::value_type
 
 // Calculate standard deviation
 template <typename container>
-constexpr auto deviation(const container &values) {
+auto deviation(const container &values) {
     return deviation(values, average(values));
 }
 

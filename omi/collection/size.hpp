@@ -11,13 +11,13 @@ namespace collection {
 
 // Is container empty?
 template <typename container>
-constexpr bool empty(container &values) {
+bool empty(container &values) {
     return values.begin() == values.end();
 }
 
 // Calculate count
 template <typename container>
-constexpr size_t count(container &values) {
+size_t count(container &values) {
     return values.size();
 }
 

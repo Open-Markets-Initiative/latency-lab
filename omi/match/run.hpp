@@ -1,10 +1,10 @@
 #ifndef OMI_MATCH_RUN_HPP_
 #define OMI_MATCH_RUN_HPP_
 
+#include <vector>
+
 #include <omi/types/period.hpp>
 #include <omi/match/inputs.hpp>
-
-#include <vector>
 
 // Match run information
 
