@@ -152,9 +152,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\omi\test\main.cpp" />
-    <ClCompile Include="..\..\..\tests\analysis\percentile.cpp" />
     <ClCompile Include="..\..\..\tests\analysis\percentiles.cpp" />
     <ClCompile Include="..\..\..\tests\analysis\statistics.cpp" />
+    <ClCompile Include="..\..\..\tests\collection\calculate.cpp" />
+    <ClCompile Include="..\..\..\tests\collection\percentile.cpp" />
     <ClCompile Include="..\..\..\tests\match\timestamps.cpp" />
     <ClCompile Include="..\..\..\tests\types\period.cpp" />
     <ClCompile Include="..\..\..\tests\types\race.cpp" />

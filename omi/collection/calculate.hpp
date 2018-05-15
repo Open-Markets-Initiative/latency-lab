@@ -63,7 +63,6 @@ auto deviation(const container &values) {
     return deviation(values, average(values));
 }
 
-
 } }
 
 #endif

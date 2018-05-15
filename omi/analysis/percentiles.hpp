@@ -1,12 +1,12 @@
 #ifndef OMI_ANALYSIS_PERCENTILES_HPP_
 #define OMI_ANALYSIS_PERCENTILES_HPP_
- 
-#include <omi/collection/percentile.hpp>
 
 #include <algorithm>
-#include <vector>
+#include <vector> 
 
-    // Calculate percentiles of a container of values
+#include <omi/collection/percentile.hpp>
+
+// Calculate percentiles of a container of values
 
 namespace omi {
 namespace analysis {

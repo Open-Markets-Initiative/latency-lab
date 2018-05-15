@@ -32,7 +32,7 @@ struct results {
 
 // Static constructor
 template <typename container>
-static constexpr auto of(const container &values) {
+auto of(const container &values) {
     return results<container>{ values };
 }
 
