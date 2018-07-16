@@ -13,20 +13,23 @@ before_install:
   - sudo apt-get update -qq
 
 install: 
-  # C++14
+  # C++17
   - sudo apt-get install -qq g++-6
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-  - wget https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz
-  - tar -zxf cmake-3.9.2.tar.gz
-  - cd cmake-3.9.2
+
+  - wget https://cmake.org/files/v3.11/cmake-3.11.4.tar.gz
+  #- wget https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz
+  - tar -zxf cmake-3.11.4.tar.gz
+  - cd cmake-3.11.4
   - ./bootstrap
   - make -s
   - sudo make install
   - cmake --version
   - cd ..
-  - wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download
-  - tar -xzf boost_1_64_0.tar.gz
-  - cd boost_1_64_0/
+  - wget https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz
+  #- wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download
+  - tar -xzf boost_1_67_0.tar.gz
+  - cd boost_1_67_0/
   - ./bootstrap.sh --prefix=. --with-libraries=program_options,filesystem,system
   - ./b2 -d0
   - ./b2 install -d0
