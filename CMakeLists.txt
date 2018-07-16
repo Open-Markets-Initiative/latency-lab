@@ -1,7 +1,9 @@
+cmake_minimum_required(VERSION 3.11)
+
 project(omilatencylab)
 
 # Set compiler flags
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 # Set directories
 set(OMI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/omi)
@@ -17,8 +19,8 @@ if (WIN64)
     # Find boost
     find_package(Boost COMPONENTS program_options REQUIRED)
 else()
-    #set(BOOST_ROOT /home/parallels/Downloads/boost_1_64_0)
-    set(BOOST_ROOT /home/travis/build/matthewnam/latency-lab/boost_1_64_0)
+    set(BOOST_ROOT /home/young/Downloads/boost_1_67_0)
+    #set(BOOST_ROOT /home/travis/build/matthewnam/latency-lab/boost_1_64_0)
     find_package(Boost)
 
     set(Boost_INCLUDE_DIR ${BOOST_ROOT})
