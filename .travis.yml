@@ -11,8 +11,6 @@ before_install:
   # C++14
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
-  
-  - which cmake
 
 install: 
   # C++17
@@ -37,6 +35,7 @@ install:
   - ./b2 install -d0
 
 before_script:  
+  - export PATH=/usr/local/bin:$PATH
   - cd ..
   - mkdir build
   - cd build
