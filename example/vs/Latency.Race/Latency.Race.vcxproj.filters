@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\race">
+      <UniqueIdentifier>{419c9e9a-c2cd-4c12-82f9-dc4696cbe409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\page">
+      <UniqueIdentifier>{c9163e24-10e1-4ecf-b2a3-50c6f0b65008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\type">
+      <UniqueIdentifier>{a7418cea-39b5-4b84-be6e-f8dda77d4517}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\race\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\omi\latency\race\configuration.hpp">
+      <Filter>Header Files\race</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\race\layout.hpp">
+      <Filter>Header Files\race</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\race\options.hpp">
+      <Filter>Header Files\race</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\race.hpp">
+      <Filter>Header Files\race</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\race\summary.hpp">
+      <Filter>Header Files\race</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\race.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\frame.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\period.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\seqnum.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timespan.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timestamp.hpp">
+      <Filter>Header Files\type</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

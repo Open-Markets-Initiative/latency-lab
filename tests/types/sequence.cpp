@@ -1,46 +1,54 @@
-#include <boost/test/unit_test.hpp>
-#include <omi/types/sequence.hpp>
+#include <omi/test/definitions.hpp>
+#include <omi/types/seqnum.hpp>
 
-// Regression tests for portable timestamp type
+// Regression tests for portable sequence number type
 BOOST_AUTO_TEST_SUITE(TypesSequence)
 
 using namespace omi;
 
 BOOST_AUTO_TEST_CASE(VerifyDefaultConstructor) {
-    sequence sequence;
+    auto comment = "Verify default constructor";
+
+    seqnum sequence;
 
     auto expected = 0;
     auto actual = sequence.get();
 
-    BOOST_CHECK_EQUAL(expected, actual);
+    CHECK_EQUAL(expected, actual, comment);
 }
 
 ///////////////////////
 
 BOOST_AUTO_TEST_CASE(VerifyEqualsOperatoReturnsTrue) {
-    auto condition = sequence{ 5 } == sequence{ 5 };
+    auto comment = "Verify sequence equals operator returns true";
 
-    BOOST_CHECK(condition);
+    auto condition = seqnum{ 5 } == seqnum{ 5 };
+
+    BOOST_CHECK_MESSAGE(condition, comment);
 }
 
 BOOST_AUTO_TEST_CASE(VerifyEqualsOperatoReturnsFalse) {
-    auto condition = sequence{ 5 } == sequence{ 6 };
+    auto comment = "Verify sequence equals operator returns false";
 
-    BOOST_CHECK(not condition);
+    auto condition = seqnum{ 5 } == seqnum{ 6 };
+
+    BOOST_CHECK_MESSAGE(not condition, comment);
 }
 
 ///////////////////////
 
 BOOST_AUTO_TEST_CASE(VerifyLessthanOperatoReturnsTrue) {
-    auto condition = sequence{ 5 } < sequence{ 10 };
+    auto comment = "Verify sequence type less than operator returns true";
 
-    BOOST_CHECK(condition);
+    auto condition = seqnum{ 5 } < seqnum{ 10 };
+
+    BOOST_CHECK_MESSAGE(condition, comment);
 }
 
 BOOST_AUTO_TEST_CASE(VerifyOperatLessThanReturnsFalse) {
     auto comment = "Verify sequence type less than operator returns false";
 
-    auto condition = sequence{ 10 } > sequence{ 6 };
+    auto condition = seqnum{ 1 } > seqnum{ 6 };
 
     BOOST_CHECK_MESSAGE(not condition, comment);
 }

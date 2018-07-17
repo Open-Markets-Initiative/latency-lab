@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <iso646.h>
 
 // Google chart javascript
 
@@ -17,12 +18,15 @@ struct linechart {
     // script options
     omi::whitespace whitespace;
     std::string title;
+    std::string function;
     std::string element;
+    std::string unit;
     std::vector<double> values;
+    size_t precision{ 4 };
 
     // Constructor
-    explicit linechart(std::vector<double> values, const std::string &element = "latency", const std::string &title = "", indent whitespace = indent::none)
-      : whitespace{whitespace}, title{title}, element{ element }, values{values} {}
+    explicit linechart(const std::vector<double> values, const std::string &unit, const size_t precision, const std::string &title = "", const std::string &function = "draw", const std::string &element = "", const indent whitespace = indent::none)
+      : whitespace{ whitespace }, title{ title }, function{ function }, element{ element }, unit{ unit }, values{ values }, precision{ precision } {}
 };
 
 
@@ -30,16 +34,14 @@ struct linechart {
 
 // Stream operator (prints javascript close tag)
 inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
-    out << chart.whitespace << "  google.charts.load('current', {'packages':['corechart', 'line']});" << std::endl
-        << chart.whitespace << "  google.charts.setOnLoadCallback(linegraph);" << std::endl
-        << std::endl
-        << chart.whitespace << "  function linegraph() {" << std::endl << std::endl // TODO: Break this down into composable parts
-        << chart.whitespace << "    var data = new google.visualization.DataTable();" << std::endl
+    out << chart.whitespace << "  google.charts.setOnLoadCallback(draw" << chart.element << ");" << std::endl
+        << chart.whitespace << "  function draw" << chart.element << "() {" << std::endl << std::endl // TODO: Break this down into composable parts
+        << chart.whitespace << "      var data = new google.visualization.DataTable();" << std::endl
         << chart.whitespace << "      data.addColumn('number', 'Event');" << std::endl
-        << chart.whitespace << "      data.addColumn('number', 'Microseconds');" << std::endl
+        << chart.whitespace << "      data.addColumn('number', '"<< chart.unit << "');" << std::endl
         << chart.whitespace << "      data.addRows([" << std::endl;
     for (size_t i = 0, count = chart.values.size(); i < count; ++i) {
-        out << chart.whitespace << "        [" << i + 1 << ", " << std::fixed << std::setprecision(4) << chart.values[i] <<"]" << (i != count - 1 ? "," : "") << std::endl;
+        out << chart.whitespace << "        [" << i + 1 << ", " << std::fixed << std::setprecision(chart.precision) << chart.values[i] <<"]" << (i != count - 1 ? "," : "") << std::endl;
     }
     out << chart.whitespace << "      ]);" << std::endl
         << std::endl
@@ -52,13 +54,13 @@ inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
         << chart.whitespace << "        title: 'Events'" << std::endl // TODO: calculate this kind of thing
         << chart.whitespace << "      }," << std::endl
         << chart.whitespace << "      vAxis: {" << std::endl
-        << chart.whitespace << "        title: 'Latency (Microseconds)'," << std::endl
+        << chart.whitespace << "        title: 'Latency (" << chart.unit << ")'," << std::endl
 //        << chart.whitespace << "      ticks: [0, 500, 1000, 1500]" << std::endl need this
         << chart.whitespace << "      }" << std::endl
-        << chart.whitespace << "  };" << std::endl
+        << chart.whitespace << "    };" << std::endl
         << std::endl
-        << chart.whitespace << "  var chart = new google.visualization.LineChart(document.getElementById('" << chart.element << "'));" << std::endl << std::endl
-        << chart.whitespace << "  chart.draw(data, options);" << std::endl
+        << chart.whitespace << "    var chart = new google.visualization.LineChart(document.getElementById('" << chart.element << "'));" << std::endl
+        << chart.whitespace << "    chart.draw(data, options);" << std::endl
         << chart.whitespace << "  }" << std::endl;
 
     return out;

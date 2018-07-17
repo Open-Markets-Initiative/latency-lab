@@ -5,14 +5,14 @@
 
 #include <string>
 
-// Html head element 
+// Html head element
 
 namespace omi {
 namespace html {
 
 struct head : html::tag {
 
-    explicit head(indent whitespace = indent::none)
+    explicit head(const indent whitespace = indent::none)
       : tag{"head", whitespace} {}
 };
 

@@ -1,6 +1,8 @@
 #ifndef OMI_TYPES_TIMESTAMP_HPP_
 #define OMI_TYPES_TIMESTAMP_HPP_
 
+#include <omi/types/timespan.hpp>
+
 #include <string>
 #include <chrono>
 #include <iso646.h>
@@ -9,17 +11,12 @@
 
 namespace omi {
 
-// Better way to do this?
-namespace nanoseconds { namespace per { static constexpr uint64_t second = 1000000000; }}
-namespace nanoseconds { namespace per { static constexpr uint64_t microsecond = 1000; }}
-namespace nanoseconds { namespace per { static constexpr uint64_t millisecond = 1000000; }}
-
 struct timestamp {
 
   ///// Construction //////////////
 
     // Default constructor
-    timestamp() 
+    timestamp()
       : value{ 0 } {}
 
     // Standard constructor
@@ -34,7 +31,7 @@ struct timestamp {
 
     // Get current time from system clock
     static timestamp now() {
-        auto duration = std::chrono::system_clock::now().time_since_epoch();
+        const auto duration = std::chrono::system_clock::now().time_since_epoch();
         return nanoseconds(std::chrono::duration_cast<std::chrono::nanoseconds>(duration).count());
     }
 
@@ -67,7 +64,7 @@ struct timestamp {
 
     // Number of seconds since epoch
     double seconds() const {
-        return value / static_cast<double>(nanoseconds::per::second);
+        return value / static_cast<double>(nanoseconds::per::second);  // use inline function
     }
 
     // Number of microseconds since epoch
@@ -125,8 +122,7 @@ struct timestamp {
     uint64_t value;
 };
 
-
-///////////////////////////////////////////////
+///////////////////////////////////
 
 // Equals operator
 inline bool operator==(const timestamp& lhs, const timestamp& rhs) {
@@ -157,6 +153,15 @@ inline bool operator<=(const timestamp& lhs, const timestamp& rhs) {
 inline bool operator>=(const timestamp& lhs, const timestamp& rhs) {
     return not operator<(lhs, rhs);
 }
+
+///////////////////////////////////
+
+// delta time => Required method for analysis
+inline auto difference(const timestamp& start, const timestamp& finish) {
+    return timespan::nanoseconds(start.nanoseconds(), finish.nanoseconds());
+}
+
+///////////////////////////////////
 
 // Stream operator
 inline std::ostream & operator<<(std::ostream &out, const timestamp &timestamp) {

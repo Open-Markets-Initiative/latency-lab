@@ -21,7 +21,7 @@ struct graph : html::element {
 
     std::string whitespace;
 
-    explicit graph(const std::vector<double> &values, indent whitespace = indent::none)
+    explicit graph(const std::vector<double> &values, const indent whitespace = indent::none)
         : html::element{ "img", attribute{ "src", src(values) }, whitespace } {}
 
   /////////////////////////////////

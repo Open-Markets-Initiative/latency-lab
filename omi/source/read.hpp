@@ -10,7 +10,7 @@
 namespace omi {
 namespace source {
 
-template<class input, class record>
+template<typename input, typename record>
 auto read(const std::string &path) {
     // Verify file
     std::ifstream stream(path.c_str());

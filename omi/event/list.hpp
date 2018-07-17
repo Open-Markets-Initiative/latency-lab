@@ -1,17 +1,17 @@
 #ifndef OMI_EVENT_EVENTS_HPP_
 #define OMI_EVENT_EVENTS_HPP_
 
-#include <omi/source/read.hpp>
-
 #include <vector>
+
+#include <omi/source/read.hpp>
 
 // Processed event records
 
-namespace omi { 
+namespace omi {
 namespace event {
 
-template <class record>
-struct events {
+template <typename record>
+struct list {
 
   //// Member Variables ///////////
 
@@ -21,11 +21,11 @@ struct events {
   //// Construction ///////////////
 
     // Default constructor
-    events() {}
+    list() {}
 
     // Static constructor for record by line file
     static auto read(const std::string &file) {
-        return source::read<events, record>(file); // TODO: verify this does not create a copy
+        return source::read<list, record>(file); // TODO: verify this does not create a copy
     }
 
   //// Implementation /////////////
@@ -45,12 +45,9 @@ struct events {
     }
 };
 
-// Convenience alias for responses
-template<class outbound> using responses = events<outbound>;
-
 // Stream operator
-template <class record>
-std::ostream &operator<<(std::ostream &out, const responses<record> &events) {
+template <typename record>
+std::ostream &operator<<(std::ostream &out, const list<record> &events) {
     return out << "  Processed: " << events.records() << std::endl
                << "  Valid: " << events.valids.size() << std::endl
                << "  Invalid: " << events.invalids.size() << std::endl;

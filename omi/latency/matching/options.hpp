@@ -5,10 +5,11 @@
 #include <omi/program/settings.hpp>
 #include <omi/latency/args.hpp>
 #include <omi/match/inputs.hpp>
+#include <omi/utility/autotimer.hpp>
 
 //  Options for omi latency matching
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace matching {
 
@@ -19,12 +20,13 @@ struct options {
     match::inputs files;           // Event input files
     std::string path;              // Matches list output path
     bool verbose;                  // Print status to standard out
+    autotimer timer;               // Program timer
 
   //// Construction //////////////
 
     // Construct options from args or ini file
-    template<class setting>
-    explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
+    template<typename setting>
+    explicit options(const setting &option, bool verbose) : verbose{ verbose } {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
         path = option.template required<std::string>(::matching::file::option);
@@ -33,7 +35,7 @@ struct options {
   //// Interface ////////////////
 
     // Parse program args into options
-    static options parse(int argc, char *argv[], std::string title = "Matching Details") {
+    static options parse(int argc, char *argv[], const std::string title = "Matching Details") {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()
@@ -48,6 +50,11 @@ struct options {
         return options{ args, args.verbose() };
     }
 };
+
+// Stream operator
+inline std::ostream &operator<<(std::ostream &out, const options &program) {
+    return out << program.timer;
+}
 
 } } }
 

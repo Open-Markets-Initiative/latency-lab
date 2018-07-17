@@ -1,68 +1,69 @@
 #ifndef OMI_ANALYSIS_PERCENTILES_HPP_
 #define OMI_ANALYSIS_PERCENTILES_HPP_
- 
-#include <omi/analysis/percentile.hpp>
 
-#include <iomanip>
 #include <algorithm>
-#include <vector>
+#include <vector> 
 
-    // Calculate percentiles of a vector of values
+#include <omi/collection/percentile.hpp>
+
+// Calculate percentiles of a container of values
 
 namespace omi {
 namespace analysis {
 
+template <typename container = std::vector<double>>
 struct percentiles {
+    using value_type = typename container::value_type;
 
   //// Member Variables ///////////
 
-    size_t count { 0 };
+    // Total number of values
+    size_t count{ 0 };
 
-    double p100 { 0.};
-    double p99  { 0.};
-    double p90  { 0.};
-    double p75  { 0.};
-    double p50  { 0.};
-    double p25  { 0.};
-    double p10  { 0.};
-    double p01  { 0.};
-    double p00  { 0.};
-
-    size_t precision { 3 };
+    value_type p100{ 0 };
+    value_type p99{ 0 };
+    value_type p90{ 0 };
+    value_type p75{ 0 };
+    value_type p50{ 0 };
+    value_type p25{ 0 };
+    value_type p10{ 0 };
+    value_type p01{ 0 };
+    value_type p00{ 0 };
 
   //// Construction ///////////////
 
     // Default constructor
     percentiles() {}
 
-    // Standard constructor (uses a copy - is this best?)
-    explicit percentiles(std::vector<double> values) {
-        if (values.empty()) { return; }
+    // Standard constructor
+    explicit percentiles(const container &original) {
+        if (original.empty()) { return; }
 
-        // sort
+        // Copy and sort
+        auto values = original;
         std::sort(values.begin(), values.end());
 
-        // Get these before nth elment reorders the elements
+        // Get these before percentiles reorders the elements
         count = values.size();
         p00 = values.front();
         p100 = values.back();
 
         // What is the best order for these?
-        p01 = percentile::element(values, 01);
-        p10 = percentile::element(values, 10);
-        p25 = percentile::element(values, 25);
-        p50 = percentile::element(values, 50);
-        p75 = percentile::element(values, 75);
-        p90 = percentile::element(values, 90);
-        p99 = percentile::element(values, 99);
+        p01 = collection::percentile(01, values);
+        p10 = collection::percentile(10, values);
+        p25 = collection::percentile(25, values);
+        p50 = collection::percentile(50, values);
+        p75 = collection::percentile(75, values);
+        p90 = collection::percentile(90, values);
+        p99 = collection::percentile(99, values);
     }
 };
 
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const percentiles &percentile) {
-    return out << std::fixed << std::setprecision(percentile.precision)
-               << "  Max: " << percentile.p100 << std::endl
+template <typename contanier>
+std::ostream &operator<<(std::ostream &out, const percentiles<contanier> &percentile) {
+    return out << "  Max: " << percentile.p100 << std::endl
                << "  99%: " << percentile.p99 << std::endl
                << "  90%: " << percentile.p90 << std::endl
                << "  75%: " << percentile.p75 << std::endl

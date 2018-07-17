@@ -1,5 +1,3 @@
-add_executable(comparison main.cpp)
-target_link_libraries(comparison
-        ${Boost_LIBRARY_DIR}/libboost_filesystem.so
-        ${Boost_LIBRARY_DIR}/libboost_system.so
-        ${Boost_LIBRARY_DIR}/libboost_program_options.so)
+set(COMPARISON_BINARY comparison)
+add_executable(${COMPARISON_BINARY} main.cpp)
+target_link_libraries(${COMPARISON_BINARY} ${Boost_LIBRARIES})

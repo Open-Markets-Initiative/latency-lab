@@ -1,29 +1,13 @@
 Latency Analysis
-Loading inbound sbe market data events
+Loading inbound events
   Processed: 19362
   Valid: 4841
   Duplicate: 4840
   Invalid: 9681
-Loading outbound ilink fix message responses
+Loading outbound responses
   Processed: 20
   Valid: 20
   Invalid: 0
 Matching Events
   Matched: 19
   Unmatched: 1
-Percentiles
-  Max: 69.986
-  99%: 10.423
-  90%: 8.601
-  75%: 7.095
-  50%: 6.099
-  25%: 4.970
-  10%: 3.096
-  01%: 3.096
-  Min: 3.096
-Standard Statistics
-  Average:   9.5817
-  Deviation: 14.3252
-Steady State Statistics
-  Average:   5.3732
-  Deviation: 0.9630

@@ -5,7 +5,7 @@
 
 // Example inbound event
 
-namespace example { 
+namespace example {
 
 struct inbound {
 

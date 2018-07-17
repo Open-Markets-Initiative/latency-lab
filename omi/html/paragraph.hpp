@@ -5,7 +5,7 @@
 
 #include <string>
 
-// Html paragraph element 
+// Html paragraph element
 
 namespace omi {
 namespace html {

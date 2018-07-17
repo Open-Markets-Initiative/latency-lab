@@ -1,18 +1,18 @@
-#ifndef OMI_EVENT_DATABASE_HPP_
-#define OMI_EVENT_DATABASE_HPP_
-
-#include <omi/source/read.hpp>
+#ifndef OMI_EVENT_DICTIONARY_HPP_
+#define OMI_EVENT_DICTIONARY_HPP_
 
 #include <vector>
 #include <unordered_map>
 
+#include <omi/source/read.hpp>
+
 // Events database
 
-namespace omi { 
+namespace omi {
 namespace event {
 
-template <class record>
-struct database {
+template <typename record>
+struct dictionary {
 
   //// Member Variables ///////////
 
@@ -25,11 +25,11 @@ struct database {
   //// Construction ///////////////
 
     // Default constructor
-    database() {}
+    dictionary() {}
 
     // Static constructor for reading records from line by line file
     static auto read(const std::string &file) {
-        return source::read<database, record>(file);
+        return source::read<dictionary, record>(file);
     }
 
   //// Implementation /////////////
@@ -63,8 +63,8 @@ struct database {
 };
 
 // Stream operator
-template <class record>
-std::ostream &operator<<(std::ostream &out, const database<record> &database) {
+template <typename record>
+std::ostream &operator<<(std::ostream &out, const dictionary<record> &database) {
     return out << "  Processed: " << database.records() << std::endl
                << "  Valid: " << database.events.size() << std::endl
                << "  Duplicate: " << database.duplicates.size() << std::endl

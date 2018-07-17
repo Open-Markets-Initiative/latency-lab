@@ -34,7 +34,7 @@ struct settings {
 
   //// Methods ////////////////////
 
-    // Conditional returns value if it exists,  returns 
+    // Conditional returns value if it exists
     template<typename T>
     T conditional(const std::string field, const T &value) const {
         return properties.get<T>(field, value);

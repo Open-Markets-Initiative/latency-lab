@@ -3,18 +3,16 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="omi.css"></link>
-<script type="text/javascript" src="omi.js"></script>
 <meta charset="utf-8">
 
 <title>Omi</title>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-
   google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_2017_06_04);
 
-  function drawChart_2017_06_04() {
+  google.charts.setOnLoadCallback(draw1xchart);
+  function draw1xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -42,7 +40,7 @@
       ]);
 
     var options = {
-      title: '2017_06_04',
+      title: '1x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -52,36 +50,75 @@
       vAxis: {
         title: 'Latency (Microseconds)',
       }
-  };
+    };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_2017_06_04'));
-
-  chart.draw(data, options);
+    var chart = new google.visualization.LineChart(document.getElementById('1xchart'));
+    chart.draw(data, options);
   }
-</script>
 
-<script type="text/javascript">
-
-  google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_2017_06_05);
-
-  function drawChart_2017_06_05() {
+  google.charts.setOnLoadCallback(draw2xchart);
+  function draw2xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
       data.addColumn('number', 'Microseconds');
       data.addRows([
-        [1, 69.9860],
-        [2, 5.0000],
-        [3, 7.1990],
-        [4, 6.3720],
-        [5, 6.0970],
-        [6, 4.9700],
-        [7, 4.0220],
-        [8, 5.6510],
-        [9, 6.1970],
-        [10, 7.0950],
-        [11, 8.6010],
+        [1, 70.0860],
+        [2, 5.0300],
+        [3, 7.2990],
+        [4, 7.3720],
+        [5, 6.1470],
+        [6, 4.9780],
+        [7, 4.4220],
+        [8, 5.7510],
+        [9, 6.3970],
+        [10, 7.0850],
+        [11, 9.0010],
+        [12, 10.4330],
+        [13, 34.9200],
+        [14, 6.1900],
+        [15, 6.1670],
+        [16, 6.1790],
+        [17, 7.8080],
+        [18, 3.1960],
+        [19, 6.2000]
+      ]);
+
+    var options = {
+      title: '2x',
+      legend: 'none',
+      width: 1000,
+      height: 500,
+      hAxis: {
+        title: 'Events'
+      },
+      vAxis: {
+        title: 'Latency (Microseconds)',
+      }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('2xchart'));
+    chart.draw(data, options);
+  }
+
+  google.charts.setOnLoadCallback(draw10xchart);
+  function draw10xchart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Event');
+      data.addColumn('number', 'Microseconds');
+      data.addRows([
+        [1, 99.9860],
+        [2, 105.0000],
+        [3, 27.1990],
+        [4, 7.1720],
+        [5, 10.0970],
+        [6, 6.9700],
+        [7, 34.0220],
+        [8, 5.6590],
+        [9, 6.6470],
+        [10, 8.0950],
+        [11, 118.6010],
         [12, 10.4230],
         [13, 4.9100],
         [14, 6.1900],
@@ -93,7 +130,7 @@
       ]);
 
     var options = {
-      title: '2017_06_05',
+      title: '10x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -103,82 +140,139 @@
       vAxis: {
         title: 'Latency (Microseconds)',
       }
-  };
+    };
 
-  var chart = new google.visualization.LineChart(document.getElementById('chart_2017_06_05'));
+    var chart = new google.visualization.LineChart(document.getElementById('10xchart'));
+    chart.draw(data, options);
+  }
 
-  chart.draw(data, options);
+  function select(evt, testName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent")
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(testName).style.display = "block";
+    evt.currentTarget.className += " active";
   }
 </script>
-
-<script type="text/javascript">
-
-  google.charts.load('current', {'packages':['corechart', 'line']});
-  google.charts.setOnLoadCallback(drawChart_2017_06_06);
-
-  function drawChart_2017_06_06() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Event');
-      data.addColumn('number', 'Microseconds');
-      data.addRows([
-        [1, 69.9860],
-        [2, 5.0000],
-        [3, 7.1990],
-        [4, 6.3720],
-        [5, 6.0970],
-        [6, 4.9700],
-        [7, 4.0220],
-        [8, 5.6510],
-        [9, 6.1970],
-        [10, 7.0950],
-        [11, 8.6010],
-        [12, 10.4230],
-        [13, 4.9100],
-        [14, 6.1900],
-        [15, 6.0970],
-        [16, 6.0990],
-        [17, 7.8980],
-        [18, 3.0960],
-        [19, 6.1500]
-      ]);
-
-    var options = {
-      title: '2017_06_06',
-      legend: 'none',
-      width: 1000,
-      height: 500,
-      hAxis: {
-        title: 'Events'
-      },
-      vAxis: {
-        title: 'Latency (Microseconds)',
-      }
-  };
-
-  var chart = new google.visualization.LineChart(document.getElementById('chart_2017_06_06'));
-
-  chart.draw(data, options);
-  }
-</script>
-
 </head>
+
 <body>
 <header>
 <h3>Omi Latency Lab</h3>
 </header>
+
 <div class="tab">
-<button class="tablinks" onclick="openTest(event, '2017_06_04')" id="defaultOpen">2017_06_04 Test</button>
-<button class="tablinks" onclick="openTest(event, '2017_06_05')">2017_06_05 Test</button>
-<button class="tablinks" onclick="openTest(event, '2017_06_06')">2017_06_06 Test</button>
+<button class="tablinks" onclick="select(event, 'summary')" id="defaultOpen">Summary</button>
+<button class="tablinks" onclick="select(event, '1x')">1x</button>
+<button class="tablinks" onclick="select(event, '2x')">2x</button>
+<button class="tablinks" onclick="select(event, '10x')">10x</button>
 </div>
-<div id="2017_06_04" class="tabcontent">
+
+<div id="summary" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>2017_06_04</h3>
+<table class="gridtable">
+<tr>
+  <th>1x</th>
+  <th>Average</th>
+  <th>Std Dev</th>
+  <th>Minimum</th>
+  <th>Maximum</th>
+  <th>Events</th>
+</tr>
+<tr>
+  <td>Standard</td>
+  <td>9.5817</td>
+  <td>14.3252</td>
+  <td>3.0960</td>
+  <td>69.9860</td>
+  <td>19</td>
+</tr>
+<tr>
+  <td>Steady State</td>
+  <td>5.3732</td>
+  <td>0.9630</td>
+  <td>3.0960</td>
+  <td>6.1970</td>
+  <td>12</td>
+</tr>
+</table>
+</section>
+<section>
+<table class="gridtable">
+<tr>
+  <th>2x</th>
+  <th>Average</th>
+  <th>Std Dev</th>
+  <th>Minimum</th>
+  <th>Maximum</th>
+  <th>Events</th>
+</tr>
+<tr>
+  <td>Standard</td>
+  <td>11.2979</td>
+  <td>15.3202</td>
+  <td>3.1960</td>
+  <td>70.0860</td>
+  <td>19</td>
+</tr>
+<tr>
+  <td>Steady State</td>
+  <td>5.6452</td>
+  <td>1.0158</td>
+  <td>3.1960</td>
+  <td>7.0850</td>
+  <td>12</td>
+</tr>
+</table>
+</section>
+<section>
+<table class="gridtable">
+<tr>
+  <th>10x</th>
+  <th>Average</th>
+  <th>Std Dev</th>
+  <th>Minimum</th>
+  <th>Maximum</th>
+  <th>Events</th>
+</tr>
+<tr>
+  <td>Standard</td>
+  <td>25.2795</td>
+  <td>36.6653</td>
+  <td>3.0960</td>
+  <td>118.6010</td>
+  <td>19</td>
+</tr>
+<tr>
+  <td>Steady State</td>
+  <td>6.2486</td>
+  <td>1.2845</td>
+  <td>3.0960</td>
+  <td>8.0950</td>
+  <td>12</td>
+</tr>
+</table>
+</section>
+<section>
+<h3>Summary</h3>
+<article>Click on tabs for individual run statistics</article>
+</section>
+</div>
+
+<div id="1x" class="tabcontent">
+<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+<section>
+<h3>1x</h3>
 
 <article>
-<div id="chart_2017_06_04"></div>
+<div id="1xchart"></div>
 </article>
 
 <article>
@@ -236,13 +330,13 @@
 </article>
 </section>
 </div>
-<div id="2017_06_05" class="tabcontent">
+<div id="2x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>2017_06_05</h3>
+<h3>2x</h3>
 
 <article>
-<div id="chart_2017_06_05"></div>
+<div id="2xchart"></div>
 </article>
 
 <article>
@@ -255,13 +349,13 @@
 </tr>
 <tr>
   <td>Average</td>
-  <td>9.582</td>
-  <td>5.373</td>
+  <td>11.2979</td>
+  <td>5.6452</td>
 </tr>
 <tr>
   <td>Standard Deviation</td>
-  <td>14.325</td>
-  <td>0.963</td>
+  <td>15.3202</td>
+  <td>1.0158</td>
 </tr>
 <tr>
   <td>Events</td>
@@ -286,27 +380,27 @@
   <th>0%</th>
 </tr>
 <tr>
-  <td>69.986</td>
-  <td>10.423</td>
-  <td>8.601</td>
-  <td>7.095</td>
-  <td>6.099</td>
-  <td>4.970</td>
-  <td>3.096</td>
-  <td>3.096</td>
-  <td>3.096</td>
+  <td>70.086</td>
+  <td>34.920</td>
+  <td>10.433</td>
+  <td>7.372</td>
+  <td>6.190</td>
+  <td>5.030</td>
+  <td>3.196</td>
+  <td>3.196</td>
+  <td>3.196</td>
 </tr>
 </table>
 </article>
 </section>
 </div>
-<div id="2017_06_06" class="tabcontent">
+<div id="10x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>2017_06_06</h3>
+<h3>10x</h3>
 
 <article>
-<div id="chart_2017_06_06"></div>
+<div id="10xchart"></div>
 </article>
 
 <article>
@@ -319,13 +413,13 @@
 </tr>
 <tr>
   <td>Average</td>
-  <td>9.582</td>
-  <td>5.373</td>
+  <td>25.2795</td>
+  <td>6.2486</td>
 </tr>
 <tr>
   <td>Standard Deviation</td>
-  <td>14.325</td>
-  <td>0.963</td>
+  <td>36.6653</td>
+  <td>1.2845</td>
 </tr>
 <tr>
   <td>Events</td>
@@ -350,12 +444,12 @@
   <th>0%</th>
 </tr>
 <tr>
-  <td>69.986</td>
+  <td>118.601</td>
+  <td>105.000</td>
+  <td>99.986</td>
   <td>10.423</td>
-  <td>8.601</td>
-  <td>7.095</td>
-  <td>6.099</td>
-  <td>4.970</td>
+  <td>6.970</td>
+  <td>6.097</td>
   <td>3.096</td>
   <td>3.096</td>
   <td>3.096</td>
@@ -368,6 +462,7 @@
 document.getElementById("defaultOpen").click();
 </script>
 </body>
+
 <footer>
   <p>&copy; OMI. All rights reserved.</p>
 </footer>

@@ -1,27 +1,26 @@
-#ifndef OMI_LATENCY_REPORT_COMPONENTS_HPP_
-#define OMI_LATENCY_REPORT_COMPONENTS_HPP_
+#ifndef OMI_LATENCY_REPORT_LAYOUT_HPP_
+#define OMI_LATENCY_REPORT_LAYOUT_HPP_
 
+#include <omi/match/run.hpp>
 #include <omi/table/statistics.hpp>
 #include <omi/table/percentiles.hpp>
 #include <omi/javascript/google/chart.hpp>
 #include <omi/stylesheet/options.hpp>
 #include <omi/source/write.hpp>
 #include <omi/latency/report/configuration.hpp>
-#include <omi/match/inputs.hpp>
 
 // Generate single run html latency report
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace report {
 
-struct components {
+struct layout {
 
   //// Member Variables ///////////
 
-    report::configuration layout;  // Common layout options
-    match::inputs files;           // Input files
-    std::vector<double> data;      // Ordered event times
+    configuration options;      // Report layout options
+    match::run run;             // Match run information
 
   //// Methods ////////////////////
 
@@ -31,25 +30,25 @@ struct components {
     }
 };
 
-
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const components &report) {
+inline std::ostream &operator<<(std::ostream &out, const layout &report) {
     return out << html::doctype{"html"}
                << html::tag{"html"}
                << std::endl
                << html::tag{"head"}
                <<   html::meta{"charset", "utf-8"}
-               <<   html::title{report.layout.title}
-               <<   stylesheet::options{report.layout.css}
+               <<   html::title{report.options.title}
+               <<   stylesheet::options{report.options.css}
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
                <<   html::script{"text/javascript"}
-               <<     javascript::google::linechart{report.data, "chart"}
+               <<     "  google.charts.load('current', {'packages':['corechart', 'line']});" << std::endl // make method for this
+               <<     javascript::google::linechart{report.run.data, text(report.run.period), report.options.precision.chart.get(), "chart"}
                <<   html::close{"script"}
                << html::close{"head"}
                << std::endl
                << html::tag{"body"}
                << html::tag{"section"}
-               <<   html::h3{report.layout.header}
+               <<   html::h3{report.options.header}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::div{"chart"}
@@ -57,18 +56,18 @@ inline std::ostream &operator<<(std::ostream &out, const components &report) {
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Statistics"}
-               <<     html::statistics{report.data}
+               <<     html::statistics{report.run.data, report.options.precision.statistics.get()}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Percentiles"}
-               <<     html::percentiles{report.data}
+               <<     html::percentiles{report.run.data, report.options.precision.percentiles.get()}
                <<   html::close{"article"}
                << html::close{"section"}
                << html::close{"body"}
                << std::endl
                << html::tag{"footer"}
-               <<   html::p{"&copy; " + report.layout.copyright, indent::two}
+               <<   html::p{"&copy; " + report.options.copyright, indent::two}
                << html::close{"footer"}
                << html::close{"html"};
 }

@@ -1,16 +1,16 @@
 #ifndef OMI_MATCH_INFO_HPP_
 #define OMI_MATCH_INFO_HPP_
 
-#include <omi/event/asserts.hpp>
-
 #include <ostream>
+
+#include <omi/event/asserts.hpp>
 
 // Matched event info
 
 namespace omi {
 namespace match {
 
-template <class inbound, class outbound>
+template <typename inbound, typename outbound>
 struct info {
 
     // Verify record id compatibility
@@ -33,10 +33,26 @@ struct info {
 };
 
 // Stream operator
-template <class inbound, class outbound>
+template <typename inbound, typename outbound>
 std::ostream &operator<<(std::ostream &out, const info<inbound, outbound> &info) {
     return out << info.trigger << " [" << info.id << "] " << info.response;
 }
+
+///////////////////////////////////////////////
+
+template <typename inbound, typename outbound>
+using infos = std::vector<match::info<inbound, outbound>>;
+
+// Stream operator
+template <typename inbound, typename outbound>
+std::ostream &operator<<(std::ostream &out, const infos<inbound, outbound> &infos) {
+    for (const auto &info : infos) {
+        out << info << std::endl;
+    }
+
+    return out;
+}
+
 
 } }
 

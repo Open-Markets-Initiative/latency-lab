@@ -1,9 +1,9 @@
 #ifndef OMI_LATENCY_ANALYSIS_HPP_
 #define OMI_LATENCY_ANALYSIS_HPP_
 
-#include <omi/match/events.hpp>
 #include <omi/analysis/results.hpp>
 #include <omi/latency/analysis/options.hpp>
+#include <omi/latency/process/run.hpp>
 
 // Latency analysis program template
 
@@ -11,36 +11,27 @@ namespace omi {
 namespace latency {
 namespace analysis {
 
-// Default analysis program template notes 
-struct description {
-    static constexpr char * title = "Latency Analysis";
-    static constexpr char * inbound = "events";
-    static constexpr char * outbound = "responses";
+// Analysis program defaults
+struct defaults {
+    static constexpr const char * title = "Latency Analysis";
+    static constexpr const char * inbound = "events";
+    static constexpr const char * outbound = "responses";
 };
 
-template <class inbound, class outbound, class description = description>
+// Default analysis program template
+template <class inbound, class outbound, class descriptions = defaults>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
-    auto options = options::parse(argc, argv, description::title);
-    if (options.verbose) { std::cout << description::title << std::endl; }
+    auto options = options::parse(argc, argv);
 
-    // Load all possible inbound trigger events
-    if (options.verbose) { std::cout << "Loading inbound " << description::inbound << std::endl; }
-    const auto inbounds = event::database<inbound>::read(options.files.inbound);
-    if (options.verbose) { std::cout << inbounds; }
+    // Load files and match events
+    auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
-    // Load response events
-    if (options.verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; }
-    const auto outbounds = event::responses<outbound>::read(options.files.outbound);
-    if (options.verbose) { std::cout << outbounds; }
-
-    // Match events
-    if (options.verbose) { std::cout << "Matching Events" << std::endl; }
-    const auto events = match::events<inbound, outbound>(inbounds, outbounds);
-    if (options.verbose) { std::cout << events; }
-
-    std::cout << omi::analysis::results{ events.matched.deltas() };
-};
+    // Analyze data
+    auto deltas = result.deltas(options.period);
+    std::cout << omi::analysis::of(deltas);
+    std::cout << options;
+}
 
 } } }
 

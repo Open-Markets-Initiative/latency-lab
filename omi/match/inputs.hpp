@@ -2,11 +2,11 @@
 #define OMI_MATCH_INPUTS_HPP_
 
 #include <string>
-#include <iostream>
+#include <ostream>
 
-    // Matcher input files or directories
+// Match input files or directories
 
-namespace omi { 
+namespace omi {
 namespace match {
 
 struct inputs {

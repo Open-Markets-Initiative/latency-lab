@@ -11,7 +11,7 @@
 
 // Generate single run html latency report
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace email {
 
@@ -20,7 +20,8 @@ struct components {
   //// Member Variables ///////////
 
     email::configuration layout;   // Common layout options
-    match::results matching;       // Matching information
+    match::inputs files;           // Input files
+    std::vector<double> data;      // Ordered event times
 
   //// Methods ////////////////////
 
@@ -30,7 +31,7 @@ struct components {
     }
 };
 
-// Stream operator (composes html email from layout and data) 
+// Stream operator (composes html email from layout and data)
 inline std::ostream &operator<<(std::ostream &out, const components &email) {
     return out << html::doctype{"html"}
                << html::tag{"html"}
@@ -48,17 +49,17 @@ inline std::ostream &operator<<(std::ostream &out, const components &email) {
                <<   html::h3{email.layout.header}
                <<   std::endl
                <<   html::tag{"article"}
-               <<     html::graph{email.matching.data}
+               <<     html::graph{email.data}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Statistics"}
-               <<     html::statistics{email.matching.data}
+               <<     html::statistics{email.data}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Percentiles"}
-               <<     html::percentiles{email.matching.data}
+               <<     html::percentiles{email.data}
                <<   html::close{"article"}
                << html::close{"section"} // TODO: add run information
                << html::close{"body"}

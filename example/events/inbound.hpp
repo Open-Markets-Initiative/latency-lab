@@ -11,7 +11,7 @@ struct inbound {
 
   //// Member Variables ///////////
 
-    static constexpr char * description = "sbe market data";
+    static constexpr const char * description = "sbe market data";
 
     // Inbound sbe market data event fields from tshark csv
     omi::frame frame;              // Pcap frame number

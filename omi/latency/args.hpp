@@ -45,6 +45,21 @@ namespace html { namespace copyright { static constexpr const char * note = "Rep
 namespace css { namespace file { static constexpr const char * option = "css-file"; } }
 namespace css { namespace file { static constexpr const char * note = "Link report to external css file (Optional)"; } }
 
+namespace delta { namespace period { static constexpr const char * option = "time-period"; } }
+namespace delta { namespace period { static constexpr const char * note = "Event delta time period: nanoseconds, micoseconds, milliseconds, seconds, minutes"; } }
+
+namespace precision { namespace percentiles { static constexpr const char * option = "percentiles-precision"; } }
+namespace precision { namespace percentiles { static constexpr const char * note = "Percentiles decimal precision"; } }
+
+namespace precision { namespace statistics { static constexpr const char * option = "statistics-precision"; } }
+namespace precision { namespace statistics { static constexpr const char * note = "Statistics decimal precision"; } }
+
+namespace precision { namespace chart { static constexpr const char * option = "chart-precision"; } }
+namespace precision { namespace chart { static constexpr const char * note = "Chart element decimal precision"; } }
+
+namespace race { namespace variable { static constexpr const char * option = "race-variable"; } }
+namespace race { namespace variable { static constexpr const char * note = "Race Variable: factor, minimum, maximum, median, average"; } }
+
 // Most of these need name changes
 
 #endif

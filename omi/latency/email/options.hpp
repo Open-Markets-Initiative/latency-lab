@@ -6,10 +6,11 @@
 #include <omi/latency/args.hpp>
 #include <omi/latency/email/configuration.hpp>
 #include <omi/match/inputs.hpp>
+#include <omi/utility/autotimer.hpp>
 
 //  Options for omi html latency report (single run)
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace email {
 
@@ -21,24 +22,27 @@ struct options {
     match::inputs files;           // Event input files
     std::string path;              // Html report output path
     bool verbose;                  // Print status to standard out
+    autotimer timer;               // Program timer
 
   //// Construction //////////////
 
     // Construct options from args or ini file
-    template<class setting>
-    explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
+    template<typename setting>
+    explicit options(const setting &option, const bool verbose) : verbose{ verbose } {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
         path = option.template required<std::string>(::html::report::option);
         email.title = option.template conditional<std::string>(::html::title::option, "Omi");
         email.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         email.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
+        email.period = parse::period(option.template conditional<std::string>(::delta::period::option, "microseconds"));
+
     }
 
   //// Interface ////////////////
 
     // Parse program args into options
-    static options parse(int argc, char *argv[], std::string title = "Latency Email") {
+    static options parse(int argc, char *argv[], const std::string title = "Latency Email") {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()
@@ -48,7 +52,8 @@ struct options {
             (::html::title::option, boost::program_options::value<std::string>(), ::html::title::note)
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
-            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
+            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note)
+            (::delta::period::option, boost::program_options::value<std::string>(), ::delta::period::note);;
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);
@@ -61,6 +66,11 @@ struct options {
         return options{ args, args.verbose() };
     }
 };
+
+// Stream operator
+inline std::ostream &operator<<(std::ostream &out, const options &program) {
+    return out << program.timer;
+}
 
 } } }
 

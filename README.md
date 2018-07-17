@@ -1,46 +1,40 @@
-# Omi Latency Lab
-Composable tools for automated network application latency measurement and reporting.
+# Latency Lab
 
-External application throughput can be measured scientifically by matching outbound response events to inbound trigger events.  Provided a standard packet capture, this latency lab provides components to quickly create custom tools for accurate benchmarking, verification and system analysis.
+<p align="left">
+<a href="https://travis-ci.org/Open-Markets-Initiative/latency-lab"><img src="https://img.shields.io/travis/Open-Markets-Initiative/latency-lab.svg?style=flat-square"/></a>
+</p>
 
-# Examples
-#### Latency Report:
+Composable tools for automated networked application latency measurement.
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html
+External application throughput can be scientifically measured by matching
+outbound responses to inbound trigger events.  Provided a standard 
+packet capture, this latency lab provides templates to quickly create 
+custom tools for accurate benchmarking, verification and system analysis.
 
-The example data represents a series of outbound cme fix orders triggered by cme sbe market data packets. The spike at the beginning is due to core warming.
+## Examples
 
-#### Latency Analysis:
+### [Latency Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/report/output/report.html)
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/analysis/output/analysis.txt
+The example data represents a series of outbound CME FIX orders triggered
+by CME SBE market data packets. The spike at the beginning is due to core 
+warming.
 
-Latency statistics in text format.
+### [Comparison Report](https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html)
 
-#### Event Matches:
+A comparison report allows for quickly comparing application response at 
+multiple data speeds for stress testing. This example contains market data playback speeds of
+1x, 2x, and 10x.
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/matching/output/matched.infos
+See [examples](https://github.com/Open-Markets-Initiative/latency-lab/tree/master/example "List of Example Latency Measurements") directory for more use cases and build instructions.
 
-The example data represents a series of matched events.  
-Records format: 
-    frame number [Match Id] frame number
+## Disclaimer
 
-#### Comparison Report:
+The Open Markets Initiative (Omi) is a group of technologists dedicated to 
+enhancing the stability of electronic financial markets using modern 
+development methods.
 
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/comparison/output/comparison.html
+All example input data are faked records modeled on tshark dissections. 
+Any similarities between existing people, places and/or protocols is purely 
+incidental. 
 
-A comparison report allows for quickly comparing application response to multiple different data speeds.
-
-#### Emailable Report:
-
-https://rawgit.com/Open-Markets-Initiative/latency-lab/master/example/email/output/email.html
-
-Email report uses only html (no javascript) for automated test emails per run.
-
-
-# Build
-Use CMake. Visual studio projects are provided for rapid development.  Some program templates contain a dependency on boost 1.64.  
-
-# Disclaimer
-The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
-
-All example input data are faked records modeled on tshark dissections. Any similaraity between existing people, places and/or protocols is purely incidental. Enjoy.
+Enjoy.

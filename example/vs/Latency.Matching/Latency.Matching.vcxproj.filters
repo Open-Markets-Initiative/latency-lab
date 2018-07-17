@@ -24,6 +24,9 @@
     <Filter Include="Header Files\match">
       <UniqueIdentifier>{b0d2c4f8-9d0a-4997-8493-ec361f09b16a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{0f47cc0d-5ceb-4fa5-b058-58ee8ec8365e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\types\frame.hpp">
@@ -41,9 +44,6 @@
     <ClInclude Include="..\..\..\omi\event\asserts.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\event\database.hpp">
-      <Filter>Header Files\event</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\event\match.hpp">
       <Filter>Header Files\event</Filter>
     </ClInclude>
@@ -56,37 +56,64 @@
     <ClInclude Include="..\..\matching\events\outbound.hpp">
       <Filter>Header Files\events</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\types\sequence.hpp">
+    <ClInclude Include="..\..\..\omi\event\list.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\tokenizer.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\period.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\process\run.hpp">
+      <Filter>Header Files\matching</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\utility\autotimer.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\utility\stopwatch.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\types\timespan.hpp">
       <Filter>Header Files\types</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\match\events.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\event\list.hpp">
-      <Filter>Header Files\event</Filter>
+    <ClInclude Include="..\..\..\omi\match\info.hpp">
+      <Filter>Header Files\match</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\match\inputs.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\result.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\match\results.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\types\tokenizer.hpp">
-      <Filter>Header Files\types</Filter>
+    <ClInclude Include="..\..\..\omi\match\run.hpp">
+      <Filter>Header Files\match</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\match\info.hpp">
+    <ClInclude Include="..\..\..\omi\match\runs.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\omi\match\timestamps.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="..\..\..\omi\types\seqnum.hpp">
+      <Filter>Header Files\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\event\dictionary.hpp">
+      <Filter>Header Files\event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\matching\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

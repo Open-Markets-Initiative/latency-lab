@@ -18,9 +18,21 @@
     <Filter Include="Header Files\directory">
       <UniqueIdentifier>{24c7db6a-d922-4f4e-a6da-b3db3e1f355e}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Filter Include="Header Files\table">
+      <UniqueIdentifier>{da3a079d-d17a-4ca6-8b33-b01ed9a6a0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\process">
+      <UniqueIdentifier>{b85d8472-149b-47f3-9ecd-1a6b7971c2b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\compare">
+      <UniqueIdentifier>{5a58fecf-664c-4055-bd19-bedb984f16f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\page">
+      <UniqueIdentifier>{b473b9b3-237a-4715-ae06-ee5692c8efe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\javascript">
+      <UniqueIdentifier>{ae428cc0-99cd-497b-b28d-9350a5b6d840}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\comparison\main.cpp">
@@ -28,9 +40,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\omi\latency\comparison\components.hpp">
-      <Filter>Header Files\comparison</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\comparison\configuration.hpp">
       <Filter>Header Files\comparison</Filter>
     </ClInclude>
@@ -46,5 +55,50 @@
     <ClInclude Include="..\..\..\omi\directory\parsing.hpp">
       <Filter>Header Files\directory</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\percentiles.hpp">
+      <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\statistics.hpp">
+      <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\process\runs.hpp">
+      <Filter>Header Files\process</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\layout.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\compare\natural.hpp">
+      <Filter>Header Files\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\process\run.hpp">
+      <Filter>Header Files\process</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\buttons.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\page.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\pages.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\page\charts.hpp">
+      <Filter>Header Files\page</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\javascript\paging.hpp">
+      <Filter>Header Files\javascript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\javascript\google\chart.hpp">
+      <Filter>Header Files\javascript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\summary.hpp">
+      <Filter>Header Files\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp">
+      <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

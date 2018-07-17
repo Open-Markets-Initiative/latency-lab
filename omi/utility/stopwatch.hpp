@@ -12,16 +12,16 @@ struct stopwatch {
 
   //// Member Variables ///////////
 
-    std::chrono::time_point<std::chrono::high_resolution_clock> begin;     // Runtime in seconds
-    std::chrono::time_point<std::chrono::high_resolution_clock> end;       // Runtime in seconds
-    std::string name { "Time: " };        // Title for display
+    std::chrono::time_point<std::chrono::high_resolution_clock> begin;     // Start time in seconds
+    std::chrono::time_point<std::chrono::high_resolution_clock> end;       // Endtime in seconds
+    std::string name { "Time: " };                                         // Title for display
 
   //// Construction ///////////////
 
     // TODO: start bool for printing?
     // TODO: make an autotimer that starts on construction
 
-    // Default constructor 
+    // Default constructor
     stopwatch() {}
 
   //// Implementation /////////////

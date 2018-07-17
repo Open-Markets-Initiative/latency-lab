@@ -15,6 +15,12 @@
     <Filter Include="Header Files\records">
       <UniqueIdentifier>{87e01df0-f3f6-45f7-9edf-126e1fcccf35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\program">
+      <UniqueIdentifier>{9a8c8858-fb08-426e-85e0-3a60b23be53a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\collection">
+      <UniqueIdentifier>{f4d00a3e-0328-4f66-ab94-db7f6087c0b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\analysis\main.cpp">
@@ -22,24 +28,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\latency\analysis.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\analysis\delta.hpp">
-      <Filter>Header Files\analysis</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\analysis\deltas.hpp">
-      <Filter>Header Files\analysis</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\omi\analysis\percentile.hpp">
-      <Filter>Header Files\analysis</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\analysis\percentiles.hpp">
       <Filter>Header Files\analysis</Filter>
     </ClInclude>
@@ -55,5 +43,35 @@
     <ClInclude Include="..\..\analysis\records\outbound.hpp">
       <Filter>Header Files\records</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\analysis.hpp">
+      <Filter>Header Files\program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\latency\analysis\options.hpp">
+      <Filter>Header Files\program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\analysis\summary.hpp">
+      <Filter>Header Files\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\collection\calculate.hpp">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\collection\out.hpp">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\collection\percentile.hpp">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\collection\range.hpp">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\collection\transform.hpp">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\collection\size.hpp">
+      <Filter>Header Files\collection</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

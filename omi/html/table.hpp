@@ -3,14 +3,14 @@
 
 #include <omi/html/tag.hpp>
 
-// Html table element 
+// Html table element
 
 namespace omi {
 namespace html {
 
 struct table : html::tag {
 
-    explicit table(const std::string &Class, indent whitespace = indent::none)
+    explicit table(const std::string &Class, const indent whitespace = indent::none)
      : tag{"table", attribute{ "class", Class }, whitespace} {}
 };
 

@@ -1,61 +1,45 @@
 #ifndef OMI_LATENCY_EMAIL_HPP_
 #define OMI_LATENCY_EMAIL_HPP_
 
-#include <omi/match/events.hpp>
+#include <omi/latency/process/run.hpp>
 #include <omi/latency/email/options.hpp>
-#include <omi/latency/email/components.hpp> 
-#include <omi/utility/stopwatch.hpp>
+#include <omi/latency/email/components.hpp>
 
-// Single run omi html latency report generation
+// Single run omi html only latency report generation
 
 namespace omi {
 namespace latency {
 namespace email {
 
-// Default email program template notes 
-struct description {
-    static constexpr char * title = "Generate Emailable Latency Report";
-    static constexpr char * inbound = "events";
-    static constexpr char * outbound = "responses";
+// Email program defaults
+struct defaults {
+    static constexpr const char * title = "Generate Emailable Latency Report";
+    static constexpr const char * inbound = "events";
+    static constexpr const char * outbound = "responses";
 };
 
-// Latency report program template
-template <class inbound, class outbound, class description = description>
+// Latency email program template
+template <class inbound, class outbound, class descriptions = defaults>
 void of(int argc, char *argv[]) {
     // Parse program options for settings
     auto options = options::parse(argc, argv);
-    if (options.verbose) { std::cout << description::title << std::endl; }
 
-    stopwatch time; // need to make this better, add to opptions, with date?
-      time.start();
+    // Load and match events
+    auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
-    // Load all inbound events for trigger matching
-    if (options.verbose) { std::cout << "Loading inbound " << description::inbound << std::endl; }
-    const auto inbounds = event::database<inbound>::read(options.files.inbound);
-    if (options.verbose) { std::cout << inbounds; }
-
-    // Load response records
-    if (options.verbose) { std::cout << "Loading outbound " << description::outbound << std::endl; } // add full qualified path with boost filesystem
-    const auto outbounds = event::responses<outbound>::read(options.files.outbound);
-    if (options.verbose) { std::cout << outbounds; }
-
-    // Match events
-    if (options.verbose) { std::cout << "Match events" << std::endl; }
-    const auto events = match::events<inbound, outbound>{ inbounds, outbounds };
-    if (options.verbose) { std::cout << events; }
-
-    email::components email;
-      email.layout = options.email;
-      email.matching.path = options.files;
-      email.matching.data = events.matched.deltas();
-
-    // Generate report
+    // Configure email report
     if (options.verbose) { std::cout << "Generating Html Latency Report Email" << std::endl; }
+    components email;
+      email.layout = options.email;
+      email.files = options.files;
+      email.data = result.deltas(options.email.period);
+
+    // Write email
     email.write(options.path);
 
-    time.stop();
-    if (options.verbose) { std::cout << time << std::endl; }
-};
+    // Program information
+    if (options.verbose) { std::cout << options << std::endl; }
+}
 
 } } }
 

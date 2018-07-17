@@ -11,16 +11,13 @@ struct fix {
 
   //// Member Variables ///////////
 
-    // Event description
-    static constexpr char * description = "ilink fix message";
-
     // Outbound triggered event fields (cme fix)
     omi::frame frame;
     omi::timestamp timestamp;
     std::string tag9702;
     std::string tag9717;
     std::string value9702;
-    std::string value9717;
+    omi::seqnum value9717;
 
     uint32_t line;
     bool processed { false };
@@ -35,13 +32,13 @@ struct fix {
                     parse.string(tag9702) and
                     parse.string(tag9717) and
                     parse.string(value9702) and
-                    parse.string(value9717);
+                    parse.sequence(value9717);
     }
 
   //// Methods ////////////////////
 
     // Return event id
-    std::string id() const noexcept {
+    omi::seqnum id() const noexcept {
         return value9717;
     }
 

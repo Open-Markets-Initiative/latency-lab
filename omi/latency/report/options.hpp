@@ -5,10 +5,12 @@
 #include <omi/program/settings.hpp>
 #include <omi/latency/args.hpp>
 #include <omi/latency/report/configuration.hpp>
+#include <omi/match/inputs.hpp>
+#include <omi/utility/autotimer.hpp>
 
 //  Options for omi html latency report (single run)
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace report {
 
@@ -18,27 +20,31 @@ struct options {
 
     report::configuration report;  // Html report options
     match::inputs files;           // Event input files
-    std::string path;              // Html report output path
     bool verbose;                  // Print status to standard out
+    autotimer timer;               // Program timer
 
   //// Construction //////////////
 
     // Construct options from args or ini file
-    template<class setting>
-    explicit options(const setting &option, bool verbose) : verbose{ verbose }  {
+    template<typename setting>
+    explicit options(const setting &option, bool verbose) : verbose{ verbose } {
         files.inbound = option.template required<std::string>(::inbound::file::option);
         files.outbound = option.template required<std::string>(::outbound::file::option);
-        path = option.template required<std::string>(::html::report::option);
+        report.path = option.template required<std::string>(::html::report::option);
         report.title = option.template conditional<std::string>(::html::title::option, "Omi");
         report.header = option.template conditional<std::string>(::html::header::option, "Omi Latency Lab");
         report.copyright = option.template conditional<std::string>(::html::copyright::option, "OMI. All rights reserved.");
         report.css = option.template conditional<std::string>(::css::file::option, "");
+        report.period = parse::period(option.template conditional<std::string>(::delta::period::option, "microseconds"));
+        report.precision.chart = option.template optional<size_t>(::precision::chart::option);
+        report.precision.statistics = option.template optional<size_t>(::precision::statistics::option);
+        report.precision.percentiles = option.template optional<size_t>(::precision::percentiles::option);
     }
 
   //// Interface ////////////////
 
     // Parse program args into options
-    static options parse(int argc, char *argv[], std::string title = "Latency Report") {
+    static options parse(const int argc, char *argv[], const std::string title = "Latency Report") {
         // Declare options
         boost::program_options::options_description description(title);
         description.add_options()
@@ -49,7 +55,11 @@ struct options {
             (::html::header::option, boost::program_options::value<std::string>(), ::html::header::note)
             (::html::copyright::option, boost::program_options::value<std::string>(), ::html::copyright::note)
             (::css::file::option, boost::program_options::value<std::string>(), ::css::file::note)
-            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note);
+            (::html::report::option, boost::program_options::value<std::string>(), ::html::report::note)
+            (::delta::period::option, boost::program_options::value<std::string>(), ::delta::period::note)
+            (::precision::chart::option, boost::program_options::value<std::string>(), ::precision::chart::note)
+            (::precision::statistics::option, boost::program_options::value<std::string>(), ::precision::statistics::note)
+            (::precision::percentiles::option, boost::program_options::value<std::string>(), ::precision::percentiles::note);
 
         // If ini file exists, read options from file
         auto args = omi::program::options(argc, argv, description);
@@ -62,6 +72,12 @@ struct options {
         return options{ args, args.verbose() };
     }
 };
+
+// Stream operator
+inline std::ostream &operator<<(std::ostream &out, const options &program) {
+    return out << program.report
+               << program.timer;
+}
 
 } } }
 

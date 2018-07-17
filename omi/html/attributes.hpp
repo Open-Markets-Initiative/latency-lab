@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-// Html attribute 
+// Html attribute
 
 namespace omi {
 namespace html {

@@ -1,17 +1,28 @@
 #ifndef OMI_MATCH_RESULTS_HPP_
 #define OMI_MATCH_RESULTS_HPP_
 
-#include <vector>
-#include <omi/match/inputs.hpp>
+#include <omi/match/result.hpp>
+#include <omi/match/runs.hpp>
 
-// Matching results
+// Matching runs
 
-namespace omi { 
+namespace omi {
 namespace match {
 
-struct results { // always pass this with auto to use templates?
-    inputs path;                // Data Files
-    std::vector<double> data;   // Matching Deltas
+template <typename inbound, typename outbound>
+struct results : std::vector<match::result<inbound, outbound>> {
+
+  //// Methods ///////////
+
+    // Return deltas by period
+    auto runs(const period period) const {
+        match::runs runs;
+        for (const auto &result : *this) {
+            runs.push_back(result.run(period));
+        }
+        return runs;
+    }
+
 };
 
 /*

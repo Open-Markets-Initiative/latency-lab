@@ -1,9 +1,9 @@
-#ifndef OMI_WIRESHARK_TOKENIZER_HPP_
-#define OMI_WIRESHARK_TOKENIZER_HPP_
+#ifndef OMI_TYPES_TOKENIZER_HPP_
+#define OMI_TYPES_TOKENIZER_HPP_
 
 #include <omi/types/frame.hpp>
 #include <omi/types/timestamp.hpp>
-#include <omi/types/sequence.hpp>
+#include <omi/types/seqnum.hpp>
 
 #include <iso646.h>
 
@@ -98,7 +98,7 @@ public:
     }
 
     // Optimized sequence number parse method
-    bool sequence(omi::sequence &field) {
+    bool sequence(omi::seqnum &field) {
         if (not token()) { return false; }
 
         uint64_t value = 0;
@@ -107,7 +107,7 @@ public:
             value = (value * 10) + (*current - '0');
         }
         if (current != nullptr) { current++; }
-        field = omi::sequence(value);
+        field = omi::seqnum(value);
         return true;
     }
 

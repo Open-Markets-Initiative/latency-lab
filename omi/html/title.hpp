@@ -3,14 +3,14 @@
 
 #include <omi/html/elements.hpp>
 
-// Html title element 
+// Html title element
 
 namespace omi {
 namespace html {
 
 struct title : html::element {
 
-    explicit title(const std::string &value, indent whitespace = indent::none)
+    explicit title(const std::string &value, const indent whitespace = indent::none)
       : html::element{ "title", value, whitespace } {}
 };
 

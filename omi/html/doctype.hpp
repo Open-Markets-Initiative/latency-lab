@@ -4,7 +4,7 @@
 #include <string>
 #include <omi/source/whitespace.hpp>
 
-// Html doctype element 
+// Html doctype element
 
 namespace omi {
 namespace html {
@@ -19,7 +19,7 @@ struct doctype {
     explicit doctype()
       : type{ "html" }, whitespace{ indent::none } {}
 
-    explicit doctype(const std::string &type, indent whitespace = indent::none)
+    explicit doctype(const std::string &type, const indent whitespace = indent::none)
       : type{ type }, whitespace{ whitespace } {}
 };
 

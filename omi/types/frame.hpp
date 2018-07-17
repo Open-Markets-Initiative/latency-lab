@@ -14,7 +14,7 @@ struct frame {
   ///// Construction //////////////
 
     // Default constructor
-    frame() 
+    frame()
       : value{ 0 } {}
 
     // Standard constructor

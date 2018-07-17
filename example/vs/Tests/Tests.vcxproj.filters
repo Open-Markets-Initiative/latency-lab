@@ -15,16 +15,19 @@
     <Filter Include="Source Files\types">
       <UniqueIdentifier>{5c219176-fe46-4456-be49-feeb2f43ef54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\match">
+      <UniqueIdentifier>{0b7cc04d-4631-4893-8457-6b9e4747cf56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\collection">
+      <UniqueIdentifier>{c66ea9a2-17b3-4d73-af2c-e3fcd3ba8d6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\tests\tests.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\..\tests\types\sequence.cpp">
+      <Filter>Source Files\types</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\tests\analysis\percentile.cpp">
-      <Filter>Source Files\analysis</Filter>
+    <ClCompile Include="..\..\..\tests\types\timestamp.cpp">
+      <Filter>Source Files\types</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\tests\analysis\percentiles.cpp">
       <Filter>Source Files\analysis</Filter>
@@ -32,11 +35,34 @@
     <ClCompile Include="..\..\..\tests\analysis\statistics.cpp">
       <Filter>Source Files\analysis</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\tests\types\timestamp.cpp">
+    <ClCompile Include="..\..\..\omi\test\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tests\match\timestamps.cpp">
+      <Filter>Source Files\match</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tests\types\period.cpp">
       <Filter>Source Files\types</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\tests\types\sequence.cpp">
+    <ClCompile Include="..\..\..\tests\types\race.cpp">
       <Filter>Source Files\types</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\tests\collection\calculate.cpp">
+      <Filter>Source Files\collection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tests\collection\percentile.cpp">
+      <Filter>Source Files\collection</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\omi\test\definitions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\test\event.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

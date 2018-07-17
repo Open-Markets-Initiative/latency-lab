@@ -7,7 +7,7 @@ struct sbe {
   // Record Fields
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
-    omi::sequence msgseqnum;       // Sbe message sequence number
+    omi::seqnum msgseqnum;         // Sbe message sequence number
 
     uint32_t line;                 // Record line number in file
     bool processed { false };      // Was record processed correctly?
@@ -21,7 +21,7 @@ struct sbe {
     }
 
   // Required Methods
-    omi::sequence id() const noexcept { return msgseqnum; }
+    omi::seqnum id() const noexcept { return msgseqnum; }
     omi::timestamp time() const noexcept { return timestamp; }
     omi::frame info() const noexcept { return frame; }
     bool valid() const noexcept { return processed; }
@@ -31,7 +31,7 @@ struct fix {
   // Record Fields
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
-    omi::sequence value9717;       // Sbe message sequence number in fix tag 9717
+    omi::seqnum value9717;         // Sbe message sequence number in fix tag 9717
 
     uint32_t line;                 // Record line number in file
     bool processed { false };      // Was record processed correctly?
@@ -46,7 +46,7 @@ struct fix {
     }
 
   // Required Methods
-    omi::sequence id() const noexcept { return value9717; }
+    omi::seqnum id() const noexcept { return value9717; }
     omi::timestamp time() const noexcept { return timestamp; }
     omi::frame info() const noexcept { return frame; }
     bool valid() const noexcept { return processed; }
@@ -54,9 +54,9 @@ struct fix {
 
 struct description {
   // Program description
-    static constexpr char * title = "Emailable Latency Report for Cme Tick to Trade";
-    static constexpr char * inbound = "sbe mdp market data events";
-    static constexpr char * outbound = "ilink fix messages";
+    static constexpr const char * title = "Emailable Latency Report for Cme Tick to Trade";
+    static constexpr const char * inbound = "sbe mdp market data events";
+    static constexpr const char * outbound = "ilink fix messages";
 };
 
 int main(int argc, char *argv[]) {

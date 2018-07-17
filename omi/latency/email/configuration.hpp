@@ -5,14 +5,15 @@
 
 // Configuartion options for omi html latency email
 
-namespace omi { 
+namespace omi {
 namespace latency {
 namespace email {
 
 struct configuration {
-    std::string title;
-    std::string header;
-    std::string copyright;
+    std::string title;             // Email html title
+    std::string header;            // Header text
+    std::string copyright;         // Copyright text
+    omi::period period;            // Delta time period
     // add note?
 };
 
