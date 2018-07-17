@@ -18,9 +18,9 @@ if (WIN64)
     set(BOOST_LIBRARY_DIR "C:\\boost_1_64_0\\stage\\lib")
 else()
     # Find boost
-    set(BOOST_ROOT /home/travis/build/omi-dev/latency-lab/boost_1_67_0)
-    set(Boost_INCLUDE_DIR ${BOOST_ROOT})
-    set(Boost_LIBRARY_DIR ${BOOST_ROOT}/lib)
+    #set(BOOST_ROOT /home/travis/build/omi-dev/latency-lab/boost_1_67_0)
+    set(Boost_INCLUDE_DIR /usr/local/include)
+    set(Boost_LIBRARY_DIR /usr/local/lib)
 endif()
 
 find_package(Boost REQUIRED COMPONENTS program_options filesystem system)
