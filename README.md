@@ -25,13 +25,17 @@ A comparison report allows for quickly comparing application response at
 multiple data speeds for stress testing. This example contains market data playback speeds of
 1x, 2x, and 10x.
 
-See [examples](https://github.com/Open-Markets-Initiative/latency-lab/tree/master/example "List of Example Latency Measurements") directory for more use cases and build instructions.
+See [examples](https://github.com/Open-Markets-Initiative/latency-lab/tree/master/example "List of Example Latency Tools") directory for more use cases and build instructions.
 
-## Disclaimer
+## Open Markets Initiative
 
 The Open Markets Initiative (Omi) is a group of technologists dedicated to 
 enhancing the stability of electronic financial markets using modern 
 development methods.
+
+[Go to Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Repository Directory")
+
+## Disclaimer
 
 All example input data are faked records modeled on tshark dissections. 
 Any similarities between existing people, places and/or protocols is purely 
