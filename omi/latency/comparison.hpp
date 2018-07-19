@@ -7,9 +7,7 @@
 
 // Latency comparison program template
 
-namespace omi {
-namespace latency {
-namespace comparison {
+namespace omi::latency::comparison {
 
 // Default comparison program descriptions
 struct defaults {
@@ -38,6 +36,6 @@ void of(int argc, char *argv[]) {
     if (options.verbose) { std::cout << options << std::endl; }
 }
 
-} } }
+}
 
 #endif

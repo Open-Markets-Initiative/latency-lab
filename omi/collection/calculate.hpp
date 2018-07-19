@@ -9,8 +9,7 @@
 
 // Sequence calculation functions
 
-namespace omi {
-namespace collection {
+namespace omi::collection {
 
 // Todo: add static_asset that value type can be calculated
 // Todo: full unit tests
@@ -63,6 +62,6 @@ auto deviation(const container &values) {
     return deviation(values, average(values));
 }
 
-} }
+}
 
 #endif

@@ -3,8 +3,7 @@
 
 // Sequence size functions
 
-namespace omi {
-namespace collection {
+namespace omi::collection {
 
 // Todo: add static_asset that value type can be calculated
 // Todo: full unit tests
@@ -22,6 +21,6 @@ size_t count(container &values) {
 }
 
 
-} }
+}
 
 #endif

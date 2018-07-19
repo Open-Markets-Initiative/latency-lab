@@ -5,8 +5,7 @@
 
     // Directory methods (Under construction)
 
-namespace omi {
-namespace directory {
+namespace omi::directory {
 
 const std::string INBOUND_EVENT_SUFFIX = "inbound";
 const std::string OUTBOUND_EVENT_SUFFIX = "outbound";
@@ -72,6 +71,6 @@ inline auto parse(const std::string &inbound, const std::string &outbound) {
     return parse(boost::filesystem::path{inbound}, boost::filesystem::path{outbound});
 }
 
-} }
+}
 
 #endif

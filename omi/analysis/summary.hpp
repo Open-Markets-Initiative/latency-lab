@@ -8,8 +8,7 @@
 
 // Calculate standard summary statistics
 
-namespace omi {
-namespace analysis {
+namespace omi::analysis {
 
 template <typename container = std::vector<double>>
 struct summary {
@@ -48,6 +47,6 @@ std::ostream &operator<<(std::ostream &out, const summary<container> &summary) {
                << "  Maximum: " << summary.maximum << std::endl;
 }
 
-} }
+}
 
 #endif

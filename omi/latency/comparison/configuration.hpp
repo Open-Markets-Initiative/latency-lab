@@ -2,12 +2,11 @@
 #define OMI_LATENCY_COMPARISON_CONFIGURATION_HPP_
 
 #include <string>
+#include <boost/optional/optional.hpp>
 
 // Configuration options for omi html latency comparison report
 
-namespace omi {
-namespace latency {
-namespace comparison {
+namespace omi::latency::comparison {
 
 struct configuration {
     std::string title;
@@ -30,7 +29,6 @@ inline std::ostream &operator<<(std::ostream &out, const configuration &report) 
                << "  Period: " << report.period << std::endl;
 }
 
-
-} } }
+}
 
 #endif

@@ -7,9 +7,7 @@
 
 // Latency analysis program template
 
-namespace omi {
-namespace latency {
-namespace analysis {
+namespace omi::latency::analysis {
 
 // Analysis program defaults
 struct defaults {
@@ -33,6 +31,6 @@ void of(int argc, char *argv[]) {
     std::cout << options;
 }
 
-} } }
+}
 
 #endif

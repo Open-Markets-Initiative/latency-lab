@@ -6,8 +6,7 @@
 
 #include <omi/collection/percentile.hpp>
 
-namespace omi {
-namespace collection {
+namespace omi::collection {
 
 // Return a vector of values as within upper and lower percentile limits
 template <typename container = std::vector<double>>
@@ -29,6 +28,6 @@ container range(const container &collection, const unsigned int lower, const uns
     return container(std::next(result.begin(), low), std::next(result.begin(), high));
 }
 
-} }
+}
 
 #endif

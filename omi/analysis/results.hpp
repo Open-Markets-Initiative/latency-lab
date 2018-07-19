@@ -7,8 +7,7 @@
 
 // Standard analysis results
 
-namespace omi {
-namespace analysis {
+namespace omi::analysis {
 
 template <typename container = std::vector<double>> // Remove these defaults
 struct results {
@@ -44,6 +43,6 @@ std::ostream &operator<<(std::ostream &out, const results<container> &results) {
                << "Steady State Statistics" << std::endl << results.steadystate;
 }
 
-} }
+}
 
 #endif

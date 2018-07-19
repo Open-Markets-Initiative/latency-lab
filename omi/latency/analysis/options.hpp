@@ -1,6 +1,9 @@
 #ifndef OMI_LATENCY_ANALYSIS_OPTIONS_HPP_
 #define OMI_LATENCY_ANALYSIS_OPTIONS_HPP_
 
+#include <boost/program_options/value_semantic.hpp>
+#include <boost/program_options/options_description.hpp>
+
 #include <omi/program/options.hpp>
 #include <omi/latency/args.hpp>
 #include <omi/match/inputs.hpp>
@@ -8,9 +11,7 @@
 
 //  Options for omi latency analysis
 
-namespace omi {
-namespace latency {
-namespace analysis {
+namespace omi::latency::analysis {
 
 struct options {
 
@@ -54,6 +55,6 @@ inline std::ostream &operator<<(std::ostream &out, const options &program) {
     return out << program.timer;
 }
 
-} } }
+}
 
 #endif

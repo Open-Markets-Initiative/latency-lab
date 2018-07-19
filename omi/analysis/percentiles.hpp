@@ -8,8 +8,7 @@
 
 // Calculate percentiles of a container of values
 
-namespace omi {
-namespace analysis {
+namespace omi::analysis {
 
 template <typename container = std::vector<double>>
 struct percentiles {
@@ -33,7 +32,7 @@ struct percentiles {
   //// Construction ///////////////
 
     // Default constructor
-    percentiles() {}
+    percentiles() = default;
 
     // Standard constructor
     explicit percentiles(const container &original) {
@@ -74,6 +73,6 @@ std::ostream &operator<<(std::ostream &out, const percentiles<contanier> &percen
                << "  Min: " << percentile.p00 << std::endl;
 }
 
-} }
+}
 
 #endif

@@ -7,9 +7,7 @@
 
 // Generate multi-run latency comparison html summary section
 
-namespace omi {
-namespace latency {
-namespace comparison {
+namespace omi::latency::comparison {
 
 struct summary {
 
@@ -42,6 +40,6 @@ inline std::ostream &operator<<(std::ostream &out, const summary &summary) {
         return out;
 }
 
-} } }
+}
 
 #endif

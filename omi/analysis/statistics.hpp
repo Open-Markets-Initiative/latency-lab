@@ -7,8 +7,7 @@
 
 // Calculate standard statistics
 
-namespace omi {
-namespace analysis {
+namespace omi::analysis {
 
 template <typename container = std::vector<double>>
 struct statistics {
@@ -41,6 +40,6 @@ std::ostream &operator<<(std::ostream &out, const statistics<contanier> &statist
                << "  Deviation: " << statistics.deviation << std::endl;
 }
 
-} }
+}
 
 #endif

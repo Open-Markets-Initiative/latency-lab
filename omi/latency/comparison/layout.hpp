@@ -11,9 +11,7 @@
 
 // Generate multi-run latency comparison html report
 
-namespace omi {
-namespace latency {
-namespace comparison {
+namespace omi::latency::comparison {
 
 struct layout {
 
@@ -66,6 +64,6 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::close{"html"};
 }
 
-} } }
+}
 
 #endif

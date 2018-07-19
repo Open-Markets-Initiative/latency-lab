@@ -6,8 +6,7 @@
 #include <cstdint>
 #include <algorithm>
 
-namespace omi {
-namespace collection {
+namespace omi::collection {
 
 // Return index of percentile
 inline int index(const size_t count, const uint32_t percentile) {
@@ -28,6 +27,6 @@ auto percentile(const uint32_t percentile, container &values) {
     return values[index];
 }
 
-} }
+}
 
 #endif

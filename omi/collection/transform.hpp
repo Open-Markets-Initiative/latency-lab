@@ -7,8 +7,7 @@
 
 // Container transform
 
-namespace omi {
-namespace collection {
+namespace omi::collection {
 
 // https://stackoverflow.com/questions/23871757/the-stdtransform-like-function-that-returns-transformed-container
 // Make one that decides default constructability at compiletime
@@ -21,6 +20,6 @@ auto transform(const container &elements, function && functor) {
     return result;
 }
 
-} }
+}
 
 #endif

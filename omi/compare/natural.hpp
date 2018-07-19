@@ -7,8 +7,7 @@
 
 // Natural Text Methods
 
-namespace omi {
-namespace compare {
+namespace omi::compare {
 
 // Natural text comparison
 inline bool natural(const std::string& a, const std::string& b) {
@@ -39,14 +38,14 @@ inline bool natural(const std::string& a, const std::string& b) {
         return ia < ib;
     }
 
-    // If digits are the same, remove numbers and recurse
-    std::string anew(a), bnew(b);
+    auto anew(a);
+    auto bnew(b);
     std::getline(issa, anew);
     std::getline(issb, bnew);
 
     return natural(anew, bnew);
 }
 
-} }
+}
 
 #endif

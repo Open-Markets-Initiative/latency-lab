@@ -5,8 +5,7 @@
 
 // Container out
 
-namespace omi { 
-namespace collection {
+namespace omi::collection {
 
 // Stream out all elements in a container 
 template<typename container>
@@ -18,6 +17,6 @@ auto stream(std::ostream &out, const container &elements) {
     return out;
 }
 
-} }
+}
 
 #endif

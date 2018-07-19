@@ -9,9 +9,7 @@
 
 //  Options for omi html latency multi run comparison report
 
-namespace omi {
-namespace latency {
-namespace comparison {
+namespace omi::latency::comparison {
 
 struct options {
 
@@ -79,6 +77,6 @@ inline std::ostream &operator<<(std::ostream &out, const options &program) {
                << program.timer;
 }
 
-} } }
+}
 
 #endif
