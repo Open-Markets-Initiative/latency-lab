@@ -50,7 +50,7 @@ struct matches : std::vector<event::match<trigger, response>> {
         case period::minute:
             return collection::transform(*this, [](const auto & current) { return current.timestamps().delta().minutes(); });
         default:
-            throw new std::invalid_argument("Not implemented");
+            throw std::invalid_argument("Not implemented");
         }
     }
 
