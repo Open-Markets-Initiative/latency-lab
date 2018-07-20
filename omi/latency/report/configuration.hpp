@@ -7,9 +7,7 @@
 
 // Configuartion options for omi html latency report
 
-namespace omi {
-namespace latency {
-namespace report {
+namespace omi::latency::report {
 
 struct configuration {
     std::string title;                          // Report html title
@@ -35,6 +33,6 @@ inline std::ostream &operator<<(std::ostream &out, const configuration &report) 
 }
 
 
-} } }
+}
 
 #endif

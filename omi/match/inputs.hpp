@@ -6,8 +6,7 @@
 
 // Match input files or directories
 
-namespace omi {
-namespace match {
+namespace omi::match {
 
 struct inputs {
     std::string inbound;    // Inbound events file
@@ -20,6 +19,6 @@ inline std::ostream &operator<<(std::ostream &out, const inputs &file) {
                << "  Outbound: " << file.outbound << std::endl;
 }
 
-} }
+}
 
 #endif

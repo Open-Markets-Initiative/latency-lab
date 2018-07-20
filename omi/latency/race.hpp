@@ -7,9 +7,7 @@
 
 // Latency race program template
 
-namespace omi {
-namespace latency {
-namespace race {
+namespace omi::latency::race {
 
 // Default latency race program descriptions
 struct defaults {
@@ -38,6 +36,6 @@ void of(int argc, char *argv[]) {
     if (options.verbose) { std::cout << options << std::endl; }
 }
 
-} } }
+}
 
 #endif

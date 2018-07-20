@@ -7,8 +7,7 @@
 
 // Html div element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct div : html::element {
 
@@ -24,6 +23,6 @@ inline std::ostream &operator<<(std::ostream &out, const div &div) {
     return out << static_cast<html::element>(div);
 }
 
-} }
+}
 
 #endif

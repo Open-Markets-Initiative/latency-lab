@@ -10,9 +10,7 @@
 
 //  Options for omi html latency multi run race
 
-namespace omi {
-namespace latency {
-namespace race {
+namespace omi::latency::race {
 
 struct options {
 
@@ -81,6 +79,6 @@ inline std::ostream &operator<<(std::ostream &out, const options &program) {
 }
 
 
-} } }
+}
 
 #endif

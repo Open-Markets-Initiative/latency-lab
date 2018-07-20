@@ -7,8 +7,7 @@
 
 // Matched event info
 
-namespace omi {
-namespace match {
+namespace omi::match {
 
 template <typename inbound, typename outbound>
 struct info {
@@ -53,7 +52,6 @@ std::ostream &operator<<(std::ostream &out, const infos<inbound, outbound> &info
     return out;
 }
 
-
-} }
+}
 
 #endif

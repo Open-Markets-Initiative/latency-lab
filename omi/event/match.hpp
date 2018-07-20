@@ -7,8 +7,7 @@
 
 // Matched events
 
-namespace omi {
-namespace event {
+namespace omi::event {
 
 // Event match
 template <typename inbound, typename outbound>
@@ -54,6 +53,6 @@ std::ostream &operator<<(std::ostream &out, const match<inbound, outbound> &matc
     return out; // TODO: << match.trigger << " | " << match.response; requires stream operator
 }
 
-} }
+}
 
 #endif

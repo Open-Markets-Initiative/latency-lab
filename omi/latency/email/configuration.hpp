@@ -5,9 +5,7 @@
 
 // Configuartion options for omi html latency email
 
-namespace omi {
-namespace latency {
-namespace email {
+namespace omi::latency::email {
 
 struct configuration {
     std::string title;             // Email html title
@@ -17,6 +15,6 @@ struct configuration {
     // add note?
 };
 
-} } }
+}
 
 #endif

@@ -5,8 +5,7 @@
 
 // Write any output to file
 
-namespace omi {
-namespace source {
+namespace omi::source {
 
 template<typename output>
 void write(const output &out, const std::string &path) {
@@ -19,6 +18,6 @@ void write(const output &out, const std::string &path) {
     stream << out;
 }
 
-} }
+}
 
 #endif

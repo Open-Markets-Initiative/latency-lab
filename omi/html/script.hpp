@@ -7,8 +7,7 @@
 
 // Html script tag
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct script : html::tag {
 
@@ -21,6 +20,6 @@ inline std::ostream &operator<<(std::ostream &out, const script &script) {
     return out << static_cast<html::tag>(script);
 }
 
-} }
+}
 
 #endif

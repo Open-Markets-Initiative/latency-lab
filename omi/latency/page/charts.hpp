@@ -7,9 +7,7 @@
 
 // Page charts
 
-namespace omi {
-namespace latency {
-namespace page {
+namespace omi::latency::page {
 
 struct charts {
     // chart options
@@ -35,6 +33,6 @@ inline std::ostream &operator<<(std::ostream &out, const charts &chart) {
     return out;
 }
 
-} } }
+}
 
 #endif

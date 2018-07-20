@@ -6,8 +6,7 @@
 
 // Html attribute
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct attribute {
     std::string name;
@@ -35,6 +34,6 @@ inline std::ostream &operator<<(std::ostream &out, const attributes &attributes)
     return out;
 }
 
-} }
+}
 
 #endif

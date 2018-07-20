@@ -10,9 +10,7 @@
 
 // Process multiple run latency matching
 
-namespace omi {
-namespace latency {
-namespace process {
+namespace omi::latency::process {
 
 template <typename inbound, typename outbound, typename description>
 auto runs(const match::inputs &directory, const bool verbose) {
@@ -40,6 +38,6 @@ auto runs(const match::inputs &directory, const bool verbose) {
     return results;
 };
 
-} } }
+}
 
 #endif

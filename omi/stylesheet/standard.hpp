@@ -5,8 +5,7 @@
 
 // Common omi css style 1
 
-namespace omi {
-namespace stylesheet {
+namespace omi::stylesheet {
 
 struct standard {
     std::string whitespace;
@@ -71,6 +70,6 @@ inline std::ostream &operator<<(std::ostream &out, const standard &one) {
                     css::declaration{"background-color", "#ffffff"}};
 }
 
-} }
+}
 
 #endif

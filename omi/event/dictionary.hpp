@@ -8,8 +8,7 @@
 
 // Events database
 
-namespace omi {
-namespace event {
+namespace omi::event {
 
 template <typename record>
 struct dictionary {
@@ -71,6 +70,6 @@ std::ostream &operator<<(std::ostream &out, const dictionary<record> &database) 
                << "  Invalid: " << database.invalids.size() << std::endl;
 }
 
-} }
+}
 
 #endif

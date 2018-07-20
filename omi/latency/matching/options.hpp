@@ -9,9 +9,7 @@
 
 //  Options for omi latency matching
 
-namespace omi {
-namespace latency {
-namespace matching {
+namespace omi::latency::matching {
 
 struct options {
 
@@ -56,6 +54,6 @@ inline std::ostream &operator<<(std::ostream &out, const options &program) {
     return out << program.timer;
 }
 
-} } }
+}
 
 #endif

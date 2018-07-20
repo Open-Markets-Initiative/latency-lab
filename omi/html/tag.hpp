@@ -6,8 +6,7 @@
 
 // Html tags (open tag with crlf)
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct tag : html::open {
 
@@ -28,6 +27,6 @@ inline std::ostream &operator<<(std::ostream &out, const tag &tag) {
     return out << static_cast<html::open>(tag) << std::endl;
 }
 
-} }
+}
 
 #endif

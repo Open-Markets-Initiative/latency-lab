@@ -10,9 +10,7 @@
 
 //  Options for omi html latency report (single run)
 
-namespace omi {
-namespace latency {
-namespace report {
+namespace omi::latency::report {
 
 struct options {
 
@@ -79,6 +77,6 @@ inline std::ostream &operator<<(std::ostream &out, const options &program) {
                << program.timer;
 }
 
-} } }
+}
 
 #endif

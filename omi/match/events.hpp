@@ -8,8 +8,7 @@
 
 // Match inbound and outbound events
 
-namespace omi {
-namespace match {
+namespace omi::match {
 
 template <typename inbound, typename outbound>
 struct events {
@@ -51,6 +50,6 @@ std::ostream &operator<<(std::ostream &out, const events<inbound, outbound> &eve
                << "  Unmatched: " << events.misses.size() << std::endl;
 }
 
-} }
+}
 
 #endif

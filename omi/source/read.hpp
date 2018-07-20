@@ -7,8 +7,7 @@
 
 // Read records line by line
 
-namespace omi {
-namespace source {
+namespace omi::source {
 
 template<typename input, typename record>
 auto read(const std::string &path) {
@@ -31,6 +30,6 @@ auto read(const std::string &path) {
     return result;
 }
 
-} }
+}
 
 #endif

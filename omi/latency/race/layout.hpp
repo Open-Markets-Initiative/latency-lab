@@ -11,9 +11,7 @@
 
 // Generate multi-run latency race 
 
-namespace omi { 
-namespace latency {
-namespace race {
+namespace omi::latency::race {
 
 struct layout {
 
@@ -66,6 +64,6 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::close{"html"};
 }
 
-} } }
+}
 
 #endif

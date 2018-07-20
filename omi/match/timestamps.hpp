@@ -5,8 +5,7 @@
 
 // Matched event timestamp
 
-namespace omi {
-namespace match {
+namespace omi::match {
 
 template <typename inbound, typename outbound>
 struct timestamps {
@@ -41,6 +40,6 @@ std::ostream &operator<<(std::ostream &out, const timestamps<inbound, outbound> 
     return out << time.trigger << "," << time.response << "," << time.delta();
 }
 
-} }
+}
 
 #endif

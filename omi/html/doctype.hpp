@@ -6,8 +6,7 @@
 
 // Html doctype element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct doctype {
 
@@ -19,7 +18,7 @@ struct doctype {
     explicit doctype()
       : type{ "html" }, whitespace{ indent::none } {}
 
-    explicit doctype(const std::string &type, const indent whitespace = indent::none)
+    explicit doctype(const std::string& type, const indent whitespace = indent::none)
       : type{ type }, whitespace{ whitespace } {}
 };
 
@@ -28,6 +27,6 @@ inline std::ostream &operator<<(std::ostream &out, const doctype &doctype) {
     return out << "<!DOCTYPE " << doctype.type << ">" << std::endl;
 }
 
-} }
+}
 
 #endif

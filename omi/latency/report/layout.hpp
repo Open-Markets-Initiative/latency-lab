@@ -11,9 +11,7 @@
 
 // Generate single run html latency report
 
-namespace omi {
-namespace latency {
-namespace report {
+namespace omi::latency::report {
 
 struct layout {
 
@@ -72,6 +70,6 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                << html::close{"html"};
 }
 
-} } }
+}
 
 #endif

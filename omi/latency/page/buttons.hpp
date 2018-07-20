@@ -6,9 +6,7 @@
 
 // Generate multi-run latency comparison html tabs section
 
-namespace omi {
-namespace latency {
-namespace page {
+namespace omi::latency::page {
 
 struct buttons {
 
@@ -30,6 +28,6 @@ inline std::ostream &operator<<(std::ostream &out, const buttons &buttons) {
     return out;
 }
 
-} } }
+}
 
 #endif

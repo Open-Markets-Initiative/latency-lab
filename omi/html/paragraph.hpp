@@ -7,8 +7,7 @@
 
 // Html paragraph element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct p : html::element {
 
@@ -20,6 +19,6 @@ inline std::ostream &operator<<(std::ostream &out, const p &p) {
     return out << static_cast<html::element>(p);
 }
 
-} }
+}
 
 #endif

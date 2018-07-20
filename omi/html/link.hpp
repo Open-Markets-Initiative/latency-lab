@@ -8,8 +8,7 @@
 
 // Html link element 
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct link : html::element {
 
@@ -22,6 +21,6 @@ inline std::ostream &operator<<(std::ostream &out, const link &link) {
     return out << static_cast<html::element>(link);
 }
 
-} }
+}
 
 #endif

@@ -8,8 +8,7 @@
 
 // Match run information
 
-namespace omi {
-namespace match {
+namespace omi::match {
 
 struct run {
 
@@ -29,6 +28,6 @@ inline std::ostream &operator<<(std::ostream &out, const run &file) {
 }
 */
 
-} }
+}
 
 #endif

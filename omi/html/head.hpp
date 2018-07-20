@@ -7,10 +7,9 @@
 
 // Html head element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
-struct head : html::tag {
+struct head : tag {
 
     explicit head(const indent whitespace = indent::none)
       : tag{"head", whitespace} {}
@@ -21,6 +20,6 @@ inline std::ostream &operator<<(std::ostream &out, const head &head) {
     return out << static_cast<html::tag>(head);
 }
 
-} }
+}
 
 #endif

@@ -7,9 +7,7 @@
 
 // Single run omi html latency report generation
 
-namespace omi {
-namespace latency {
-namespace report {
+namespace omi::latency::report {
 
 // Default template settings
 struct defaults {
@@ -49,6 +47,6 @@ void of(const int argc, char *argv[]) {
     if (options.verbose) { std::cout << options << std::endl; }
 }
 
-} } }
+}
 
 #endif

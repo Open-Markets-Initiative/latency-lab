@@ -5,8 +5,7 @@
 
 // Html element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct element {
     std::string name;
@@ -44,6 +43,6 @@ inline std::ostream &operator<<(std::ostream &out, const element &element) {
     return out << element.whitespace << "<" << element.name << element.attributes << ">" << element.value << close{ element.name };
 }
 
-} }
+}
 
 #endif

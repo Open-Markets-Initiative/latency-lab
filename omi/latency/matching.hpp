@@ -6,9 +6,7 @@
 
 // Latency event matching program template
 
-namespace omi {
-namespace latency {
-namespace matching {
+namespace omi::latency::matching {
 
 // Matching program defaults
 struct defaults {
@@ -32,6 +30,6 @@ void of(int argc, char *argv[]) {
     // TODO: allow matches, infos and/or ids based on optional args
 };
 
-} } }
+}
 
 #endif 

@@ -5,8 +5,7 @@
 
 // Html table element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct table : html::tag {
 
@@ -19,6 +18,6 @@ inline std::ostream &operator<<(std::ostream &out, const table &table) {
     return out << static_cast<html::tag>(table);
 }
 
-} }
+}
 
 #endif

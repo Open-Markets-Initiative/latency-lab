@@ -9,8 +9,7 @@
 
 // Matches
 
-namespace omi {
-namespace event {
+namespace omi::event {
 
 template <typename trigger, typename response>
 struct matches : std::vector<event::match<trigger, response>> {
@@ -78,6 +77,6 @@ std::ostream &operator<<(std::ostream &out, const matches<trigger, response> &ma
     return collection::stream(out, matches);
 }
 
-} }
+}
 
 #endif

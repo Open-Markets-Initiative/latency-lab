@@ -10,9 +10,7 @@
 
 // Google chart javascript
 
-namespace omi {
-namespace javascript {
-namespace google {
+namespace omi::javascript::google {
 
 struct linechart {
     // script options
@@ -66,6 +64,6 @@ inline std::ostream &operator<<(std::ostream &out, const linechart &chart) {
     return out;
 }
 
-} } }
+}
 
 #endif

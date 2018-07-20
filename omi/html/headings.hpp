@@ -7,8 +7,7 @@
 
 // Html heading elements 
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct h1 : html::element {
 
@@ -80,6 +79,6 @@ inline std::ostream &operator<<(std::ostream &out, const h6 &h6) {
     return out << static_cast<html::element>(h6);
 }
 
-} }
+}
 
 #endif

@@ -6,8 +6,7 @@
 
 // Html table of common statistics
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct percentiles {
     // Member Variables
@@ -49,6 +48,6 @@ inline std::ostream &operator<<(std::ostream &out, const percentiles &table) {
                << table.whitespace << html::close{"table"};
 }
 
-} }
+}
 
 #endif

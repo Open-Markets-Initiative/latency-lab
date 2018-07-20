@@ -5,13 +5,12 @@
 
 // Compiletime event asserts
 
-namespace omi {
-namespace event {
+namespace omi::event {
 
 // Are records matchable?
 template <class inbound, class outbound>
 constexpr bool is_matchable = std::is_same<decltype(std::declval<inbound>().id()), decltype(std::declval<outbound>().id())>::value;
 
-} }
+}
 
 #endif

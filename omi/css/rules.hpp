@@ -7,8 +7,7 @@
 
 // Css rule set
 
-namespace omi {
-namespace css {
+namespace omi::css {
 
 struct rule {
     std::string selector;
@@ -46,6 +45,6 @@ inline std::ostream &operator<<(std::ostream &out, const rule &rule) {
     return out << whitespace << "}" << std::endl;
 }
 
-} }
+}
 
 #endif

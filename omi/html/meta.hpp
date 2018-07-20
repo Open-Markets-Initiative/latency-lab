@@ -7,8 +7,7 @@
 
 // Html meta element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct meta : html::tag {
 
@@ -21,6 +20,6 @@ inline std::ostream &operator<<(std::ostream &out, const meta &meta) {
     return out << static_cast<html::tag>(meta) << std::endl;
 }
 
-} }
+}
 
 #endif

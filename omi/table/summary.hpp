@@ -9,8 +9,7 @@
 
 // Html table of common latency summay statistics
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct summary {
     // Member variables
@@ -60,6 +59,6 @@ inline std::ostream &operator<<(std::ostream &out, const summary &table) {
                << table.whitespace << html::close{"table"};
 }
 
-} }
+}
 
 #endif

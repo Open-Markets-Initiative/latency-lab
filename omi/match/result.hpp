@@ -7,8 +7,7 @@
 
 // Matching results
 
-namespace omi {
-namespace match {
+namespace omi::match {
 
 template <typename inbound, typename outbound>
 struct result {
@@ -41,6 +40,6 @@ inline std::ostream &operator<<(std::ostream &out, const results &file) {
 }
 */
 
-} }
+}
 
 #endif

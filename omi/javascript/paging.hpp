@@ -5,8 +5,7 @@
 
 // Javascript page functions
 
-namespace omi {
-namespace javascript {
+namespace omi::javascript {
 
 struct paging {
     // script options
@@ -34,6 +33,6 @@ inline std::ostream &operator<<(std::ostream &out, const paging &paging) {
                << paging.whitespace << "  }" << std::endl;
 }
 
-} }
+}
 
 #endif

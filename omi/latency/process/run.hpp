@@ -7,9 +7,7 @@
 
 // Process single run latency matching
 
-namespace omi {
-namespace latency {
-namespace process {
+namespace omi::latency::process {
 
 template <typename inbound, typename outbound, typename description>
 auto run(const match::inputs &file, const bool verbose) {
@@ -36,6 +34,6 @@ auto run(const match::inputs &file, const bool verbose) {
     return match::result<inbound, outbound>{ name, file, events };
 }
 
-} } }
+}
 
 #endif

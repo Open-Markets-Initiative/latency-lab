@@ -5,8 +5,7 @@
 
 // Matching results
 
-namespace omi {
-namespace match {
+namespace omi::match {
 
 struct runs : std::vector<match::run> {};
 
@@ -18,6 +17,6 @@ inline std::ostream &operator<<(std::ostream &out, const results &file) {
 }
 */
 
-} }
+}
 
 #endif

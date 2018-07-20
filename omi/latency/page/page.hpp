@@ -8,9 +8,7 @@
 
 // Html report section contains graph, stat tables
 
-namespace omi {
-namespace latency {
-namespace page {
+namespace omi::latency::page {
 
 struct page {
     // Member variables
@@ -46,6 +44,6 @@ inline std::ostream &operator<<(std::ostream &out, const page &page) {
                << html::close{"div"};
 }
 
-} } }
+}
 
 #endif

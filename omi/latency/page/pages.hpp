@@ -6,9 +6,7 @@
 
 // Html report pages
 
-namespace omi {
-namespace latency {
-namespace page {
+namespace omi::latency::page {
 
 struct pages {
     // Member variables
@@ -29,6 +27,6 @@ inline std::ostream &operator<<(std::ostream &out, const pages &report) {
     return out;
 }
 
-} } }
+}
 
 #endif

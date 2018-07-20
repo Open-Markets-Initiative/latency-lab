@@ -9,8 +9,7 @@
 
     // Omi program settings
 
-namespace omi {
-namespace program {
+namespace omi::program {
 
 struct settings {
 
@@ -85,6 +84,6 @@ struct settings {
     }
 };
 
-} }
+}
 
 #endif

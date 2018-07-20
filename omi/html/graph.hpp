@@ -11,8 +11,7 @@
 
 // Google graph element
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct graph : html::element {
 
@@ -54,6 +53,6 @@ inline std::ostream &operator<<(std::ostream &out, const graph &graph) {
     return out << static_cast<html::element>(graph);
 }
 
-} }
+}
 
 #endif

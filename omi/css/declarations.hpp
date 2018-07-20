@@ -8,8 +8,7 @@
 
 // Css declaration
 
-namespace omi {
-namespace css {
+namespace omi::css {
 
 struct declaration {
     std::string property;
@@ -26,6 +25,6 @@ inline std::ostream &operator<<(std::ostream &out, const declaration &rule) {
 
 using declarations = std::vector<declaration>;
 
-} }
+}
 
 #endif

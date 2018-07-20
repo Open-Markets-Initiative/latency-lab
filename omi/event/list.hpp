@@ -7,8 +7,7 @@
 
 // Processed event records
 
-namespace omi {
-namespace event {
+namespace omi::event {
 
 template <typename record>
 struct list {
@@ -53,6 +52,6 @@ std::ostream &operator<<(std::ostream &out, const list<record> &events) {
                << "  Invalid: " << events.invalids.size() << std::endl;
 }
 
-} }
+}
 
 #endif

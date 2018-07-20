@@ -9,8 +9,7 @@
 
 // Omi program options
 
-namespace omi {
-namespace program {
+namespace omi::program {
 
 // Common program options
 namespace help    { static constexpr const char* option = "help";}
@@ -85,6 +84,6 @@ struct options {
     }
 };
 
-} }
+}
 
 #endif

@@ -11,9 +11,7 @@
 
 // Generate single run html latency report
 
-namespace omi {
-namespace latency {
-namespace email {
+namespace omi::latency::email {
 
 struct components {
 
@@ -70,6 +68,6 @@ inline std::ostream &operator<<(std::ostream &out, const components &email) {
                << html::close{"html"};
 }
 
-} } }
+}
 
 #endif

@@ -7,8 +7,7 @@
 
 // Optional link to external style or inline default css declarations
 
-namespace omi {
-namespace stylesheet {
+namespace omi::stylesheet {
 
 struct options {
     omi::whitespace whitespace;
@@ -31,6 +30,6 @@ inline std::ostream &operator<<(std::ostream &out, const options &options) {
                << html::close{ "style" };
 }
 
-} }
+}
 
 #endif

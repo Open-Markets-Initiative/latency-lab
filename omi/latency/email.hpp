@@ -7,9 +7,7 @@
 
 // Single run omi html only latency report generation
 
-namespace omi {
-namespace latency {
-namespace email {
+namespace omi::latency::email {
 
 // Email program defaults
 struct defaults {
@@ -41,6 +39,6 @@ void of(int argc, char *argv[]) {
     if (options.verbose) { std::cout << options << std::endl; }
 }
 
-} } }
+}
 
 #endif

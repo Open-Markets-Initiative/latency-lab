@@ -5,8 +5,7 @@
 
 // Html tags
 
-namespace omi {
-namespace html {
+namespace omi::html {
 
 struct close {
     std::string name;
@@ -21,6 +20,6 @@ inline std::ostream &operator<<(std::ostream &out, const close &tag) {
     return out << tag.whitespace << "</" << tag.name + ">" << std::endl;
 }
 
-}  }
+}
 
 #endif
