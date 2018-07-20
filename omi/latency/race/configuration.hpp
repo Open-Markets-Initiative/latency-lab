@@ -9,15 +9,15 @@
 namespace omi::latency::race {
 
 struct configuration {
-    std::string title;
+    std::string title;                            // Race Title
     std::string header;
     std::string copyright;
     std::string css;
     omi::period period;                           // Delta time period
     struct precision {
-        boost::optional<size_t> chart{ 2 };       // Report chart precision
-        boost::optional<size_t> statistics{ 2 };  // Report statistics precision
-        boost::optional<size_t> percentiles{ 2 }; // Report percentiles precision
+        std::optional<size_t> chart{ 2 };         // Report chart precision
+        std::optional<size_t> statistics{ 2 };    // Report statistics precision
+        std::optional<size_t> percentiles{ 2 };   // Report percentiles precision
     } precision;
     // add note?
 };

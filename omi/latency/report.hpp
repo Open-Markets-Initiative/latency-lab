@@ -26,13 +26,13 @@ void of(const int argc, char *argv[]) {
     auto result = process::run<inbound, outbound, descriptions>(options.files, options.verbose);
 
     // Determine report period and precision
-    if (not options.report.precision.chart.is_initialized()) { // make a method for this
+    if (not options.report.precision.chart.has_value()) { // make a method for this
         options.report.precision.chart = 3;
     }
-    if (not options.report.precision.statistics.is_initialized()) {
+    if (not options.report.precision.statistics.has_value()) {
         options.report.precision.statistics = 4;
     }
-    if (not options.report.precision.percentiles.is_initialized()) {
+    if (not options.report.precision.percentiles.has_value()) {
         options.report.precision.percentiles = 3;
     }
 

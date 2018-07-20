@@ -40,7 +40,7 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                <<   html::src{"https://www.gstatic.com/charts/loader.js"}
                <<   html::script{"text/javascript"}
                <<     "  google.charts.load('current', {'packages':['corechart', 'line']});" << std::endl // make method for this
-               <<     javascript::google::linechart{report.run.data, text(report.run.period), report.options.precision.chart.get(), "chart"}
+               <<     javascript::google::linechart{report.run.data, text(report.run.period), report.options.precision.chart.value(), "chart"}
                <<   html::close{"script"}
                << html::close{"head"}
                << std::endl
@@ -54,12 +54,12 @@ inline std::ostream &operator<<(std::ostream &out, const layout &report) {
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Statistics"}
-               <<     html::statistics{report.run.data, report.options.precision.statistics.get()}
+               <<     html::statistics{report.run.data, report.options.precision.statistics.value()}
                <<   html::close{"article"}
                <<   std::endl
                <<   html::tag{"article"}
                <<     html::h5{"Percentiles"}
-               <<     html::percentiles{report.run.data, report.options.precision.percentiles.get()}
+               <<     html::percentiles{report.run.data, report.options.precision.percentiles.value()}
                <<   html::close{"article"}
                << html::close{"section"}
                << html::close{"body"}

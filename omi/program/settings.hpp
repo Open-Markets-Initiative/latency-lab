@@ -20,7 +20,7 @@ struct settings {
   //// Construction ///////////////
 
     // Default constructor
-    settings() {}
+    settings() = default;
 
     // Load settings from boost property tree
     explicit settings(const boost::property_tree::ptree &tree) 
@@ -41,19 +41,19 @@ struct settings {
 
     // Convenience method for setting optional value
     template<typename T>
-    boost::optional<T> optional(const std::string field) const {
-        return properties.get_optional<T>(field);
+    std::optional<T> optional(const std::string field) const {
+        return exists(field) ? properties.get<T>(field) : std::optional<T>();
     }
 
     // Required settings value
     template<typename T>
     T required(const std::string field) const {
         // Verify required field exists
-        if (not exists(field)) {
-            throw std::invalid_argument("Missing setting => " + field);
+        if (exists(field)) {
+            return properties.get<T>(field);
         }
 
-        return properties.get<T>(field);
+        throw std::invalid_argument("Missing setting => " + field);
     }
 
     // Retrieve ini section
@@ -74,7 +74,7 @@ struct settings {
   //// Stats //////////////////////
 
     // Does setting exist?
-    bool exists(const std::string field) const noexcept {
+    bool exists(const std::string& field) const noexcept {
         return properties.count(field) > 0;
     }
 

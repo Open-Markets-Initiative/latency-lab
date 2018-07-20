@@ -2,8 +2,8 @@
 #define OMI_LATENCY_REPORT_CONFIGURATION_HPP_
 
 #include <omi/types/period.hpp>
-#include <boost/optional.hpp>
 #include <string>
+#include <optional>
 
 // Configuartion options for omi html latency report
 
@@ -15,9 +15,9 @@ struct configuration {
     std::string copyright;                      // Copyright text
     omi::period period;                         // Delta time period
     struct precision {
-      boost::optional<size_t> chart{ 2 };       // Report chart precision
-      boost::optional<size_t> statistics{ 2 };  // Report statistics precision
-      boost::optional<size_t> percentiles{ 2 }; // Report percentiles precision
+      std::optional<size_t> chart{ 2 };         // Report chart precision
+      std::optional<size_t> statistics{ 2 };    // Report statistics precision
+      std::optional<size_t> percentiles{ 2 };   // Report percentiles precision
     } precision;
     std::string path;          // Html report output path
     // add note?

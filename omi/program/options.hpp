@@ -2,10 +2,10 @@
 #define OMI_PROGRAM_OPTIONS_HPP_
 
 #include <boost/program_options.hpp>
-#include <boost/optional/optional.hpp>
 
 #include <iostream>
 #include <iso646.h>
+#include <optional>
 
 // Omi program options
 
@@ -54,8 +54,8 @@ struct options {
 
     // Convenience method for setting optional value only if setting exists
     template<typename T>
-    boost::optional<T> optional(const std::string arg) const {
-        return exists(arg) ? values[arg].as<T>() : boost::optional<T>{};
+    std::optional<T> optional(const std::string arg) const {
+        return exists(arg) ? values[arg].as<T>() : std::optional<T>{};
     }
 
     // Returns program argument, throws exception if required arg is missing
