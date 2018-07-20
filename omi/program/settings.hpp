@@ -5,6 +5,7 @@
 #include <boost/property_tree/ini_parser.hpp>
 
 #include <stdexcept>
+#include <optional>
 #include <iso646.h>
 
     // Omi program settings

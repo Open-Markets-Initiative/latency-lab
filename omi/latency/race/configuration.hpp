@@ -1,8 +1,10 @@
 #ifndef OMI_LATENCY_RACE_CONFIGURATION_HPP_
 #define OMI_LATENCY_RACE_CONFIGURATION_HPP_
 
-#include <omi/types/period.hpp>
 #include <string>
+#include <optional>
+
+#include <omi/types/period.hpp>
 
 // Configuration options for omi html latency race
 

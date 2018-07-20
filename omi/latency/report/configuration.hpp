@@ -1,9 +1,10 @@
 #ifndef OMI_LATENCY_REPORT_CONFIGURATION_HPP_
 #define OMI_LATENCY_REPORT_CONFIGURATION_HPP_
 
-#include <omi/types/period.hpp>
 #include <string>
 #include <optional>
+
+#include <omi/types/period.hpp>
 
 // Configuartion options for omi html latency report
 

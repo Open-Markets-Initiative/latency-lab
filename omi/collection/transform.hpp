@@ -9,12 +9,14 @@
 
 namespace omi::collection {
 
-// https://stackoverflow.com/questions/23871757/the-stdtransform-like-function-that-returns-transformed-container
+// Return value from function applied to container
+template <typename container, typename function>
+using made_from = decltype(std::declval<function>()(std::declval<typename container::value_type>()));
 
-// Transform vector according to operation
-template <typename container, typename function, typename type = typename container::value_type>
+// Transform to vector according to operation
+template <typename container, typename function>
 auto transform(const container &collection, function && functor) {
-    std::vector<decltype(std::declval<function>()(std::declval<type>()))> result;
+    std::vector<made_from<container, function>> result;
 
     if constexpr (std::is_default_constructible_v<decltype(result)::value_type>) {
         result.resize(collection.size());
