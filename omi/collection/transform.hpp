@@ -10,13 +10,18 @@
 namespace omi::collection {
 
 // https://stackoverflow.com/questions/23871757/the-stdtransform-like-function-that-returns-transformed-container
-// Make one that decides default constructability at compiletime
 
-// Transform vector acoording to operation
+// Transform vector according to operation
 template <typename container, typename function, typename type = typename container::value_type>
-auto transform(const container &elements, function && functor) {
-    std::vector<decltype(std::declval<function>()(std::declval<type>()))> result(elements.size());
-    std::transform(std::begin(elements), std::end(elements), std::begin(result), functor);
+auto transform(const container &collection, function && functor) {
+    std::vector<decltype(std::declval<function>()(std::declval<type>()))> result;
+
+    if constexpr (std::is_default_constructible_v<decltype(result)::value_type>) {
+        result.resize(collection.size());
+        std::transform(std::begin(collection), std::end(collection), std::begin(result), functor);
+    } else {
+        std::transform(std::begin(collection), std::end(collection), std::back_inserter(result), functor);
+    }
     return result;
 }
 
