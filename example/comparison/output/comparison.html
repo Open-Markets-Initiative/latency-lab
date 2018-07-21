@@ -11,8 +11,8 @@
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart', 'line']});
 
-  google.charts.setOnLoadCallback(drawinboundchart);
-  function drawinboundchart() {
+  google.charts.setOnLoadCallback(draw1xchart);
+  function draw1xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -40,7 +40,7 @@
       ]);
 
     var options = {
-      title: 'inbound',
+      title: '1x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -52,12 +52,12 @@
       }
     };
 
-    var chart = new google.visualization.LineChart(document.getElementById('inboundchart'));
+    var chart = new google.visualization.LineChart(document.getElementById('1xchart'));
     chart.draw(data, options);
   }
 
-  google.charts.setOnLoadCallback(drawinboundchart);
-  function drawinboundchart() {
+  google.charts.setOnLoadCallback(draw2xchart);
+  function draw2xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -85,7 +85,7 @@
       ]);
 
     var options = {
-      title: 'inbound',
+      title: '2x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -97,12 +97,12 @@
       }
     };
 
-    var chart = new google.visualization.LineChart(document.getElementById('inboundchart'));
+    var chart = new google.visualization.LineChart(document.getElementById('2xchart'));
     chart.draw(data, options);
   }
 
-  google.charts.setOnLoadCallback(drawinboundchart);
-  function drawinboundchart() {
+  google.charts.setOnLoadCallback(draw10xchart);
+  function draw10xchart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Event');
@@ -130,7 +130,7 @@
       ]);
 
     var options = {
-      title: 'inbound',
+      title: '10x',
       legend: 'none',
       width: 1000,
       height: 500,
@@ -142,7 +142,7 @@
       }
     };
 
-    var chart = new google.visualization.LineChart(document.getElementById('inboundchart'));
+    var chart = new google.visualization.LineChart(document.getElementById('10xchart'));
     chart.draw(data, options);
   }
 
@@ -169,9 +169,9 @@
 
 <div class="tab">
 <button class="tablinks" onclick="select(event, 'summary')" id="defaultOpen">Summary</button>
-<button class="tablinks" onclick="select(event, 'inbound')">inbound</button>
-<button class="tablinks" onclick="select(event, 'inbound')">inbound</button>
-<button class="tablinks" onclick="select(event, 'inbound')">inbound</button>
+<button class="tablinks" onclick="select(event, '1x')">1x</button>
+<button class="tablinks" onclick="select(event, '2x')">2x</button>
+<button class="tablinks" onclick="select(event, '10x')">10x</button>
 </div>
 
 <div id="summary" class="tabcontent">
@@ -179,7 +179,7 @@
 <section>
 <table class="gridtable">
 <tr>
-  <th>inbound</th>
+  <th>1x</th>
   <th>Average</th>
   <th>Std Dev</th>
   <th>Minimum</th>
@@ -207,7 +207,7 @@
 <section>
 <table class="gridtable">
 <tr>
-  <th>inbound</th>
+  <th>2x</th>
   <th>Average</th>
   <th>Std Dev</th>
   <th>Minimum</th>
@@ -235,7 +235,7 @@
 <section>
 <table class="gridtable">
 <tr>
-  <th>inbound</th>
+  <th>10x</th>
   <th>Average</th>
   <th>Std Dev</th>
   <th>Minimum</th>
@@ -266,13 +266,13 @@
 </section>
 </div>
 
-<div id="inbound" class="tabcontent">
+<div id="1x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>inbound</h3>
+<h3>1x</h3>
 
 <article>
-<div id="inboundchart"></div>
+<div id="1xchart"></div>
 </article>
 
 <article>
@@ -330,13 +330,13 @@
 </article>
 </section>
 </div>
-<div id="inbound" class="tabcontent">
+<div id="2x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>inbound</h3>
+<h3>2x</h3>
 
 <article>
-<div id="inboundchart"></div>
+<div id="2xchart"></div>
 </article>
 
 <article>
@@ -394,13 +394,13 @@
 </article>
 </section>
 </div>
-<div id="inbound" class="tabcontent">
+<div id="10x" class="tabcontent">
 <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
 <section>
-<h3>inbound</h3>
+<h3>10x</h3>
 
 <article>
-<div id="inboundchart"></div>
+<div id="10xchart"></div>
 </article>
 
 <article>

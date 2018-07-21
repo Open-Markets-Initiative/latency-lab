@@ -31,7 +31,7 @@ auto runs(const match::inputs &directory, const bool verbose) {
     // Stores test name key, delta value
     match::results<inbound, outbound> results;
     for (auto&& run : runs) {
-        auto name = directory::name(directory.inbound);
+        auto name = directory::name(run.inbound.string()); // make smoother
         auto events = match::events<inbound, outbound>(run);
         results.push_back(match::result<inbound, outbound>{ name, run, events });
     }
