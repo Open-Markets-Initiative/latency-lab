@@ -14,9 +14,11 @@ auto run(const match::inputs &file, const bool verbose) {
     // Print title
     if (verbose) { std::cout << description::title << std::endl; }
 
+    auto paths = match::parse(file);
+
     // Load all possible inbound trigger events
     if (verbose) { std::cout << "Loading inbound " << description::inbound << std::endl; }
-    const auto inbounds = event::dictionary<inbound>::read(file.inbound);
+    const auto inbounds = event::dictionary<inbound>::read(file.inbound); // make this std::filesystem
     if (verbose) { std::cout << inbounds; }
 
     // Load response events
@@ -31,7 +33,7 @@ auto run(const match::inputs &file, const bool verbose) {
 
     // Create name and return result
     auto name = std::string(description::inbound) + std::string(" to ") + std::string(description::outbound);
-    return match::result<inbound, outbound>{ name, file, events };
+    return match::result<inbound, outbound>{ name, paths, events };
 }
 
 }

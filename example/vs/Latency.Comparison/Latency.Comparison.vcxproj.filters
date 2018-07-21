@@ -58,9 +58,6 @@
     <ClInclude Include="..\..\..\omi\table\percentiles.hpp">
       <Filter>Header Files\table</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\table\statistics.hpp">
-      <Filter>Header Files\table</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\process\runs.hpp">
       <Filter>Header Files\process</Filter>
     </ClInclude>
@@ -96,6 +93,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\latency\comparison\summary.hpp">
       <Filter>Header Files\comparison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\table\statistics.hpp">
+      <Filter>Header Files\utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

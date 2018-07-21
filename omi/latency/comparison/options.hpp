@@ -6,6 +6,7 @@
 #include <omi/latency/args.hpp>
 #include <omi/latency/comparison/configuration.hpp>
 #include <omi/utility/autotimer.hpp>
+#include <omi/match/inputs.hpp>
 
 //  Options for omi html latency multi run comparison report
 

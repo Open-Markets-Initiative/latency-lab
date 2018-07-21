@@ -1,9 +1,11 @@
 #ifndef OMI_DIRECTORY_PARSING_HPP_
 #define OMI_DIRECTORY_PARSING_HPP_
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
-    // Directory methods (Under construction)
+#include <omi/match/paths.hpp>
+
+// Directory methods (Under construction)
 
 namespace omi::directory {
 
@@ -12,7 +14,7 @@ const std::string OUTBOUND_EVENT_SUFFIX = "outbound";
 
 // need to move this
 inline std::string name(const std::string &path) {
-    boost::filesystem::path p = path;
+    std::filesystem::path p = path;
     auto name = p.filename().string();
     auto index = name.find(INBOUND_EVENT_SUFFIX);
 
@@ -20,7 +22,7 @@ inline std::string name(const std::string &path) {
 }
 
 // Returns what outbound file should be based on inbound file and outbound dir
-inline boost::filesystem::path find(const boost::filesystem::path &file, const boost::filesystem::path &directory) {
+inline auto find(const std::filesystem::path &file, const std::filesystem::path &directory) {
     auto result = directory;
     auto name = file.filename().string();
 
@@ -33,42 +35,31 @@ inline boost::filesystem::path find(const boost::filesystem::path &file, const b
 }
 
 // Return matching inputs from directories
-inline auto parse(const boost::filesystem::path &in, const boost::filesystem::path &out) {
-    if (not boost::filesystem::is_directory(in)) {
-        throw std::invalid_argument("Invalid inbound directory: " + in.string());
+inline auto parse(const std::filesystem::path &inbounds, const std::filesystem::path &outbounds) {
+    if (not is_directory(inbounds)) {
+        throw std::invalid_argument("Invalid inbound directory: " + inbounds.string());
     }
 
-    if (not boost::filesystem::is_directory(out)) {
-        throw std::invalid_argument("Invalid outbound directory: " + out.string());
+    if (not is_directory(outbounds)) {
+        throw std::invalid_argument("Invalid outbound directory: " + outbounds.string());
     }
 
-    std::vector<omi::match::inputs> inputs;
-    for (auto& entry : boost::filesystem::directory_iterator(in)) {
-        if (exists(entry)) {
-            auto inbound = entry.path().filename().string();
-            auto outbound = find(inbound, out);
+    std::vector<omi::match::paths> result;
+    for (auto& entry : std::filesystem::directory_iterator(inbounds)) {
+        if (not exists(entry)) { continue; }
 
-            if (boost::filesystem::exists(outbound)) {
-                match::inputs item;
-                  item.inbound = entry.path().string();
-                  item.outbound = outbound.string();
-
-                inputs.push_back(item);
-            }
+        const auto outbound = find(entry.path().filename().string(), outbounds);
+        if (exists(outbound)) {
+          result.push_back({ entry.path(), outbound });
         }
     }
 
-    return inputs;
-}
-
-// Does 
-inline auto exists(boost::filesystem::directory_entry& entry, const std::string &file = INBOUND_EVENT_SUFFIX) {
-    return entry.path().filename().string().find(file) != std::string::npos;
+    return result;
 }
 
 // Return matching inputs from directories 
 inline auto parse(const std::string &inbound, const std::string &outbound) {
-    return parse(boost::filesystem::path{inbound}, boost::filesystem::path{outbound});
+    return parse(std::filesystem::path{inbound}, std::filesystem::path{outbound});
 }
 
 }

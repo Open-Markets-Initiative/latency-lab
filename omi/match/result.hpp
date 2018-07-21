@@ -1,7 +1,7 @@
 #ifndef OMI_MATCH_RESULT_HPP_
 #define OMI_MATCH_RESULT_HPP_
 
-#include <omi/match/inputs.hpp>
+#include <omi/match/paths.hpp>
 #include <omi/match/events.hpp>
 #include <omi/match/run.hpp>
 
@@ -15,7 +15,7 @@ struct result {
   //// Member Variables ///////////
 
     std::string name;                  // Result Name
-    inputs path;                       // Data Files
+    paths path;                        // Data Files
     events<inbound, outbound> data;    // Matched Events
 
   //// Methods ///////////

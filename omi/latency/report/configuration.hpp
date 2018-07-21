@@ -14,16 +14,15 @@ struct configuration {
     std::string title;                          // Report html title
     std::string header;                         // Report header text
     std::string copyright;                      // Copyright text
-    omi::period period;                         // Delta time period
+    omi::period period{ period::unknown };      // Delta time period
     struct precision {
       std::optional<size_t> chart{ 2 };         // Report chart precision
       std::optional<size_t> statistics{ 2 };    // Report statistics precision
       std::optional<size_t> percentiles{ 2 };   // Report percentiles precision
     } precision;
-    std::string path;          // Html report output path
-    // add note?
-
-    std::string css;           // optional link to external css file 
+    std::string path;                           // Html report output path
+    std::string css;                            // optional link to external css file 
+                                                // add note?
 };
 
 // Stream operator

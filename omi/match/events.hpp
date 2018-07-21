@@ -1,7 +1,7 @@
 #ifndef OMI_MATCH_EVENTS_HPP_
 #define OMI_MATCH_EVENTS_HPP_
 
-#include <omi/match/inputs.hpp>
+#include <omi/match/paths.hpp>
 #include <omi/event/dictionary.hpp>
 #include <omi/event/list.hpp>
 #include <omi/event/matches.hpp>
@@ -27,8 +27,8 @@ struct events {
       : events{ event::dictionary<inbound>::read(inbounds), event::list<outbound>::read(outbounds) } {}
 
     // Construct from event inputs
-    explicit events(const match::inputs &file)
-      : events{ file.inbound, file.outbound } {}
+    explicit events(const match::paths &path)
+      : events{ path.inbound.string(), path.outbound.string() } {}
 
     // Construct from events
     explicit events(const event::dictionary<inbound> &inbounds, const event::list<outbound> &outbounds) {

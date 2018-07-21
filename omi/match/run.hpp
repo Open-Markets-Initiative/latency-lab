@@ -4,7 +4,7 @@
 #include <vector>
 
 #include <omi/types/period.hpp>
-#include <omi/match/inputs.hpp>
+#include <omi/match/paths.hpp>
 
 // Match run information
 
@@ -15,7 +15,7 @@ struct run {
   //// Member Variables ///////////
 
     std::string name;                  // Result Name
-    inputs path;                       // Data Files
+    match::paths path;                 // Data Files
     omi::period period;                // Delta interval
     std::vector<double> data;          // Matched deltas
 };

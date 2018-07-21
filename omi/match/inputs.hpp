@@ -1,22 +1,22 @@
 #ifndef OMI_MATCH_INPUTS_HPP_
 #define OMI_MATCH_INPUTS_HPP_
 
-#include <string>
 #include <ostream>
+#include <string>
 
 // Match input files or directories
 
 namespace omi::match {
 
 struct inputs {
-    std::string inbound;    // Inbound events file
-    std::string outbound;   // Outbound events file
+    std::string inbound;    // Inbound input
+    std::string outbound;   // Outbound input
 };
 
 // Stream operator
-inline std::ostream &operator<<(std::ostream &out, const inputs &file) {
-    return out << "  Inbound: " << file.inbound << std::endl
-               << "  Outbound: " << file.outbound << std::endl;
+inline std::ostream &operator<<(std::ostream &out, const inputs &input) {
+    return out << "  Inbound: " << input.inbound << std::endl
+               << "  Outbound: " << input.outbound << std::endl;
 }
 
 }

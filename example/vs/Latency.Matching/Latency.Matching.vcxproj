@@ -158,6 +158,7 @@
     <ClInclude Include="..\..\..\omi\match\events.hpp" />
     <ClInclude Include="..\..\..\omi\match\info.hpp" />
     <ClInclude Include="..\..\..\omi\match\inputs.hpp" />
+    <ClInclude Include="..\..\..\omi\match\paths.hpp" />
     <ClInclude Include="..\..\..\omi\match\result.hpp" />
     <ClInclude Include="..\..\..\omi\match\results.hpp" />
     <ClInclude Include="..\..\..\omi\match\run.hpp" />

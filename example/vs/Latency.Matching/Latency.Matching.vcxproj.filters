@@ -83,9 +83,6 @@
     <ClInclude Include="..\..\..\omi\match\info.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\omi\match\inputs.hpp">
-      <Filter>Header Files\match</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\omi\match\result.hpp">
       <Filter>Header Files\match</Filter>
     </ClInclude>
@@ -106,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\omi\event\dictionary.hpp">
       <Filter>Header Files\event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\paths.hpp">
+      <Filter>Header Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\omi\match\inputs.hpp">
+      <Filter>Header Files\match</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
