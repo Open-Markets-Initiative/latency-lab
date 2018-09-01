@@ -30,7 +30,7 @@ struct matches : std::vector<event::match<trigger, response>> {
         return transform(*this, [](const auto &current) { return current.timestamps(); });
     }
 
-    // Returns a list of deltas timespans  from matched timestamps
+    // Returns a list of deltas timespans from matched timestamps
     auto deltas() const {
         return transform(*this, [](const auto &current) { return current.timestamps().delta(); });
     }

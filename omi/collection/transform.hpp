@@ -18,7 +18,7 @@ template <typename container, typename function>
 auto transform(const container &collection, function && functor) {
     std::vector<made_from<container, function>> result;
 
-    if constexpr (std::is_default_constructible_v<decltype(result)::value_type>) {
+    if constexpr (std::is_default_constructible_v<typename decltype(result)::value_type>) {
         result.resize(collection.size());
         std::transform(std::begin(collection), std::end(collection), std::begin(result), functor);
     } else {
