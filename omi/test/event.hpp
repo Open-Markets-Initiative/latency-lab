@@ -14,7 +14,7 @@ struct event {
     omi::frame frame;              // Pcap frame number
     omi::timestamp timestamp;      // Pcap time in nanoseconds 
     omi::seqnum sequence;          // Sbe message sequence number
-    bool processed;                //
+    bool processed;                // Has been processed
 
   //// Methods ////////////////////
 
