@@ -30,4 +30,25 @@ BOOST_AUTO_TEST_CASE(VerifySumEmptyReturnValue) {
     CHECK_EQUAL(expected, actual, comment);
 }
 
+///////////////////////////////////////////////
+// collection::average()
+
+BOOST_AUTO_TEST_CASE(VerifyAverageReturnValue) {
+    auto comment = "Verify collection::average() return value for 0, 1, 2, 3";
+
+    auto expected = 1.5;
+    auto actual = collection::average(std::vector<double>{ 0, 1, 2, 3 });
+
+    CHECK_EQUAL(expected, actual, comment);
+}
+
+BOOST_AUTO_TEST_CASE(VerifyAverageEmptyReturnValue) {
+    auto comment = "Verify collection::average() return value for empty list";
+
+    auto expected = 0.;
+    auto actual = collection::average(std::list<double>{});
+
+    CHECK_EQUAL(expected, actual, comment);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

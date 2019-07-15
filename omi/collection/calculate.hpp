@@ -41,7 +41,7 @@ auto average(const container &elements) {
     return count > 0 ? collection::sum(elements) / count : typename container::value_type{};
 }
 
-// Calculate standard deviation with pre calulated average
+// Calculate standard deviation with pre calculated average
 template <typename container>
 auto deviation(const container &values, typename container::value_type average) {
     // Verify that array has elements
