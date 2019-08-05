@@ -1,12 +1,12 @@
 #ifndef OMI_TYPES_SEQUENCE_NUMBER_HPP_
 #define OMI_TYPES_SEQUENCE_NUMBER_HPP_
 
-#include <stdint.h>
+#include <cstdint>
 #include <ostream>
 #include <functional>
 #include <iso646.h>
 
-// Generic Sequence Number
+// Generic 8 byte sequence number
 
 namespace omi {
 
@@ -25,13 +25,8 @@ struct seqnum {
 
   ///// Methods ///////////////////
 
-    // Cast operator
-    explicit operator seqnum() const {
-        return seqnum(value);
-    }
-
     // Return underlying value
-    type get() const {
+    [[nodiscard]] type get() const {
         return value;
     }
 
@@ -83,7 +78,7 @@ inline std::ostream &operator<<(std::ostream &out, const seqnum &number) {
 // Hash 
 namespace std {
 template<> struct hash<omi::seqnum> {
-    size_t operator()(const omi::seqnum& number) const {
+    size_t operator()(const omi::seqnum& number) const noexcept {
         return hash<omi::seqnum::type>()(number.get());
     }
 };}

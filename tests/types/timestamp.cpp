@@ -32,10 +32,10 @@ BOOST_AUTO_TEST_CASE(VerifyNowConstructor) {
 BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
     auto comment = "Verify microseconds static constructor";
 
-    auto timstamp = timestamp::microseconds(2000000);
+    auto timestamp = timestamp::microseconds(2000000);
 
     auto expected = 2;
-    auto actual = timstamp.seconds();
+    auto actual = timestamp.seconds();
 
     CHECK_EQUAL(expected, actual, comment);
 }
@@ -43,10 +43,10 @@ BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
 BOOST_AUTO_TEST_CASE(VerifyMillisecondsConstructor) {
     auto comment = "Verify milliseconds static constructor";
 
-    auto timstamp = timestamp::milliseconds(2000);
+    auto timestamp = timestamp::milliseconds(2000);
 
     auto expected = 2;
-    auto actual = timstamp.seconds();
+    auto actual = timestamp.seconds();
 
     CHECK_EQUAL(expected, actual, comment);
 }

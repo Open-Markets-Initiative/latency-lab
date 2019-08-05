@@ -18,18 +18,13 @@ struct frame {
       : value{ 0 } {}
 
     // Standard constructor
-    explicit frame(const uint64_t &number)
+    explicit frame(const std::uint64_t &number)
       : value{ number } {}
 
   ///// Methods ///////////////////
 
-    // Cast operator
-    explicit operator frame() const {
-        return frame(value);
-    }
-
     // Return underlying value
-    uint64_t get() const {
+  [[nodiscard]] std::uint64_t get() const {
         return value;
     }
 
@@ -37,7 +32,7 @@ struct frame {
 
   protected:
 
-    uint64_t value;
+    std::uint64_t value;
 };
 
 ///////////////////////////////////////////////

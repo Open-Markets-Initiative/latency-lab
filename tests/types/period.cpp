@@ -27,7 +27,7 @@ BOOST_AUTO_TEST_CASE(VerifyParseReturnValueNanosecond) {
 }
 
 BOOST_AUTO_TEST_CASE(VerifyParseReturnValueMicrosecond) {
-    auto comment = "Verify parse 'microseconds' returns period::micosecond";
+    auto comment = "Verify parse 'microseconds' returns period::microsecond";
 
     auto expected = period::microsecond;
     auto actual = parse::period("microseconds");

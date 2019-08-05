@@ -73,7 +73,7 @@ struct timestamp {
     }
 
     // Number of nanoseconds since epoch
-    uint64_t nanoseconds() const {
+    std::uint64_t nanoseconds() const {
         return value;
     }
 
@@ -101,17 +101,10 @@ struct timestamp {
 
   ///// Methods ///////////////////
 
-    // Cast operator
-    explicit operator timestamp() const {
-        return timestamp(value);
-    }
-
     // Return underlying value
-    uint64_t get() const {
+    std::uint64_t get() const {
         return value;
     }
-
-  //// Properties /////////////////
 
     std::string text() const {
         return std::string("todo");
@@ -119,7 +112,7 @@ struct timestamp {
 
   protected:
 
-    uint64_t value;
+    std::uint64_t value;
 };
 
 ///////////////////////////////////

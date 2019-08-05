@@ -107,11 +107,6 @@ struct timespan {
 
   ///// Methods ///////////////////
 
-    // Cast operator
-    explicit operator timespan() const {
-        return timespan(value);
-    }
-
     // Return underlying value
     double get() const {
         return value;
