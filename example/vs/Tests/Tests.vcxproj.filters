@@ -53,6 +53,9 @@
     <ClCompile Include="..\..\..\tests\collection\percentile.cpp">
       <Filter>Source Files\collection</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\tests\types\timespan.cpp">
+      <Filter>Source Files\types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\omi\test\definitions.hpp">

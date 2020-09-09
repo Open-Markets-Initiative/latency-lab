@@ -59,27 +59,27 @@ struct timespan {
   ///// Accessors /////////////////
 
     // Number of seconds
-    double minutes() const {
+    [[nodiscard]] double minutes() const {
         return value / nanoseconds::per::minute;
     }
 
     // Number of seconds
-    double seconds() const {
+    [[nodiscard]] double seconds() const {
         return value / nanoseconds::per::second;
     }
 
     // Number of microseconds
-    double milliseconds() const {
+    [[nodiscard]] double milliseconds() const {
         return value / nanoseconds::per::millisecond;
     }
 
     // Number of microseconds
-    double microseconds() const {
+    [[nodiscard]] double microseconds() const {
         return value / nanoseconds::per::microsecond;
     }
 
     // Number of nanoseconds
-    double nanoseconds() const {
+    [[nodiscard]] double nanoseconds() const {
         return value;
     }
 

@@ -25,7 +25,7 @@ struct timestamp {
 
     // Construct from seconds and nanoseconds
     explicit timestamp(const uint64_t &seconds, const uint64_t &nanoseconds) 
-      : value{ seconds + nanoseconds::per::second + nanoseconds } {}
+      : value{ seconds * nanoseconds::per::second + nanoseconds } {}
 
   /////////////////////////////////
 

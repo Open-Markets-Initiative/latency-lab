@@ -1,38 +1,26 @@
 #include <omi/test/definitions.hpp>
-#include <omi/types/timestamp.hpp>
+#include <omi/types/timespan.hpp>
 
-// Regression tests for portable timestamp type
-BOOST_AUTO_TEST_SUITE(TypesTimestamp)
+// Regression tests for portable timespan type
+BOOST_AUTO_TEST_SUITE(TypesTimespan)
 
 using namespace omi;
 
 BOOST_AUTO_TEST_CASE(VerifyDefaultConstructor) {
     auto comment = "Verify default constructor";
 
-    timestamp timestamp;
+    timespan timespan;
 
     auto expected = 0;
-    auto actual = timestamp.seconds();
+    auto actual = timespan.seconds();
 
     CHECK_EQUAL(expected, actual, comment);
 }
 
-BOOST_AUTO_TEST_CASE(VerifyNowConstructor) {
-    auto comment = "Verify now constructor";
-
-    // Time when this test was written
-    auto then = timestamp::seconds(1492308754);
-    auto condition = then < timestamp::now();
-
-    BOOST_CHECK_MESSAGE(condition, comment);
-}
-
-///////////////////////////////////
-
 BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
     auto comment = "Verify microseconds static constructor";
 
-    auto timestamp = timestamp::microseconds(2000000);
+    auto timestamp = timespan::microseconds(2000000);
 
     auto expected = 2;
     auto actual = timestamp.seconds();
@@ -43,7 +31,7 @@ BOOST_AUTO_TEST_CASE(VerifyMicrosecondsConstructor) {
 BOOST_AUTO_TEST_CASE(VerifyMillisecondsConstructor) {
     auto comment = "Verify milliseconds static constructor";
 
-    auto timestamp = timestamp::milliseconds(2000);
+    auto timestamp = timespan::milliseconds(2000);
 
     auto expected = 2;
     auto actual = timestamp.seconds();
@@ -54,10 +42,10 @@ BOOST_AUTO_TEST_CASE(VerifyMillisecondsConstructor) {
 BOOST_AUTO_TEST_CASE(VerifySecondsConstructor) {
     auto comment = "Verify seconds static constructor";
 
-    auto timestamp = timestamp::seconds(2);
+    auto timespan = timespan::seconds(2);
 
     auto expected = 2;
-    auto actual = timestamp.seconds();
+    auto actual = timespan.seconds();
 
     CHECK_EQUAL(expected, actual, comment);
 }
