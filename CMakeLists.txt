@@ -11,17 +11,7 @@ set(OMI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/omi)
 set(EXAMPLE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/example)
 set(TESTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
-if (WIN64)
-    # Set boost location
-    set(BOOST_ROOT "C:/boost_1_64_0")
-    set(BOOST_INCLUDE_DIR "C:/boost_1_64_0")
-    set(BOOST_LIBRARY_DIR "C:/boost_1_64_0/stage/lib")
-else()
-    # Find boost
-    set(Boost_INCLUDE_DIR /usr/local/include)
-    set(Boost_LIBRARY_DIR /usr/local/lib)
-endif()
-
+# Find boost
 find_package(Boost 1.67 REQUIRED COMPONENTS program_options filesystem system)
 
 # Include directories
@@ -41,11 +31,9 @@ add_subdirectory(tests)
 # Target-specific settings
 foreach(target IN ITEMS analysis comparison email matching race report)
     target_include_directories(${target} PRIVATE ${Boost_INCLUDE_DIR})
-    target_link_directories(${target} PRIVATE ${Boost_LIBRARY_DIR})
     target_link_libraries(${target} PRIVATE Boost::program_options Boost::filesystem Boost::system)
 endforeach()
 
 # Ensure the tests link Boost libraries as well
 target_include_directories(tests PRIVATE ${Boost_INCLUDE_DIR})
-target_link_directories(tests PRIVATE ${Boost_LIBRARY_DIR})
 target_link_libraries(tests PRIVATE Boost::program_options Boost::filesystem Boost::system)
