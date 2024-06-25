@@ -54,4 +54,5 @@ jobs:
         make
         cd tests
         ls -l
+        ./tests
         
