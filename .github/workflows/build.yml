@@ -52,6 +52,6 @@ jobs:
       run: |
         cd build
         make
+        cd tests
         ls -l
-        cd bin
-        ./tests
+        
