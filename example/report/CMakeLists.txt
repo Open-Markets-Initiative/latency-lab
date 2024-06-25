@@ -1,4 +1,5 @@
 set (REPORT_BINARY report)
+set (Boost_LIBRARIES Boost::program_options Boost::filesystem Boost::system)
 add_executable(${REPORT_BINARY} main.cpp)
-target_link_libraries(${REPORT_BINARY} PRIVATE ${Boost_INCLUDE_DIR})
+target_link_libraries(${REPORT_BINARY} PRIVATE ${Boost_LIBRARIES})
 target_link_libraries(${REPORT_BINARY} PRIVATE stdc++fs)

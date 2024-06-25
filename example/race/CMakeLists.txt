@@ -1,4 +1,5 @@
 set (RACE_BINARY race)
+set (Boost_LIBRARIES Boost::program_options Boost::filesystem Boost::system)
 add_executable(${RACE_BINARY} main.cpp)
-target_link_libraries(${RACE_BINARY} PRIVATE ${Boost_INCLUDE_DIR})
+target_link_libraries(${RACE_BINARY} PRIVATE ${Boost_LIBRARIES})
 target_link_libraries(${RACE_BINARY} PRIVATE stdc++fs)

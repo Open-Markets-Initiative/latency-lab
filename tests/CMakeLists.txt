@@ -1,3 +1,4 @@
+set (Boost_LIBRARIES Boost::program_options Boost::filesystem Boost::system)
 # Latency lab regression tests
 add_executable(tests ${OMI_DIR}/test/main.cpp
   analysis/percentiles.cpp
@@ -8,5 +9,5 @@ add_executable(tests ${OMI_DIR}/test/main.cpp
   types/period.cpp
   types/sequence.cpp
   types/timestamp.cpp)
-target_link_libraries(tests PRIVATE ${Boost_INCLUDE_DIR})
+target_link_libraries(tests PRIVATE ${Boost_LIBRARIES})
 add_test(NAME tests COMMAND tests)
