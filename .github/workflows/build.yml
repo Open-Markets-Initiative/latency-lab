@@ -53,6 +53,5 @@ jobs:
         cd build
         make
         cd tests
-        ls -l
         ./tests
         
