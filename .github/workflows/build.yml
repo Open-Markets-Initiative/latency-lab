@@ -44,9 +44,11 @@ jobs:
     - name: Configure CMake
       run: |
         export PATH=/usr/local/bin:$PATH
-        mkdir build
+        mkdir -p build
         cd build
         cmake ..
 
     - name: Build
-      run: make
+      run: |
+        cd build
+        make
