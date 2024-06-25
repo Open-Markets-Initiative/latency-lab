@@ -28,6 +28,7 @@ add_subdirectory(example/report)
 # Tests
 add_subdirectory(tests)
 
+#${Boost_INCLUDE_DIR})
 # Target-specific settings
 foreach(target IN ITEMS analysis comparison email matching race report)
     target_include_directories(${target} PRIVATE ${Boost_INCLUDE_DIR})

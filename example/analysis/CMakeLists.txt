@@ -1,3 +1,4 @@
-add_executable(analysis main.cpp)
-target_link_libraries(analysis Boost::program_options Boost::filesystem Boost::system)
-target_link_libraries(analysis stdc++fs)
+set (ANALYSIS_BINARY analysis)
+add_executable(${ANALYSIS_BINARY} main.cpp)
+target_link_libraries(${ANALYSIS_BINARY} PRIVATE ${Boost_INCLUDE_DIR})
+target_link_libraries(${ANALYSIS_BINARY}  PRIVATE stdc++fs)
