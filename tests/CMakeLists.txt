@@ -8,5 +8,5 @@ add_executable(tests ${OMI_DIR}/test/main.cpp
   types/period.cpp
   types/sequence.cpp
   types/timestamp.cpp)
-target_link_libraries(tests ${Boost_LIBRARIES})
+target_link_libraries(tests Boost::program_options Boost::filesystem Boost::system)
 add_test(NAME tests COMMAND tests)

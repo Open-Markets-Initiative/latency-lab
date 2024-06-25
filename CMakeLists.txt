@@ -29,23 +29,11 @@ add_subdirectory(example/report)
 add_subdirectory(tests)
 
 # Target-specific settings
-target_include_directories(analysis PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(analysis PRIVATE Boost::program_options Boost::filesystem Boost::system)
+foreach(target IN ITEMS analysis comparison email matching race report)
+    target_include_directories(${target} PRIVATE ${Boost_INCLUDE_DIR})
+    target_link_libraries(${target} PRIVATE Boost::program_options Boost::filesystem Boost::system)
+endforeach()
 
-target_include_directories(comparison PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(comparison PRIVATE Boost::program_options Boost::filesystem Boost::system)
-
-target_include_directories(email PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(email PRIVATE Boost::program_options Boost::filesystem Boost::system)
-
-target_include_directories(matching PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(matching PRIVATE Boost::program_options Boost::filesystem Boost::system)
-
-target_include_directories(race PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(race PRIVATE Boost::program_options Boost::filesystem Boost::system)
-
-target_include_directories(report PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(report PRIVATE Boost::program_options Boost::filesystem Boost::system)
-
-target_include_directories(tests PRIVATE ${Boost_INCLUDE_DIRS})
+# Ensure the tests link Boost libraries as well
+target_include_directories(tests PRIVATE ${Boost_INCLUDE_DIR})
 target_link_libraries(tests PRIVATE Boost::program_options Boost::filesystem Boost::system)
