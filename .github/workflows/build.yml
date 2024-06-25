@@ -22,10 +22,10 @@ jobs:
         sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 90
         g++ --version
         
-        wget https://cmake.org/files/v3.12/cmake-3.12.1-Linux-x86_64.sh
-        wget https://cmake.org/files/v3.12/cmake-3.12.1-SHA-256.txt
-        grep cmake-3.12.1-Linux-x86_64.sh cmake-3.12.1-SHA-256.txt | shasum -c -
-        sudo sh cmake-3.12.1-Linux-x86_64.sh --prefix=/usr/local --skip-license
+        wget https://cmake.org/files/v3.18/cmake-3.18.4-Linux-x86_64.sh
+        wget https://cmake.org/files/v3.18/cmake-3.18.4-SHA-256.txt
+        grep cmake-3.18.4-Linux-x86_64.sh cmake-3.18.4-SHA-256.txt | shasum -c -
+        sudo sh cmake-3.18.4-Linux-x86_64.sh --prefix=/usr/local --skip-license
         /usr/local/bin/cmake --version
         
         # Define Boost version
