@@ -16,4 +16,7 @@
     <LocalDebuggerCommandArguments>--inbound-events "$(ProjectDir)..\..\report\data\inbound.events" --outbound-events "$(ProjectDir)..\..\report\data\outbound.events" --html-report "$(ProjectDir)..\..\report\output\report.html" --verbose</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup>
+    <ShowAllFiles>true</ShowAllFiles>
+  </PropertyGroup>
 </Project>
