@@ -14,6 +14,8 @@ set(TESTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 # Find boost
 find_package(Boost 1.67 REQUIRED COMPONENTS program_options filesystem system)
 
+set (Boost_LIBRARIES Boost::program_options Boost::filesystem Boost::system)
+
 # Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -29,11 +31,7 @@ add_subdirectory(example/report)
 add_subdirectory(tests)
 
 # Target-specific settings
-foreach(target IN ITEMS analysis comparison email matching race report)
+foreach(target IN ITEMS analysis comparison email matching race report tests)
     target_include_directories(${target} PRIVATE ${Boost_INCLUDE_DIR})
-    target_link_libraries(${target} PRIVATE Boost::program_options Boost::filesystem Boost::system)
+    target_link_libraries(${target} PRIVATE ${Boost_LIBRARIES})
 endforeach()
-
-# Ensure the tests link Boost libraries as well
-target_include_directories(tests PRIVATE ${Boost_INCLUDE_DIR})
-target_link_libraries(tests PRIVATE Boost::program_options Boost::filesystem Boost::system)

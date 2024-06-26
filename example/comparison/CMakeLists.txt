@@ -1,5 +1,3 @@
 set (COMPARISON_BINARY comparison)
-set (Boost_LIBRARIES Boost::program_options Boost::filesystem Boost::system)
 add_executable(${COMPARISON_BINARY} main.cpp)
-target_link_libraries(${COMPARISON_BINARY} PRIVATE ${Boost_LIBRARIES})
 target_link_libraries(${COMPARISON_BINARY} PRIVATE stdc++fs)
