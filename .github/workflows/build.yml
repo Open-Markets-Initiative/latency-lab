@@ -1,0 +1,57 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup dependencies
+      run: |
+        sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+        sudo apt-get update -qq
+        sudo apt-get install -qq g++-11
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 90
+        g++ --version
+        
+        wget https://cmake.org/files/v3.18/cmake-3.18.4-Linux-x86_64.sh
+        wget https://cmake.org/files/v3.18/cmake-3.18.4-SHA-256.txt
+        grep cmake-3.18.4-Linux-x86_64.sh cmake-3.18.4-SHA-256.txt | shasum -c -
+        sudo sh cmake-3.18.4-Linux-x86_64.sh --prefix=/usr/local --skip-license
+        /usr/local/bin/cmake --version
+        
+        # Define Boost version
+        BOOST_VERSION="1.67.0"
+        BOOST_VERSION_UNDERSCORE=${BOOST_VERSION//./_}
+        
+        # Download and install Boost
+        wget https://boostorg.jfrog.io/artifactory/main/release/${BOOST_VERSION}/source/boost_${BOOST_VERSION_UNDERSCORE}.tar.gz
+        tar -xzf boost_${BOOST_VERSION_UNDERSCORE}.tar.gz
+        cd boost_${BOOST_VERSION_UNDERSCORE}/
+        ./bootstrap.sh --with-libraries=program_options,filesystem,system
+        ./b2 -d0
+        sudo ./b2 install -d0
+        cd ..
+
+    - name: Configure CMake
+      run: |
+        export PATH=/usr/local/bin:$PATH
+        mkdir -p build
+        cd build
+        cmake ..
+
+    - name: Build
+      run: |
+        cd build
+        make
+        cd tests
+        ./tests
+        
