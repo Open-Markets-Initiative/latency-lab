@@ -32,6 +32,6 @@ add_subdirectory(tests)
 
 # Target-specific settings
 foreach(target IN ITEMS analysis comparison email matching race report tests)
-    target_include_directories(${target} PRIVATE ${Boost_INCLUDE_DIR})
-    target_link_libraries(${target} PRIVATE ${Boost_LIBRARIES})
+    target_include_directories(${target} ${Boost_INCLUDE_DIR})
+    target_link_libraries(${target} ${Boost_LIBRARIES})
 endforeach()
