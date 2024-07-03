@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.18)
 
 project(omilatencylab)
 enable_testing()
@@ -11,24 +11,13 @@ set(OMI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/omi)
 set(EXAMPLE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/example)
 set(TESTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
-if (WIN64)
-    # Set boost location
-    set(BOOST_ROOT "C:\\boost_1_64_0")
-    set(BOOST_INCLUDE_DIR "C:\\boost_1_64_0")
-    set(BOOST_LIBRARY_DIR "C:\\boost_1_64_0\\stage\\lib")
-else()
-    # Find boost
-    #set(BOOST_ROOT /home/travis/build/omi-dev/latency-lab/boost_1_67_0)
-    set(Boost_INCLUDE_DIR /usr/local/include)
-    set(Boost_LIBRARY_DIR /usr/local/lib)
-endif()
+# Find boost
+find_package(Boost 1.67 REQUIRED COMPONENTS program_options filesystem system)
 
-find_package(Boost REQUIRED COMPONENTS program_options filesystem system)
+set (Boost_LIBRARIES Boost::program_options Boost::filesystem Boost::system)
 
 # Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(${Boost_INCLUDE_DIR})
-include_directories(${Boost_LIBRARY_DIR})
 
 # Build example projects
 add_subdirectory(example/analysis)
@@ -40,3 +29,9 @@ add_subdirectory(example/report)
 
 # Tests
 add_subdirectory(tests)
+
+# Target-specific settings
+foreach(target IN ITEMS analysis comparison email matching race report tests)
+    target_include_directories(${target} PRIVATE ${Boost_INCLUDE_DIR})
+    target_link_libraries(${target} PRIVATE ${Boost_LIBRARIES})
+endforeach()
